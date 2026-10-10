@@ -182,6 +182,11 @@
                     <a href="javascript:void(0)" class="nav-item flex items-center gap-3 px-4 py-3 text-gray-600 rounded-xl hover:bg-gray-50 hover:text-navy font-semibold transition-colors text-sm">
                         <i class="fa-solid fa-chart-pie w-5 text-center text-gray-400"></i> Kết quả học tập
                     </a>
+                    
+                    <!-- Nút Tài liệu học tập -->
+                    <a href="javascript:void(0)" onclick="switchView('documents')" id="nav-documents" class="nav-item flex items-center gap-3 px-4 py-3 text-gray-600 rounded-xl hover:bg-gray-50 hover:text-navy font-semibold transition-colors text-sm mt-2">
+                        <i class="fa-solid fa-file-lines w-5 text-center text-gray-400"></i> Tài liệu học tập
+                    </a>
                 </nav>
                 <div class="border-t border-gray-100 pt-4 mt-2">
                     <a href="javascript:void(0)" onclick="switchView('settings')" id="nav-settings" class="nav-item flex items-center gap-3 px-4 py-3 text-gray-600 rounded-xl hover:bg-gray-50 hover:text-navy font-semibold transition-colors text-sm">
@@ -345,10 +350,66 @@
                     </div>
                 </div>
 
+                <!-- VIEW: TÀI LIỆU (Thêm mới) -->
+                <div id="view-documents" class="hidden max-w-5xl mx-auto">
+                    <div class="mb-8">
+                        <h1 class="text-2xl font-extrabold text-navy">Tài liệu học tập</h1>
+                        <p class="text-gray-500 text-sm mt-1">Quản lý và lưu trữ các tài liệu tham khảo của bạn.</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                        <!-- Phần Form thêm tài liệu -->
+                        <div class="lg:col-span-1">
+                            <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 sticky top-6">
+                                <h3 class="text-lg font-bold text-navy mb-4 border-b border-gray-100 pb-2">Thêm tài liệu mới</h3>
+                                <form onsubmit="addDocument(event)">
+                                    <div class="mb-4">
+                                        <label class="block text-sm font-bold text-navy mb-2">Tên tài liệu</label>
+                                        <input id="doc-title" type="text" required class="w-full px-3 py-2.5 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:border-blue-400 focus:bg-white text-sm" placeholder="Ví dụ: Đề thi thử Toán">
+                                    </div>
+                                    <div class="mb-4">
+                                        <label class="block text-sm font-bold text-navy mb-2">Môn học</label>
+                                        <select id="doc-subject" class="w-full px-3 py-2.5 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:border-blue-400 focus:bg-white text-sm">
+                                            <option value="Toán học">Toán học</option>
+                                            <option value="Vật lý">Vật lý</option>
+                                            <option value="Hóa học">Hóa học</option>
+                                            <option value="Tiếng Anh">Tiếng Anh</option>
+                                            <option value="Khác">Khác</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-6">
+                                        <label class="block text-sm font-bold text-navy mb-2">Đường link (Tùy chọn)</label>
+                                        <input id="doc-link" type="url" class="w-full px-3 py-2.5 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:border-blue-400 focus:bg-white text-sm" placeholder="https://drive.google.com/...">
+                                    </div>
+                                    <button type="submit" class="w-full py-2.5 bg-navy hover:bg-blue-900 text-white font-bold rounded-lg shadow-md transition text-sm flex justify-center items-center gap-2" style="background-color: #1a365d;">
+                                        <i class="fa-solid fa-plus"></i> Lưu tài liệu
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+
+                        <!-- Phần Hiển thị danh sách tài liệu -->
+                        <div class="lg:col-span-2">
+                            <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 min-h-[400px]">
+                                <h3 class="text-lg font-bold text-navy mb-4 flex justify-between items-center border-b border-gray-100 pb-2">
+                                    <span>Danh sách tài liệu của bạn</span>
+                                </h3>
+                                
+                                <div id="document-list" class="space-y-4">
+                                    <!-- Dữ liệu tài liệu sẽ được render vào đây bằng JS -->
+                                    <div class="text-center text-gray-400 py-10 text-sm">
+                                        Chưa có tài liệu nào. Hãy thêm tài liệu đầu tiên của bạn!
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Toast Thông báo -->
                 <div id="toast-success" class="fixed bottom-6 right-6 bg-green-500 text-white px-5 py-3 rounded-lg shadow-lg transform translate-y-20 opacity-0 transition-all duration-300 flex items-center gap-3 z-50 pointer-events-none">
                     <i class="fa-solid fa-circle-check text-lg"></i>
-                    <span class="font-semibold text-sm">Đã lưu thông tin thành công!</span>
+                    <span id="toast-message" class="font-semibold text-sm">Thao tác thành công!</span>
                 </div>
             </main>
         </div>
@@ -407,7 +468,8 @@
                     phone: "",
                     studentClass: "",
                     school: "",
-                    province: ""
+                    province: "",
+                    documents: [] // Khởi tạo mảng trống để chứa tài liệu
                 };
                 localStorage.setItem('yaecute_users', JSON.stringify(existingUsers));
 
@@ -432,35 +494,29 @@
             
             const existingUsers = JSON.parse(localStorage.getItem('yaecute_users')) || {};
 
-            // Nếu người dùng nhập admin mà chưa có trong bộ nhớ, tự động tạo tài khoản admin
             if (email === 'admin@gmail.com' && password === '123456' && !existingUsers['admin@gmail.com']) {
-                existingUsers['admin@gmail.com'] = { name: 'Admin VIP', password: '123456', phone: '', studentClass: '', school: '', province: '' };
+                existingUsers['admin@gmail.com'] = { name: 'Admin VIP', password: '123456', phone: '', studentClass: '', school: '', province: '', documents: [] };
                 localStorage.setItem('yaecute_users', JSON.stringify(existingUsers));
             }
 
             if (existingUsers[email] && existingUsers[email].password === password) {
                 errorMsg.classList.add('hidden'); 
-                
-                // Lưu phiên đăng nhập
                 currentSessionEmail = email;
 
-                // Cập nhật tên Header
                 const userName = existingUsers[email].name;
                 document.getElementById('display-user-name').textContent = userName;
                 document.getElementById('display-user-avatar').textContent = userName.charAt(0).toUpperCase();
 
-                // Ẩn Màn hình đăng nhập
                 document.getElementById('view-auth').classList.add('opacity-0', 'pointer-events-none');
                 setTimeout(() => { document.getElementById('view-auth').classList.add('hidden'); }, 500); 
                 
-                // Mở App chính
                 const appContainer = document.getElementById('app-container');
                 appContainer.classList.remove('hidden');
                 appContainer.classList.add('flex');
                 document.getElementById('form-login').reset();
 
-                // Tải dữ liệu vào form Cài đặt
                 loadSettings();
+                loadDocuments(); // Load danh sách tài liệu
             } else {
                 errorMsg.classList.remove('hidden');
             }
@@ -469,8 +525,6 @@
         function logoutUser(event) {
             event.preventDefault();
             document.getElementById('profile-dropdown').classList.add('hidden');
-            
-            // Xóa phiên
             currentSessionEmail = null;
 
             const appContainer = document.getElementById('app-container');
@@ -484,34 +538,41 @@
             switchView('home'); 
         }
 
+        // Chuyển view
         function switchView(viewName) {
             const viewHome = document.getElementById('view-home');
             const viewSettings = document.getElementById('view-settings');
+            const viewDocuments = document.getElementById('view-documents');
+            
             const navHome = document.getElementById('nav-home');
             const navSettings = document.getElementById('nav-settings');
+            const navDocuments = document.getElementById('nav-documents');
             
             document.getElementById('profile-dropdown').classList.add('hidden');
 
-            const allNavItems = document.querySelectorAll('.nav-item');
-            allNavItems.forEach(item => {
+            // Reset tất cả các view
+            viewHome.classList.replace('block', 'hidden');
+            viewSettings.classList.replace('block', 'hidden');
+            viewDocuments.classList.replace('block', 'hidden');
+
+            // Reset menu
+            document.querySelectorAll('.nav-item').forEach(item => {
                 item.classList.remove('active');
             });
 
             if (viewName === 'home') {
-                viewHome.classList.remove('hidden');
-                viewHome.classList.add('block');
-                viewSettings.classList.remove('block');
-                viewSettings.classList.add('hidden');
-                navHome.classList.add('active');
-            } else if (viewName === 'settings') {
-                viewSettings.classList.remove('hidden');
-                viewSettings.classList.add('block');
-                viewHome.classList.remove('block');
-                viewHome.classList.add('hidden');
-                navSettings.classList.add('active');
-                
-                // Mỗi lần mở tab Cài đặt, tự động load lại dữ liệu cho chắc chắn
+                viewHome.classList.replace('hidden', 'block');
+                if(navHome) navHome.classList.add('active');
+            } 
+            else if (viewName === 'settings') {
+                viewSettings.classList.replace('hidden', 'block');
+                if(navSettings) navSettings.classList.add('active');
                 loadSettings();
+            }
+            else if (viewName === 'documents') {
+                viewDocuments.classList.replace('hidden', 'block');
+                if(navDocuments) navDocuments.classList.add('active');
+                loadDocuments(); // Load danh sách khi mở tab này
             }
         }
 
@@ -529,7 +590,7 @@
             }
         });
 
-        // --- HÀM LOAD DỮ LIỆU TỪ TRÌNH DUYỆT VÀO FORM ---
+        // --- HÀM CHO CÀI ĐẶT ---
         function loadSettings() {
             if (!currentSessionEmail) return;
             const existingUsers = JSON.parse(localStorage.getItem('yaecute_users')) || {};
@@ -537,7 +598,7 @@
             
             if (user) {
                 document.getElementById('profile-name').value = user.name || '';
-                document.getElementById('profile-email').value = currentSessionEmail || ''; // Email không sửa được
+                document.getElementById('profile-email').value = currentSessionEmail || ''; 
                 document.getElementById('profile-phone').value = user.phone || '';
                 document.getElementById('profile-class').value = user.studentClass || '';
                 document.getElementById('profile-school').value = user.school || '';
@@ -545,30 +606,141 @@
             }
         }
 
-        // --- HÀM LƯU DỮ LIỆU TỪ FORM VÀO TRÌNH DUYỆT ---
         function saveSettings(event) {
             event.preventDefault();
             if (!currentSessionEmail) return;
 
             const existingUsers = JSON.parse(localStorage.getItem('yaecute_users')) || {};
             
-            // Cập nhật thông tin mới vào object
             existingUsers[currentSessionEmail].name = document.getElementById('profile-name').value;
             existingUsers[currentSessionEmail].phone = document.getElementById('profile-phone').value;
             existingUsers[currentSessionEmail].studentClass = document.getElementById('profile-class').value;
             existingUsers[currentSessionEmail].school = document.getElementById('profile-school').value;
             existingUsers[currentSessionEmail].province = document.getElementById('profile-province').value;
 
-            // Lưu ngược lại vào trình duyệt
             localStorage.setItem('yaecute_users', JSON.stringify(existingUsers));
 
-            // Đổi lại tên ngay trên Header
             const newName = existingUsers[currentSessionEmail].name;
             document.getElementById('display-user-name').textContent = newName;
             document.getElementById('display-user-avatar').textContent = newName.charAt(0).toUpperCase();
 
-            // Bật thông báo màu xanh lưu thành công
+            showToast("Đã lưu thông tin cá nhân!");
+        }
+
+        // --- HÀM CHO TÀI LIỆU ---
+        
+        // Thêm tài liệu mới
+        function addDocument(event) {
+            event.preventDefault();
+            if (!currentSessionEmail) return;
+
+            const title = document.getElementById('doc-title').value;
+            const subject = document.getElementById('doc-subject').value;
+            const link = document.getElementById('doc-link').value;
+
+            const existingUsers = JSON.parse(localStorage.getItem('yaecute_users')) || {};
+            const user = existingUsers[currentSessionEmail];
+
+            // Đảm bảo mảng documents tồn tại
+            if (!user.documents) user.documents = [];
+
+            // Tạo tài liệu mới với thời gian hiện tại
+            const newDoc = {
+                id: Date.now().toString(),
+                title: title,
+                subject: subject,
+                link: link || '#',
+                date: new Date().toLocaleDateString('vi-VN')
+            };
+
+            user.documents.unshift(newDoc); // Thêm lên đầu mảng
+            localStorage.setItem('yaecute_users', JSON.stringify(existingUsers));
+
+            // Xóa trắng form
+            event.target.reset();
+
+            // Cập nhật lại danh sách hiển thị
+            loadDocuments();
+            showToast("Đã lưu tài liệu mới!");
+        }
+
+        // Load và hiển thị danh sách tài liệu
+        function loadDocuments() {
+            if (!currentSessionEmail) return;
+            const existingUsers = JSON.parse(localStorage.getItem('yaecute_users')) || {};
+            const user = existingUsers[currentSessionEmail];
+            
+            const docListContainer = document.getElementById('document-list');
+            
+            if (!user || !user.documents || user.documents.length === 0) {
+                docListContainer.innerHTML = `
+                    <div class="text-center text-gray-400 py-10 text-sm">
+                        <i class="fa-regular fa-folder-open text-3xl mb-3 opacity-50 block"></i>
+                        Chưa có tài liệu nào. Hãy thêm tài liệu đầu tiên của bạn!
+                    </div>`;
+                return;
+            }
+
+            // Có tài liệu thì render ra HTML
+            let html = '';
+            user.documents.forEach(doc => {
+                // Xác định màu sắc icon dựa trên môn học
+                let bgIcon = "bg-gray-100 text-gray-500";
+                if(doc.subject === 'Toán học') bgIcon = "bg-blue-100 text-blue-600";
+                if(doc.subject === 'Vật lý') bgIcon = "bg-green-100 text-green-600";
+                if(doc.subject === 'Hóa học') bgIcon = "bg-purple-100 text-purple-600";
+                if(doc.subject === 'Tiếng Anh') bgIcon = "bg-orange-100 text-orange-600";
+
+                html += `
+                    <div class="flex items-center justify-between p-4 border border-gray-100 rounded-xl hover:shadow-sm hover:border-gray-200 transition-all bg-gray-50 hover:bg-white group">
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 rounded-lg flex items-center justify-center ${bgIcon}">
+                                <i class="fa-solid fa-file-pdf"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-navy text-sm">${doc.title}</h4>
+                                <div class="flex items-center gap-2 mt-1 text-xs text-gray-500">
+                                    <span class="font-semibold px-2 py-0.5 rounded bg-gray-200/50">${doc.subject}</span>
+                                    <span>•</span>
+                                    <span>Đã thêm: ${doc.date}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <a href="${doc.link}" target="_blank" class="p-2 text-gray-400 hover:text-blue-600 transition-colors" title="Mở liên kết">
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </a>
+                            <button onclick="deleteDocument('${doc.id}')" class="p-2 text-gray-400 hover:text-red-500 transition-colors" title="Xóa tài liệu">
+                                <i class="fa-regular fa-trash-can"></i>
+                            </button>
+                        </div>
+                    </div>
+                `;
+            });
+            docListContainer.innerHTML = html;
+        }
+
+        // Xóa tài liệu
+        function deleteDocument(docId) {
+            if (!confirm('Bạn có chắc chắn muốn xóa tài liệu này không?')) return;
+            if (!currentSessionEmail) return;
+
+            const existingUsers = JSON.parse(localStorage.getItem('yaecute_users')) || {};
+            const user = existingUsers[currentSessionEmail];
+            
+            if (user && user.documents) {
+                user.documents = user.documents.filter(doc => doc.id !== docId);
+                localStorage.setItem('yaecute_users', JSON.stringify(existingUsers));
+                loadDocuments(); // Load lại danh sách
+                showToast("Đã xóa tài liệu!");
+            }
+        }
+
+        // --- HÀM HIỂN THỊ THÔNG BÁO ---
+        function showToast(message) {
             const toast = document.getElementById('toast-success');
+            document.getElementById('toast-message').textContent = message;
+            
             toast.classList.remove('translate-y-20', 'opacity-0');
             toast.classList.add('translate-y-0', 'opacity-100');
             setTimeout(() => {
