@@ -3,276 +3,380 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Đăng nhập / Đăng ký - YAECUTE</title>
-    <!-- Tích hợp Tailwind CSS -->
+    <title>Hệ thống Học tập - YAECUTE</title>
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Tích hợp FontAwesome cho icon -->
+    <!-- FontAwesome cho Icon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         body {
             font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background-color: #f8f6f0;
-        }
-        .left-panel-bg {
-            background: linear-gradient(135deg, #fffafa 0%, #f0f4ff 100%);
+            background-color: #f3f4f6; /* Nền xám nhạt */
         }
         .text-navy { color: #1a365d; }
-        .bg-custom-red { background-color: #c51624; }
         .text-custom-red { color: #c51624; }
+        .bg-custom-red { background-color: #c51624; }
         
-        /* CSS cho 2 Tab Đăng nhập / Đăng ký */
-        .tab-active {
-            border-bottom: 2px solid #c51624;
-            color: #c51624;
-            font-weight: bold;
+        /* Chỉnh thanh cuộn (Scrollbar) cho đẹp */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+        /* Style cho nút Sidebar khi đang được chọn (Active) */
+        .nav-item.active {
+            background-color: #fef2f2; /* Nền đỏ siêu nhạt */
+            color: #c51624; /* Chữ đỏ */
+            font-weight: 700;
+            border: 1px solid #fee2e2;
         }
-        .tab-inactive {
-            color: #6b7280;
-            font-weight: 500;
-        }
-        .tab-inactive:hover {
-            color: #1a365d;
+        .nav-item.active i {
+            color: #c51624 !important;
         }
     </style>
 </head>
-<body class="min-h-screen flex flex-col">
+<body class="h-screen flex flex-col overflow-hidden">
 
-    <!-- Thanh Header -->
-    <header class="bg-white py-4 px-4 md:px-8 flex flex-col md:flex-row justify-between items-center z-10 relative border-b border-gray-100 gap-4 md:gap-0">
-        <div class="flex items-center gap-4 w-full md:w-auto justify-between md:justify-start">
-            <div class="flex items-center gap-4">
-                <!-- Logo -->
-                <div class="text-4xl font-black text-custom-red select-none">1</div>
-                <div class="w-px h-6 bg-gray-300"></div>
-                <a href="javascript:void(0)" class="text-navy font-bold text-sm hover:text-blue-800 flex items-center gap-2">
-                    <i class="fa-solid fa-chevron-left text-xs"></i> Quay lại sảnh chính
-                </a>
+    <!-- ================= HEADER ================= -->
+    <header class="bg-white py-3 px-6 flex justify-between items-center border-b border-gray-200 z-20 shrink-0">
+        <!-- Logo -->
+        <div class="flex items-center gap-2 cursor-pointer" onclick="switchView('home')">
+            <div class="text-3xl font-black text-custom-red select-none">1</div>
+            <div class="text-xl font-bold text-navy tracking-wide">YAECUTE</div>
+        </div>
+
+        <!-- Thanh tìm kiếm -->
+        <div class="hidden md:flex flex-1 max-w-xl mx-8">
+            <div class="relative w-full">
+                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                    <i class="fa-solid fa-magnifying-glass text-gray-400 text-sm"></i>
+                </div>
+                <input type="text" class="w-full pl-10 pr-4 py-2 bg-gray-50 border border-gray-200 rounded-full focus:outline-none focus:border-blue-300 focus:bg-white text-sm" placeholder="Tìm kiếm khóa học, bài giảng...">
             </div>
         </div>
-        <div class="flex items-center gap-6 md:gap-8 font-bold text-gray-700 text-sm w-full md:w-auto justify-center md:justify-end">
-            <!-- Tên khóa học -->
-            <a href="javascript:void(0)" class="hover:text-navy flex items-center gap-2">
-                <i class="fa-solid fa-clapperboard text-gray-500"></i> YAECUTE
-            </a>
-            <a href="javascript:void(0)" class="hover:text-navy flex items-center gap-2">
-                <i class="fa-solid fa-file-lines text-gray-500"></i> Phòng luyện
-            </a>
+
+        <!-- Các nút User & Dropdown -->
+        <div class="flex items-center gap-5">
+            <!-- Chuông thông báo -->
+            <button class="relative text-gray-500 hover:text-navy transition">
+                <i class="fa-regular fa-bell text-xl"></i>
+                <span class="absolute top-0 right-0 w-2 h-2 bg-red-500 rounded-full"></span>
+            </button>
+            
+            <!-- Avatar & Dropdown Menu -->
+            <div class="relative" id="profile-container">
+                <div class="flex items-center gap-3 cursor-pointer select-none" onclick="toggleDropdown()">
+                    <div class="w-9 h-9 bg-navy rounded-full flex items-center justify-center text-white text-xs font-bold" style="background-color: #1a365d;">
+                        User
+                    </div>
+                    <div class="hidden md:block text-left">
+                        <div class="text-sm font-bold text-navy leading-tight" style="color: #1a365d;">Học viên VIP</div>
+                        <div class="text-xs text-gray-500 leading-tight">ID: 102938</div>
+                    </div>
+                    <i class="fa-solid fa-chevron-down text-gray-400 text-xs ml-1"></i>
+                </div>
+
+                <!-- Bảng Dropdown -->
+                <div id="profile-dropdown" class="absolute right-0 mt-4 w-56 bg-white rounded-xl shadow-[0_10px_25px_-5px_rgba(0,0,0,0.1)] border border-gray-100 hidden z-50 overflow-hidden">
+                    <div class="py-1">
+                        <a href="javascript:void(0)" onclick="switchView('settings')" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-red-700 font-medium transition-colors">
+                            <i class="fa-regular fa-user w-5 text-center mr-2 text-gray-400"></i> Thông tin cá nhân
+                        </a>
+                        <a href="javascript:void(0)" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-red-700 font-medium transition-colors">
+                            <i class="fa-solid fa-wallet w-5 text-center mr-2 text-gray-400"></i> Nạp tiền
+                        </a>
+                        <div class="h-px bg-gray-100 my-1 mx-2"></div>
+                        <a href="javascript:void(0)" onclick="switchView('home')" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-red-700 font-medium transition-colors">
+                            <i class="fa-solid fa-book-open w-5 text-center mr-2 text-gray-400"></i> Các khóa đang có
+                        </a>
+                        <div class="h-px bg-gray-100 my-1 mx-2"></div>
+                        <a href="index.html" class="flex items-center px-4 py-3 text-sm text-red-600 hover:bg-red-50 font-bold transition-colors">
+                            <i class="fa-solid fa-arrow-right-from-bracket w-5 text-center mr-2 text-red-500"></i> Đăng xuất
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
     </header>
 
-    <!-- Nội dung chính (Main Content) -->
-    <main class="flex-grow flex items-center justify-center p-4 relative">
-        <div class="max-w-[1000px] w-full grid grid-cols-1 md:grid-cols-2 gap-6 relative z-10 mt-4 mb-8">
+    <!-- ================= THÂN TRANG (Sidebar + Main) ================= -->
+    <div class="flex flex-1 overflow-hidden">
+        
+        <!-- === SIDEBAR MENU === -->
+        <aside class="w-64 bg-white border-r border-gray-200 flex flex-col py-6 px-4 hidden md:flex shrink-0">
+            <nav class="flex-1 space-y-2">
+                <a href="javascript:void(0)" onclick="switchView('home')" id="nav-home" class="nav-item active flex items-center gap-3 px-4 py-3 text-gray-600 rounded-xl hover:bg-gray-50 hover:text-navy font-semibold transition-colors text-sm">
+                    <i class="fa-solid fa-house w-5 text-center text-gray-400"></i> Trang chủ
+                </a>
+                <a href="javascript:void(0)" class="nav-item flex items-center gap-3 px-4 py-3 text-gray-600 rounded-xl hover:bg-gray-50 hover:text-navy font-semibold transition-colors text-sm">
+                    <i class="fa-solid fa-book w-5 text-center text-gray-400"></i> Khóa học của tôi
+                </a>
+                <a href="javascript:void(0)" class="nav-item flex items-center gap-3 px-4 py-3 text-gray-600 rounded-xl hover:bg-gray-50 hover:text-navy font-semibold transition-colors text-sm">
+                    <i class="fa-regular fa-calendar w-5 text-center text-gray-400"></i> Lịch học
+                </a>
+                <a href="javascript:void(0)" class="nav-item flex items-center gap-3 px-4 py-3 text-gray-600 rounded-xl hover:bg-gray-50 hover:text-navy font-semibold transition-colors text-sm">
+                    <i class="fa-solid fa-chart-pie w-5 text-center text-gray-400"></i> Kết quả học tập
+                </a>
+            </nav>
+
+            <div class="border-t border-gray-100 pt-4 mt-2">
+                <a href="javascript:void(0)" onclick="switchView('settings')" id="nav-settings" class="nav-item flex items-center gap-3 px-4 py-3 text-gray-600 rounded-xl hover:bg-gray-50 hover:text-navy font-semibold transition-colors text-sm">
+                    <i class="fa-solid fa-gear w-5 text-center text-gray-400"></i> Cài đặt tài khoản
+                </a>
+            </div>
+        </aside>
+
+        <!-- === NỘI DUNG CHÍNH (Thay đổi bằng JS) === -->
+        <main class="flex-1 overflow-y-auto p-6 md:p-8 relative">
             
-            <!-- Bảng thông tin bên trái -->
-            <div class="left-panel-bg rounded-xl p-6 md:p-10 shadow-sm border border-gray-100 flex flex-col justify-center order-2 md:order-1">
-                <div class="text-custom-red font-bold mb-6 flex items-center gap-2 text-sm">
-                    <i class="fa-solid fa-star"></i> Trung tâm 1
+            <!-- 1. GIAO DIỆN TRANG CHỦ -->
+            <div id="view-home" class="block">
+                <!-- Chào mừng & Mục tiêu -->
+                <div class="flex flex-col xl:flex-row gap-6 mb-10">
+                    <div class="flex-1 bg-white rounded-2xl p-8 shadow-sm flex flex-col justify-center border border-gray-100">
+                        <h2 class="text-3xl font-extrabold text-navy mb-2">Chào mừng trở lại, Học viên! 👋</h2>
+                        <p class="text-gray-500">Hãy tiếp tục hành trình chinh phục kiến thức của bạn hôm nay.</p>
+                    </div>
+                    <div class="w-full xl:w-96 bg-gradient-to-r from-gray-50 to-gray-100 rounded-2xl p-6 shadow-sm border border-gray-200 flex items-center gap-4">
+                        <div class="relative w-16 h-16 flex items-center justify-center">
+                            <svg class="w-full h-full transform -rotate-90" viewBox="0 0 36 36">
+                                <path class="text-gray-200" stroke-width="3" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                <path class="text-custom-red" stroke-dasharray="60, 100" stroke-width="3" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                            </svg>
+                            <span class="absolute text-xl font-bold text-navy">3</span>
+                        </div>
+                        <div>
+                            <div class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">Khóa học đang mở</div>
+                            <div class="text-sm font-bold text-navy">Mục tiêu tuần này: Hoàn thành 5 bài giảng</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Đang học dở -->
+                <div class="flex justify-between items-end mb-6">
+                    <h3 class="text-2xl font-extrabold text-navy">Đang học dở</h3>
+                    <a href="#" class="text-custom-red font-bold text-sm hover:underline">Xem tất cả</a>
                 </div>
                 
-                <h1 id="left-title" class="text-[28px] md:text-[32px] font-extrabold text-navy mb-4 leading-tight transition-all duration-300">
-                    Đăng nhập để tiếp tục<br>học tập
-                </h1>
-                
-                <p class="text-gray-600 mb-8 text-sm leading-relaxed md:pr-4">
-                    Theo dõi khóa học, phòng luyện, lịch sử làm bài và quyền VIP của bạn trên cùng một hệ thống.
-                </p>
-                
-                <!-- Danh sách tính năng -->
-                <div class="space-y-4">
-                    <div class="flex items-center gap-4">
-                        <div class="w-8 h-8 rounded bg-blue-100 flex items-center justify-center text-navy shadow-sm shrink-0">
-                            <i class="fa-solid fa-clapperboard text-xs"></i>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Card Toán -->
+                    <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow cursor-pointer flex flex-col h-full">
+                        <div class="h-40 bg-blue-50 flex items-center justify-center">
+                            <span class="text-4xl font-extrabold text-navy opacity-80">Toán Đại Số</span>
                         </div>
-                        <span class="font-bold text-navy text-sm">Khóa học YAECUTE đồng bộ</span>
+                        <div class="p-6 flex flex-col flex-1">
+                            <span class="inline-block px-3 py-1 bg-blue-50 text-blue-800 text-[10px] font-bold rounded mb-3 w-max">TOÁN HỌC</span>
+                            <h4 class="font-bold text-navy text-lg leading-tight mb-2">Luyện Thi HSA Đại Số - Chuyên đề Hàm Số Cơ Bản</h4>
+                            <p class="text-xs text-gray-500 mb-6 flex-1">Bài học tiếp: Đạo hàm của hàm số hợp</p>
+                            <div>
+                                <div class="flex justify-between text-xs font-bold mb-2">
+                                    <span class="text-custom-red">65%</span>
+                                    <span class="text-gray-400">15/24 Bài</span>
+                                </div>
+                                <div class="w-full bg-gray-100 rounded-full h-1.5 mb-4">
+                                    <div class="bg-custom-red h-1.5 rounded-full" style="width: 65%"></div>
+                                </div>
+                                <button class="w-full py-2.5 bg-gray-50 hover:bg-gray-100 text-navy font-bold rounded-lg transition-colors text-sm">Tiếp tục học</button>
+                            </div>
+                        </div>
                     </div>
-                    <div class="flex items-center gap-4">
-                        <div class="w-8 h-8 rounded bg-blue-100 flex items-center justify-center text-navy shadow-sm shrink-0">
-                            <i class="fa-solid fa-file-pen text-xs"></i>
+
+                    <!-- Card Lý -->
+                    <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow cursor-pointer flex flex-col h-full">
+                        <div class="h-40 bg-green-50 flex items-center justify-center">
+                            <span class="text-4xl font-extrabold text-navy opacity-80">Vật Lý 12</span>
                         </div>
-                        <span class="font-bold text-navy text-sm">Luyện đề và xem lại bài làm</span>
-                    </div>
-                    <div class="flex items-center gap-4">
-                        <div class="w-8 h-8 rounded bg-blue-100 flex items-center justify-center text-navy shadow-sm shrink-0">
-                            <i class="fa-solid fa-crown text-xs"></i>
+                        <div class="p-6 flex flex-col flex-1">
+                            <span class="inline-block px-3 py-1 bg-green-50 text-green-800 text-[10px] font-bold rounded mb-3 w-max">VẬT LÝ</span>
+                            <h4 class="font-bold text-navy text-lg leading-tight mb-2">Tổng Ôn Vật Lý 12 - Dao Động Cơ Điện</h4>
+                            <p class="text-xs text-gray-500 mb-6 flex-1">Bài học tiếp: Con lắc lò xo</p>
+                            <div>
+                                <div class="flex justify-between text-xs font-bold mb-2">
+                                    <span class="text-custom-red">30%</span>
+                                    <span class="text-gray-400">6/20 Bài</span>
+                                </div>
+                                <div class="w-full bg-gray-100 rounded-full h-1.5 mb-4">
+                                    <div class="bg-custom-red h-1.5 rounded-full" style="width: 30%"></div>
+                                </div>
+                                <button class="w-full py-2.5 bg-gray-50 hover:bg-gray-100 text-navy font-bold rounded-lg transition-colors text-sm">Tiếp tục học</button>
+                            </div>
                         </div>
-                        <span class="font-bold text-navy text-sm">Kích hoạt mã VIP nhanh chóng</span>
                     </div>
                 </div>
             </div>
 
-            <!-- Form Đăng nhập & Đăng ký bên phải -->
-            <div class="bg-white rounded-xl p-6 md:p-8 shadow-[0_4px_20px_rgba(0,0,0,0.05)] flex flex-col items-center order-1 md:order-2">
-                
-                <!-- Logo -->
-                <div class="text-5xl font-black text-custom-red mb-3">1</div>
-                
-                <!-- Thanh chuyển đổi (Tabs) -->
-                <div class="flex w-full mb-6 border-b border-gray-200 mt-2">
-                    <button id="tab-login" onclick="switchTab('login')" class="flex-1 py-2 text-center tab-active cursor-pointer transition-colors duration-200">
-                        Đăng nhập
-                    </button>
-                    <button id="tab-register" onclick="switchTab('register')" class="flex-1 py-2 text-center tab-inactive cursor-pointer transition-colors duration-200">
-                        Đăng ký
-                    </button>
+            <!-- 2. GIAO DIỆN CÀI ĐẶT (Mặc định ẩn) -->
+            <div id="view-settings" class="hidden max-w-4xl mx-auto">
+                <div class="mb-8">
+                    <h1 class="text-2xl font-extrabold text-navy">Hồ sơ cá nhân</h1>
+                    <p class="text-gray-500 text-sm mt-1">Cập nhật thông tin của bạn để chúng tôi hỗ trợ tốt nhất.</p>
                 </div>
 
-                <!--==================== FORM ĐĂNG NHẬP ====================-->
-                <form id="form-login" class="w-full space-y-5 block transition-opacity duration-300">
-                    <p class="text-gray-500 text-xs mb-4 text-center">
-                        Vào tài khoản học sinh để tiếp tục hành trình luyện thi.
-                    </p>
-
-                    <div>
-                        <label class="block text-xs font-bold text-navy mb-1.5">Email</label>
-                        <div class="relative">
-                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                <i class="fa-solid fa-envelope text-gray-400 text-sm"></i>
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-8">
+                    <form onsubmit="saveSettings(event)">
+                        <!-- Đổi Avatar -->
+                        <div class="flex items-center gap-6 mb-8 pb-8 border-b border-gray-100">
+                            <div class="w-20 h-20 rounded-full bg-navy text-white flex items-center justify-center text-2xl font-bold shadow-md">U</div>
+                            <div>
+                                <button type="button" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-navy font-semibold text-sm rounded-lg transition">Đổi ảnh đại diện</button>
+                                <p class="text-xs text-gray-400 mt-2">Định dạng JPG, PNG. Tối đa 2MB.</p>
                             </div>
-                            <input type="email" id="login-email" class="w-full pl-9 pr-3 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 text-sm" placeholder="Nhập địa chỉ email">
                         </div>
-                    </div>
-                    
-                    <div>
-                        <label class="block text-xs font-bold text-navy mb-1.5">Mật khẩu</label>
-                        <div class="relative">
-                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                <i class="fa-solid fa-lock text-gray-400 text-sm"></i>
+
+                        <!-- Form inputs -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-bold text-navy mb-2">Họ và tên</label>
+                                <div class="relative">
+                                    <i class="fa-regular fa-user text-gray-400 absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"></i>
+                                    <input type="text" value="Học viên VIP" class="w-full pl-10 pr-3 py-2.5 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:border-blue-400 focus:bg-white text-sm" placeholder="Nhập họ và tên">
+                                </div>
                             </div>
-                            <input type="password" id="login-password" class="w-full pl-9 pr-3 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 text-sm" placeholder="Nhập mật khẩu">
-                        </div>
-                    </div>
 
-                    <!-- Nút đăng nhập sẽ chuyển hướng sang trangchu.html -->
-                    <button type="button" onclick="handleLogin()" class="w-full bg-custom-red text-white font-bold py-3 rounded-lg flex items-center justify-center gap-2 mt-4 hover:bg-red-800 transition duration-200">
-                        <i class="fa-solid fa-right-to-bracket"></i> Đăng nhập
-                    </button>
-
-                    <div class="mt-4 text-center text-xs">
-                        <a href="javascript:void(0)" class="text-custom-red font-bold hover:underline">Bạn quên mật khẩu?</a>
-                    </div>
-                </form>
-
-                <!--==================== FORM ĐĂNG KÝ ====================-->
-                <form id="form-register" class="w-full space-y-4 hidden transition-opacity duration-300">
-                    <p class="text-gray-500 text-xs mb-4 text-center">
-                        Tạo tài khoản mới để bắt đầu học tập cùng chúng tôi.
-                    </p>
-
-                    <div>
-                        <label class="block text-xs font-bold text-navy mb-1.5">Họ và tên</label>
-                        <div class="relative">
-                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                <i class="fa-solid fa-user text-gray-400 text-sm"></i>
+                            <div>
+                                <label class="block text-sm font-bold text-navy mb-2">Email (Gmail)</label>
+                                <div class="relative">
+                                    <i class="fa-regular fa-envelope text-gray-400 absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"></i>
+                                    <input type="email" value="hocvien@gmail.com" class="w-full pl-10 pr-3 py-2.5 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:border-blue-400 focus:bg-white text-sm" placeholder="Nhập email">
+                                </div>
                             </div>
-                            <input type="text" class="w-full pl-9 pr-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 text-sm" placeholder="Nhập họ và tên">
-                        </div>
-                    </div>
 
-                    <div>
-                        <label class="block text-xs font-bold text-navy mb-1.5">Email</label>
-                        <div class="relative">
-                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                <i class="fa-solid fa-envelope text-gray-400 text-sm"></i>
+                            <div>
+                                <label class="block text-sm font-bold text-navy mb-2">Số điện thoại</label>
+                                <div class="relative">
+                                    <i class="fa-solid fa-phone text-gray-400 text-xs absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"></i>
+                                    <input type="tel" class="w-full pl-10 pr-3 py-2.5 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:border-blue-400 focus:bg-white text-sm" placeholder="Ví dụ: 0912345678">
+                                </div>
                             </div>
-                            <input type="email" class="w-full pl-9 pr-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 text-sm" placeholder="Nhập địa chỉ email">
-                        </div>
-                    </div>
-                    
-                    <div>
-                        <label class="block text-xs font-bold text-navy mb-1.5">Mật khẩu</label>
-                        <div class="relative">
-                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                <i class="fa-solid fa-lock text-gray-400 text-sm"></i>
+
+                            <div>
+                                <label class="block text-sm font-bold text-navy mb-2">Lớp đang học</label>
+                                <div class="relative">
+                                    <i class="fa-solid fa-graduation-cap text-gray-400 text-xs absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"></i>
+                                    <select class="w-full pl-10 pr-3 py-2.5 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:border-blue-400 focus:bg-white text-sm appearance-none">
+                                        <option value="">-- Chọn khối lớp --</option>
+                                        <option value="10">Lớp 10</option>
+                                        <option value="11">Lớp 11</option>
+                                        <option value="12" selected>Lớp 12</option>
+                                        <option value="other">Đã tốt nghiệp / Khác</option>
+                                    </select>
+                                </div>
                             </div>
-                            <input type="password" class="w-full pl-9 pr-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 text-sm" placeholder="Tạo mật khẩu">
-                        </div>
-                    </div>
 
-                    <div>
-                        <label class="block text-xs font-bold text-navy mb-1.5">Xác nhận mật khẩu</label>
-                        <div class="relative">
-                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                <i class="fa-solid fa-circle-check text-gray-400 text-sm"></i>
+                            <div class="md:col-span-2">
+                                <label class="block text-sm font-bold text-navy mb-2">Trường THPT</label>
+                                <div class="relative">
+                                    <i class="fa-solid fa-school text-gray-400 text-xs absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"></i>
+                                    <input type="text" class="w-full pl-10 pr-3 py-2.5 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:border-blue-400 focus:bg-white text-sm" placeholder="Nhập tên trường">
+                                </div>
                             </div>
-                            <input type="password" class="w-full pl-9 pr-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 text-sm" placeholder="Nhập lại mật khẩu">
+
+                            <div class="md:col-span-2">
+                                <label class="block text-sm font-bold text-navy mb-2">Nơi cư trú (Tỉnh / Thành phố)</label>
+                                <div class="relative">
+                                    <i class="fa-solid fa-location-dot text-gray-400 text-xs absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"></i>
+                                    <input type="text" class="w-full pl-10 pr-3 py-2.5 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:border-blue-400 focus:bg-white text-sm" placeholder="Nhập Tỉnh / Thành phố">
+                                </div>
+                            </div>
                         </div>
-                    </div>
 
-                    <button type="button" onclick="handleRegister()" class="w-full bg-custom-red text-white font-bold py-3 rounded-lg flex items-center justify-center gap-2 mt-4 hover:bg-red-800 transition duration-200">
-                        <i class="fa-solid fa-user-plus"></i> Tạo tài khoản
-                    </button>
-                </form>
-
+                        <!-- Buttons -->
+                        <div class="mt-8 flex justify-end gap-3 pt-6 border-t border-gray-100">
+                            <button type="button" onclick="switchView('home')" class="px-6 py-2.5 rounded-lg font-bold text-gray-600 bg-white border border-gray-300 hover:bg-gray-50 transition text-sm">Hủy bỏ</button>
+                            <button type="submit" class="px-6 py-2.5 rounded-lg font-bold text-white bg-custom-red hover:bg-red-800 shadow-md transition text-sm flex items-center gap-2">
+                                <i class="fa-regular fa-floppy-disk"></i> Lưu thay đổi
+                            </button>
+                        </div>
+                    </form>
+                </div>
             </div>
-        </div>
-    </main>
 
-    <!-- Thông báo (Toast) dành cho đăng ký thành công -->
-    <div id="toast-success" class="fixed top-4 right-4 bg-green-500 text-white px-5 py-3 rounded-lg shadow-lg transform translate-x-full opacity-0 transition-all duration-300 flex items-center gap-3 z-50 pointer-events-none">
-        <i class="fa-solid fa-circle-check text-lg"></i>
-        <span class="font-semibold text-sm">Tạo tài khoản thành công! Vui lòng đăng nhập.</span>
+            <!-- Toast Thông báo -->
+            <div id="toast-success" class="fixed bottom-6 right-6 bg-green-500 text-white px-5 py-3 rounded-lg shadow-lg transform translate-y-20 opacity-0 transition-all duration-300 flex items-center gap-3 z-50 pointer-events-none">
+                <i class="fa-solid fa-circle-check text-lg"></i>
+                <span class="font-semibold text-sm">Đã lưu thông tin thành công!</span>
+            </div>
+
+        </main>
     </div>
 
-    <!-- Javascript xử lý sự kiện -->
+    <!-- ================= JAVASCRIPT ĐIỀU KHIỂN ================= -->
     <script>
-        function switchTab(tab) {
-            const loginForm = document.getElementById('form-login');
-            const registerForm = document.getElementById('form-register');
-            const loginTab = document.getElementById('tab-login');
-            const registerTab = document.getElementById('tab-register');
-            const leftTitle = document.getElementById('left-title');
+        // 1. Hàm chuyển đổi giữa các Màn hình (Trang chủ / Cài đặt)
+        function switchView(viewName) {
+            // Lấy các element màn hình
+            const viewHome = document.getElementById('view-home');
+            const viewSettings = document.getElementById('view-settings');
+            
+            // Lấy các element menu sidebar
+            const navHome = document.getElementById('nav-home');
+            const navSettings = document.getElementById('nav-settings');
+            
+            // Đóng dropdown nếu đang mở
+            document.getElementById('profile-dropdown').classList.add('hidden');
 
-            if (tab === 'login') {
-                loginForm.classList.remove('hidden');
-                loginForm.classList.add('block');
-                registerForm.classList.remove('block');
-                registerForm.classList.add('hidden');
+            // Reset trạng thái active của menu
+            const allNavItems = document.querySelectorAll('.nav-item');
+            allNavItems.forEach(item => {
+                item.classList.remove('active');
+                item.classList.remove('bg-red-50', 'text-custom-red', 'border', 'border-red-100');
+            });
+
+            if (viewName === 'home') {
+                // Mở Home, Ẩn Settings
+                viewHome.classList.remove('hidden');
+                viewHome.classList.add('block');
+                viewSettings.classList.remove('block');
+                viewSettings.classList.add('hidden');
                 
-                loginTab.classList.add('tab-active');
-                loginTab.classList.remove('tab-inactive');
-                registerTab.classList.remove('tab-active');
-                registerTab.classList.add('tab-inactive');
+                // Highlight menu Home
+                navHome.classList.add('active');
+            } 
+            else if (viewName === 'settings') {
+                // Mở Settings, Ẩn Home
+                viewSettings.classList.remove('hidden');
+                viewSettings.classList.add('block');
+                viewHome.classList.remove('block');
+                viewHome.classList.add('hidden');
                 
-                leftTitle.innerHTML = 'Đăng nhập để tiếp tục<br>học tập';
-            } else {
-                registerForm.classList.remove('hidden');
-                registerForm.classList.add('block');
-                loginForm.classList.remove('block');
-                loginForm.classList.add('hidden');
-                
-                registerTab.classList.add('tab-active');
-                registerTab.classList.remove('tab-inactive');
-                loginTab.classList.remove('tab-active');
-                loginTab.classList.add('tab-inactive');
-                
-                leftTitle.innerHTML = 'Đăng ký để bắt đầu<br>học tập';
+                // Highlight menu Settings
+                navSettings.classList.add('active', 'bg-red-50', 'text-custom-red', 'border', 'border-red-100');
             }
         }
 
-        // Chuyển hướng khi Đăng nhập
-        function handleLogin() {
-            console.log("Đang xử lý đăng nhập...");
-            // Chuyển hướng đến trangchu.html
-            window.location.href = "trangchu.html";
+        // 2. Hàm Bật/Tắt Menu Dropdown ở Avatar
+        function toggleDropdown() {
+            const dropdown = document.getElementById('profile-dropdown');
+            dropdown.classList.toggle('hidden');
         }
 
-        // Hiện thông báo khi Đăng ký
-        function handleRegister() {
-            console.log("Đang xử lý tạo tài khoản mới...");
+        // Tự động đóng Menu Dropdown khi click ra ngoài
+        document.addEventListener('click', function(event) {
+            const profileContainer = document.getElementById('profile-container');
+            const dropdown = document.getElementById('profile-dropdown');
             
-            // Hiển thị Toast thông báo thành công
-            const toast = document.getElementById('toast-success');
-            toast.classList.remove('translate-x-full', 'opacity-0');
-            toast.classList.add('translate-x-0', 'opacity-100');
+            if (profileContainer && !profileContainer.contains(event.target)) {
+                if (!dropdown.classList.contains('hidden')) {
+                    dropdown.classList.add('hidden');
+                }
+            }
+        });
 
-            // Sau 2.5 giây thì tự động ẩn thông báo và chuyển về tab đăng nhập
+        // 3. Hàm xử lý khi bấm Lưu Cài đặt
+        function saveSettings(event) {
+            event.preventDefault(); // Tránh bị reload trang
+
+            // Hiện thông báo thành công
+            const toast = document.getElementById('toast-success');
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+
+            // Tự tắt thông báo sau 3 giây
             setTimeout(() => {
-                toast.classList.remove('translate-x-0', 'opacity-100');
-                toast.classList.add('translate-x-full', 'opacity-0');
-                switchTab('login');
-            }, 2500);
+                toast.classList.remove('translate-y-0', 'opacity-100');
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 3000);
         }
     </script>
 </body>
