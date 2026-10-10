@@ -58,19 +58,25 @@
             </div>
 
             <!-- Form Đăng nhập -->
+<!-- Form Đăng nhập -->
             <form id="form-login" onsubmit="performLogin(event)" class="block">
+                <!-- Vùng hiển thị lỗi (Mặc định ẩn) -->
+                <div id="login-error" class="hidden mb-4 p-3 bg-red-50 text-red-600 text-sm rounded-lg text-center font-semibold border border-red-200">
+                    Email hoặc mật khẩu không chính xác!
+                </div>
+
                 <div class="mb-4">
                     <label class="block text-sm font-bold text-navy mb-2">Email</label>
                     <div class="relative">
                         <i class="fa-regular fa-envelope text-gray-400 absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"></i>
-                        <input type="email" required class="w-full pl-10 pr-3 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-blue-400 focus:bg-white text-sm transition-colors" placeholder="Nhập email của bạn">
+                        <input id="login-email" type="email" required class="w-full pl-10 pr-3 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-blue-400 focus:bg-white text-sm transition-colors" placeholder="Nhập email của bạn (admin@gmail.com)">
                     </div>
                 </div>
                 <div class="mb-2">
                     <label class="block text-sm font-bold text-navy mb-2">Mật khẩu</label>
                     <div class="relative">
                         <i class="fa-solid fa-lock text-gray-400 absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"></i>
-                        <input type="password" required class="w-full pl-10 pr-3 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-blue-400 focus:bg-white text-sm transition-colors" placeholder="Nhập mật khẩu">
+                        <input id="login-password" type="password" required class="w-full pl-10 pr-3 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-blue-400 focus:bg-white text-sm transition-colors" placeholder="Nhập mật khẩu (123456)">
                     </div>
                 </div>
                 <div class="flex justify-end mb-6">
