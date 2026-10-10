@@ -59,7 +59,34 @@
 
             <!-- Form Đăng nhập -->
 <!-- Form Đăng nhập -->
-            <form id="form-login" onsubmit="performLogin(event)" class="block">
+            <form id="form-login" onsubmit="function performLogin(event) {
+            event.preventDefault(); // Ngăn load lại trang
+            
+            // Lấy dữ liệu người dùng nhập
+            const email = document.getElementById('login-email').value;
+            const password = document.getElementById('login-password').value;
+            const errorMsg = document.getElementById('login-error');
+
+            // Kiểm tra điều kiện (Tài khoản: admin@gmail.com / Pass: 123456)
+            if (email === 'admin@gmail.com' && password === '123456') {
+                // ĐÚNG MẬT KHẨU
+                errorMsg.classList.add('hidden'); // Ẩn lỗi nếu đang hiện
+                
+                // Ẩn Màn hình Đăng nhập
+                document.getElementById('view-auth').classList.add('hidden');
+                
+                // Hiện Ứng dụng chính
+                const appContainer = document.getElementById('app-container');
+                appContainer.classList.remove('hidden');
+                appContainer.classList.add('flex');
+
+                // Xóa trống form để lần sau đăng xuất ra không bị dính chữ cũ
+                document.getElementById('form-login').reset(); 
+            } else {
+                // SAI MẬT KHẨU -> Hiện thông báo đỏ
+                errorMsg.classList.remove('hidden');
+            }
+        }" class="block">
                 <!-- Vùng hiển thị lỗi (Mặc định ẩn) -->
                 <div id="login-error" class="hidden mb-4 p-3 bg-red-50 text-red-600 text-sm rounded-lg text-center font-semibold border border-red-200">
                     Email hoặc mật khẩu không chính xác!
