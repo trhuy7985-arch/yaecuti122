@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng nhập / Đăng ký - YAECUTE</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f8f6f0;
+        }
+        .left-panel-bg {
+            background: linear-gradient(135deg, #fffafa 0%, #f0f4ff 100%);
+        }
+        .text-navy { color: #1a365d; }
+        .bg-custom-red { background-color: #c51624; }
+        .text-custom-red { color: #c51624; }
+        
+        /* CSS cho 2 Tab Đăng nhập / Đăng ký */
+        .tab-active {
+            border-bottom: 2px solid #c51624;
+            color: #c51624;
+            font-weight: bold;
+        }
+        .tab-inactive {
+            color: #6b7280;
+            font-weight: 500;
+        }
+        .tab-inactive:hover {
+            color: #1a365d;
+        }
+
+        /* Animation cho Toast Notification */
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        @keyframes slideOut {
+            from { transform: translateX(0); opacity: 1; }
+            to { transform: translateX(100%); opacity: 0; }
+        }
+        .toast-enter { animation: slideIn 0.3s forwards; }
+        .toast-leave { animation: slideOut 0.3s forwards; }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col relative overflow-x-hidden">
+
+    <!-- Toast Notification (Thay thế cho alert mặc định) -->
+    <div id="toast" class="fixed top-5 right-5 z-50 hidden bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg flex items-center gap-3">
+        <i class="fa-solid fa-circle-check text-xl"></i>
+        <span id="toast-message" class="font-medium text-sm">Tạo tài khoản thành công! Vui lòng đăng nhập.</span>
+    </div>
+
+    <!-- Thanh Header -->
+    <header class="bg-white py-3 px-4 md:py-4 md:px-8 flex flex-col md:flex-row justify-between items-center z-10 relative border-b border-gray-100 shadow-sm gap-3 md:gap-0">
+        <div class="flex items-center justify-between w-full md:w-auto">
+            <div class="flex items-center gap-3 md:gap-4">
+                <!-- Logo -->
+                <div class="text-3xl md:text-4xl font-black text-custom-red select-none">1</div>
+                <div class="w-px h-6 bg-gray-300"></div>
+                <a href="javascript:void(0)" class="text-navy font-bold text-xs md:text-sm hover:text-blue-800 flex items-center gap-2">
+                    <i class="fa-solid fa-chevron-left text-xs"></i> <span class="hidden sm:inline">Quay lại sảnh chính</span>
+                </a>
+            </div>
+        </div>
+        <div class="flex items-center gap-4 md:gap-8 font-bold text-gray-700 text-xs md:text-sm">
+            <!-- Tên Khóa học YAECUTE -->
+            <a href="javascript:void(0)" class="hover:text-navy flex items-center gap-1 md:gap-2">
+                <i class="fa-solid fa-clapperboard text-gray-500"></i> YAECUTE
+            </a>
+            <a href="javascript:void(0)" class="hover:text-navy flex items-center gap-1 md:gap-2">
+                <i class="fa-solid fa-file-lines text-gray-500"></i> Phòng luyện
+            </a>
+        </div>
+    </header>
+
+    <!-- Nội dung chính (Main Content) -->
+    <main class="flex-grow flex items-center justify-center p-4 relative">
+        <div class="max-w-[1000px] w-full grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 relative z-10 my-4 md:my-8">
+            
+            <!-- Bảng thông tin bên trái -->
+            <div class="left-panel-bg rounded-xl p-6 md:p-10 shadow-sm border border-gray-100 flex flex-col justify-center order-2 lg:order-1">
+                <div class="text-custom-red font-bold mb-4 md:mb-6 flex items-center gap-2 text-sm">
+                    <i class="fa-solid fa-star"></i> Trung tâm 1
+                </div>
+                
+                <h1 id="left-title" class="text-[26px] md:text-[32px] font-extrabold text-navy mb-3 md:mb-4 leading-tight transition-all duration-300">
+                    Đăng nhập để tiếp tục<br>học tập
+                </h1>
+                
+                <p class="text-gray-600 mb-6 md:mb-8 text-sm leading-relaxed pr-0 md:pr-4">
+                    Theo dõi khóa học, phòng luyện, lịch sử làm bài và quyền VIP của bạn trên cùng một hệ thống.
+                </p>
+                
+                <!-- Danh sách tính năng -->
+                <div class="space-y-4">
+                    <div class="flex items-center gap-4">
+                        <div class="w-8 h-8 rounded bg-blue-100 flex items-center justify-center text-navy shadow-sm shrink-0">
+                            <i class="fa-solid fa-clapperboard text-xs"></i>
+                        </div>
+                        <span class="font-bold text-navy text-sm">Khóa học YAECUTE đồng bộ</span>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div class="w-8 h-8 rounded bg-blue-100 flex items-center justify-center text-navy shadow-sm shrink-0">
+                            <i class="fa-solid fa-file-pen text-xs"></i>
+                        </div>
+                        <span class="font-bold text-navy text-sm">Luyện đề và xem lại bài làm</span>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div class="w-8 h-8 rounded bg-blue-100 flex items-center justify-center text-navy shadow-sm shrink-0">
+                            <i class="fa-solid fa-crown text-xs"></i>
+                        </div>
+                        <span class="font-bold text-navy text-sm">Kích hoạt mã VIP nhanh chóng</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Form Đăng nhập & Đăng ký bên phải -->
+            <div class="bg-white rounded-xl p-6 md:p-8 shadow-[0_4px_20px_rgba(0,0,0,0.05)] flex flex-col items-center order-1 lg:order-2">
+                
+                <!-- Logo -->
+                <div class="text-5xl font-black text-custom-red mb-3">1</div>
+                
+                <!-- Thanh chuyển đổi (Tabs) -->
+                <div class="flex w-full mb-6 border-b border-gray-200 mt-2">
+                    <button type="button" id="tab-login" onclick="switchTab('login')" class="flex-1 py-2 text-center tab-active cursor-pointer transition-colors duration-200 focus:outline-none">
+                        Đăng nhập
+                    </button>
+                    <button type="button" id="tab-register" onclick="switchTab('register')" class="flex-1 py-2 text-center tab-inactive cursor-pointer transition-colors duration-200 focus:outline-none">
+                        Đăng ký
+                    </button>
+                </div>
+
+                <!--==================== FORM ĐĂNG NHẬP ====================-->
+                <form id="form-login" onsubmit="handleLogin(event)" class="w-full space-y-4 md:space-y-5 block transition-opacity duration-300">
+                    <p class="text-gray-500 text-xs mb-4 text-center">
+                        Vào tài khoản học sinh để tiếp tục hành trình luyện thi.
+                    </p>
+
+                    <!-- Input Email -->
+                    <div>
+                        <label class="block text-xs font-bold text-navy mb-1.5">Email</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fa-solid fa-envelope text-gray-400 text-sm"></i>
+                            </div>
+                            <input type="email" id="login-email" required class="w-full pl-9 pr-3 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 text-sm" placeholder="Nhập địa chỉ email">
+                        </div>
+                    </div>
+                    
+                    <!-- Input Mật khẩu -->
+                    <div>
+                        <label class="block text-xs font-bold text-navy mb-1.5">Mật khẩu</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fa-solid fa-lock text-gray-400 text-sm"></i>
+                            </div>
+                            <input type="password" id="login-password" required class="w-full pl-9 pr-3 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 text-sm" placeholder="Nhập mật khẩu">
+                        </div>
+                    </div>
+
+                    <!-- Nút Đăng nhập -->
+                    <button type="submit" class="w-full bg-custom-red text-white font-bold py-3 rounded-lg flex items-center justify-center gap-2 mt-4 hover:bg-red-800 transition duration-200 shadow-md">
+                        <i class="fa-solid fa-right-to-bracket"></i> Đăng nhập
+                    </button>
+
+                    <div class="mt-4 text-center text-xs">
+                        <a href="javascript:void(0)" class="text-custom-red font-bold hover:underline">Bạn quên mật khẩu?</a>
+                    </div>
+                </form>
+
+                <!--==================== FORM ĐĂNG KÝ ====================-->
+                <form id="form-register" onsubmit="handleRegister(event)" class="w-full space-y-4 hidden transition-opacity duration-300">
+                    <p class="text-gray-500 text-xs mb-4 text-center">
+                        Tạo tài khoản mới để bắt đầu học tập cùng chúng tôi.
+                    </p>
+
+                    <!-- Input Họ và tên -->
+                    <div>
+                        <label class="block text-xs font-bold text-navy mb-1.5">Họ và tên</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fa-solid fa-user text-gray-400 text-sm"></i>
+                            </div>
+                            <input type="text" id="reg-name" required class="w-full pl-9 pr-3 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 text-sm" placeholder="Nhập họ và tên">
+                        </div>
+                    </div>
+
+                    <!-- Input Email -->
+                    <div>
+                        <label class="block text-xs font-bold text-navy mb-1.5">Email</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fa-solid fa-envelope text-gray-400 text-sm"></i>
+                            </div>
+                            <input type="email" id="reg-email" required class="w-full pl-9 pr-3 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 text-sm" placeholder="Nhập địa chỉ email">
+                        </div>
+                    </div>
+                    
+                    <!-- Input Mật khẩu -->
+                    <div>
+                        <label class="block text-xs font-bold text-navy mb-1.5">Mật khẩu</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fa-solid fa-lock text-gray-400 text-sm"></i>
+                            </div>
+                            <input type="password" id="reg-password" required minlength="6" class="w-full pl-9 pr-3 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 text-sm" placeholder="Tạo mật khẩu (tối thiểu 6 ký tự)">
+                        </div>
+                    </div>
+
+                    <!-- Nút Đăng ký -->
+                    <button type="submit" class="w-full bg-custom-red text-white font-bold py-3 rounded-lg flex items-center justify-center gap-2 mt-4 hover:bg-red-800 transition duration-200 shadow-md">
+                        <i class="fa-solid fa-user-plus"></i> Tạo tài khoản
+                    </button>
+                </form>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Javascript xử lý sự kiện -->
+    <script>
+        // Hàm hiển thị thông báo Toast
+        function showCustomToast(message) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toast-message');
+            
+            toastMsg.innerText = message;
+            toast.classList.remove('hidden', 'toast-leave');
+            toast.classList.add('toast-enter');
+
+            // Tự động ẩn sau 3.5 giây
+            setTimeout(() => {
+                toast.classList.remove('toast-enter');
+                toast.classList.add('toast-leave');
+                setTimeout(() => {
+                    toast.classList.add('hidden');
+                }, 300); // Đợi animation kết thúc
+            }, 3500);
+        }
+
+        // Hàm chuyển đổi Tab
+        function switchTab(tab) {
+            const loginForm = document.getElementById('form-login');
+            const registerForm = document.getElementById('form-register');
+            const loginTab = document.getElementById('tab-login');
+            const registerTab = document.getElementById('tab-register');
+            const leftTitle = document.getElementById('left-title');
+
+            if (tab === 'login') {
+                loginForm.classList.remove('hidden');
+                loginForm.classList.add('block');
+                registerForm.classList.remove('block');
+                registerForm.classList.add('hidden');
+                
+                loginTab.classList.add('tab-active');
+                loginTab.classList.remove('tab-inactive');
+                registerTab.classList.remove('tab-active');
+                registerTab.classList.add('tab-inactive');
+                
+                leftTitle.innerHTML = 'Đăng nhập để tiếp tục<br>học tập';
+            } else {
+                registerForm.classList.remove('hidden');
+                registerForm.classList.add('block');
+                loginForm.classList.remove('block');
+                loginForm.classList.add('hidden');
+                
+                registerTab.classList.add('tab-active');
+                registerTab.classList.remove('tab-inactive');
+                loginTab.classList.remove('tab-active');
+                loginTab.classList.add('tab-inactive');
+                
+                leftTitle.innerHTML = 'Đăng ký để bắt đầu<br>học tập';
+            }
+        }
+
+        // Xử lý sự kiện khi Đăng nhập
+        function handleLogin(event) {
+            // Ngăn chặn form submit gây tải lại trang
+            event.preventDefault(); 
+            
+            const email = document.getElementById('login-email').value;
+            console.log("Đang xử lý đăng nhập cho:", email);
+            
+            // Chuyển hướng đến trang chủ khóa học
+            window.location.href = "trangchu.html";
+        }
+
+        // Xử lý sự kiện khi Đăng ký
+        function handleRegister(event) {
+            // Ngăn chặn form submit gây tải lại trang
+            event.preventDefault();
+            
+            console.log("Đang xử lý tạo tài khoản mới...");
+            
+            // Hiện Toast thông báo
+            showCustomToast("Tạo tài khoản thành công! Vui lòng đăng nhập.");
+            
+            // Xóa nội dung đã nhập trong form đăng ký
+            document.getElementById('reg-name').value = '';
+            document.getElementById('reg-email').value = '';
+            document.getElementById('reg-password').value = '';
+
+            // Tự động chuyển về tab đăng nhập sau 0.5s
+            setTimeout(() => {
+                switchTab('login');
+            }, 500);
+        }
+    </script>
+</body>
+</html>
