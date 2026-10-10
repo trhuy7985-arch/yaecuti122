@@ -41,9 +41,18 @@
     <!-- ================= HEADER ================= -->
     <header class="bg-white py-3 px-6 flex justify-between items-center border-b border-gray-200 z-20 shrink-0">
         <!-- Logo -->
-        <div class="flex items-center gap-2 cursor-pointer" onclick="switchView('home')">
-            <div class="text-3xl font-black text-custom-red select-none">1</div>
-            <div class="text-xl font-bold text-navy tracking-wide">YAECUTE</div>
+        <!-- Logo & Nút Menu Mobile -->
+        <div class="flex items-center gap-3">
+            <!-- Nút Hamburger (chỉ hiện trên Mobile, ẩn trên Desktop) -->
+            <button class="md:hidden text-gray-500 hover:text-navy transition-colors">
+                <i class="fa-solid fa-bars text-xl"></i>
+            </button>
+            
+            <!-- Logo (Vẫn giữ nguyên chức năng bấm về Trang chủ) -->
+            <div class="flex items-center gap-2 cursor-pointer" onclick="switchView('home')">
+                <div class="text-3xl font-black text-custom-red select-none">1</div>
+                <div class="text-xl font-bold text-navy tracking-wide">YAECUTE</div>
+            </div>
         </div>
 
         <!-- Thanh tìm kiếm -->
