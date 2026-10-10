@@ -74,10 +74,7 @@
                         <input id="login-password" type="password" required class="w-full pl-10 pr-3 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-blue-400 focus:bg-white text-sm transition-colors" placeholder="Nhập mật khẩu">
                     </div>
                 </div>
-                <div class="flex justify-end mb-6">
-                    <a href="#" class="text-xs font-semibold text-custom-red hover:underline">Quên mật khẩu?</a>
-                </div>
-                <button type="submit" class="w-full py-3 bg-custom-red hover:bg-red-800 text-white font-bold rounded-xl shadow-lg transition-all transform hover:-translate-y-0.5">
+                <button type="submit" class="w-full py-3 mt-4 bg-custom-red hover:bg-red-800 text-white font-bold rounded-xl shadow-lg transition-all transform hover:-translate-y-0.5">
                     Đăng nhập vào hệ thống
                 </button>
             </form>
@@ -90,7 +87,7 @@
                     <label class="block text-sm font-bold text-navy mb-2">Họ và tên</label>
                     <div class="relative">
                         <i class="fa-regular fa-user text-gray-400 absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"></i>
-                        <input id="reg-name" type="text" required class="w-full pl-10 pr-3 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-blue-400 focus:bg-white text-sm transition-colors" placeholder="Nguyễn Văn A">
+                        <input id="reg-name" type="text" required class="w-full pl-10 pr-3 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-blue-400 focus:bg-white text-sm transition-colors" placeholder="Ví dụ: Trần Văn Huy">
                     </div>
                 </div>
                 <div class="mb-4">
@@ -147,8 +144,8 @@
                     <div class="flex items-center gap-3 cursor-pointer select-none" onclick="toggleDropdown()">
                         <div id="display-user-avatar" class="w-9 h-9 bg-navy rounded-full flex items-center justify-center text-white text-xs font-bold" style="background-color: #1a365d;">U</div>
                         <div class="hidden md:block text-left">
-                            <div id="display-user-name" class="text-sm font-bold text-navy leading-tight" style="color: #1a365d;">Học viên VIP</div>
-                            <div class="text-xs text-gray-500 leading-tight">ID: 102938</div>
+                            <div id="display-user-name" class="text-sm font-bold text-navy leading-tight" style="color: #1a365d;">Người dùng</div>
+                            <div class="text-xs text-gray-500 leading-tight">Học viên</div>
                         </div>
                         <i class="fa-solid fa-chevron-down text-gray-400 text-xs ml-1"></i>
                     </div>
@@ -280,20 +277,63 @@
                     <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-8">
                         <form onsubmit="saveSettings(event)">
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                
+                                <!-- Hàng 1: Tên & Gmail -->
                                 <div>
                                     <label class="block text-sm font-bold text-navy mb-2">Họ và tên</label>
                                     <div class="relative">
                                         <i class="fa-regular fa-user text-gray-400 absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"></i>
-                                        <input type="text" class="w-full pl-10 pr-3 py-2.5 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:border-blue-400 focus:bg-white text-sm" placeholder="Nhập họ và tên">
+                                        <input id="profile-name" type="text" required class="w-full pl-10 pr-3 py-2.5 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:border-blue-400 focus:bg-white text-sm" placeholder="Nhập họ và tên">
                                     </div>
                                 </div>
+                                <div>
+                                    <label class="block text-sm font-bold text-navy mb-2">Email (Tài khoản Gmail)</label>
+                                    <div class="relative">
+                                        <i class="fa-regular fa-envelope text-gray-400 absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"></i>
+                                        <input id="profile-email" type="email" disabled class="w-full pl-10 pr-3 py-2.5 bg-gray-100 border border-gray-200 rounded-lg text-gray-500 text-sm cursor-not-allowed" title="Không thể thay đổi email đăng nhập" value="">
+                                    </div>
+                                </div>
+
+                                <!-- Hàng 2: SĐT & Lớp -->
                                 <div>
                                     <label class="block text-sm font-bold text-navy mb-2">Số điện thoại</label>
                                     <div class="relative">
                                         <i class="fa-solid fa-phone text-gray-400 text-xs absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"></i>
-                                        <input type="tel" class="w-full pl-10 pr-3 py-2.5 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:border-blue-400 focus:bg-white text-sm" placeholder="Ví dụ: 0912345678">
+                                        <input id="profile-phone" type="tel" class="w-full pl-10 pr-3 py-2.5 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:border-blue-400 focus:bg-white text-sm" placeholder="Ví dụ: 0912345678">
                                     </div>
                                 </div>
+                                <div>
+                                    <label class="block text-sm font-bold text-navy mb-2">Lớp đang học</label>
+                                    <div class="relative">
+                                        <i class="fa-solid fa-graduation-cap text-gray-400 text-xs absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"></i>
+                                        <select id="profile-class" class="w-full pl-10 pr-3 py-2.5 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:border-blue-400 focus:bg-white text-sm appearance-none">
+                                            <option value="">-- Chọn khối lớp --</option>
+                                            <option value="10">Lớp 10</option>
+                                            <option value="11">Lớp 11</option>
+                                            <option value="12">Lớp 12</option>
+                                            <option value="other">Đã tốt nghiệp / Khác</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <!-- Hàng 3: Trường -->
+                                <div class="md:col-span-2">
+                                    <label class="block text-sm font-bold text-navy mb-2">Trường học</label>
+                                    <div class="relative">
+                                        <i class="fa-solid fa-school text-gray-400 text-xs absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"></i>
+                                        <input id="profile-school" type="text" class="w-full pl-10 pr-3 py-2.5 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:border-blue-400 focus:bg-white text-sm" placeholder="Nhập tên trường THPT của bạn">
+                                    </div>
+                                </div>
+
+                                <!-- Hàng 4: Tỉnh -->
+                                <div class="md:col-span-2">
+                                    <label class="block text-sm font-bold text-navy mb-2">Tỉnh / Thành phố</label>
+                                    <div class="relative">
+                                        <i class="fa-solid fa-location-dot text-gray-400 text-xs absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"></i>
+                                        <input id="profile-province" type="text" class="w-full pl-10 pr-3 py-2.5 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:border-blue-400 focus:bg-white text-sm" placeholder="Nhập Tỉnh / Thành phố bạn đang sống">
+                                    </div>
+                                </div>
+
                             </div>
                             <div class="mt-8 flex justify-end gap-3 pt-6 border-t border-gray-100">
                                 <button type="button" onclick="switchView('home')" class="px-6 py-2.5 rounded-lg font-bold text-gray-600 bg-white border border-gray-300 hover:bg-gray-50 transition text-sm">Hủy bỏ</button>
@@ -316,6 +356,9 @@
 
     <!-- ================= 3. JAVASCRIPT ================= -->
     <script>
+        // Biến toàn cục lưu email của người đang đăng nhập
+        let currentSessionEmail = null;
+
         function switchAuth(mode) {
             const tabLogin = document.getElementById('tab-login');
             const tabRegister = document.getElementById('tab-register');
@@ -358,7 +401,14 @@
                 msgBox.className = "mb-4 p-3 bg-red-50 text-red-600 text-sm rounded-lg text-center font-semibold border border-red-200 block";
                 msgBox.textContent = "Email này đã được đăng ký! Vui lòng dùng email khác.";
             } else {
-                existingUsers[email] = { name: name, password: password };
+                existingUsers[email] = { 
+                    name: name, 
+                    password: password,
+                    phone: "",
+                    studentClass: "",
+                    school: "",
+                    province: ""
+                };
                 localStorage.setItem('yaecute_users', JSON.stringify(existingUsers));
 
                 msgBox.className = "mb-4 p-3 bg-green-50 text-green-600 text-sm rounded-lg text-center font-semibold border border-green-200 block";
@@ -379,24 +429,38 @@
             const email = document.getElementById('login-email').value;
             const password = document.getElementById('login-password').value;
             const errorMsg = document.getElementById('login-error');
+            
             const existingUsers = JSON.parse(localStorage.getItem('yaecute_users')) || {};
 
-            const isAdmin = (email === 'admin@gmail.com' && password === '123456');
-            const isRegisteredUser = (existingUsers[email] && existingUsers[email].password === password);
+            // Nếu người dùng nhập admin mà chưa có trong bộ nhớ, tự động tạo tài khoản admin
+            if (email === 'admin@gmail.com' && password === '123456' && !existingUsers['admin@gmail.com']) {
+                existingUsers['admin@gmail.com'] = { name: 'Admin VIP', password: '123456', phone: '', studentClass: '', school: '', province: '' };
+                localStorage.setItem('yaecute_users', JSON.stringify(existingUsers));
+            }
 
-            if (isAdmin || isRegisteredUser) {
+            if (existingUsers[email] && existingUsers[email].password === password) {
                 errorMsg.classList.add('hidden'); 
-                const userName = isAdmin ? "Admin VIP" : existingUsers[email].name;
+                
+                // Lưu phiên đăng nhập
+                currentSessionEmail = email;
+
+                // Cập nhật tên Header
+                const userName = existingUsers[email].name;
                 document.getElementById('display-user-name').textContent = userName;
                 document.getElementById('display-user-avatar').textContent = userName.charAt(0).toUpperCase();
 
+                // Ẩn Màn hình đăng nhập
                 document.getElementById('view-auth').classList.add('opacity-0', 'pointer-events-none');
                 setTimeout(() => { document.getElementById('view-auth').classList.add('hidden'); }, 500); 
                 
+                // Mở App chính
                 const appContainer = document.getElementById('app-container');
                 appContainer.classList.remove('hidden');
                 appContainer.classList.add('flex');
                 document.getElementById('form-login').reset();
+
+                // Tải dữ liệu vào form Cài đặt
+                loadSettings();
             } else {
                 errorMsg.classList.remove('hidden');
             }
@@ -406,6 +470,9 @@
             event.preventDefault();
             document.getElementById('profile-dropdown').classList.add('hidden');
             
+            // Xóa phiên
+            currentSessionEmail = null;
+
             const appContainer = document.getElementById('app-container');
             appContainer.classList.remove('flex');
             appContainer.classList.add('hidden');
@@ -442,6 +509,9 @@
                 viewHome.classList.remove('block');
                 viewHome.classList.add('hidden');
                 navSettings.classList.add('active');
+                
+                // Mỗi lần mở tab Cài đặt, tự động load lại dữ liệu cho chắc chắn
+                loadSettings();
             }
         }
 
@@ -459,8 +529,45 @@
             }
         });
 
+        // --- HÀM LOAD DỮ LIỆU TỪ TRÌNH DUYỆT VÀO FORM ---
+        function loadSettings() {
+            if (!currentSessionEmail) return;
+            const existingUsers = JSON.parse(localStorage.getItem('yaecute_users')) || {};
+            const user = existingUsers[currentSessionEmail];
+            
+            if (user) {
+                document.getElementById('profile-name').value = user.name || '';
+                document.getElementById('profile-email').value = currentSessionEmail || ''; // Email không sửa được
+                document.getElementById('profile-phone').value = user.phone || '';
+                document.getElementById('profile-class').value = user.studentClass || '';
+                document.getElementById('profile-school').value = user.school || '';
+                document.getElementById('profile-province').value = user.province || '';
+            }
+        }
+
+        // --- HÀM LƯU DỮ LIỆU TỪ FORM VÀO TRÌNH DUYỆT ---
         function saveSettings(event) {
             event.preventDefault();
+            if (!currentSessionEmail) return;
+
+            const existingUsers = JSON.parse(localStorage.getItem('yaecute_users')) || {};
+            
+            // Cập nhật thông tin mới vào object
+            existingUsers[currentSessionEmail].name = document.getElementById('profile-name').value;
+            existingUsers[currentSessionEmail].phone = document.getElementById('profile-phone').value;
+            existingUsers[currentSessionEmail].studentClass = document.getElementById('profile-class').value;
+            existingUsers[currentSessionEmail].school = document.getElementById('profile-school').value;
+            existingUsers[currentSessionEmail].province = document.getElementById('profile-province').value;
+
+            // Lưu ngược lại vào trình duyệt
+            localStorage.setItem('yaecute_users', JSON.stringify(existingUsers));
+
+            // Đổi lại tên ngay trên Header
+            const newName = existingUsers[currentSessionEmail].name;
+            document.getElementById('display-user-name').textContent = newName;
+            document.getElementById('display-user-avatar').textContent = newName.charAt(0).toUpperCase();
+
+            // Bật thông báo màu xanh lưu thành công
             const toast = document.getElementById('toast-success');
             toast.classList.remove('translate-y-20', 'opacity-0');
             toast.classList.add('translate-y-0', 'opacity-100');
