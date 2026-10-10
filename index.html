@@ -7,6 +7,9 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
+    <!-- Thêm thư viện Socket.io Client -->
+    <script src="http://localhost:3000/socket.io/socket.io.js"></script>
+
     <style>
         body {
             font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
@@ -262,26 +265,26 @@
                             </div>
                         </div>
 
-                        <!-- Card Luyện Đề (THÊM MỚI BỞI YAECUTE) -->
+                        <!-- Card Luyện Đề (Vào phòng thi Socket.io) -->
                         <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow cursor-pointer flex flex-col h-full">
                             <div class="h-40 bg-orange-50 flex items-center justify-center relative overflow-hidden">
-                                <!-- Vòng tròn trang trí -->
                                 <div class="absolute top-[-20%] right-[-10%] w-32 h-32 bg-orange-200 rounded-full opacity-30"></div>
                                 <span class="text-4xl font-extrabold text-orange-900 opacity-80 z-10">Luyện Đề</span>
                             </div>
                             <div class="p-6 flex flex-col flex-1">
                                 <span class="inline-block px-3 py-1 bg-orange-100 text-orange-800 text-[10px] font-bold rounded mb-3 w-max uppercase tracking-wider"><i class="fa-solid fa-pen-nib mr-1"></i> Thực Chiến</span>
-                                <h4 class="font-bold text-navy text-lg leading-tight mb-2">Kho Đề Thi Toán 12 - Ôn Tập HK1</h4>
-                                <p class="text-xs text-gray-500 mb-6 flex-1">Đang làm: ĐỀ 2 - Trắc nghiệm nhiều phương án</p>
+                                <h4 class="font-bold text-navy text-lg leading-tight mb-2">Phòng Thi Trực Tiếp</h4>
+                                <p class="text-xs text-gray-500 mb-6 flex-1">Đang mở: Ôn Tập HK1 - Thi đấu Realtime</p>
                                 <div>
                                     <div class="flex justify-between text-xs font-bold mb-2">
-                                        <span class="text-orange-600">10%</span>
-                                        <span class="text-gray-400">1/10 Đề</span>
+                                        <span class="text-orange-600">Đang diễn ra</span>
+                                        <span class="text-gray-400"><i class="fa-solid fa-users"></i></span>
                                     </div>
                                     <div class="w-full bg-gray-100 rounded-full h-1.5 mb-4">
-                                        <div class="bg-orange-500 h-1.5 rounded-full" style="width: 10%"></div>
+                                        <div class="bg-orange-500 h-1.5 rounded-full" style="width: 100%"></div>
                                     </div>
-                                    <button onclick="switchView('documents')" class="w-full py-2.5 bg-orange-50 hover:bg-orange-100 text-orange-900 font-bold rounded-lg transition-colors text-sm">Vào làm ĐỀ 2 ngay</button>
+                                    <!-- Nút đổi thành mở view Exam -->
+                                    <button onclick="switchView('exam')" class="w-full py-2.5 bg-orange-50 hover:bg-orange-100 text-orange-900 font-bold rounded-lg transition-colors text-sm">Vào Phòng Luyện Thi Ngay</button>
                                 </div>
                             </div>
                         </div>
@@ -408,6 +411,64 @@
                     </div>
                 </div>
 
+                <!-- VIEW: PHÒNG LUYỆN THI TRỰC TIẾP (MỚI) -->
+                <div id="view-exam-room" class="hidden h-full flex-col">
+                    <div class="mb-6 flex justify-between items-center shrink-0">
+                        <div>
+                            <h1 class="text-2xl font-extrabold text-navy">Phòng Thực Chiến 🔴</h1>
+                            <p class="text-gray-500 text-sm mt-1">Thi đấu trực tiếp cùng các học viên khác.</p>
+                        </div>
+                        <div class="flex gap-3">
+                            <span id="room-status" class="px-4 py-2 bg-yellow-100 text-yellow-700 font-bold rounded-lg text-sm flex items-center gap-2">
+                                <i class="fa-solid fa-spinner fa-spin"></i> Đang chờ bắt đầu...
+                            </span>
+                            <!-- Nút này chỉ hiện cho Admin -->
+                            <button id="btn-start-exam" onclick="startRealtimeExam()" class="hidden px-4 py-2 bg-custom-red text-white font-bold rounded-lg shadow hover:bg-red-800 transition text-sm">
+                                Bắt đầu thi
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col lg:flex-row gap-6 flex-1 min-h-0">
+                        <!-- Khu vực câu hỏi -->
+                        <div class="flex-1 bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-10 flex flex-col overflow-y-auto">
+                            <div id="exam-waiting" class="flex-1 flex flex-col items-center justify-center text-center">
+                                <div class="w-24 h-24 bg-red-50 rounded-full flex items-center justify-center mb-4">
+                                    <i class="fa-solid fa-stopwatch text-4xl text-custom-red"></i>
+                                </div>
+                                <h2 class="text-2xl font-bold text-navy mb-2">Chuẩn bị sẵn sàng!</h2>
+                                <p class="text-gray-500">Bài thi sẽ bắt đầu khi chủ phòng bấm nút.</p>
+                            </div>
+
+                            <div id="exam-content" class="hidden flex-1 flex flex-col">
+                                <div class="flex justify-between items-center mb-6 border-b border-gray-100 pb-4">
+                                    <span class="font-bold text-gray-500" id="question-number">Câu hỏi hiện tại</span>
+                                    <span class="font-bold text-custom-red text-xl"><i class="fa-regular fa-clock"></i> <span id="countdown-timer">60</span>s</span>
+                                </div>
+                                <h3 id="live-question-text" class="text-xl font-bold text-navy mb-8 leading-relaxed">
+                                    <!-- Nội dung câu hỏi sẽ render ở đây -->
+                                </h3>
+                                <div id="live-options" class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-auto">
+                                    <!-- Các nút đáp án sẽ render ở đây -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Bảng xếp hạng Real-time -->
+                        <div class="w-full lg:w-80 bg-white rounded-2xl shadow-sm border border-gray-100 p-6 flex flex-col shrink-0">
+                            <h3 class="text-lg font-bold text-navy mb-4 border-b border-gray-100 pb-2 flex justify-between items-center">
+                                <span>Bảng xếp hạng</span>
+                                <i class="fa-solid fa-trophy text-yellow-500"></i>
+                            </h3>
+                            <ul id="live-leaderboard" class="space-y-3 overflow-y-auto flex-1">
+                                <!-- Danh sách học sinh sẽ render ở đây -->
+                                <li class="text-center text-gray-400 text-sm py-4">Đang chờ dữ liệu...</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TOAST THÔNG BÁO -->
                 <div id="toast-success" class="fixed bottom-6 right-6 bg-green-500 text-white px-5 py-3 rounded-lg shadow-lg transform translate-y-20 opacity-0 transition-all duration-300 flex items-center gap-3 z-50 pointer-events-none">
                     <i class="fa-solid fa-circle-check text-lg"></i>
                     <span id="toast-message" class="font-semibold text-sm">Thao tác thành công!</span>
@@ -420,12 +481,11 @@
     <script>
         let currentSessionEmail = null;
 
-        // Định nghĩa sẵn "ĐỀ 2.pdf" để nhúng tự động vào tài khoản mới
         const defaultDocument = {
             id: 'de2-toan12',
             title: 'ĐỀ 2 - Ôn tập Giữa HK1 Toán 12',
             subject: 'Toán học',
-            link: 'ĐỀ 2.pdf', // Bạn nhớ để file ĐỀ 2.pdf chung thư mục với file HTML này nhé
+            link: 'ĐỀ 2.pdf', 
             date: new Date().toLocaleDateString('vi-VN')
         };
 
@@ -471,7 +531,6 @@
                 msgBox.className = "mb-4 p-3 bg-red-50 text-red-600 text-sm rounded-lg text-center font-semibold border border-red-200 block";
                 msgBox.textContent = "Email này đã được đăng ký! Vui lòng dùng email khác.";
             } else {
-                // Thêm tài khoản mới, CÓ SẴN ĐỀ 2.PDF TRONG DANH SÁCH
                 existingUsers[email] = { 
                     name: name, 
                     password: password,
@@ -504,7 +563,6 @@
             
             const existingUsers = JSON.parse(localStorage.getItem('yaecute_users')) || {};
 
-            // Nếu đăng nhập admin lần đầu, tạo tài khoản admin và nhúng ĐỀ 2.PDF vào
             if (email === 'admin@gmail.com' && password === '123456' && !existingUsers['admin@gmail.com']) {
                 existingUsers['admin@gmail.com'] = { 
                     name: 'Admin VIP', password: '123456', phone: '', studentClass: '', school: '', province: '', 
@@ -552,10 +610,12 @@
             switchView('home'); 
         }
 
+        // --- CẬP NHẬT VIEW SWITCHER ---
         function switchView(viewName) {
             const viewHome = document.getElementById('view-home');
             const viewSettings = document.getElementById('view-settings');
             const viewDocuments = document.getElementById('view-documents');
+            const viewExamRoom = document.getElementById('view-exam-room');
             
             const navHome = document.getElementById('nav-home');
             const navSettings = document.getElementById('nav-settings');
@@ -563,9 +623,12 @@
             
             document.getElementById('profile-dropdown').classList.add('hidden');
 
+            // Ẩn tất cả các view
             viewHome.classList.replace('block', 'hidden');
             viewSettings.classList.replace('block', 'hidden');
             viewDocuments.classList.replace('block', 'hidden');
+            viewExamRoom.classList.replace('flex', 'hidden'); // Flex vì phòng thi xài flex-col
+            viewExamRoom.classList.add('hidden'); 
 
             document.querySelectorAll('.nav-item').forEach(item => {
                 item.classList.remove('active');
@@ -584,6 +647,12 @@
                 viewDocuments.classList.replace('hidden', 'block');
                 if(navDocuments) navDocuments.classList.add('active');
                 loadDocuments();
+            }
+            else if (viewName === 'exam') {
+                viewExamRoom.classList.remove('hidden');
+                viewExamRoom.classList.add('flex');
+                // Gọi hàm kích hoạt Socket.io
+                joinRealtimeRoom(); 
             }
         }
 
@@ -690,7 +759,6 @@
                 if(doc.subject === 'Hóa học') bgIcon = "bg-purple-100 text-purple-600";
                 if(doc.subject === 'Tiếng Anh') bgIcon = "bg-orange-100 text-orange-600";
 
-                // Đặc biệt: Nếu là tài liệu ĐỀ 2 Toán 12 thì hiển thị icon PDF màu đỏ
                 if(doc.id === 'de2-toan12') bgIcon = "bg-red-100 text-red-600";
 
                 html += `
@@ -737,8 +805,18 @@
             }
         }
 
-        function showToast(message) {
+        function showToast(message, isError = false) {
             const toast = document.getElementById('toast-success');
+            const icon = toast.querySelector('i');
+            
+            if(isError) {
+                toast.classList.replace('bg-green-500', 'bg-red-500');
+                icon.className = "fa-solid fa-circle-exclamation text-lg";
+            } else {
+                toast.classList.replace('bg-red-500', 'bg-green-500');
+                icon.className = "fa-solid fa-circle-check text-lg";
+            }
+
             document.getElementById('toast-message').textContent = message;
             
             toast.classList.remove('translate-y-20', 'opacity-0');
@@ -747,6 +825,140 @@
                 toast.classList.remove('translate-y-0', 'opacity-100');
                 toast.classList.add('translate-y-20', 'opacity-0');
             }, 3000);
+        }
+
+        // ================= HỆ THỐNG SOCKET.IO (PHÒNG THI) =================
+        let socket;
+        let hasJoinedRoom = false;
+
+        function joinRealtimeRoom() {
+            if (!currentSessionEmail) return;
+            
+            const existingUsers = JSON.parse(localStorage.getItem('yaecute_users')) || {};
+            const userName = existingUsers[currentSessionEmail].name;
+
+            // Hiển thị nút "Bắt đầu thi" nếu là Admin
+            if (currentSessionEmail === 'admin@gmail.com') {
+                document.getElementById('btn-start-exam').classList.remove('hidden');
+            }
+
+            // Kết nối tới server NodeJS
+            if (!socket) {
+                try {
+                    socket = io('http://localhost:3000');
+                    
+                    socket.on('connect', () => {
+                        if (!hasJoinedRoom) {
+                            socket.emit('join_room', userName);
+                            hasJoinedRoom = true;
+                            showToast("Đã kết nối vào phòng thi!");
+                        }
+                    });
+
+                    socket.on('connect_error', () => {
+                        showToast("Lỗi: Không tìm thấy Server Node.js (cổng 3000)", true);
+                    });
+
+                    // Lắng nghe cập nhật danh sách người chơi & điểm số
+                    socket.on('update_players', (players) => renderLeaderboard(players, null));
+                    socket.on('update_scores', (scores) => renderLeaderboard(null, scores));
+
+                    // Nhận câu hỏi mới
+                    socket.on('new_question', (question) => {
+                        document.getElementById('exam-waiting').classList.add('hidden');
+                        document.getElementById('exam-content').classList.remove('hidden');
+                        document.getElementById('room-status').innerHTML = `<i class="fa-solid fa-circle text-red-500 text-[10px] animate-pulse"></i> Đang thi...`;
+                        document.getElementById('room-status').className = "px-4 py-2 bg-red-50 text-red-600 font-bold rounded-lg text-sm flex items-center gap-2 border border-red-100";
+
+                        document.getElementById('live-question-text').innerText = question.content;
+                        
+                        const optionsDiv = document.getElementById('live-options');
+                        optionsDiv.innerHTML = ''; 
+                        
+                        question.options.forEach(opt => {
+                            const btn = document.createElement('button');
+                            btn.className = "py-4 px-6 bg-gray-50 border border-gray-200 rounded-xl text-left font-bold text-navy hover:bg-blue-50 hover:border-blue-300 transition-all text-sm";
+                            btn.innerText = opt;
+                            btn.onclick = function() {
+                                socket.emit('submit_answer', opt.charAt(0));
+                                
+                                Array.from(optionsDiv.children).forEach(b => b.classList.add('opacity-50', 'pointer-events-none'));
+                                this.classList.remove('opacity-50', 'bg-gray-50');
+                                this.classList.add('bg-blue-500', 'text-white', 'border-blue-600');
+                            };
+                            optionsDiv.appendChild(btn);
+                        });
+                    });
+
+                    // Khi kết thúc bài thi
+                    socket.on('exam_finished', () => {
+                        document.getElementById('live-question-text').innerText = "Đã kết thúc bài thi! Vui lòng xem bảng xếp hạng.";
+                        document.getElementById('live-options').innerHTML = '';
+                        document.getElementById('room-status').innerHTML = "Đã kết thúc";
+                        document.getElementById('room-status').className = "px-4 py-2 bg-gray-100 text-gray-500 font-bold rounded-lg text-sm";
+                        if (currentSessionEmail === 'admin@gmail.com') {
+                            document.getElementById('btn-start-exam').classList.add('hidden');
+                        }
+                    });
+
+                } catch (e) {
+                    console.log(e);
+                }
+            }
+        }
+
+        function startRealtimeExam() {
+            if (socket) {
+                socket.emit('start_exam');
+                document.getElementById('btn-start-exam').innerText = "Câu tiếp theo";
+                document.getElementById('btn-start-exam').onclick = () => socket.emit('next_question');
+            }
+        }
+
+        // Biến lưu trữ tạm thông tin người chơi để map giữa ID Socket và Tên
+        let currentPlayers = {};
+
+        function renderLeaderboard(players, scores) {
+            const list = document.getElementById('live-leaderboard');
+            
+            if (players) currentPlayers = players;
+            
+            list.innerHTML = '';
+            
+            // Chuyển object thành mảng để sắp xếp điểm giảm dần
+            let playerArray = [];
+            for (let socketId in currentPlayers) {
+                playerArray.push({
+                    id: socketId,
+                    name: currentPlayers[socketId],
+                    score: (scores && scores[socketId]) ? scores[socketId] : 0
+                });
+            }
+
+            // Sắp xếp điểm
+            playerArray.sort((a, b) => b.score - a.score);
+
+            if (playerArray.length === 0) {
+                list.innerHTML = `<li class="text-center text-gray-400 text-sm py-4">Chưa có ai tham gia phòng</li>`;
+                return;
+            }
+
+            playerArray.forEach((p, index) => {
+                let rankClass = "bg-gray-200 text-gray-600";
+                if (index === 0 && p.score > 0) rankClass = "bg-yellow-100 text-yellow-600"; // Top 1 vàng
+                if (index === 1 && p.score > 0) rankClass = "bg-gray-300 text-gray-700"; // Top 2 bạc
+                if (index === 2 && p.score > 0) rankClass = "bg-orange-100 text-orange-700"; // Top 3 đồng
+
+                list.innerHTML += `
+                    <li class="flex items-center justify-between p-3 bg-gray-50 rounded-xl border border-gray-100">
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 rounded-full ${rankClass} flex items-center justify-center font-bold text-xs">${index + 1}</div>
+                            <span class="font-bold text-navy text-sm">${p.name} ${socket && p.id === socket.id ? '(Bạn)' : ''}</span>
+                        </div>
+                        <span class="font-bold text-custom-red">${p.score}đ</span>
+                    </li>
+                `;
+            });
         }
     </script>
 </body>
