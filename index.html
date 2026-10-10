@@ -58,35 +58,7 @@
             </div>
 
             <!-- Form Đăng nhập -->
-<!-- Form Đăng nhập -->
-            <form id="form-login" onsubmit="function performLogin(event) {
-            event.preventDefault(); // Ngăn load lại trang
-            
-            // Lấy dữ liệu người dùng nhập
-            const email = document.getElementById('login-email').value;
-            const password = document.getElementById('login-password').value;
-            const errorMsg = document.getElementById('login-error');
-
-            // Kiểm tra điều kiện (Tài khoản: admin@gmail.com / Pass: 123456)
-            if (email === 'admin@gmail.com' && password === '123456') {
-                // ĐÚNG MẬT KHẨU
-                errorMsg.classList.add('hidden'); // Ẩn lỗi nếu đang hiện
-                
-                // Ẩn Màn hình Đăng nhập
-                document.getElementById('view-auth').classList.add('hidden');
-                
-                // Hiện Ứng dụng chính
-                const appContainer = document.getElementById('app-container');
-                appContainer.classList.remove('hidden');
-                appContainer.classList.add('flex');
-
-                // Xóa trống form để lần sau đăng xuất ra không bị dính chữ cũ
-                document.getElementById('form-login').reset(); 
-            } else {
-                // SAI MẬT KHẨU -> Hiện thông báo đỏ
-                errorMsg.classList.remove('hidden');
-            }
-        }" class="block">
+            <form id="form-login" onsubmit="performLogin(event)" class="block">
                 <!-- Vùng hiển thị lỗi (Mặc định ẩn) -->
                 <div id="login-error" class="hidden mb-4 p-3 bg-red-50 text-red-600 text-sm rounded-lg text-center font-semibold border border-red-200">
                     Email hoặc mật khẩu không chính xác!
@@ -94,36 +66,27 @@
 
                 <div class="mb-4">
                     <label class="block text-sm font-bold text-navy mb-2">Email</label>
-                    <div class="relative" id="profile-container">
-                    <div class="flex items-center gap-3 cursor-pointer select-none" onclick="toggleDropdown()">
-                        <!-- Thêm id="display-user-avatar" -->
-                        <div id="display-user-avatar" class="w-9 h-9 bg-navy rounded-full flex items-center justify-center text-white text-xs font-bold" style="background-color: #1a365d;">U</div>
-                        <div class="hidden md:block text-left">
-                            <!-- Thêm id="display-user-name" -->
-                            <div id="display-user-name" class="text-sm font-bold text-navy leading-tight" style="color: #1a365d;">Học viên VIP</div>
-                            <div class="text-xs text-gray-500 leading-tight">ID: 102938</div>
-                        </div>
-                        <i class="fa-solid fa-chevron-down text-gray-400 text-xs ml-1"></i>
-                    </div>
-
-                    <div id="profile-dropdown" class="absolute right-0 mt-4 w-56 bg-white rounded-xl shadow-[0_10px_25px_-5px_rgba(0,0,0,0.1)] border border-gray-100 hidden z-50 overflow-hidden">
-                        <div class="py-1">
-                            <a href="javascript:void(0)" onclick="switchView('settings')" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-red-700 font-medium transition-colors">
-                                <i class="fa-regular fa-user w-5 text-center mr-2 text-gray-400"></i> Thông tin cá nhân
-                            </a>
-                            <div class="h-px bg-gray-100 my-1 mx-2"></div>
-                            <a href="javascript:void(0)" onclick="logoutUser(event)" class="flex items-center px-4 py-3 text-sm text-red-600 hover:bg-red-50 font-bold transition-colors">
-                                <i class="fa-solid fa-arrow-right-from-bracket w-5 text-center mr-2 text-red-500"></i> Đăng xuất
-                            </a>
-                        </div>
+                    <div class="relative">
+                        <i class="fa-regular fa-envelope text-gray-400 absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"></i>
+                        <input id="login-email" type="email" required class="w-full pl-10 pr-3 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-blue-400 focus:bg-white text-sm transition-colors" placeholder="Nhập email của bạn">
                     </div>
                 </div>
+                <div class="mb-2">
+                    <label class="block text-sm font-bold text-navy mb-2">Mật khẩu</label>
+                    <div class="relative">
+                        <i class="fa-solid fa-lock text-gray-400 absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"></i>
+                        <input id="login-password" type="password" required class="w-full pl-10 pr-3 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-blue-400 focus:bg-white text-sm transition-colors" placeholder="Nhập mật khẩu">
+                    </div>
+                </div>
+                <div class="flex justify-end mb-6">
+                    <a href="#" class="text-xs font-semibold text-custom-red hover:underline">Quên mật khẩu?</a>
+                </div>
+                <button type="submit" class="w-full py-3 bg-custom-red hover:bg-red-800 text-white font-bold rounded-xl shadow-lg transition-all transform hover:-translate-y-0.5">
                     Đăng nhập vào hệ thống
                 </button>
             </form>
 
             <!-- Form Đăng ký (Mặc định ẩn) -->
-           <!-- Form Đăng ký (Mặc định ẩn) -->
             <form id="form-register" onsubmit="performRegister(event)" class="hidden">
                 <!-- Thông báo đăng ký -->
                 <div id="register-msg" class="hidden mb-4 p-3 text-sm rounded-lg text-center font-semibold border"></div>
@@ -153,6 +116,8 @@
                     Tạo tài khoản mới
                 </button>
             </form>
+        </div>
+    </div>
 
     <!-- ================= 2. GIAO DIỆN HỆ THỐNG CHÍNH (Ban đầu bị ẩn đi) ================= -->
     <div id="app-container" class="h-screen flex-col hidden w-full">
@@ -188,14 +153,16 @@
                 
                 <div class="relative" id="profile-container">
                     <div class="flex items-center gap-3 cursor-pointer select-none" onclick="toggleDropdown()">
-                        <div class="w-9 h-9 bg-navy rounded-full flex items-center justify-center text-white text-xs font-bold" style="background-color: #1a365d;">U</div>
+                        <!-- Avatar & Tên (JS sẽ tự động thay đổi dựa vào người đăng nhập) -->
+                        <div id="display-user-avatar" class="w-9 h-9 bg-navy rounded-full flex items-center justify-center text-white text-xs font-bold" style="background-color: #1a365d;">U</div>
                         <div class="hidden md:block text-left">
-                            <div class="text-sm font-bold text-navy leading-tight" style="color: #1a365d;">Học viên VIP</div>
+                            <div id="display-user-name" class="text-sm font-bold text-navy leading-tight" style="color: #1a365d;">Học viên VIP</div>
                             <div class="text-xs text-gray-500 leading-tight">ID: 102938</div>
                         </div>
                         <i class="fa-solid fa-chevron-down text-gray-400 text-xs ml-1"></i>
                     </div>
 
+                    <!-- Bảng Dropdown -->
                     <div id="profile-dropdown" class="absolute right-0 mt-4 w-56 bg-white rounded-xl shadow-[0_10px_25px_-5px_rgba(0,0,0,0.1)] border border-gray-100 hidden z-50 overflow-hidden">
                         <div class="py-1">
                             <a href="javascript:void(0)" onclick="switchView('settings')" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-red-700 font-medium transition-colors">
@@ -222,6 +189,12 @@
                     <a href="javascript:void(0)" class="nav-item flex items-center gap-3 px-4 py-3 text-gray-600 rounded-xl hover:bg-gray-50 hover:text-navy font-semibold transition-colors text-sm">
                         <i class="fa-solid fa-book w-5 text-center text-gray-400"></i> Khóa học của tôi
                     </a>
+                    <a href="javascript:void(0)" class="nav-item flex items-center gap-3 px-4 py-3 text-gray-600 rounded-xl hover:bg-gray-50 hover:text-navy font-semibold transition-colors text-sm">
+                        <i class="fa-regular fa-calendar w-5 text-center text-gray-400"></i> Lịch học
+                    </a>
+                    <a href="javascript:void(0)" class="nav-item flex items-center gap-3 px-4 py-3 text-gray-600 rounded-xl hover:bg-gray-50 hover:text-navy font-semibold transition-colors text-sm">
+                        <i class="fa-solid fa-chart-pie w-5 text-center text-gray-400"></i> Kết quả học tập
+                    </a>
                 </nav>
                 <div class="border-t border-gray-100 pt-4 mt-2">
                     <a href="javascript:void(0)" onclick="switchView('settings')" id="nav-settings" class="nav-item flex items-center gap-3 px-4 py-3 text-gray-600 rounded-xl hover:bg-gray-50 hover:text-navy font-semibold transition-colors text-sm">
@@ -232,12 +205,79 @@
 
             <!-- Main Content -->
             <main class="flex-1 overflow-y-auto p-6 md:p-8 relative">
+                
                 <!-- VIEW: TRANG CHỦ -->
                 <div id="view-home" class="block">
+                    <!-- Chào mừng & Mục tiêu -->
                     <div class="flex flex-col xl:flex-row gap-6 mb-10">
                         <div class="flex-1 bg-white rounded-2xl p-8 shadow-sm flex flex-col justify-center border border-gray-100">
                             <h2 class="text-3xl font-extrabold text-navy mb-2">Chào mừng trở lại! 👋</h2>
-                            <p class="text-gray-500">Bạn đã đăng nhập thành công vào hệ thống.</p>
+                            <p class="text-gray-500">Hãy tiếp tục hành trình chinh phục kiến thức của bạn hôm nay.</p>
+                        </div>
+                        <div class="w-full xl:w-96 bg-gradient-to-r from-gray-50 to-gray-100 rounded-2xl p-6 shadow-sm border border-gray-200 flex items-center gap-4">
+                            <div class="relative w-16 h-16 flex items-center justify-center">
+                                <svg class="w-full h-full transform -rotate-90" viewBox="0 0 36 36">
+                                    <path class="text-gray-200" stroke-width="3" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                    <path class="text-custom-red" stroke-dasharray="60, 100" stroke-width="3" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                </svg>
+                                <span class="absolute text-xl font-bold text-navy">3</span>
+                            </div>
+                            <div>
+                                <div class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">Khóa học đang mở</div>
+                                <div class="text-sm font-bold text-navy">Mục tiêu tuần này: Hoàn thành 5 bài giảng</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Đang học dở -->
+                    <div class="flex justify-between items-end mb-6">
+                        <h3 class="text-2xl font-extrabold text-navy">Đang học dở</h3>
+                        <a href="#" class="text-custom-red font-bold text-sm hover:underline">Xem tất cả</a>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- Card Toán -->
+                        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow cursor-pointer flex flex-col h-full">
+                            <div class="h-40 bg-blue-50 flex items-center justify-center">
+                                <span class="text-4xl font-extrabold text-navy opacity-80">Toán Đại Số</span>
+                            </div>
+                            <div class="p-6 flex flex-col flex-1">
+                                <span class="inline-block px-3 py-1 bg-blue-50 text-blue-800 text-[10px] font-bold rounded mb-3 w-max">TOÁN HỌC</span>
+                                <h4 class="font-bold text-navy text-lg leading-tight mb-2">Luyện Thi HSA Đại Số - Chuyên đề Hàm Số Cơ Bản</h4>
+                                <p class="text-xs text-gray-500 mb-6 flex-1">Bài học tiếp: Đạo hàm của hàm số hợp</p>
+                                <div>
+                                    <div class="flex justify-between text-xs font-bold mb-2">
+                                        <span class="text-custom-red">65%</span>
+                                        <span class="text-gray-400">15/24 Bài</span>
+                                    </div>
+                                    <div class="w-full bg-gray-100 rounded-full h-1.5 mb-4">
+                                        <div class="bg-custom-red h-1.5 rounded-full" style="width: 65%"></div>
+                                    </div>
+                                    <button class="w-full py-2.5 bg-gray-50 hover:bg-gray-100 text-navy font-bold rounded-lg transition-colors text-sm">Tiếp tục học</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card Lý -->
+                        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow cursor-pointer flex flex-col h-full">
+                            <div class="h-40 bg-green-50 flex items-center justify-center">
+                                <span class="text-4xl font-extrabold text-navy opacity-80">Vật Lý 12</span>
+                            </div>
+                            <div class="p-6 flex flex-col flex-1">
+                                <span class="inline-block px-3 py-1 bg-green-50 text-green-800 text-[10px] font-bold rounded mb-3 w-max">VẬT LÝ</span>
+                                <h4 class="font-bold text-navy text-lg leading-tight mb-2">Tổng Ôn Vật Lý 12 - Dao Động Cơ Điện</h4>
+                                <p class="text-xs text-gray-500 mb-6 flex-1">Bài học tiếp: Con lắc lò xo</p>
+                                <div>
+                                    <div class="flex justify-between text-xs font-bold mb-2">
+                                        <span class="text-custom-red">30%</span>
+                                        <span class="text-gray-400">6/20 Bài</span>
+                                    </div>
+                                    <div class="w-full bg-gray-100 rounded-full h-1.5 mb-4">
+                                        <div class="bg-custom-red h-1.5 rounded-full" style="width: 30%"></div>
+                                    </div>
+                                    <button class="w-full py-2.5 bg-gray-50 hover:bg-gray-100 text-navy font-bold rounded-lg transition-colors text-sm">Tiếp tục học</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -248,10 +288,27 @@
                         <h1 class="text-2xl font-extrabold text-navy">Hồ sơ cá nhân</h1>
                         <p class="text-gray-500 text-sm mt-1">Cập nhật thông tin của bạn để chúng tôi hỗ trợ tốt nhất.</p>
                     </div>
+
                     <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-8">
                         <form onsubmit="saveSettings(event)">
-                            <p class="text-gray-500 text-sm mb-4">Các trường nhập liệu ở đây (Tương tự code ban đầu của bạn)...</p>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-sm font-bold text-navy mb-2">Họ và tên</label>
+                                    <div class="relative">
+                                        <i class="fa-regular fa-user text-gray-400 absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"></i>
+                                        <input type="text" class="w-full pl-10 pr-3 py-2.5 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:border-blue-400 focus:bg-white text-sm" placeholder="Nhập họ và tên">
+                                    </div>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-bold text-navy mb-2">Số điện thoại</label>
+                                    <div class="relative">
+                                        <i class="fa-solid fa-phone text-gray-400 text-xs absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"></i>
+                                        <input type="tel" class="w-full pl-10 pr-3 py-2.5 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:border-blue-400 focus:bg-white text-sm" placeholder="Ví dụ: 0912345678">
+                                    </div>
+                                </div>
+                            </div>
                             <div class="mt-8 flex justify-end gap-3 pt-6 border-t border-gray-100">
+                                <button type="button" onclick="switchView('home')" class="px-6 py-2.5 rounded-lg font-bold text-gray-600 bg-white border border-gray-300 hover:bg-gray-50 transition text-sm">Hủy bỏ</button>
                                 <button type="submit" class="px-6 py-2.5 rounded-lg font-bold text-white bg-custom-red hover:bg-red-800 shadow-md transition text-sm flex items-center gap-2">
                                     <i class="fa-regular fa-floppy-disk"></i> Lưu thay đổi
                                 </button>
@@ -271,7 +328,11 @@
 
     <!-- ================= 3. JAVASCRIPT ================= -->
     <script>
-        // --- CÁC HÀM XỬ LÝ ĐĂNG NHẬP / ĐĂNG KÝ ---
+        // --------------------------------------------------------
+        // PHẦN 1: XỬ LÝ ĐĂNG KÝ VÀ ĐĂNG NHẬP TÀI KHOẢN
+        // --------------------------------------------------------
+        
+        // Chuyển đổi qua lại giữa form Đăng nhập và form Đăng ký
         function switchAuth(mode) {
             const tabLogin = document.getElementById('tab-login');
             const tabRegister = document.getElementById('tab-register');
@@ -301,37 +362,106 @@
             }
         }
 
-        function performLogin(event) {
-            event.preventDefault(); // Ngăn load lại trang
+        // Xử lý khi bấm nút "Tạo tài khoản mới"
+        function performRegister(event) {
+            event.preventDefault(); // Tránh load lại trang
             
-            // Ẩn Màn hình Đăng nhập
-            document.getElementById('view-auth').classList.add('hidden');
-            
-            // Hiện Ứng dụng chính (Đổi từ 'hidden' thành 'flex')
-            const appContainer = document.getElementById('app-container');
-            appContainer.classList.remove('hidden');
-            appContainer.classList.add('flex');
+            const name = document.getElementById('reg-name').value;
+            const email = document.getElementById('reg-email').value;
+            const password = document.getElementById('reg-password').value;
+            const msgBox = document.getElementById('register-msg');
+
+            // Đọc dữ liệu từ bộ nhớ trình duyệt
+            const existingUsers = JSON.parse(localStorage.getItem('yaecute_users')) || {};
+
+            if (existingUsers[email]) {
+                // Lỗi: Trùng email
+                msgBox.className = "mb-4 p-3 bg-red-50 text-red-600 text-sm rounded-lg text-center font-semibold border border-red-200 block";
+                msgBox.textContent = "Email này đã được đăng ký! Vui lòng dùng email khác.";
+            } else {
+                // Thành công: Lưu tài khoản mới
+                existingUsers[email] = { name: name, password: password };
+                localStorage.setItem('yaecute_users', JSON.stringify(existingUsers));
+
+                msgBox.className = "mb-4 p-3 bg-green-50 text-green-600 text-sm rounded-lg text-center font-semibold border border-green-200 block";
+                msgBox.textContent = "Đăng ký thành công! Đang chuyển sang Đăng nhập...";
+
+                document.getElementById('form-register').reset(); // Xóa form
+
+                // Đợi 1.5s rồi tự nhảy sang tab Đăng nhập
+                setTimeout(() => {
+                    msgBox.classList.add('hidden');
+                    switchAuth('login');
+                    document.getElementById('login-email').value = email; // Điền sẵn email vừa tạo
+                    document.getElementById('login-password').focus();
+                }, 1500);
+            }
         }
 
+        // Xử lý khi bấm nút "Đăng nhập vào hệ thống"
+        function performLogin(event) {
+            event.preventDefault();
+            
+            const email = document.getElementById('login-email').value;
+            const password = document.getElementById('login-password').value;
+            const errorMsg = document.getElementById('login-error');
+
+            const existingUsers = JSON.parse(localStorage.getItem('yaecute_users')) || {};
+
+            // Tài khoản admin ẩn mặc định HOẶC tài khoản do người dùng vừa đăng ký
+            const isAdmin = (email === 'admin@gmail.com' && password === '123456');
+            const isRegisteredUser = (existingUsers[email] && existingUsers[email].password === password);
+
+            if (isAdmin || isRegisteredUser) {
+                // 1. Ẩn thông báo lỗi
+                errorMsg.classList.add('hidden'); 
+                
+                // 2. Lấy tên người dùng và Cập nhật Header
+                const userName = isAdmin ? "Admin VIP" : existingUsers[email].name;
+                document.getElementById('display-user-name').textContent = userName;
+                document.getElementById('display-user-avatar').textContent = userName.charAt(0).toUpperCase();
+
+                // 3. Tắt Màn hình Đăng nhập
+                document.getElementById('view-auth').classList.add('opacity-0', 'pointer-events-none');
+                setTimeout(() => { document.getElementById('view-auth').classList.add('hidden'); }, 500); // Đợi hiệu ứng mờ
+                
+                // 4. Mở Ứng dụng Học tập
+                const appContainer = document.getElementById('app-container');
+                appContainer.classList.remove('hidden');
+                appContainer.classList.add('flex');
+
+                document.getElementById('form-login').reset();
+            } else {
+                // Sai tài khoản / mật khẩu
+                errorMsg.classList.remove('hidden');
+            }
+        }
+
+        // Đăng xuất
         function logoutUser(event) {
             event.preventDefault();
             
-            // Đóng menu avatar
-            document.getElementById('profile-dropdown').classList.add('hidden');
-
-            // Ẩn Ứng dụng chính
+            document.getElementById('profile-dropdown').classList.add('hidden'); // Đóng menu
+            
+            // Ẩn Ứng dụng
             const appContainer = document.getElementById('app-container');
             appContainer.classList.remove('flex');
             appContainer.classList.add('hidden');
 
-            // Hiện lại màn hình Đăng nhập
-            document.getElementById('view-auth').classList.remove('hidden');
+            // Hiện lại Màn hình Đăng nhập
+            const viewAuth = document.getElementById('view-auth');
+            viewAuth.classList.remove('hidden');
+            setTimeout(() => { viewAuth.classList.remove('opacity-0', 'pointer-events-none'); }, 50);
             
-            // Tự động chuyển về tab "Trang chủ" để lần đăng nhập sau mở đúng
+            // Reset tab về Trang chủ
             switchView('home'); 
         }
 
-        // --- CÁC HÀM XỬ LÝ GIAO DIỆN HỆ THỐNG (Như cũ) ---
+        // --------------------------------------------------------
+        // PHẦN 2: XỬ LÝ GIAO DIỆN BÊN TRONG HỆ THỐNG
+        // --------------------------------------------------------
+
+        // Chuyển đổi các trang (Trang chủ / Cài đặt)
         function switchView(viewName) {
             const viewHome = document.getElementById('view-home');
             const viewSettings = document.getElementById('view-settings');
@@ -360,10 +490,12 @@
             }
         }
 
+        // Đóng mở Menu User Dropdown
         function toggleDropdown() {
             document.getElementById('profile-dropdown').classList.toggle('hidden');
         }
 
+        // Tự động đóng Dropdown khi click chuột ra ngoài
         document.addEventListener('click', function(event) {
             const profileContainer = document.getElementById('profile-container');
             const dropdown = document.getElementById('profile-dropdown');
@@ -374,6 +506,7 @@
             }
         });
 
+        // Nút Lưu thông báo ở trang Cài đặt
         function saveSettings(event) {
             event.preventDefault();
             const toast = document.getElementById('toast-success');
