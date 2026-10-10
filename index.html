@@ -94,55 +94,65 @@
 
                 <div class="mb-4">
                     <label class="block text-sm font-bold text-navy mb-2">Email</label>
-                    <div class="relative">
-                        <i class="fa-regular fa-envelope text-gray-400 absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"></i>
-                        <input id="login-email" type="email" required class="w-full pl-10 pr-3 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-blue-400 focus:bg-white text-sm transition-colors" placeholder="Nhập email của bạn (admin@gmail.com)">
+                    <div class="relative" id="profile-container">
+                    <div class="flex items-center gap-3 cursor-pointer select-none" onclick="toggleDropdown()">
+                        <!-- Thêm id="display-user-avatar" -->
+                        <div id="display-user-avatar" class="w-9 h-9 bg-navy rounded-full flex items-center justify-center text-white text-xs font-bold" style="background-color: #1a365d;">U</div>
+                        <div class="hidden md:block text-left">
+                            <!-- Thêm id="display-user-name" -->
+                            <div id="display-user-name" class="text-sm font-bold text-navy leading-tight" style="color: #1a365d;">Học viên VIP</div>
+                            <div class="text-xs text-gray-500 leading-tight">ID: 102938</div>
+                        </div>
+                        <i class="fa-solid fa-chevron-down text-gray-400 text-xs ml-1"></i>
+                    </div>
+
+                    <div id="profile-dropdown" class="absolute right-0 mt-4 w-56 bg-white rounded-xl shadow-[0_10px_25px_-5px_rgba(0,0,0,0.1)] border border-gray-100 hidden z-50 overflow-hidden">
+                        <div class="py-1">
+                            <a href="javascript:void(0)" onclick="switchView('settings')" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-red-700 font-medium transition-colors">
+                                <i class="fa-regular fa-user w-5 text-center mr-2 text-gray-400"></i> Thông tin cá nhân
+                            </a>
+                            <div class="h-px bg-gray-100 my-1 mx-2"></div>
+                            <a href="javascript:void(0)" onclick="logoutUser(event)" class="flex items-center px-4 py-3 text-sm text-red-600 hover:bg-red-50 font-bold transition-colors">
+                                <i class="fa-solid fa-arrow-right-from-bracket w-5 text-center mr-2 text-red-500"></i> Đăng xuất
+                            </a>
+                        </div>
                     </div>
                 </div>
-                <div class="mb-2">
-                    <label class="block text-sm font-bold text-navy mb-2">Mật khẩu</label>
-                    <div class="relative">
-                        <i class="fa-solid fa-lock text-gray-400 absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"></i>
-                        <input id="login-password" type="password" required class="w-full pl-10 pr-3 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-blue-400 focus:bg-white text-sm transition-colors" placeholder="Nhập mật khẩu (123456)">
-                    </div>
-                </div>
-                <div class="flex justify-end mb-6">
-                    <a href="#" class="text-xs font-semibold text-custom-red hover:underline">Quên mật khẩu?</a>
-                </div>
-                <button type="submit" class="w-full py-3 bg-custom-red hover:bg-red-800 text-white font-bold rounded-xl shadow-lg transition-all transform hover:-translate-y-0.5">
                     Đăng nhập vào hệ thống
                 </button>
             </form>
 
             <!-- Form Đăng ký (Mặc định ẩn) -->
-            <form id="form-register" onsubmit="performLogin(event)" class="hidden">
+           <!-- Form Đăng ký (Mặc định ẩn) -->
+            <form id="form-register" onsubmit="performRegister(event)" class="hidden">
+                <!-- Thông báo đăng ký -->
+                <div id="register-msg" class="hidden mb-4 p-3 text-sm rounded-lg text-center font-semibold border"></div>
+
                 <div class="mb-4">
                     <label class="block text-sm font-bold text-navy mb-2">Họ và tên</label>
                     <div class="relative">
                         <i class="fa-regular fa-user text-gray-400 absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"></i>
-                        <input type="text" required class="w-full pl-10 pr-3 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-blue-400 focus:bg-white text-sm transition-colors" placeholder="Nguyễn Văn A">
+                        <input id="reg-name" type="text" required class="w-full pl-10 pr-3 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-blue-400 focus:bg-white text-sm transition-colors" placeholder="Nguyễn Văn A">
                     </div>
                 </div>
                 <div class="mb-4">
                     <label class="block text-sm font-bold text-navy mb-2">Email</label>
                     <div class="relative">
                         <i class="fa-regular fa-envelope text-gray-400 absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"></i>
-                        <input type="email" required class="w-full pl-10 pr-3 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-blue-400 focus:bg-white text-sm transition-colors" placeholder="email@gmail.com">
+                        <input id="reg-email" type="email" required class="w-full pl-10 pr-3 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-blue-400 focus:bg-white text-sm transition-colors" placeholder="email@gmail.com">
                     </div>
                 </div>
                 <div class="mb-6">
                     <label class="block text-sm font-bold text-navy mb-2">Mật khẩu</label>
                     <div class="relative">
                         <i class="fa-solid fa-lock text-gray-400 absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"></i>
-                        <input type="password" required class="w-full pl-10 pr-3 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-blue-400 focus:bg-white text-sm transition-colors" placeholder="Tạo mật khẩu">
+                        <input id="reg-password" type="password" required class="w-full pl-10 pr-3 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-blue-400 focus:bg-white text-sm transition-colors" placeholder="Tạo mật khẩu">
                     </div>
                 </div>
                 <button type="submit" class="w-full py-3 bg-navy hover:bg-blue-900 text-white font-bold rounded-xl shadow-lg transition-all transform hover:-translate-y-0.5" style="background-color: #1a365d;">
                     Tạo tài khoản mới
                 </button>
             </form>
-        </div>
-    </div>
 
     <!-- ================= 2. GIAO DIỆN HỆ THỐNG CHÍNH (Ban đầu bị ẩn đi) ================= -->
     <div id="app-container" class="h-screen flex-col hidden w-full">
