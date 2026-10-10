@@ -412,61 +412,550 @@
                 </div>
 
                 <!-- VIEW: PHÒNG LUYỆN THI TRỰC TIẾP (MỚI) -->
-                <div id="view-exam-room" class="hidden h-full flex-col">
-                    <div class="mb-6 flex justify-between items-center shrink-0">
-                        <div>
-                            <h1 class="text-2xl font-extrabold text-navy">Phòng Thực Chiến 🔴</h1>
-                            <p class="text-gray-500 text-sm mt-1">Thi đấu trực tiếp cùng các học viên khác.</p>
-                        </div>
-                        <div class="flex gap-3">
-                            <span id="room-status" class="px-4 py-2 bg-yellow-100 text-yellow-700 font-bold rounded-lg text-sm flex items-center gap-2">
-                                <i class="fa-solid fa-spinner fa-spin"></i> Đang chờ bắt đầu...
-                            </span>
-                            <!-- Nút này chỉ hiện cho Admin -->
-                            <button id="btn-start-exam" onclick="startRealtimeExam()" class="hidden px-4 py-2 bg-custom-red text-white font-bold rounded-lg shadow hover:bg-red-800 transition text-sm">
-                                Bắt đầu thi
-                            </button>
-                        </div>
-                    </div>
+                <!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hệ thống Học tập - YAECUTE (Kèm Phòng Thi Mới)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f3f4f6;
+        }
+        .text-navy { color: #1a365d; }
+        .text-custom-red { color: #c51624; }
+        .bg-custom-red { background-color: #c51624; }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
 
-                    <div class="flex flex-col lg:flex-row gap-6 flex-1 min-h-0">
-                        <!-- Khu vực câu hỏi -->
-                        <div class="flex-1 bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-10 flex flex-col overflow-y-auto">
-                            <div id="exam-waiting" class="flex-1 flex flex-col items-center justify-center text-center">
-                                <div class="w-24 h-24 bg-red-50 rounded-full flex items-center justify-center mb-4">
-                                    <i class="fa-solid fa-stopwatch text-4xl text-custom-red"></i>
-                                </div>
-                                <h2 class="text-2xl font-bold text-navy mb-2">Chuẩn bị sẵn sàng!</h2>
-                                <p class="text-gray-500">Bài thi sẽ bắt đầu khi chủ phòng bấm nút.</p>
-                            </div>
+        .nav-item.active {
+            background-color: #fef2f2;
+            color: #c51624;
+            font-weight: 700;
+            border: 1px solid #fee2e2;
+        }
+        .nav-item.active i { color: #c51624 !important; }
 
-                            <div id="exam-content" class="hidden flex-1 flex flex-col">
-                                <div class="flex justify-between items-center mb-6 border-b border-gray-100 pb-4">
-                                    <span class="font-bold text-gray-500" id="question-number">Câu hỏi hiện tại</span>
-                                    <span class="font-bold text-custom-red text-xl"><i class="fa-regular fa-clock"></i> <span id="countdown-timer">60</span>s</span>
-                                </div>
-                                <h3 id="live-question-text" class="text-xl font-bold text-navy mb-8 leading-relaxed">
-                                    <!-- Nội dung câu hỏi sẽ render ở đây -->
-                                </h3>
-                                <div id="live-options" class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-auto">
-                                    <!-- Các nút đáp án sẽ render ở đây -->
-                                </div>
-                            </div>
-                        </div>
+        /* Hiệu ứng Watermark cho phòng thi */
+        .watermark-bg {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-content: space-around;
+            opacity: 0.04;
+            overflow: hidden;
+            z-index: 0;
+            transform: rotate(-15deg) scale(1.5);
+        }
+        .watermark-text {
+            font-size: 24px;
+            font-weight: bold;
+            color: #000;
+            padding: 40px;
+            white-space: nowrap;
+        }
 
-                        <!-- Bảng xếp hạng Real-time -->
-                        <div class="w-full lg:w-80 bg-white rounded-2xl shadow-sm border border-gray-100 p-6 flex flex-col shrink-0">
-                            <h3 class="text-lg font-bold text-navy mb-4 border-b border-gray-100 pb-2 flex justify-between items-center">
-                                <span>Bảng xếp hạng</span>
-                                <i class="fa-solid fa-trophy text-yellow-500"></i>
-                            </h3>
-                            <ul id="live-leaderboard" class="space-y-3 overflow-y-auto flex-1">
-                                <!-- Danh sách học sinh sẽ render ở đây -->
-                                <li class="text-center text-gray-400 text-sm py-4">Đang chờ dữ liệu...</li>
-                            </ul>
+        /* Radio button custom (Cho dạng Đúng/Sai) */
+        .custom-radio {
+            width: 24px;
+            height: 24px;
+            border: 2px solid #cbd5e1;
+            border-radius: 50%;
+            cursor: pointer;
+            display: inline-block;
+            position: relative;
+        }
+        .custom-radio.selected {
+            border-color: #3b82f6;
+        }
+        .custom-radio.selected::after {
+            content: '';
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 12px; height: 12px;
+            background-color: #3b82f6;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body class="h-screen flex flex-col overflow-hidden relative">
+
+    <!-- ================= 1. GIAO DIỆN HỆ THỐNG CHÍNH ================= -->
+    <div id="app-container" class="h-screen flex flex-col w-full">
+        <!-- === HEADER === -->
+        <header class="bg-white py-3 px-6 flex justify-between items-center border-b border-gray-200 z-20 shrink-0">
+            <div class="flex items-center gap-3">
+                <div class="flex items-center gap-2 cursor-pointer" onclick="switchView('home')">
+                    <div class="text-3xl font-black text-custom-red select-none">1</div>
+                    <div class="text-xl font-bold text-navy tracking-wide">YAECUTE</div>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-5">
+                <div class="relative" id="profile-container">
+                    <div class="flex items-center gap-3 cursor-pointer select-none">
+                        <div class="w-9 h-9 bg-navy rounded-full flex items-center justify-center text-white text-xs font-bold" style="background-color: #1a365d;">H</div>
+                        <div class="hidden md:block text-left">
+                            <div id="display-user-name" class="text-sm font-bold text-navy leading-tight">Trần Văn Huy</div>
+                            <div class="text-xs text-gray-500 leading-tight">Học viên</div>
                         </div>
                     </div>
                 </div>
+            </div>
+        </header>
+
+        <!-- === THÂN TRANG === -->
+        <div class="flex flex-1 overflow-hidden">
+            <!-- Sidebar -->
+            <aside class="w-64 bg-white border-r border-gray-200 flex flex-col py-6 px-4 hidden md:flex shrink-0">
+                <nav class="flex-1 space-y-2">
+                    <a href="javascript:void(0)" onclick="switchView('home')" id="nav-home" class="nav-item flex items-center gap-3 px-4 py-3 text-gray-600 rounded-xl hover:bg-gray-50 hover:text-navy font-semibold transition-colors text-sm">
+                        <i class="fa-solid fa-house w-5 text-center text-gray-400"></i> Trang chủ
+                    </a>
+                    <a href="javascript:void(0)" onclick="switchView('exam-list')" id="nav-exam-list" class="nav-item active flex items-center gap-3 px-4 py-3 text-gray-600 rounded-xl hover:bg-gray-50 hover:text-navy font-semibold transition-colors text-sm">
+                        <i class="fa-solid fa-pen-nib w-5 text-center text-gray-400"></i> Thư viện Đề thi
+                    </a>
+                    <a href="javascript:void(0)" class="nav-item flex items-center gap-3 px-4 py-3 text-gray-600 rounded-xl hover:bg-gray-50 hover:text-navy font-semibold transition-colors text-sm">
+                        <i class="fa-solid fa-chart-pie w-5 text-center text-gray-400"></i> Kết quả học tập
+                    </a>
+                </nav>
+            </aside>
+
+            <!-- Main Content -->
+            <main class="flex-1 overflow-y-auto p-6 md:p-8 bg-gray-50 relative">
+                
+                <!-- VIEW 1: DANH SÁCH ĐỀ THI (Giống ảnh 1) -->
+                <div id="view-exam-list" class="block max-w-6xl mx-auto">
+                    <div class="mb-8">
+                        <h2 class="text-2xl font-extrabold text-navy">Kỳ thi Đánh giá tư duy TSA</h2>
+                        <p class="text-gray-500 mt-1">Luyện tập với các đề thi chuẩn cấu trúc mới nhất.</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+                        <!-- Card 1 -->
+                        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden flex flex-col">
+                            <div class="relative h-48">
+                                <img src="https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover" alt="HUST">
+                                <div class="absolute top-3 right-3 bg-yellow-400 text-yellow-900 text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1">
+                                    <i class="fa-solid fa-crown"></i> VIP
+                                </div>
+                            </div>
+                            <div class="p-5 flex flex-col flex-1">
+                                <div class="flex items-center gap-3 text-xs text-blue-600 font-semibold mb-3">
+                                    <span class="flex items-center gap-1"><i class="fa-regular fa-file-lines"></i> ĐÁNH GIÁ TƯ DUY TSA</span>
+                                    <span class="text-yellow-500"><i class="fa-solid fa-star"></i> 4.8</span>
+                                </div>
+                                <h3 class="text-lg font-bold text-gray-800 mb-4">TSA BÀI THI 04 - BMC</h3>
+                                <div class="flex gap-4 mb-6 text-sm text-gray-600 mt-auto">
+                                    <div class="flex items-center gap-2">
+                                        <div class="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center text-blue-500"><i class="fa-regular fa-circle-question"></i></div>
+                                        <div><span class="block text-[10px] text-gray-400 uppercase">Câu hỏi</span><span class="font-bold">100 câu</span></div>
+                                    </div>
+                                    <div class="flex items-center gap-2">
+                                        <div class="w-8 h-8 rounded-full bg-green-50 flex items-center justify-center text-green-500"><i class="fa-regular fa-clock"></i></div>
+                                        <div><span class="block text-[10px] text-gray-400 uppercase">Thời gian</span><span class="font-bold">150 phút</span></div>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <button onclick="openConfirmModal('TSA BÀI THI 04 - BMC', 150, 100)" class="flex-1 bg-purple-600 hover:bg-purple-700 text-white font-bold py-2.5 rounded-lg transition-colors text-sm">
+                                        Bắt đầu thi
+                                    </button>
+                                    <button class="w-10 h-10 rounded-lg border border-gray-200 flex items-center justify-center text-gray-500 hover:bg-gray-50"><i class="fa-regular fa-heart"></i></button>
+                                    <button class="w-10 h-10 rounded-lg border border-gray-200 flex items-center justify-center text-gray-500 hover:bg-gray-50"><i class="fa-solid fa-share-nodes"></i></button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 2 -->
+                        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden flex flex-col relative transform scale-[1.02] border-blue-200 shadow-blue-100">
+                            <div class="relative h-48">
+                                <img src="https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover" alt="HUST">
+                                <div class="absolute inset-0 bg-black/20 flex items-center justify-center">
+                                    <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-blue-600 pl-1 shadow-lg cursor-pointer hover:scale-110 transition-transform">
+                                        <i class="fa-solid fa-play text-xl"></i>
+                                    </div>
+                                </div>
+                                <div class="absolute top-3 right-3 bg-yellow-400 text-yellow-900 text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1">
+                                    <i class="fa-solid fa-crown"></i> VIP
+                                </div>
+                            </div>
+                            <div class="p-5 flex flex-col flex-1">
+                                <div class="flex items-center gap-3 text-xs text-blue-600 font-semibold mb-3">
+                                    <span class="flex items-center gap-1"><i class="fa-regular fa-file-lines"></i> ĐÁNH GIÁ TƯ DUY TSA</span>
+                                    <span class="text-yellow-500"><i class="fa-solid fa-star"></i> 4.8</span>
+                                </div>
+                                <h3 class="text-lg font-bold text-blue-600 mb-4">TSA BÀI THI 05 - BMC</h3>
+                                <div class="flex gap-4 mb-6 text-sm text-gray-600 mt-auto">
+                                    <div class="flex items-center gap-2">
+                                        <div class="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center text-blue-500"><i class="fa-regular fa-circle-question"></i></div>
+                                        <div><span class="block text-[10px] text-gray-400 uppercase">Câu hỏi</span><span class="font-bold">100 câu</span></div>
+                                    </div>
+                                    <div class="flex items-center gap-2">
+                                        <div class="w-8 h-8 rounded-full bg-green-50 flex items-center justify-center text-green-500"><i class="fa-regular fa-clock"></i></div>
+                                        <div><span class="block text-[10px] text-gray-400 uppercase">Thời gian</span><span class="font-bold">150 phút</span></div>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <button onclick="openConfirmModal('TSA BÀI THI 05 - BMC', 150, 100)" class="flex-1 bg-purple-600 hover:bg-purple-700 text-white font-bold py-2.5 rounded-lg transition-colors text-sm shadow-md shadow-purple-200">
+                                        Bắt đầu thi
+                                    </button>
+                                    <button class="w-10 h-10 rounded-lg border border-blue-100 bg-blue-50 flex items-center justify-center text-blue-600"><i class="fa-regular fa-heart"></i></button>
+                                    <button class="w-10 h-10 rounded-lg border border-blue-100 bg-blue-50 flex items-center justify-center text-blue-600"><i class="fa-solid fa-share-nodes"></i></button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 3 -->
+                        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden flex flex-col">
+                            <div class="relative h-48">
+                                <img src="https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover" alt="HUST">
+                                <div class="absolute top-3 right-3 bg-green-500 text-white text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1 shadow-sm">
+                                    <i class="fa-solid fa-check"></i> Miễn phí
+                                </div>
+                            </div>
+                            <div class="p-5 flex flex-col flex-1">
+                                <div class="flex items-center gap-3 text-xs text-blue-600 font-semibold mb-3">
+                                    <span class="flex items-center gap-1"><i class="fa-regular fa-file-lines"></i> ĐÁNH GIÁ TƯ DUY TSA</span>
+                                    <span class="text-yellow-500"><i class="fa-solid fa-star"></i> 4.8</span>
+                                </div>
+                                <h3 class="text-lg font-bold text-gray-800 mb-4">BMC 06_TƯ DUY TOÁN HỌC</h3>
+                                <div class="flex gap-4 mb-6 text-sm text-gray-600 mt-auto">
+                                    <div class="flex items-center gap-2">
+                                        <div class="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center text-blue-500"><i class="fa-regular fa-circle-question"></i></div>
+                                        <div><span class="block text-[10px] text-gray-400 uppercase">Câu hỏi</span><span class="font-bold">40 câu</span></div>
+                                    </div>
+                                    <div class="flex items-center gap-2">
+                                        <div class="w-8 h-8 rounded-full bg-green-50 flex items-center justify-center text-green-500"><i class="fa-regular fa-clock"></i></div>
+                                        <div><span class="block text-[10px] text-gray-400 uppercase">Thời gian</span><span class="font-bold">60 phút</span></div>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <button onclick="openConfirmModal('BMC 06_TƯ DUY TOÁN HỌC', 60, 40)" class="flex-1 bg-purple-600 hover:bg-purple-700 text-white font-bold py-2.5 rounded-lg transition-colors text-sm">
+                                        Bắt đầu thi
+                                    </button>
+                                    <button class="w-10 h-10 rounded-lg border border-gray-200 flex items-center justify-center text-gray-500 hover:bg-gray-50"><i class="fa-regular fa-heart"></i></button>
+                                    <button class="w-10 h-10 rounded-lg border border-gray-200 flex items-center justify-center text-gray-500 hover:bg-gray-50"><i class="fa-solid fa-share-nodes"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </main>
+        </div>
+    </div>
+
+    <!-- ================= 2. MÀN HÌNH XÁC NHẬN DỰ THI (Giống ảnh 2) ================= -->
+    <div id="modal-confirm" class="hidden fixed inset-0 z-50 flex items-center justify-center">
+        <!-- Background họa tiết hồng nhạt -->
+        <div class="absolute inset-0 bg-[#fff5f5] opacity-90" style="background-image: radial-gradient(#fecdd3 1px, transparent 1px); background-size: 20px 20px;"></div>
+        
+        <div class="relative bg-white rounded-xl shadow-[0_20px_50px_rgba(0,0,0,0.1)] w-full max-w-md p-8 md:p-10 border border-gray-100 z-10">
+            <h2 class="text-2xl font-bold text-center text-gray-800 mb-8">Xác nhận thông tin dự thi</h2>
+            
+            <div class="space-y-4 mb-8">
+                <div class="flex items-center">
+                    <div class="w-32 text-gray-500 text-sm flex items-center gap-2"><i class="fa-regular fa-user"></i> Họ tên</div>
+                    <div class="font-bold text-gray-800" id="confirm-name">Trần Văn Huy</div>
+                </div>
+                <div class="flex items-center">
+                    <div class="w-32 text-gray-500 text-sm flex items-center gap-2"><i class="fa-regular fa-file-lines"></i> Kíp thi</div>
+                    <div class="font-bold text-gray-800" id="confirm-exam-name">BMC 06_TƯ DUY TOÁN HỌC</div>
+                </div>
+                <div class="flex items-center">
+                    <div class="w-32 text-gray-500 text-sm flex items-center gap-2"><i class="fa-regular fa-clock"></i> Thời gian làm bài</div>
+                    <div class="font-bold text-gray-800" id="confirm-time">60 phút</div>
+                </div>
+                <div class="flex items-center">
+                    <div class="w-32 text-gray-500 text-sm flex items-center gap-2"><i class="fa-solid fa-list-ul"></i> Số lượng câu hỏi</div>
+                    <div class="font-bold text-gray-800" id="confirm-questions">40 câu</div>
+                </div>
+            </div>
+
+            <p class="text-sm text-gray-600 italic mb-6">
+                Lưu ý: Bằng việc nhấn nút "Bắt đầu thi" hệ thống sẽ bắt đầu tính giờ cho bài thi của bạn
+            </p>
+
+            <button onclick="startActualExam()" class="w-full bg-[#b91c1c] hover:bg-red-800 text-white font-bold py-3.5 rounded-lg shadow-md transition-colors flex justify-center items-center gap-2 mb-4">
+                <i class="fa-regular fa-circle-play"></i> Bắt đầu thi
+            </button>
+
+            <div class="flex justify-between items-center text-sm text-[#b91c1c] font-semibold">
+                <button onclick="closeConfirmModal()" class="hover:underline flex items-center gap-1"><i class="fa-solid fa-arrow-left"></i> Quay lại</button>
+                <button class="hover:underline flex items-center gap-1"><i class="fa-solid fa-circle-info"></i> Hướng dẫn</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= 3. PHÒNG THI CHÍNH THỨC (Giống ảnh 3) ================= -->
+    <div id="view-active-exam" class="hidden fixed inset-0 bg-[#f8f9fa] z-50 flex flex-col">
+        
+        <!-- Navbar phòng thi -->
+        <header class="bg-white h-16 border-b border-gray-200 flex items-center px-6 shrink-0 shadow-sm z-20">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 bg-[#b91c1c] text-white flex items-center justify-center font-black rounded text-lg">B</div>
+                <h1 class="text-xl font-bold text-gray-900" id="active-exam-title">BMC 06_TƯ DUY TOÁN HỌC</h1>
+            </div>
+        </header>
+
+        <!-- Main Workspace -->
+        <div class="flex-1 flex overflow-hidden p-4 md:p-6 gap-6 relative">
+            
+            <!-- Khu vực câu hỏi (Trái) -->
+            <div class="flex-1 bg-white rounded-xl shadow-sm border border-gray-200 overflow-y-auto relative flex flex-col">
+                <!-- Watermark -->
+                <div class="watermark-bg" id="watermark-container">
+                    <!-- Script sẽ render text Trần Văn Huy lặp lại ở đây -->
+                </div>
+
+                <div class="p-8 relative z-10 flex-1">
+                    <div class="flex items-start gap-4 mb-6">
+                        <div class="w-10 h-10 shrink-0 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-lg shadow-sm">1</div>
+                        <div class="pt-1 flex-1 text-lg text-gray-800">
+                            Cho phương trình ẩn $x$: $\sin^n(x) - \cos^n(x) = 1$ ($n \in \mathbb{N}^*$). Xét tính đúng sai các mệnh đề sau:
+                        </div>
+                        <button class="w-8 h-8 shrink-0 text-gray-400 hover:text-gray-600 border border-gray-200 rounded flex items-center justify-center bg-gray-50"><i class="fa-regular fa-bookmark"></i></button>
+                    </div>
+
+                    <!-- Bảng Đúng/Sai -->
+                    <div class="ml-14 border border-gray-200 rounded-lg overflow-hidden bg-white">
+                        <table class="w-full text-left border-collapse">
+                            <thead>
+                                <tr class="bg-gray-50 text-gray-600 text-sm">
+                                    <th class="py-3 px-4 border-b font-semibold w-24">Mệnh đề</th>
+                                    <th class="py-3 px-4 border-b font-semibold">Nội dung</th>
+                                    <th class="py-3 px-4 border-b font-semibold text-center w-20">Đúng</th>
+                                    <th class="py-3 px-4 border-b font-semibold text-center w-20">Sai</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-gray-800">
+                                <tr class="border-b hover:bg-gray-50">
+                                    <td class="py-4 px-4 align-top">a)</td>
+                                    <td class="py-4 px-4">Với $n = 1$ phương trình tương đương $\cos\left(x - \frac{\pi}{4}\right) = \frac{1}{\sqrt{2}}$.</td>
+                                    <td class="py-4 px-4 text-center"><div class="custom-radio" onclick="selectRadio(this, 'a')"></div></td>
+                                    <td class="py-4 px-4 text-center"><div class="custom-radio" onclick="selectRadio(this, 'a')"></div></td>
+                                </tr>
+                                <tr class="border-b hover:bg-gray-50">
+                                    <td class="py-4 px-4 align-top">b)</td>
+                                    <td class="py-4 px-4">Phương trình luôn có nghiệm với mọi $n \in \mathbb{N}^*$.</td>
+                                    <td class="py-4 px-4 text-center"><div class="custom-radio" onclick="selectRadio(this, 'b')"></div></td>
+                                    <td class="py-4 px-4 text-center"><div class="custom-radio" onclick="selectRadio(this, 'b')"></div></td>
+                                </tr>
+                                <tr class="hover:bg-gray-50">
+                                    <td class="py-4 px-4 align-top">c)</td>
+                                    <td class="py-4 px-4">Phương trình có đúng 2 nghiệm phân biệt trên $[0; 2\pi]$ khi $n$ chẵn.</td>
+                                    <td class="py-4 px-4 text-center"><div class="custom-radio" onclick="selectRadio(this, 'c')"></div></td>
+                                    <td class="py-4 px-4 text-center"><div class="custom-radio" onclick="selectRadio(this, 'c')"></div></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Footer Navigation Câu hỏi -->
+                <div class="bg-gray-50 border-t border-gray-200 p-4 flex justify-between items-center z-10">
+                    <button class="px-6 py-2 bg-white border border-gray-300 rounded font-semibold text-gray-600 hover:bg-gray-100 disabled:opacity-50">Quay lại</button>
+                    <button class="px-6 py-2 bg-blue-600 border border-blue-600 rounded font-semibold text-white hover:bg-blue-700">Câu tiếp theo</button>
+                </div>
+            </div>
+
+            <!-- Panel Thông tin (Phải) -->
+            <div class="w-80 flex flex-col gap-6 shrink-0 h-full">
+                
+                <!-- Box Thời gian -->
+                <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-5">
+                    <h3 class="font-bold text-gray-800 border-b border-gray-100 pb-3 mb-4">Thông tin thí sinh</h3>
+                    <div class="flex items-center gap-2 mb-4 text-gray-700">
+                        Họ tên: <span class="font-bold text-black" id="exam-student-name">Trần Văn Huy</span>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <span class="text-gray-600 text-sm">Thời gian còn lại</span>
+                        <span class="text-2xl font-black text-gray-900 font-mono tracking-wider" id="countdown-timer">00:59:48</span>
+                    </div>
+                </div>
+
+                <!-- Box Lưới Câu Hỏi -->
+                <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-5 flex-1 flex flex-col overflow-hidden">
+                    <h3 class="font-bold text-gray-800 text-sm text-center mb-4">Danh sách câu hỏi</h3>
+                    
+                    <!-- Chú giải -->
+                    <div class="flex justify-center gap-4 text-[10px] text-gray-500 mb-6">
+                        <div class="flex items-center gap-1"><div class="w-3 h-3 bg-blue-600 rounded-full"></div> Hiện tại</div>
+                        <div class="flex items-center gap-1"><div class="w-3 h-3 bg-red-600 rounded-full"></div> Đã trả lời</div>
+                        <div class="flex items-center gap-1"><div class="w-3 h-3 bg-yellow-500 rounded-full"></div> Đánh dấu</div>
+                    </div>
+
+                    <!-- Lưới -->
+                    <div class="flex-1 overflow-y-auto pr-2 custom-scrollbar">
+                        <div class="grid grid-cols-5 gap-3" id="question-grid">
+                            <!-- JS Render Buttons -->
+                        </div>
+                    </div>
+
+                    <!-- Nút nộp bài -->
+                    <div class="pt-4 mt-4 border-t border-gray-100">
+                        <p class="text-xs text-gray-500 mb-2">Bạn đã hoàn thành <span class="font-bold text-gray-800">1/40</span></p>
+                        <button onclick="submitExam()" class="w-full bg-[#b91c1c] hover:bg-red-800 text-white font-bold py-2.5 rounded-lg transition-colors">
+                            Nộp bài
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= SCRIPT ================= -->
+    <script>
+        // Data tạm
+        let currentExamTime = 60; // phút
+        let timerInterval;
+
+        // 1. Chuyển đổi View cơ bản
+        function switchView(viewId) {
+            document.getElementById('view-exam-list').classList.add('hidden');
+            document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
+            
+            if(viewId === 'exam-list') {
+                document.getElementById('view-exam-list').classList.remove('hidden');
+                document.getElementById('nav-exam-list').classList.add('active');
+            }
+            // Thêm các view khác của bạn ở đây...
+        }
+
+        // 2. Logic Phòng thi
+        function openConfirmModal(title, time, questions) {
+            document.getElementById('confirm-exam-name').innerText = title;
+            document.getElementById('confirm-time').innerText = time + " phút";
+            document.getElementById('confirm-questions').innerText = questions + " câu";
+            
+            currentExamTime = time; // Lưu thời gian để đếm ngược
+            
+            document.getElementById('modal-confirm').classList.remove('hidden');
+        }
+
+        function closeConfirmModal() {
+            document.getElementById('modal-confirm').classList.add('hidden');
+        }
+
+        function startActualExam() {
+            // Đóng Modal, Ẩn App chính
+            document.getElementById('modal-confirm').classList.add('hidden');
+            document.getElementById('app-container').classList.add('hidden');
+            
+            // Hiện Fullscreen Exam
+            const examView = document.getElementById('view-active-exam');
+            examView.classList.remove('hidden');
+            
+            // Set thông tin
+            const examTitle = document.getElementById('confirm-exam-name').innerText;
+            document.getElementById('active-exam-title').innerText = examTitle;
+            
+            // Khởi tạo Lưới câu hỏi (VD: 40 câu)
+            const numQuestions = parseInt(document.getElementById('confirm-questions').innerText);
+            renderQuestionGrid(numQuestions);
+
+            // Khởi tạo Watermark
+            renderWatermark("Trần Văn Huy - trhuy8516@gmail.com");
+
+            // Bắt đầu đếm ngược
+            startTimer(currentExamTime * 60);
+        }
+
+        function submitExam() {
+            if(confirm("Bạn có chắc chắn muốn nộp bài không?")) {
+                clearInterval(timerInterval);
+                alert("Nộp bài thành công!");
+                // Quay về trang chủ
+                document.getElementById('view-active-exam').classList.add('hidden');
+                document.getElementById('app-container').classList.remove('hidden');
+            }
+        }
+
+        // 3. Render Lưới Câu hỏi
+        function renderQuestionGrid(total) {
+            const grid = document.getElementById('question-grid');
+            grid.innerHTML = '';
+            for (let i = 1; i <= total; i++) {
+                const btn = document.createElement('button');
+                btn.innerText = i;
+                // Style mặc định giống ảnh: Số 1 màu xanh (Hiện tại), còn lại xám nhạt
+                let classes = "w-10 h-10 rounded-full text-sm font-bold flex items-center justify-center transition-colors ";
+                
+                if (i === 1) {
+                    classes += "bg-blue-600 text-white shadow-md";
+                } else {
+                    classes += "bg-gray-100 text-gray-600 hover:bg-gray-200";
+                }
+                
+                btn.className = classes;
+                grid.appendChild(btn);
+            }
+        }
+
+        // 4. Render Watermark background
+        function renderWatermark(text) {
+            const container = document.getElementById('watermark-container');
+            container.innerHTML = '';
+            // Lặp text để lấp đầy background
+            for(let i=0; i<30; i++) {
+                const span = document.createElement('span');
+                span.className = 'watermark-text';
+                span.innerText = text;
+                container.appendChild(span);
+            }
+        }
+
+        // 5. Logic Đếm ngược thời gian
+        function startTimer(durationInSeconds) {
+            let timer = durationInSeconds;
+            const display = document.getElementById('countdown-timer');
+            
+            clearInterval(timerInterval);
+            timerInterval = setInterval(function () {
+                let hours = parseInt(timer / 3600, 10);
+                let minutes = parseInt((timer % 3600) / 60, 10);
+                let seconds = parseInt(timer % 60, 10);
+
+                hours = hours < 10 ? "0" + hours : hours;
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                display.textContent = hours + ":" + minutes + ":" + seconds;
+
+                if (--timer < 0) {
+                    clearInterval(timerInterval);
+                    alert("Đã hết thời gian làm bài!");
+                    submitExam();
+                }
+            }, 1000);
+        }
+
+        // 6. Xử lý click custom radio button cho bảng Đúng/Sai
+        function selectRadio(element, rowKey) {
+            // Tìm hàng (tr) chứa nút được click
+            const tr = element.closest('tr');
+            // Xóa class 'selected' ở tất cả custom-radio trong hàng này
+            const radios = tr.querySelectorAll('.custom-radio');
+            radios.forEach(r => r.classList.remove('selected'));
+            // Thêm class 'selected' cho nút được click
+            element.classList.add('selected');
+        }
+        
+    </script>
+</body>
+</html>
 
                 <!-- TOAST THÔNG BÁO -->
                 <div id="toast-success" class="fixed bottom-6 right-6 bg-green-500 text-white px-5 py-3 rounded-lg shadow-lg transform translate-y-20 opacity-0 transition-all duration-300 flex items-center gap-3 z-50 pointer-events-none">
