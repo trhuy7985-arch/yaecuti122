@@ -576,33 +576,189 @@
     <script>
         let currentSessionEmail = null;
         let currentUser = null;
-        <!-- ================= 5. TẤT CẢ JAVASCRIPT GỘP ================= -->
-    <script>
-        let currentSessionEmail = null;
-        let currentUser = null;
-
+        
         // DÁN TOÀN BỘ DATA VÀO ĐÂY
         const tsaExamData = [
-            {
-                id: 1,
-                type: "true_false",
-                content: "Cho hàm số $y = f(x) = \\sqrt{1 + \\cos(x)}$. Khi ta xét $x \\in (0, \\pi)$, các nhận định dưới đây là đúng hay sai?",
-                propositions: [
-                    "Phương trình $\\sqrt{1 + \\cos(x)} = \\cos\\left(\\frac{x}{2}\\right)$ có nghiệm",
-                    "Phương trình $\\sqrt{1 + \\cos(x)} = \\cos\\left(\\frac{x}{4}\\right)$ có nghiệm",
-                    "Phương trình $\\sqrt{1 + \\cos(x)} = \\cos\\left(\\frac{\\pi}{8}\\right)$ có đúng 01 nghiệm"
-                ]
-            },
-            // ... (copy toàn bộ các object còn lại từ tin nhắn trước) ...
-            {
-                id: 37,
-                type: "fill_blank",
-                content: "Bạn Duy có 1000 viên bi được đánh số từ 1 đến 1000. Gọi $P$ là xác suất bạn Duy chọn ra 2 viên bi sao cho có đúng 1 viên chia hết cho 4 hoặc 6 nhưng không chia hết cho 4 và 5, giá trị của $P(\\overline{A}) =$ % (Làm tròn đến 3 chữ số hàng thập phân)"
-            }
-        ];
-
-        // ------------- 1. AUTH & CƠ BẢN -------------
-        function switchAuth(mode) {
+const tsaExamData = [
+    {
+        id: 1,
+        type: "true_false",
+        content: "Cho hàm số $y = f(x) = \\sqrt{1 + \\cos(x)}$. Khi ta xét $x \\in (0, \\pi)$, các nhận định dưới đây là đúng hay sai?",
+        propositions: [
+            "Phương trình $\\sqrt{1 + \\cos(x)} = \\cos\\left(\\frac{x}{2}\\right)$ có nghiệm",
+            "Phương trình $\\sqrt{1 + \\cos(x)} = \\cos\\left(\\frac{x}{4}\\right)$ có nghiệm",
+            "Phương trình $\\sqrt{1 + \\cos(x)} = \\cos\\left(\\frac{\\pi}{8}\\right)$ có đúng 01 nghiệm"
+        ]
+    },
+    {
+        id: 2,
+        type: "fill_blank",
+        content: "Bất phương trình $(\\log_2 x)^2 + \\log_3 \\frac{36}{x} \\leq \\left(1 + \\log_3 \\frac{36}{x}\\right) \\log_2 x$ có tập nghiệm là $x \\in [a, b]$. Giá trị của $a + b/2 =$"
+    },
+    {
+        id: 3,
+        type: "fill_blank",
+        content: "Can chi là hệ thống đánh số thứ tự năm theo chu kỳ, trong đó một năm được xác định bởi hai phần: Thiên Can (Giáp, Ất, Bính, Đinh, Mậu, Kỷ, Canh, Tân, Nhâm, Quý) và Địa Chi (Tý, Sửu, Dần, Mão, Thìn, Tỵ, Ngọ, Mùi, Thân, Dậu, Tuất, Hợi). Biết năm 1010 là năm Bính Tuất, vậy từ 1011 tính đến năm 2025 thì đã có bao nhiêu năm Bích Tuất?"
+    },
+    {
+        id: 4,
+        type: "fill_blank",
+        content: "Hiếu và Nam đều có số báo danh có dạng là: $\\overline{3a8b}$. Biết số này đều chia hết cho 5 và 9 và số báo danh của Hiếu là số chẵn. Số báo danh của Hiếu và Nam lần lượt là:"
+    },
+    {
+        id: 5,
+        type: "fill_blank",
+        content: "Cho hàm số: $y = 4\\sin x\\sin\\left(x + \\frac{\\pi}{2}\\right)$. Giá trị lớn nhất và giá trị nhỏ nhất của y lần lượt là:"
+    },
+    {
+        id: 6,
+        type: "fill_blank",
+        content: "Cho hàm số: $f(x) = (x + 10)^6$. Tính $f''(2)$:"
+    },
+    {
+        id: 7,
+        type: "multiple_choice",
+        content: "Cho hàm số: $y = \\frac{1+x}{1-x}$. Nhận xét nào sau đây đúng?",
+        options: [
+            "A. Đồ thị hàm số có TCN $y = 1$, TCĐ $x = 1$",
+            "B. Đồ thị hàm số có TCN $y = -1$, TCĐ $x = 1$",
+            "C. Đồ thị hàm số có TCN $y = 1$, TCĐ $x = -1$",
+            "D. Đồ thị hàm số có TCN $y = -1$, TCĐ $x = -1$"
+        ]
+    },
+    {
+        id: 8,
+        type: "true_false",
+        content: "Cho hình lăng trụ đứng ABC.A'B'C' có tam giác ABC vuông cân tại A. Biết $BC = 3\\sqrt{2}a$, $AA' = 4a$. Các nhận định sau đây đúng hay sai?",
+        propositions: [
+            "$AB' = 3a$",
+            "Thể tích hình lăng trụ: $V = 6a^3$"
+        ]
+    },
+    {
+        id: 9,
+        type: "fill_blank",
+        content: "Tính $l = \\lim_{x \\to 0} \\frac{1-\\cos 2x}{x} =$"
+    },
+    {
+        id: 10,
+        type: "fill_blank",
+        content: "Một hàng học sinh gồm 3 nam và 7 nữ được xếp thành 1 hàng ngang. Tính xác suất để không có bất kì 2 bạn nam nào đứng cạnh nhau."
+    },
+    {
+        id: 11,
+        type: "multiple_choice",
+        content: "Trong không gian Oxyz, có điểm $A(a, b, c)$ và điểm $B(m, n, p)$ di chuyển nhưng luôn thoả mãn biểu thức: $\\begin{cases} a^2 + b^2 + c^2 = 9 \\\\\\\\ m^2 + n^2 + p^2 = 36 \\end{cases}$. Nhận định nào sau đây là sai?",
+        options: [
+            "A. Điểm A thuộc một mặt cầu cố định.",
+            "B. Độ dài ngắn nhất của AB là 3",
+            "C. Độ dài AB đạt cực tiểu $\\Leftrightarrow \\overrightarrow{OA} \\cdot \\overrightarrow{OB} = 36$",
+            "D. Độ dài AB đạt cực tiểu $\\Leftrightarrow$ A là trung điểm OB"
+        ]
+    },
+    {
+        id: 12,
+        type: "multiple_choice",
+        content: "Cho mẫu A có phần tử lớn nhất là 378, nhỏ nhất là 310, giá trị trung bình là 344, độ lệch chuẩn là 12. Nếu mẫu B được tạo thành từ mẫu A bỏ đi 2 phần tử 378 và 310 thì nhận định nào sau đây là đúng?",
+        options: [
+            "A. Mẫu B có giá trị trung bình lớn hơn mẫu A, độ lệch chuẩn lớn hơn mẫu A",
+            "B. Mẫu B có giá trị trung bình bé hơn mẫu A, độ lệch chuẩn lớn hơn mẫu A",
+            "C. Mẫu B có giá trị trung bình lớn hơn mẫu A, độ lệch chuẩn bé hơn mẫu A",
+            "D. Mẫu B có giá trị trung bình bé hơn mẫu A, độ lệch chuẩn bé hơn mẫu A"
+        ]
+    },
+    {
+        id: 13,
+        type: "true_false",
+        content: "Cho hình chóp đều S.ABCD có $SA = 2$, $AB = 1$. Các nhận định sau đúng hay sai?",
+        propositions: [
+            "SA và CD không vuông góc nhau",
+            "Góc giữa SA và CD là $30^o$",
+            "Khoảng cách giữa SA và CD bằng 1"
+        ]
+    },
+    {
+        id: 14,
+        type: "fill_blank",
+        content: "Cho hàm số $y = 2x^3 - 3x^2 - 1$. Hàm số $|y|$ đồng biến trên khoảng nào? Đồ thị hàm số $|y|$ có bao nhiêu điểm cực đại và cực tiểu?"
+    },
+    {
+        id: 17,
+        type: "multiple_choice",
+        content: "Cho 3 điểm của 1 tam giác $A(x_A, y_A, z_A)$; $B(x_B, y_B, z_B)$; $C(x_C, y_C, z_C)$. Biết điểm $G(x_G, y_G, z_G)$. Điều kiện nào sau đây tương đương với điều kiện G là trọng tâm tam giác ABC?",
+        options: [
+            "A. Tọa độ điểm G là trung bình cộng tọa độ các đỉnh: $\\begin{cases} x_G = \\frac{x_A + x_B + x_C}{3} \\\\\\\\ y_G = \\frac{y_A + y_B + y_C}{3} \\\\\\\\ z_G = \\frac{z_A + z_B + z_C}{3} \\end{cases}$",
+            "B. Đẳng thức vecto đặc trưng của trọng tâm: $\\vec{GA} + \\vec{GB} + \\vec{GC} = \\vec{0}$",
+            "C. Với điểm M bất kỳ, quan hệ vecto là: $\\vec{MA} + \\vec{MB} + \\vec{MC} = \\vec{MG}$",
+            "D. Vị trí của G trên đường trung tuyến AM (M là trung điểm BC): $\\vec{AG} = \\frac{1}{2}\\vec{AM}$"
+        ]
+    },
+    {
+        id: 20,
+        type: "fill_blank",
+        content: "Minh, bà, bố, mẹ và em đi xem phim với nhau. Tính xác suất bà ngồi ở chính giữa, xác suất bố mẹ ngồi ở 2 đầu, và xác suất bà ngồi cạnh mẹ:"
+    },
+    {
+        id: 21,
+        type: "fill_blank",
+        content: "Một hộp bi có 5 viên bi trong đó có 3 vàng, 2 xanh. Tính xác suất khi lấy 2 viên bi cùng lúc sẽ được 2 màu khác nhau:"
+    },
+    {
+        id: 22,
+        type: "fill_blank",
+        content: "Cho hàm số $f(x) = x^2 - x$. Với $F(x)$ là một nguyên hàm của $f(x)$. Biết $F(0) = 1$. Tính $F(6) =$"
+    },
+    {
+        id: 23,
+        type: "fill_blank",
+        content: "Cho đồ thị hàm số là một parabol $y = ax^2 + bx + c$ (P), có đỉnh $I(6, -12)$. Đồ thị cắt trục hoành tại điểm M có hoành độ bằng 8. Tính giá trị biểu thức: $a + b + c = ?$"
+    },
+    {
+        id: 24,
+        type: "fill_blank",
+        content: "Khảo sát một xe máy đang di chuyển trên đường trong vòng 6s cho biết vận tốc của xe đang di chuyển có biểu thức: $v_t = 12 + 4t - t^2(m/s)$. Xe có vận tốc lớn hơn $15\\ (m/s)$ trong khoảng thời gian nào:"
+    },
+    {
+        id: 25,
+        type: "fill_blank",
+        content: "Cho hàm số: $y = \\frac{3\\tan x - 5}{1 - \\sin^2 x}$. Tìm tập xác định của hàm số:"
+    },
+    {
+        id: 30,
+        type: "fill_blank",
+        content: "Cho hình (H) được giới hạn bởi đồ thị hàm số: $y = \\sqrt{4k^2 - x^2}$ ($k \\geq 0$) và trục hoành. Thể tích khối tròn xoay khi quay (H) quanh trục Ox là V. Có bao nhiêu giá trị k thoả mãn: $V < 6400\\pi$"
+    },
+    {
+        id: 31,
+        type: "fill_blank",
+        content: "Trong không gian Oxyz, cho 2 vector $\\vec{u} = (1, m, 1 - 2m)$; $\\vec{v} = (-5, m + 1, 3)$. Tính tổng các giá trị của m thoả mãn: $\\sin(\\vec{u}, \\vec{v})$ đạt cực đại."
+    },
+    {
+        id: 32,
+        type: "fill_blank",
+        content: "Cho tập A là tập gồm các số có 3 chữ số được tạo bởi 5 chữ số: $\\{0, 1, 2, 3, 5\\}$. Xác suất để lấy được 1 số trong tập A thoả mãn tổng các chữ số bằng 8 là $\\frac{a}{b}$. Tính $10a - b = ?$"
+    },
+    {
+        id: 34,
+        type: "fill_blank",
+        content: "Biết công thức tính thể tích: $V_{OABC} = \\frac{1}{6} |[\\overrightarrow{OA}, \\overrightarrow{OB}] \\cdot \\overrightarrow{OC}|$. Trong không gian $Oxyz$, cho điểm $A(-1,2,3)$; $B(3,-4,1)$. Điểm $C \\in Ox$ thoả mãn $V_{OABC} = 42$. Hoành độ điểm C là:"
+    },
+    {
+        id: 35,
+        type: "fill_blank",
+        content: "Cho hàm số: $y = 4\\sin^2 x + 3$. Hàm số đạt giá trị nhỏ nhất khi nào:"
+    },
+    {
+        id: 36,
+        type: "fill_blank",
+        content: "Phương trình $\\sin^2(x) = (1 - \\cos x)(1 + \\sin x)$ có bao nhiêu nghiệm $x \\in [0, 2026\\pi]$"
+    },
+    {
+        id: 37,
+        type: "fill_blank",
+        content: "Bạn Duy có 1000 viên bi được đánh số từ 1 đến 1000. Gọi $P$ là xác suất bạn Duy chọn ra 2 viên bi sao cho có đúng 1 viên chia hết cho 4 hoặc 6 nhưng không chia hết cho 4 và 5, giá trị của $P(\\overline{A}) =$ % (Làm tròn đến 3 chữ số hàng thập phân)"
+    }
+];
 
         // ------------- 1. AUTH & CƠ BẢN -------------
         function switchAuth(mode) {
