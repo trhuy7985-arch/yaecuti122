@@ -576,6 +576,33 @@
     <script>
         let currentSessionEmail = null;
         let currentUser = null;
+        <!-- ================= 5. TẤT CẢ JAVASCRIPT GỘP ================= -->
+    <script>
+        let currentSessionEmail = null;
+        let currentUser = null;
+
+        // DÁN TOÀN BỘ DATA VÀO ĐÂY
+        const tsaExamData = [
+            {
+                id: 1,
+                type: "true_false",
+                content: "Cho hàm số $y = f(x) = \\sqrt{1 + \\cos(x)}$. Khi ta xét $x \\in (0, \\pi)$, các nhận định dưới đây là đúng hay sai?",
+                propositions: [
+                    "Phương trình $\\sqrt{1 + \\cos(x)} = \\cos\\left(\\frac{x}{2}\\right)$ có nghiệm",
+                    "Phương trình $\\sqrt{1 + \\cos(x)} = \\cos\\left(\\frac{x}{4}\\right)$ có nghiệm",
+                    "Phương trình $\\sqrt{1 + \\cos(x)} = \\cos\\left(\\frac{\\pi}{8}\\right)$ có đúng 01 nghiệm"
+                ]
+            },
+            // ... (copy toàn bộ các object còn lại từ tin nhắn trước) ...
+            {
+                id: 37,
+                type: "fill_blank",
+                content: "Bạn Duy có 1000 viên bi được đánh số từ 1 đến 1000. Gọi $P$ là xác suất bạn Duy chọn ra 2 viên bi sao cho có đúng 1 viên chia hết cho 4 hoặc 6 nhưng không chia hết cho 4 và 5, giá trị của $P(\\overline{A}) =$ % (Làm tròn đến 3 chữ số hàng thập phân)"
+            }
+        ];
+
+        // ------------- 1. AUTH & CƠ BẢN -------------
+        function switchAuth(mode) {
 
         // ------------- 1. AUTH & CƠ BẢN -------------
         function switchAuth(mode) {
