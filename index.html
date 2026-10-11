@@ -222,6 +222,9 @@
                     <a href="javascript:void(0)" onclick="switchView('exam-list')" id="nav-exam-list" class="nav-item flex items-center gap-3 px-4 py-3 text-gray-600 rounded-xl hover:bg-gray-50 hover:text-navy font-semibold transition-colors text-sm">
                         <i class="fa-solid fa-file-pen w-5 text-center text-gray-400"></i> Thư viện Đề thi
                     </a>
+                    <a href="javascript:void(0)" onclick="switchView('exam-school-list')" id="nav-exam-school-list" class="nav-item flex items-center gap-3 px-4 py-3 text-gray-600 rounded-xl hover:bg-gray-50 hover:text-navy font-semibold transition-colors text-sm">
+                        <i class="fa-solid fa-graduation-cap w-5 text-center text-gray-400"></i> Đề thi Trường/Sở
+                    </a>
                     <a href="javascript:void(0)" onclick="switchView('realtime-exam')" id="nav-realtime-exam" class="nav-item flex items-center gap-3 px-4 py-3 text-gray-600 rounded-xl hover:bg-gray-50 hover:text-navy font-semibold transition-colors text-sm">
                         <i class="fa-solid fa-bolt w-5 text-center text-orange-400"></i> Phòng Thực Chiến
                     </a>
@@ -278,6 +281,24 @@
                                 <button onclick="switchView('realtime-exam')" class="w-full py-2.5 bg-orange-50 hover:bg-orange-100 text-orange-900 font-bold rounded-lg transition-colors text-sm">Vào Phòng Ngay</button>
                             </div>
                         </div>
+
+                        <!-- Card Chuyển tới Đề thi Trường/Sở -->
+                        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow cursor-pointer flex flex-col h-full">
+                            <div class="h-40 bg-blue-50 flex items-center justify-center relative overflow-hidden">
+                                <span class="text-4xl font-extrabold text-blue-900 opacity-80 z-10">THPT & SỞ GD</span>
+                            </div>
+                            <div class="p-6 flex flex-col flex-1">
+                                <span class="inline-block px-3 py-1 bg-blue-100 text-blue-800 text-[10px] font-bold rounded mb-3 w-max uppercase tracking-wider">
+                                    <i class="fa-solid fa-school mr-1"></i> THI THỬ 2026
+                                </span>
+                                <h4 class="font-bold text-navy text-lg leading-tight mb-2">Đề thi Trường/Sở</h4>
+                                <p class="text-xs text-gray-500 mb-6 flex-1">Tổng hợp đề thi thử bám sát cấu trúc mới của Bộ GD&ĐT</p>
+                                <button onclick="switchView('exam-school-list')" class="w-full py-2.5 bg-blue-50 hover:bg-blue-100 text-blue-800 font-bold rounded-lg transition-colors text-sm">
+                                    Xem danh sách đề
+                                </button>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
 
@@ -315,7 +336,41 @@
                     </div>
                 </div>
 
-                <!-- 2.3 PHÒNG THI TRỰC TIẾP SOCKET.IO -->
+                <!-- 2.3 DANH SÁCH ĐỀ THI TRƯỜNG/SỞ -->
+                <div id="view-exam-school-list" class="hidden max-w-6xl mx-auto">
+                    <div class="mb-8">
+                        <h2 class="text-2xl font-extrabold text-navy">Kỳ thi thử THPT & Sở Giáo dục</h2>
+                        <p class="text-gray-500 mt-1">Luyện tập với các đề thi chuẩn cấu trúc 2026 từ các trường chuyên trên cả nước.</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+                        <!-- Card Đề Trường/Sở 1 -->
+                        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden flex flex-col">
+                            <div class="relative h-48 bg-blue-100 flex items-center justify-center">
+                                <i class="fa-solid fa-building-columns text-6xl text-blue-300"></i>
+                                <div class="absolute top-3 right-3 bg-blue-500 text-white text-xs font-bold px-3 py-1.5 rounded-full">
+                                    Mới nhất
+                                </div>
+                            </div>
+                            <div class="p-5 flex flex-col flex-1">
+                                <h3 class="text-lg font-bold text-gray-800 mb-4 mt-2">Sở GD&ĐT Hà Nội - Lần 1</h3>
+                                <div class="flex gap-4 mb-6 text-sm text-gray-600 mt-auto">
+                                    <div class="flex items-center gap-2">
+                                        <div class="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center text-blue-500"><i class="fa-regular fa-circle-question"></i></div>
+                                        <div><span class="block text-[10px] text-gray-400 uppercase">Câu hỏi</span><span class="font-bold">50 câu</span></div>
+                                    </div>
+                                    <div class="flex items-center gap-2">
+                                        <div class="w-8 h-8 rounded-full bg-green-50 flex items-center justify-center text-green-500"><i class="fa-regular fa-clock"></i></div>
+                                        <div><span class="block text-[10px] text-gray-400 uppercase">Thời gian</span><span class="font-bold">90 phút</span></div>
+                                    </div>
+                                </div>
+                                <button onclick="openConfirmModal('Sở GD Hà Nội L1', 90, 50)" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2.5 rounded-lg transition-colors text-sm">Bắt đầu thi</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2.4 PHÒNG THI TRỰC TIẾP SOCKET.IO -->
                 <div id="view-realtime-exam" class="hidden h-full flex-col">
                     <div class="mb-6 flex justify-between items-center shrink-0">
                         <div>
@@ -362,7 +417,7 @@
                     </div>
                 </div>
 
-                <!-- 2.4 TÀI LIỆU -->
+                <!-- 2.5 TÀI LIỆU -->
                 <div id="view-documents" class="hidden max-w-5xl mx-auto">
                     <div class="mb-8">
                         <h1 class="text-2xl font-extrabold text-navy">Tài liệu học tập & Luyện Đề</h1>
@@ -388,7 +443,7 @@
                     </div>
                 </div>
 
-                <!-- 2.5 CÀI ĐẶT -->
+                <!-- 2.6 CÀI ĐẶT -->
                 <div id="view-settings" class="hidden max-w-4xl mx-auto">
                     <div class="mb-8">
                         <h1 class="text-2xl font-extrabold text-navy">Hồ sơ cá nhân</h1>
@@ -802,7 +857,7 @@
             document.getElementById('profile-dropdown').classList.add('hidden');
             
             // Ẩn tất cả view con trong app-container
-            const views = ['view-home', 'view-exam-list', 'view-realtime-exam', 'view-documents', 'view-settings'];
+            const views = ['view-home', 'view-exam-list', 'view-exam-school-list', 'view-realtime-exam', 'view-documents', 'view-settings'];
             views.forEach(v => {
                 let el = document.getElementById(v);
                 if(el) {
@@ -823,6 +878,10 @@
                 document.getElementById('view-exam-list').classList.add('block');
                 document.getElementById('view-exam-list').classList.remove('hidden');
                 document.getElementById('nav-exam-list').classList.add('active');
+            } else if (viewName === 'exam-school-list') {
+                document.getElementById('view-exam-school-list').classList.add('block');
+                document.getElementById('view-exam-school-list').classList.remove('hidden');
+                document.getElementById('nav-exam-school-list').classList.add('active');
             } else if (viewName === 'realtime-exam') {
                 document.getElementById('view-realtime-exam').classList.add('flex');
                 document.getElementById('view-realtime-exam').classList.remove('hidden');
