@@ -968,7 +968,7 @@
             for (let i = 1; i <= numQuestions; i++) {
                 let classes = "w-10 h-10 rounded-full text-sm font-bold flex items-center justify-center transition-colors ";
                 classes += (i === 1) ? "bg-blue-600 text-white shadow-md" : "bg-gray-100 text-gray-600";
-                grid.innerHTML += `<button class="${classes}">${i}</button>`;
+                grid.innerHTML += `<button onclick="scrollToQuestion(${i})" class="${classes} cursor-pointer hover:bg-gray-200">${i}</button>`;
             }
 
             const watermark = document.getElementById('watermark-container');
