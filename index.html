@@ -313,7 +313,24 @@
                 </div>
 
                 <!-- 2.3 DANH SÁCH ĐỀ THI TRƯỜNG/SỞ -->
-                <div id="view-exam-school-list" class="hidden max-w-6xl mx-auto">
+                <!-- 2.3 DANH SÁCH ĐỀ THI TRƯỜNG/SỞ (Đã chia môn) -->
+<div id="view-exam-school-list" class="hidden max-w-6xl mx-auto">
+    <div class="mb-6">
+        <h2 class="text-2xl font-extrabold text-navy">Kỳ thi thử THPT & Sở Giáo dục</h2>
+        <p class="text-gray-500 mt-1">Luyện tập với các đề thi chuẩn cấu trúc 2026 từ các trường chuyên trên cả nước.</p>
+    </div>
+
+    <!-- Thanh chuyển Tab 4 môn -->
+    <div class="flex flex-wrap gap-2 mb-8 bg-white p-2 rounded-xl shadow-sm border border-gray-100 w-max">
+        <button onclick="filterTHPT('math')" id="tab-math" class="thpt-tab px-6 py-2.5 rounded-lg font-bold text-sm bg-blue-50 text-blue-700 transition-colors">Toán học</button>
+        <button onclick="filterTHPT('physics')" id="tab-physics" class="thpt-tab px-6 py-2.5 rounded-lg font-bold text-sm text-gray-500 hover:bg-gray-50 transition-colors">Vật lý</button>
+        <button onclick="filterTHPT('chemistry')" id="tab-chemistry" class="thpt-tab px-6 py-2.5 rounded-lg font-bold text-sm text-gray-500 hover:bg-gray-50 transition-colors">Hóa học</button>
+        <button onclick="filterTHPT('biology')" id="tab-biology" class="thpt-tab px-6 py-2.5 rounded-lg font-bold text-sm text-gray-500 hover:bg-gray-50 transition-colors">Sinh học</button>
+    </div>
+
+    <!-- Container chứa đề thi theo môn -->
+    <div id="thpt-exam-container" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6"></div>
+</div>
                     <div class="mb-8">
                         <h2 class="text-2xl font-extrabold text-navy">Kỳ thi thử THPT & Sở Giáo dục</h2>
                         <p class="text-gray-500 mt-1">Luyện tập với các đề thi chuẩn cấu trúc 2026 từ các trường chuyên trên cả nước.</p>
@@ -615,43 +632,79 @@
 
         // --- CẤU TRÚC LƯU NHIỀU ĐỀ THI ---
         const examsMeta = [
-            {
-                id: "tsa_01",
-                type: "TSA",
-                title: "NTT DETHW - VIP",
-                questionsCount: 28,
-                time: 150,
-                img: "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&q=80&w=800",
-                isVip: true
-            },
-            {
-                id: "tsa_02",
-                type: "TSA",
-                title: "Đề thi thử HUST 2026 - Lần 1",
-                questionsCount: 15,
-                time: 60,
-                img: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&q=80&w=800",
-                isVip: false
-            },
-            {
-                id: "thpt_01",
-                type: "THPT",
-                title: "Sở GD&ĐT Hà Nội - Lần 1",
-                questionsCount: 50,
-                time: 90,
-                img: "fa-building-columns", 
-                isVip: false
-            },
-            {
-    id: "thpt_toan_01",
-    type: "THPT",
-    title: "Đề thi thử Toán 2025 (Chuẩn cấu trúc)",
-    questionsCount: 22,
-    time: 90,
-    img: "fa-calculator", 
-    isVip: false
-}
-        ];
+    {
+        id: "tsa_01",
+        type: "TSA",
+        title: "NTT DETHW - VIP",
+        questionsCount: 28,
+        time: 150,
+        img: "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&q=80&w=800",
+        isVip: true
+    },
+    {
+        id: "tsa_02",
+        type: "TSA",
+        title: "Đề thi thử HUST 2026 - Lần 1",
+        questionsCount: 15,
+        time: 60,
+        img: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&q=80&w=800",
+        isVip: false
+    },
+    // --- ĐỀ MÔN TOÁN ---
+    {
+        id: "thpt_01",
+        type: "THPT",
+        subject: "math", // <--- Gắn tag môn học
+        title: "Sở GD&ĐT Hà Nội - Lần 1",
+        questionsCount: 50,
+        time: 90,
+        img: "fa-building-columns", 
+        isVip: false
+    },
+    {
+        id: "thpt_toan_01",
+        type: "THPT",
+        subject: "math", 
+        title: "Đề thi thử Toán 2025 (Chuẩn cấu trúc)",
+        questionsCount: 22,
+        time: 90,
+        img: "fa-calculator", 
+        isVip: false
+    },
+    // --- ĐỀ MÔN LÝ ---
+    {
+        id: "thpt_ly_01",
+        type: "THPT",
+        subject: "physics", 
+        title: "Đề thi thử Vật Lý chuyên KHTN",
+        questionsCount: 40,
+        time: 50,
+        img: "fa-atom", 
+        isVip: false
+    },
+    // --- ĐỀ MÔN HÓA ---
+    {
+        id: "thpt_hoa_01",
+        type: "THPT",
+        subject: "chemistry", 
+        title: "Đề thi thử Hóa Học THPT chuyên ĐH Vinh",
+        questionsCount: 40,
+        time: 50,
+        img: "fa-flask", 
+        isVip: true // Test tick VIP
+    },
+    // --- ĐỀ MÔN SINH ---
+    {
+        id: "thpt_sinh_01",
+        type: "THPT",
+        subject: "biology", 
+        title: "Đề thi thử Sinh Học SGD Bắc Ninh",
+        questionsCount: 40,
+        time: 50,
+        img: "fa-dna", 
+        isVip: false
+    }
+];
 
         const allExamsData = {
             "tsa_01": [
@@ -881,65 +934,93 @@
 ]
         };
 
+        
         // --- HÀM TỰ ĐỘNG SINH UI DANH SÁCH ĐỀ THI ---
-        function renderExamLists() {
-            const tsaContainer = document.getElementById('tsa-exam-container');
-            const thptContainer = document.getElementById('thpt-exam-container');
-            
-            tsaContainer.innerHTML = '';
-            thptContainer.innerHTML = '';
+function renderExamLists() {
+    const tsaContainer = document.getElementById('tsa-exam-container');
+    tsaContainer.innerHTML = '';
 
-            examsMeta.forEach(exam => {
-                let cardHTML = '';
-                if (exam.type === 'TSA') {
-                    cardHTML = `
-                    <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden flex flex-col hover:shadow-md transition">
-                        <div class="relative h-48 bg-gray-200">
-                            <img src="${exam.img}" class="w-full h-full object-cover" alt="Cover">
-                            ${exam.isVip ? '<div class="absolute top-3 right-3 bg-yellow-400 text-yellow-900 text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1"><i class="fa-solid fa-crown"></i> VIP</div>' : ''}
+    // 1. Chỉ render các đề TSA vào thẻ TSA
+    examsMeta.forEach(exam => {
+        if (exam.type === 'TSA') {
+            let cardHTML = `
+            <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden flex flex-col hover:shadow-md transition">
+                <div class="relative h-48 bg-gray-200">
+                    <img src="${exam.img}" class="w-full h-full object-cover" alt="Cover">
+                    ${exam.isVip ? '<div class="absolute top-3 right-3 bg-yellow-400 text-yellow-900 text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1"><i class="fa-solid fa-crown"></i> VIP</div>' : ''}
+                </div>
+                <div class="p-5 flex flex-col flex-1">
+                    <h3 class="text-lg font-bold text-gray-800 mb-4 mt-2">${exam.title}</h3>
+                    <div class="flex gap-4 mb-6 text-sm text-gray-600 mt-auto">
+                        <div class="flex items-center gap-2">
+                            <div class="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center text-blue-500"><i class="fa-regular fa-circle-question"></i></div>
+                            <div><span class="block text-[10px] text-gray-400 uppercase">Câu hỏi</span><span class="font-bold">${exam.questionsCount} câu</span></div>
                         </div>
-                        <div class="p-5 flex flex-col flex-1">
-                            <h3 class="text-lg font-bold text-gray-800 mb-4 mt-2">${exam.title}</h3>
-                            <div class="flex gap-4 mb-6 text-sm text-gray-600 mt-auto">
-                                <div class="flex items-center gap-2">
-                                    <div class="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center text-blue-500"><i class="fa-regular fa-circle-question"></i></div>
-                                    <div><span class="block text-[10px] text-gray-400 uppercase">Câu hỏi</span><span class="font-bold">${exam.questionsCount} câu</span></div>
-                                </div>
-                                <div class="flex items-center gap-2">
-                                    <div class="w-8 h-8 rounded-full bg-green-50 flex items-center justify-center text-green-500"><i class="fa-regular fa-clock"></i></div>
-                                    <div><span class="block text-[10px] text-gray-400 uppercase">Thời gian</span><span class="font-bold">${exam.time} phút</span></div>
-                                </div>
-                            </div>
-                            <button onclick="openConfirmModal('${exam.id}')" class="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-2.5 rounded-lg transition-colors text-sm">Bắt đầu thi</button>
+                        <div class="flex items-center gap-2">
+                            <div class="w-8 h-8 rounded-full bg-green-50 flex items-center justify-center text-green-500"><i class="fa-regular fa-clock"></i></div>
+                            <div><span class="block text-[10px] text-gray-400 uppercase">Thời gian</span><span class="font-bold">${exam.time} phút</span></div>
                         </div>
-                    </div>`;
-                    tsaContainer.innerHTML += cardHTML;
-                } 
-                else if (exam.type === 'THPT') {
-                    cardHTML = `
-                    <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden flex flex-col hover:shadow-md transition">
-                        <div class="relative h-48 bg-blue-100 flex items-center justify-center">
-                            <i class="fa-solid ${exam.img} text-6xl text-blue-300"></i>
-                        </div>
-                        <div class="p-5 flex flex-col flex-1">
-                            <h3 class="text-lg font-bold text-gray-800 mb-4 mt-2">${exam.title}</h3>
-                            <div class="flex gap-4 mb-6 text-sm text-gray-600 mt-auto">
-                                <div class="flex items-center gap-2">
-                                    <div class="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center text-blue-500"><i class="fa-regular fa-circle-question"></i></div>
-                                    <div><span class="block text-[10px] text-gray-400 uppercase">Câu hỏi</span><span class="font-bold">${exam.questionsCount} câu</span></div>
-                                </div>
-                                <div class="flex items-center gap-2">
-                                    <div class="w-8 h-8 rounded-full bg-green-50 flex items-center justify-center text-green-500"><i class="fa-regular fa-clock"></i></div>
-                                    <div><span class="block text-[10px] text-gray-400 uppercase">Thời gian</span><span class="font-bold">${exam.time} phút</span></div>
-                                </div>
-                            </div>
-                            <button onclick="openConfirmModal('${exam.id}')" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2.5 rounded-lg transition-colors text-sm">Bắt đầu thi</button>
-                        </div>
-                    </div>`;
-                    thptContainer.innerHTML += cardHTML;
-                }
-            });
+                    </div>
+                    <button onclick="openConfirmModal('${exam.id}')" class="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-2.5 rounded-lg transition-colors text-sm">Bắt đầu thi</button>
+                </div>
+            </div>`;
+            tsaContainer.innerHTML += cardHTML;
         }
+    });
+
+    // 2. Tự động tải tab Toán Học (math) đầu tiên cho khu vực THPT
+    filterTHPT('math');
+}
+
+// --- HÀM LỌC VÀ RENDER 4 MÔN THPT ---
+function filterTHPT(subject) {
+    // 1. Reset màu các nút tab
+    document.querySelectorAll('.thpt-tab').forEach(tab => {
+        tab.classList.remove('bg-blue-50', 'text-blue-700');
+        tab.classList.add('text-gray-500', 'hover:bg-gray-50');
+    });
+    // Tô màu nút đang chọn
+    const activeTab = document.getElementById(`tab-${subject}`);
+    activeTab.classList.remove('text-gray-500', 'hover:bg-gray-50');
+    activeTab.classList.add('bg-blue-50', 'text-blue-700');
+
+    // 2. Lọc đề theo môn
+    const thptContainer = document.getElementById('thpt-exam-container');
+    thptContainer.innerHTML = '';
+    const filteredExams = examsMeta.filter(exam => exam.type === 'THPT' && exam.subject === subject);
+
+    // 3. Nếu chưa có đề, hiển thị thông báo
+    if (filteredExams.length === 0) {
+        thptContainer.innerHTML = `<div class="col-span-full py-12 text-center text-gray-500 bg-white rounded-2xl border border-gray-100 font-semibold shadow-sm">Chưa có đề thi nào trong mục này.</div>`;
+        return;
+    }
+
+    // 4. In các đề tìm thấy ra HTML
+    filteredExams.forEach(exam => {
+        let cardHTML = `
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden flex flex-col hover:shadow-md transition">
+            <div class="relative h-48 bg-blue-100 flex items-center justify-center">
+                <i class="fa-solid ${exam.img} text-6xl text-blue-300"></i>
+                ${exam.isVip ? '<div class="absolute top-3 right-3 bg-yellow-400 text-yellow-900 text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1"><i class="fa-solid fa-crown"></i> VIP</div>' : ''}
+            </div>
+            <div class="p-5 flex flex-col flex-1">
+                <h3 class="text-lg font-bold text-gray-800 mb-4 mt-2">${exam.title}</h3>
+                <div class="flex gap-4 mb-6 text-sm text-gray-600 mt-auto">
+                    <div class="flex items-center gap-2">
+                        <div class="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center text-blue-500"><i class="fa-regular fa-circle-question"></i></div>
+                        <div><span class="block text-[10px] text-gray-400 uppercase">Câu hỏi</span><span class="font-bold">${exam.questionsCount} câu</span></div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <div class="w-8 h-8 rounded-full bg-green-50 flex items-center justify-center text-green-500"><i class="fa-regular fa-clock"></i></div>
+                        <div><span class="block text-[10px] text-gray-400 uppercase">Thời gian</span><span class="font-bold">${exam.time} phút</span></div>
+                    </div>
+                </div>
+                <button onclick="openConfirmModal('${exam.id}')" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2.5 rounded-lg transition-colors text-sm">Bắt đầu thi</button>
+            </div>
+        </div>`;
+        thptContainer.innerHTML += cardHTML;
+    });
+}
 
         // --- HỆ THỐNG ĐĂNG NHẬP ---
         function switchAuth(mode) {
