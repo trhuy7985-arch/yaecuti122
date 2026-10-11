@@ -888,7 +888,7 @@
 
             examData.forEach((q, index) => {
                 let questionHTML = `
-                    <div class="flex items-start gap-4 mb-10">
+                    <div id="question-${index + 1}" class="flex items-start gap-4 mb-10 scroll-mt-6">
                         <div class="w-10 h-10 shrink-0 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-lg">${index + 1}</div>
                         <div class="pt-1 flex-1 text-lg text-gray-800 w-full">
                             <div class="mb-4 leading-relaxed">${q.content}</div>
