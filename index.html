@@ -298,7 +298,7 @@
                                 </div>
                             </div>
                             <div class="p-5 flex flex-col flex-1">
-                                <h3 class="text-lg font-bold text-gray-800 mb-4 mt-2">NTT DETHUONG</h3>
+                                <h3 class="text-lg font-bold text-gray-800 mb-4 mt-2">TSA BÀI THI 04 - BMC</h3>
                                 <div class="flex gap-4 mb-6 text-sm text-gray-600 mt-auto">
                                     <div class="flex items-center gap-2">
                                         <div class="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center text-blue-500"><i class="fa-regular fa-circle-question"></i></div>
@@ -309,7 +309,7 @@
                                         <div><span class="block text-[10px] text-gray-400 uppercase">Thời gian</span><span class="font-bold">150 phút</span></div>
                                     </div>
                                 </div>
-                                <button onclick="openConfirmModal('NTT DETHUONG', 150, 28)" class="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-2.5 rounded-lg transition-colors text-sm">Bắt đầu thi</button>
+                                <button onclick="openConfirmModal('TSA BÀI THI 04 - BMC', 150, 28)" class="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-2.5 rounded-lg transition-colors text-sm">Bắt đầu thi</button>
                             </div>
                         </div>
                     </div>
@@ -389,7 +389,6 @@
                 </div>
 
                 <!-- 2.5 CÀI ĐẶT -->
-<!-- 2.5 CÀI ĐẶT -->
                 <div id="view-settings" class="hidden max-w-4xl mx-auto">
                     <div class="mb-8">
                         <h1 class="text-2xl font-extrabold text-navy">Hồ sơ cá nhân</h1>
@@ -484,7 +483,6 @@
             <!-- Khu vực câu hỏi (Trái) -->
             <div class="flex-1 bg-white rounded-xl shadow-sm border border-gray-200 overflow-y-auto relative flex flex-col">
                 <div class="watermark-bg" id="watermark-container"></div>
-                <!-- VÙNG NÀY ĐÃ ĐƯỢC CHỈNH SỬA ĐỂ TỰ ĐỘNG HIỂN THỊ CÂU HỎI -->
                 <div id="exam-content-container" class="p-8 relative z-10 flex-1">
                     <!-- JS sẽ tự động đổ danh sách câu hỏi vào đây -->
                 </div>
@@ -494,7 +492,7 @@
             <div class="w-80 flex flex-col gap-6 shrink-0 h-full">
                 <!-- Box Thời gian -->
                 <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-5">
-                    <h3 class="font-bold text-gray-800 border-b border-gray-100 pb-3 mb-4">Thôngত্তি thí sinh</h3>
+                    <h3 class="font-bold text-gray-800 border-b border-gray-100 pb-3 mb-4">Thông tin thí sinh</h3>
                     <div class="flex items-center gap-2 mb-4 text-gray-700">
                         Họ tên: <span class="font-bold text-black" id="exam-student-name">...</span>
                     </div>
@@ -527,7 +525,6 @@
         let currentSessionEmail = null;
         let currentUser = null;
         
-        // MẢNG DỮ LIỆU CÂU HỎI ĐÃ ĐƯỢC SỬA LỖI CÚ PHÁP
         const tsaExamData = [
             {
                 id: 1,
@@ -738,14 +735,14 @@
                 alert("Email này đã được đăng ký!");
             } else {
                 existingUsers[email] = {
-                name: document.getElementById('reg-name').value,
-                password: document.getElementById('reg-password').value,
-                documents: [],
-                dob: '',
-                phone: '',
-                school: '',
-                className: ''
-            };
+                    name: document.getElementById('reg-name').value,
+                    password: document.getElementById('reg-password').value,
+                    documents: [],
+                    dob: '',
+                    phone: '',
+                    school: '',
+                    className: ''
+                };
                 localStorage.setItem('yaecute_users', JSON.stringify(existingUsers));
                 alert("Đăng ký thành công! Vui lòng đăng nhập.");
                 switchAuth('login');
@@ -759,9 +756,17 @@
             const password = document.getElementById('login-password').value;
             const existingUsers = JSON.parse(localStorage.getItem('yaecute_users')) || {};
 
-            // Tài khoản Admin ẩn để test
+            // Tài khoản Admin tự động tạo
             if (email === 'admin@gmail.com' && !existingUsers['admin@gmail.com']) {
-                existingUsers['admin@gmail.com'] = { name: 'Admin VIP', password: '123', documents: [] };
+                existingUsers['admin@gmail.com'] = { 
+                    name: 'Admin VIP', 
+                    password: '123', 
+                    documents: [],
+                    dob: '2005-01-01',
+                    phone: '0987654321',
+                    school: 'HUST',
+                    className: 'CNTT'
+                };
                 localStorage.setItem('yaecute_users', JSON.stringify(existingUsers));
             }
 
@@ -822,7 +827,7 @@
                 document.getElementById('view-realtime-exam').classList.add('flex');
                 document.getElementById('view-realtime-exam').classList.remove('hidden');
                 document.getElementById('nav-realtime-exam').classList.add('active');
-                joinRealtimeRoom(); // Khởi tạo kết nối socket.io
+                joinRealtimeRoom(); 
             } else if (viewName === 'documents') {
                 document.getElementById('view-documents').classList.add('block');
                 document.getElementById('view-documents').classList.remove('hidden');
@@ -833,7 +838,7 @@
                 document.getElementById('view-settings').classList.remove('hidden');
                 document.getElementById('nav-settings').classList.add('active');
                 
-                // Đổ dữ liệu từ bộ nhớ ra giao diện
+                // Đổ dữ liệu từ bộ nhớ ra giao diện cài đặt
                 document.getElementById('profile-name').value = currentUser.name || '';
                 document.getElementById('profile-email').value = currentSessionEmail || '';
                 document.getElementById('profile-dob').value = currentUser.dob || '';
@@ -841,6 +846,7 @@
                 document.getElementById('profile-school').value = currentUser.school || '';
                 document.getElementById('profile-class').value = currentUser.className || '';
             }
+        }
 
         // ------------- 3. CÀI ĐẶT & TÀI LIỆU -------------
         function saveSettings(event) {
@@ -914,7 +920,6 @@
             document.getElementById('modal-confirm').classList.add('hidden');
         }
 
-        // HÀM RENDER ĐỀ THI ĐÃ ĐƯỢC THÊM VÀO ĐÂY
         function renderExamContainer(examData) {
             const container = document.getElementById('exam-content-container'); 
             container.innerHTML = ''; 
@@ -985,7 +990,6 @@
             }
         }
 
-        // HÀM START ĐƯỢC CHỈNH SỬA ĐỂ GỌI RENDER ĐỀ THI
         function startActualExam() {
             document.getElementById('modal-confirm').classList.add('hidden');
             document.getElementById('app-container').classList.add('hidden');
@@ -999,9 +1003,9 @@
             const grid = document.getElementById('question-grid');
             grid.innerHTML = '';
             for (let i = 1; i <= numQuestions; i++) {
-                let classes = "w-10 h-10 rounded-full text-sm font-bold flex items-center justify-center transition-colors ";
+                let classes = "w-10 h-10 rounded-full text-sm font-bold flex items-center justify-center transition-colors cursor-pointer hover:bg-gray-200 ";
                 classes += (i === 1) ? "bg-blue-600 text-white shadow-md" : "bg-gray-100 text-gray-600";
-                grid.innerHTML += `<button onclick="scrollToQuestion(${i})" class="${classes} cursor-pointer hover:bg-gray-200">${i}</button>`;
+                grid.innerHTML += `<button onclick="scrollToQuestion(${i})" class="${classes}">${i}</button>`;
             }
 
             const watermark = document.getElementById('watermark-container');
@@ -1010,7 +1014,7 @@
                 watermark.innerHTML += `<span class="watermark-text">${currentUser.name} - ${currentSessionEmail}</span>`;
             }
 
-            // GỌI HÀM RENDER ĐỀ THI VÀO GIAO DIỆN
+            // Tạo đề thi tự động từ mảng
             renderExamContainer(tsaExamData);
 
             let timer = currentExamTime * 60;
@@ -1029,10 +1033,28 @@
             }, 1000);
         }
 
+        // Chọn đáp án True/False
         function selectRadio(element, value) {
             const tr = element.closest('tr');
             tr.querySelectorAll('.custom-radio').forEach(r => r.classList.remove('selected'));
             element.classList.add('selected');
+        }
+
+        // Đổi màu đáp án Trắc nghiệm (A, B, C, D)
+        function selectOption(btn) {
+            const siblings = btn.parentElement.querySelectorAll('button');
+            siblings.forEach(b => {
+                b.classList.remove('bg-blue-50', 'border-blue-500', 'text-blue-700', 'ring-2', 'ring-blue-200');
+            });
+            btn.classList.add('bg-blue-50', 'border-blue-500', 'text-blue-700', 'ring-2', 'ring-blue-200');
+        }
+
+        // Click số cuộn tới câu hỏi
+        function scrollToQuestion(index) {
+            const questionElement = document.getElementById('question-' + index);
+            if (questionElement) {
+                questionElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
         }
 
         function submitExam() {
@@ -1111,26 +1133,6 @@
                     </li>`;
             }
         }
-// Hàm xử lý khi chọn đáp án Trắc nghiệm (A, B, C, D)
-        function selectOption(btn) {
-            // Lấy tất cả các nút đáp án trong cùng câu hỏi
-            const siblings = btn.parentElement.querySelectorAll('button');
-            // Xóa trạng thái "đã chọn" của các nút khác
-            siblings.forEach(b => {
-                b.classList.remove('bg-blue-50', 'border-blue-500', 'text-blue-700', 'ring-2', 'ring-blue-200');
-            });
-            // Thêm trạng thái "đã chọn" cho nút vừa click
-            btn.classList.add('bg-blue-50', 'border-blue-500', 'text-blue-700', 'ring-2', 'ring-blue-200');
-        }
-
-        // Hàm xử lý khi click vào bảng danh sách câu hỏi bên phải
-        function scrollToQuestion(index) {
-            const questionElement = document.getElementById('question-' + index);
-            if (questionElement) {
-                // Cuộn mượt mà đến đúng ID của câu hỏi
-                questionElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
-        }        
     </script>
 </body>
 </html>
