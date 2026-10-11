@@ -220,7 +220,7 @@
                         <i class="fa-solid fa-house w-5 text-center text-gray-400"></i> Trang chủ
                     </a>
                     <a href="javascript:void(0)" onclick="switchView('exam-list')" id="nav-exam-list" class="nav-item flex items-center gap-3 px-4 py-3 text-gray-600 rounded-xl hover:bg-gray-50 hover:text-navy font-semibold transition-colors text-sm">
-                        <i class="fa-solid fa-file-pen w-5 text-center text-gray-400"></i> Thư viện Đề thi
+                        <i class="fa-solid fa-file-pen w-5 text-center text-gray-400"></i> Thư viện Đề thi TSA
                     </a>
                     <a href="javascript:void(0)" onclick="switchView('exam-school-list')" id="nav-exam-school-list" class="nav-item flex items-center gap-3 px-4 py-3 text-gray-600 rounded-xl hover:bg-gray-50 hover:text-navy font-semibold transition-colors text-sm">
                         <i class="fa-solid fa-graduation-cap w-5 text-center text-gray-400"></i> Đề thi Trường/Sở
@@ -252,7 +252,7 @@
                     </div>
 
                     <div class="flex justify-between items-end mb-6">
-                        <h3 class="text-2xl font-extrabold text-navy">Đang học dở</h3>
+                        <h3 class="text-2xl font-extrabold text-navy">Bắt đầu học</h3>
                     </div>
                     
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -266,19 +266,6 @@
                                 <h4 class="font-bold text-navy text-lg leading-tight mb-2">Luyện đề Đánh giá tư duy</h4>
                                 <p class="text-xs text-gray-500 mb-6 flex-1">Cập nhật đề thi mới nhất từ HUST</p>
                                 <button onclick="switchView('exam-list')" class="w-full py-2.5 bg-purple-50 hover:bg-purple-100 text-purple-700 font-bold rounded-lg transition-colors text-sm">Xem danh sách đề</button>
-                            </div>
-                        </div>
-
-                        <!-- Card Chuyển tới Phòng Thực chiến Socket -->
-                        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow cursor-pointer flex flex-col h-full">
-                            <div class="h-40 bg-orange-50 flex items-center justify-center relative overflow-hidden">
-                                <span class="text-4xl font-extrabold text-orange-900 opacity-80 z-10">Thực Chiến</span>
-                            </div>
-                            <div class="p-6 flex flex-col flex-1">
-                                <span class="inline-block px-3 py-1 bg-orange-100 text-orange-800 text-[10px] font-bold rounded mb-3 w-max uppercase tracking-wider"><i class="fa-solid fa-users mr-1"></i> MULTIPLAYER</span>
-                                <h4 class="font-bold text-navy text-lg leading-tight mb-2">Phòng Thi Trực Tiếp</h4>
-                                <p class="text-xs text-gray-500 mb-6 flex-1">Thi đấu Real-time cùng bạn bè</p>
-                                <button onclick="switchView('realtime-exam')" class="w-full py-2.5 bg-orange-50 hover:bg-orange-100 text-orange-900 font-bold rounded-lg transition-colors text-sm">Vào Phòng Ngay</button>
                             </div>
                         </div>
 
@@ -299,6 +286,19 @@
                             </div>
                         </div>
 
+                        <!-- Card Chuyển tới Phòng Thực chiến Socket -->
+                        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow cursor-pointer flex flex-col h-full">
+                            <div class="h-40 bg-orange-50 flex items-center justify-center relative overflow-hidden">
+                                <span class="text-4xl font-extrabold text-orange-900 opacity-80 z-10">Thực Chiến</span>
+                            </div>
+                            <div class="p-6 flex flex-col flex-1">
+                                <span class="inline-block px-3 py-1 bg-orange-100 text-orange-800 text-[10px] font-bold rounded mb-3 w-max uppercase tracking-wider"><i class="fa-solid fa-users mr-1"></i> MULTIPLAYER</span>
+                                <h4 class="font-bold text-navy text-lg leading-tight mb-2">Phòng Thi Trực Tiếp</h4>
+                                <p class="text-xs text-gray-500 mb-6 flex-1">Thi đấu Real-time cùng bạn bè</p>
+                                <button onclick="switchView('realtime-exam')" class="w-full py-2.5 bg-orange-50 hover:bg-orange-100 text-orange-900 font-bold rounded-lg transition-colors text-sm">Vào Phòng Ngay</button>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
 
@@ -308,32 +308,8 @@
                         <h2 class="text-2xl font-extrabold text-navy">Kỳ thi Đánh giá tư duy TSA</h2>
                         <p class="text-gray-500 mt-1">Luyện tập với các đề thi chuẩn cấu trúc mới nhất.</p>
                     </div>
-
-                    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-                        <!-- Card Đề 1 -->
-                        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden flex flex-col">
-                            <div class="relative h-48 bg-gray-200">
-                                <img src="https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover" alt="HUST">
-                                <div class="absolute top-3 right-3 bg-yellow-400 text-yellow-900 text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1">
-                                    <i class="fa-solid fa-crown"></i> VIP
-                                </div>
-                            </div>
-                            <div class="p-5 flex flex-col flex-1">
-                                <h3 class="text-lg font-bold text-gray-800 mb-4 mt-2">NTT DETHW</h3>
-                                <div class="flex gap-4 mb-6 text-sm text-gray-600 mt-auto">
-                                    <div class="flex items-center gap-2">
-                                        <div class="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center text-blue-500"><i class="fa-regular fa-circle-question"></i></div>
-                                        <div><span class="block text-[10px] text-gray-400 uppercase">Câu hỏi</span><span class="font-bold">28 câu</span></div>
-                                    </div>
-                                    <div class="flex items-center gap-2">
-                                        <div class="w-8 h-8 rounded-full bg-green-50 flex items-center justify-center text-green-500"><i class="fa-regular fa-clock"></i></div>
-                                        <div><span class="block text-[10px] text-gray-400 uppercase">Thời gian</span><span class="font-bold">150 phút</span></div>
-                                    </div>
-                                </div>
-                                <button onclick="openConfirmModal('NTT DTHW', 150, 28, 'TSA')" class="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-2.5 rounded-lg transition-colors text-sm">Bắt đầu thi</button>
-                            </div>
-                        </div>
-                    </div>
+                    <!-- Container trống để JS đổ danh sách đề TSA vào -->
+                    <div id="tsa-exam-container" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6"></div>
                 </div>
 
                 <!-- 2.3 DANH SÁCH ĐỀ THI TRƯỜNG/SỞ -->
@@ -342,32 +318,8 @@
                         <h2 class="text-2xl font-extrabold text-navy">Kỳ thi thử THPT & Sở Giáo dục</h2>
                         <p class="text-gray-500 mt-1">Luyện tập với các đề thi chuẩn cấu trúc 2026 từ các trường chuyên trên cả nước.</p>
                     </div>
-
-                    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-                        <!-- Card Đề Trường/Sở 1 -->
-                        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden flex flex-col">
-                            <div class="relative h-48 bg-blue-100 flex items-center justify-center">
-                                <i class="fa-solid fa-building-columns text-6xl text-blue-300"></i>
-                                <div class="absolute top-3 right-3 bg-blue-500 text-white text-xs font-bold px-3 py-1.5 rounded-full">
-                                    Mới nhất
-                                </div>
-                            </div>
-                            <div class="p-5 flex flex-col flex-1">
-                                <h3 class="text-lg font-bold text-gray-800 mb-4 mt-2">Sở GD&ĐT Hà Nội - Lần 1</h3>
-                                <div class="flex gap-4 mb-6 text-sm text-gray-600 mt-auto">
-                                    <div class="flex items-center gap-2">
-                                        <div class="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center text-blue-500"><i class="fa-regular fa-circle-question"></i></div>
-                                        <div><span class="block text-[10px] text-gray-400 uppercase">Câu hỏi</span><span class="font-bold">28 câu</span></div>
-                                    </div>
-                                    <div class="flex items-center gap-2">
-                                        <div class="w-8 h-8 rounded-full bg-green-50 flex items-center justify-center text-green-500"><i class="fa-regular fa-clock"></i></div>
-                                        <div><span class="block text-[10px] text-gray-400 uppercase">Thời gian</span><span class="font-bold">90 phút</span></div>
-                                    </div>
-                                </div>
-                                <button onclick="openConfirmModal('Sở GD Hà Nội L1', 90, 28, 'THPT')" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2.5 rounded-lg transition-colors text-sm">Bắt đầu thi</button>
-                            </div>
-                        </div>
-                    </div>
+                    <!-- Container trống để JS đổ danh sách đề THPT vào -->
+                    <div id="thpt-exam-container" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6"></div>
                 </div>
 
                 <!-- 2.4 PHÒNG THI TRỰC TIẾP SOCKET.IO -->
@@ -388,7 +340,6 @@
                     </div>
 
                     <div class="flex flex-col lg:flex-row gap-6 flex-1 min-h-0">
-                        <!-- Khu vực câu hỏi Socket -->
                         <div class="flex-1 bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-10 flex flex-col overflow-y-auto">
                             <div id="rt-exam-waiting" class="flex-1 flex flex-col items-center justify-center text-center">
                                 <div class="w-24 h-24 bg-red-50 rounded-full flex items-center justify-center mb-4">
@@ -404,7 +355,6 @@
                             </div>
                         </div>
 
-                        <!-- Bảng xếp hạng Real-time -->
                         <div class="w-full lg:w-80 bg-white rounded-2xl shadow-sm border border-gray-100 p-6 flex flex-col shrink-0">
                             <h3 class="text-lg font-bold text-navy mb-4 border-b border-gray-100 pb-2 flex justify-between items-center">
                                 <span>Bảng xếp hạng</span>
@@ -419,6 +369,7 @@
 
                 <!-- 2.5 TÀI LIỆU -->
                 <div id="view-documents" class="hidden max-w-5xl mx-auto">
+                    <!-- Giữ nguyên html như cũ -->
                     <div class="mb-8">
                         <h1 class="text-2xl font-extrabold text-navy">Tài liệu học tập & Luyện Đề</h1>
                     </div>
@@ -445,6 +396,7 @@
 
                 <!-- 2.6 CÀI ĐẶT -->
                 <div id="view-settings" class="hidden max-w-4xl mx-auto">
+                    <!-- Giữ nguyên html như cũ -->
                     <div class="mb-8">
                         <h1 class="text-2xl font-extrabold text-navy">Hồ sơ cá nhân</h1>
                     </div>
@@ -483,7 +435,6 @@
                     </div>
                 </div>
 
-                <!-- TOAST THÔNG BÁO -->
                 <div id="toast-success" class="fixed bottom-6 right-6 bg-green-500 text-white px-5 py-3 rounded-lg shadow-lg transform translate-y-20 opacity-0 transition-all duration-300 flex items-center gap-3 z-50 pointer-events-none">
                     <i class="fa-solid fa-circle-check text-lg"></i>
                     <span id="toast-message" class="font-semibold text-sm">Thao tác thành công!</span>
@@ -525,7 +476,7 @@
         </div>
     </div>
 
-    <!-- ================= 4. PHÒNG THI SOLO (FULLSCREEN) ================= -->
+    <!-- ================= 4. PHÒNG THI SOLO ================= -->
     <div id="view-active-exam" class="hidden fixed inset-0 bg-[#f8f9fa] z-50 flex flex-col">
         <header class="bg-white h-16 border-b border-gray-200 flex items-center px-6 shrink-0 shadow-sm z-20">
             <div class="flex items-center gap-3">
@@ -534,18 +485,13 @@
             </div>
         </header>
         <div class="flex-1 flex overflow-hidden p-4 md:p-6 gap-6 relative">
-            
-            <!-- Khu vực câu hỏi (Trái) -->
             <div class="flex-1 bg-white rounded-xl shadow-sm border border-gray-200 overflow-y-auto relative flex flex-col">
                 <div class="watermark-bg" id="watermark-container"></div>
                 <div id="exam-content-container" class="p-8 relative z-10 flex-1">
-                    <!-- JS sẽ tự động đổ danh sách câu hỏi vào đây -->
+                    <!-- HTML danh sách câu hỏi -->
                 </div>
             </div>
-
-            <!-- Panel Thông tin (Phải) -->
             <div class="w-80 flex flex-col gap-6 shrink-0 h-full">
-                <!-- Box Thời gian -->
                 <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-5">
                     <h3 class="font-bold text-gray-800 border-b border-gray-100 pb-3 mb-4">Thông tin thí sinh</h3>
                     <div class="flex items-center gap-2 mb-4 text-gray-700">
@@ -556,8 +502,6 @@
                         <span class="text-2xl font-black text-gray-900 font-mono tracking-wider" id="countdown-timer">00:00:00</span>
                     </div>
                 </div>
-
-                <!-- Box Lưới Câu Hỏi -->
                 <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-5 flex-1 flex flex-col overflow-hidden">
                     <h3 class="font-bold text-gray-800 text-sm text-center mb-4">Danh sách câu hỏi</h3>
                     <div class="flex justify-center gap-4 text-[10px] text-gray-500 mb-6">
@@ -575,7 +519,7 @@
         </div>
     </div>
 
-    <!-- ================= 6. MÀN HÌNH KẾT QUẢ HIỆN ĐẠI ================= -->
+    <!-- ================= 5. KẾT QUẢ HIỆN ĐẠI ================= -->
     <div id="view-exam-result" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-gray-50 overflow-y-auto py-10">
         <div class="absolute top-[-10%] right-[-10%] w-96 h-96 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-50"></div>
         <div class="absolute bottom-[-10%] left-[-10%] w-96 h-96 bg-red-200 rounded-full mix-blend-multiply filter blur-3xl opacity-50"></div>
@@ -586,16 +530,14 @@
             </div>
             
             <h2 class="text-3xl font-black text-navy mb-2">Hoàn thành bài thi!</h2>
-            <p class="text-gray-500 font-medium mb-8" id="result-exam-title">Kỳ thi Đánh giá tư duy TSA</p>
+            <p class="text-gray-500 font-medium mb-8" id="result-exam-title">Tên kì thi</p>
 
-            <!-- Thẻ Điểm số -->
             <div class="w-full bg-gray-50 rounded-2xl p-8 mb-8 border border-gray-100 flex flex-col items-center justify-center">
-                <div class="text-sm font-bold text-gray-500 uppercase tracking-widest mb-4" id="result-score-label">ĐIỂM SỐ / TỔNG CÂU</div>
+                <div class="text-sm font-bold text-gray-500 uppercase tracking-widest mb-4" id="result-score-label">ĐIỂM SỐ</div>
                 <div class="text-6xl font-black text-custom-red tracking-tighter" id="result-score-value">0.00</div>
-                <div class="text-sm font-semibold text-blue-600 mt-4 bg-blue-50 px-4 py-1.5 rounded-full" id="result-exam-type-badge">Hệ số: Đề THPT 2025</div>
+                <div class="text-sm font-semibold text-blue-600 mt-4 bg-blue-50 px-4 py-1.5 rounded-full" id="result-exam-type-badge">Hệ số</div>
             </div>
 
-            <!-- Thống kê chi tiết -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4 w-full mb-10">
                 <div class="bg-white border border-gray-100 rounded-xl p-4 flex flex-col items-center shadow-sm">
                     <i class="fa-regular fa-clock text-gray-400 text-xl mb-2"></i>
@@ -625,205 +567,173 @@
         </div>
     </div>
 
-    <!-- ================= 7. TẤT CẢ JAVASCRIPT GỘP ================= -->
+    <!-- ================= 6. JAVASCRIPT ================= -->
     <script>
+        // --- CÁC BIẾN TOÀN CỤC ---
         let currentSessionEmail = null;
         let currentUser = null;
-        
-        // CÁC BIẾN CHO HỆ THỐNG CHẤM ĐIỂM
+        let currentExamId = null;
         let currentExamType = 'TSA'; 
         let userAnswers = {}; 
         let totalExamTime = 0;
-        
-        const tsaExamData = [
+        let currentExamTime = 0;
+        let soloTimerInterval;
+
+        // --- CẤU TRÚC LƯU NHIỀU ĐỀ THI ---
+        const examsMeta = [
             {
-                id: 1,
-                type: "true_false",
-                content: "Cho hàm số $y = f(x) = \\sqrt{1 + \\cos(x)}$. Khi ta xét $x \\in (0, \\pi)$, các nhận định dưới đây là đúng hay sai?",
-                propositions: [
-                    "Phương trình $\\sqrt{1 + \\cos(x)} = \\cos\\left(\\frac{x}{2}\\right)$ có nghiệm",
-                    "Phương trình $\\sqrt{1 + \\cos(x)} = \\cos\\left(\\frac{x}{4}\\right)$ có nghiệm",
-                    "Phương trình $\\sqrt{1 + \\cos(x)} = \\cos\\left(\\frac{\\pi}{8}\\right)$ có đúng 01 nghiệm"
-                ]
+                id: "tsa_01",
+                type: "TSA",
+                title: "NTT DETHW - VIP",
+                questionsCount: 28,
+                time: 150,
+                img: "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&q=80&w=800",
+                isVip: true
             },
             {
-                id: 2,
-                type: "fill_blank",
-                content: "Bất phương trình $(\\log_2 x)^2 + \\log_3 \\frac{36}{x} \\leq \\left(1 + \\log_3 \\frac{36}{x}\\right) \\log_2 x$ có tập nghiệm là $x \\in [a, b]$. Giá trị của $a + b/2 =$"
+                id: "tsa_02",
+                type: "TSA",
+                title: "Đề thi thử HUST 2026 - Lần 1",
+                questionsCount: 15,
+                time: 60,
+                img: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&q=80&w=800",
+                isVip: false
             },
             {
-                id: 3,
-                type: "fill_blank",
-                content: "Can chi là hệ thống đánh số thứ tự năm theo chu kỳ, trong đó một năm được xác định bởi hai phần: Thiên Can (Giáp, Ất, Bính, Đinh, Mậu, Kỷ, Canh, Tân, Nhâm, Quý) và Địa Chi (Tý, Sửu, Dần, Mão, Thìn, Tỵ, Ngọ, Mùi, Thân, Dậu, Tuất, Hợi). Biết năm 1010 là năm Bính Tuất, vậy từ 1011 tính đến năm 2025 thì đã có bao nhiêu năm Bích Tuất?"
-            },
-            {
-                id: 4,
-                type: "fill_blank",
-                content: "Hiếu và Nam đều có số báo danh có dạng là: $\\overline{3a8b}$. Biết số này đều chia hết cho 5 và 9 và số báo danh của Hiếu là số chẵn. Số báo danh của Hiếu và Nam lần lượt là:"
-            },
-            {
-                id: 5,
-                type: "fill_blank",
-                content: "Cho hàm số: $y = 4\\sin x\\sin\\left(x + \\frac{\\pi}{2}\\right)$. Giá trị lớn nhất và giá trị nhỏ nhất của y lần lượt là:"
-            },
-            {
-                id: 6,
-                type: "fill_blank",
-                content: "Cho hàm số: $f(x) = (x + 10)^6$. Tính $f''(2)$:"
-            },
-            {
-                id: 7,
-                type: "multiple_choice",
-                content: "Cho hàm số: $y = \\frac{1+x}{1-x}$. Nhận xét nào sau đây đúng?",
-                options: [
-                    "A. Đồ thị hàm số có TCN $y = 1$, TCĐ $x = 1$",
-                    "B. Đồ thị hàm số có TCN $y = -1$, TCĐ $x = 1$",
-                    "C. Đồ thị hàm số có TCN $y = 1$, TCĐ $x = -1$",
-                    "D. Đồ thị hàm số có TCN $y = -1$, TCĐ $x = -1$"
-                ]
-            },
-            {
-                id: 8,
-                type: "true_false",
-                content: "Cho hình lăng trụ đứng ABC.A'B'C' có tam giác ABC vuông cân tại A. Biết $BC = 3\\sqrt{2}a$, $AA' = 4a$. Các nhận định sau đây đúng hay sai?",
-                propositions: [
-                    "$AB' = 3a$",
-                    "Thể tích hình lăng trụ: $V = 6a^3$"
-                ]
-            },
-            {
-                id: 9,
-                type: "fill_blank",
-                content: "Tính $l = \\lim_{x \\to 0} \\frac{1-\\cos 2x}{x} =$"
-            },
-            {
-                id: 10,
-                type: "fill_blank",
-                content: "Một hàng học sinh gồm 3 nam và 7 nữ được xếp thành 1 hàng ngang. Tính xác suất để không có bất kì 2 bạn nam nào đứng cạnh nhau."
-            },
-            {
-                id: 11,
-                type: "multiple_choice",
-                content: "Trong không gian Oxyz, có điểm $A(a, b, c)$ và điểm $B(m, n, p)$ di chuyển nhưng luôn thoả mãn biểu thức: $\\begin{cases} a^2 + b^2 + c^2 = 9 \\\\\\\\ m^2 + n^2 + p^2 = 36 \\end{cases}$. Nhận định nào sau đây là sai?",
-                options: [
-                    "A. Điểm A thuộc một mặt cầu cố định.",
-                    "B. Độ dài ngắn nhất của AB là 3",
-                    "C. Độ dài AB đạt cực tiểu $\\Leftrightarrow \\overrightarrow{OA} \\cdot \\overrightarrow{OB} = 36$",
-                    "D. Độ dài AB đạt cực tiểu $\\Leftrightarrow$ A là trung điểm OB"
-                ]
-            },
-            {
-                id: 12,
-                type: "multiple_choice",
-                content: "Cho mẫu A có phần tử lớn nhất là 378, nhỏ nhất là 310, giá trị trung bình là 344, độ lệch chuẩn là 12. Nếu mẫu B được tạo thành từ mẫu A bỏ đi 2 phần tử 378 và 310 thì nhận định nào sau đây là đúng?",
-                options: [
-                    "A. Mẫu B có giá trị trung bình lớn hơn mẫu A, độ lệch chuẩn lớn hơn mẫu A",
-                    "B. Mẫu B có giá trị trung bình bé hơn mẫu A, độ lệch chuẩn lớn hơn mẫu A",
-                    "C. Mẫu B có giá trị trung bình lớn hơn mẫu A, độ lệch chuẩn bé hơn mẫu A",
-                    "D. Mẫu B có giá trị trung bình bé hơn mẫu A, độ lệch chuẩn bé hơn mẫu A"
-                ]
-            },
-            {
-                id: 13,
-                type: "true_false",
-                content: "Cho hình chóp đều S.ABCD có $SA = 2$, $AB = 1$. Các nhận định sau đúng hay sai?",
-                propositions: [
-                    "SA và CD không vuông góc nhau",
-                    "Góc giữa SA và CD là $30^o$",
-                    "Khoảng cách giữa SA và CD bằng 1"
-                ]
-            },
-            {
-                id: 14,
-                type: "fill_blank",
-                content: "Cho hàm số $y = 2x^3 - 3x^2 - 1$. Hàm số $|y|$ đồng biến trên khoảng nào? Đồ thị hàm số $|y|$ có bao nhiêu điểm cực đại và cực tiểu?"
-            },
-            {
-                id: 17,
-                type: "multiple_choice",
-                content: "Cho 3 điểm của 1 tam giác $A(x_A, y_A, z_A)$; $B(x_B, y_B, z_B)$; $C(x_C, y_C, z_C)$. Biết điểm $G(x_G, y_G, z_G)$. Điều kiện nào sau đây tương đương với điều kiện G là trọng tâm tam giác ABC?",
-                options: [
-                    "A. Tọa độ điểm G là trung bình cộng tọa độ các đỉnh: $\\begin{cases} x_G = \\frac{x_A + x_B + x_C}{3} \\\\\\\\ y_G = \\frac{y_A + y_B + y_C}{3} \\\\\\\\ z_G = \\frac{z_A + z_B + z_C}{3} \\end{cases}$",
-                    "B. Đẳng thức vecto đặc trưng của trọng tâm: $\\vec{GA} + \\vec{GB} + \\vec{GC} = \\vec{0}$",
-                    "C. Với điểm M bất kỳ, quan hệ vecto là: $\\vec{MA} + \\vec{MB} + \\vec{MC} = \\vec{MG}$",
-                    "D. Vị trí của G trên đường trung tuyến AM (M là trung điểm BC): $\\vec{AG} = \\frac{1}{2}\\vec{AM}$"
-                ]
-            },
-            {
-                id: 20,
-                type: "fill_blank",
-                content: "Minh, bà, bố, mẹ và em đi xem phim với nhau. Tính xác suất bà ngồi ở chính giữa, xác suất bố mẹ ngồi ở 2 đầu, và xác suất bà ngồi cạnh mẹ:"
-            },
-            {
-                id: 21,
-                type: "fill_blank",
-                content: "Một hộp bi có 5 viên bi trong đó có 3 vàng, 2 xanh. Tính xác suất khi lấy 2 viên bi cùng lúc sẽ được 2 màu khác nhau:"
-            },
-            {
-                id: 22,
-                type: "fill_blank",
-                content: "Cho hàm số $f(x) = x^2 - x$. Với $F(x)$ là một nguyên hàm của $f(x)$. Biết $F(0) = 1$. Tính $F(6) =$"
-            },
-            {
-                id: 23,
-                type: "fill_blank",
-                content: "Cho đồ thị hàm số là một parabol $y = ax^2 + bx + c$ (P), có đỉnh $I(6, -12)$. Đồ thị cắt trục hoành tại điểm M có hoành độ bằng 8. Tính giá trị biểu thức: $a + b + c = ?$"
-            },
-            {
-                id: 24,
-                type: "fill_blank",
-                content: "Khảo sát một xe máy đang di chuyển trên đường trong vòng 6s cho biết vận tốc của xe đang di chuyển có biểu thức: $v_t = 12 + 4t - t^2(m/s)$. Xe có vận tốc lớn hơn $15\\ (m/s)$ trong khoảng thời gian nào:"
-            },
-            {
-                id: 25,
-                type: "fill_blank",
-                content: "Cho hàm số: $y = \\frac{3\\tan x - 5}{1 - \\sin^2 x}$. Tìm tập xác định của hàm số:"
-            },
-            {
-                id: 30,
-                type: "fill_blank",
-                content: "Cho hình (H) được giới hạn bởi đồ thị hàm số: $y = \\sqrt{4k^2 - x^2}$ ($k \\geq 0$) và trục hoành. Thể tích khối tròn xoay khi quay (H) quanh trục Ox là V. Có bao nhiêu giá trị k thoả mãn: $V < 6400\\pi$"
-            },
-            {
-                id: 31,
-                type: "fill_blank",
-                content: "Trong không gian Oxyz, cho 2 vector $\\vec{u} = (1, m, 1 - 2m)$; $\\vec{v} = (-5, m + 1, 3)$. Tính tổng các giá trị của m thoả mãn: $\\sin(\\vec{u}, \\vec{v})$ đạt cực đại."
-            },
-            {
-                id: 32,
-                type: "fill_blank",
-                content: "Cho tập A là tập gồm các số có 3 chữ số được tạo bởi 5 chữ số: $\\{0, 1, 2, 3, 5\\}$. Xác suất để lấy được 1 số trong tập A thoả mãn tổng các chữ số bằng 8 là $\\frac{a}{b}$. Tính $10a - b = ?$"
-            },
-            {
-                id: 34,
-                type: "fill_blank",
-                content: "Biết công thức tính thể tích: $V_{OABC} = \\frac{1}{6} |[\\overrightarrow{OA}, \\overrightarrow{OB}] \\cdot \\overrightarrow{OC}|$. Trong không gian $Oxyz$, cho điểm $A(-1,2,3)$; $B(3,-4,1)$. Điểm $C \\in Ox$ thoả mãn $V_{OABC} = 42$. Hoành độ điểm C là:"
-            },
-            {
-                id: 35,
-                type: "fill_blank",
-                content: "Cho hàm số: $y = 4\\sin^2 x + 3$. Hàm số đạt giá trị nhỏ nhất khi nào:"
-            },
-            {
-                id: 36,
-                type: "fill_blank",
-                content: "Phương trình $\\sin^2(x) = (1 - \\cos x)(1 + \\sin x)$ có bao nhiêu nghiệm $x \\in [0, 2026\\pi]$"
-            },
-            {
-                id: 37,
-                type: "fill_blank",
-                content: "Bạn Duy có 1000 viên bi được đánh số từ 1 đến 1000. Gọi $P$ là xác suất bạn Duy chọn ra 2 viên bi sao cho có đúng 1 viên chia hết cho 4 hoặc 6 nhưng không chia hết cho 4 và 5, giá trị của $P(\\overline{A}) =$ % (Làm tròn đến 3 chữ số hàng thập phân)"
+                id: "thpt_01",
+                type: "THPT",
+                title: "Sở GD&ĐT Hà Nội - Lần 1",
+                questionsCount: 50,
+                time: 90,
+                img: "fa-building-columns", 
+                isVip: false
             }
         ];
 
-        // MOCK ĐÁP ÁN ĐỂ TEST TÍNH ĐIỂM
-        tsaExamData.forEach(q => {
-            if(q.type === 'multiple_choice') q.correctAnswer = "A"; 
-            else if(q.type === 'fill_blank') q.correctAnswer = "10";
-            else if(q.type === 'true_false') q.correctAnswer = {0: 'true', 1: 'false', 2: 'true', 3: 'false'};
-        });
+        const allExamsData = {
+            "tsa_01": [
+                {
+                    id: 1, type: "true_false", 
+                    content: "Cho hàm số $y = f(x) = \\sqrt{1 + \\cos(x)}$. Khi ta xét $x \\in (0, \\pi)$, các nhận định dưới đây là đúng hay sai?",
+                    propositions: [
+                        "Phương trình $\\sqrt{1 + \\cos(x)} = \\cos\\left(\\frac{x}{2}\\right)$ có nghiệm",
+                        "Phương trình $\\sqrt{1 + \\cos(x)} = \\cos\\left(\\frac{x}{4}\\right)$ có nghiệm",
+                        "Phương trình $\\sqrt{1 + \\cos(x)} = \\cos\\left(\\frac{\\pi}{8}\\right)$ có đúng 01 nghiệm"
+                    ],
+                    correctAnswer: {0: 'true', 1: 'false', 2: 'true'}
+                },
+                {
+                    id: 2, type: "fill_blank", 
+                    content: "Bất phương trình $(\\log_2 x)^2 + \\log_3 \\frac{36}{x} \\leq \\left(1 + \\log_3 \\frac{36}{x}\\right) \\log_2 x$ có tập nghiệm là $x \\in [a, b]$. Giá trị của $a + b/2 =$",
+                    correctAnswer: "10"
+                },
+                {
+                    id: 7, type: "multiple_choice", 
+                    content: "Cho hàm số: $y = \\frac{1+x}{1-x}$. Nhận xét nào sau đây đúng?",
+                    options: [
+                        "A. Đồ thị hàm số có TCN $y = 1$, TCĐ $x = 1$",
+                        "B. Đồ thị hàm số có TCN $y = -1$, TCĐ $x = 1$",
+                        "C. Đồ thị hàm số có TCN $y = 1$, TCĐ $x = -1$",
+                        "D. Đồ thị hàm số có TCN $y = -1$, TCĐ $x = -1$"
+                    ],
+                    correctAnswer: "B"
+                }
+                // (Bạn có thể copy dán thêm 25 câu còn lại vào đây tuỳ thích)
+            ],
+            "tsa_02": [
+                {
+                    id: 101, type: "fill_blank",
+                    content: "Tính $l = \\lim_{x \\to 0} \\frac{1-\\cos 2x}{x} =$",
+                    correctAnswer: "0"
+                }
+            ],
+            "thpt_01": [
+                {
+                    id: 201, type: "multiple_choice",
+                    content: "Khảo sát một xe máy đang di chuyển trên đường trong vòng 6s cho biết vận tốc của xe đang di chuyển có biểu thức: $v_t = 12 + 4t - t^2(m/s)$. Xe có vận tốc lớn hơn $15\\ (m/s)$ trong khoảng thời gian nào?",
+                    options: [
+                        "A. $t \\in (1; 3)$",
+                        "B. $t \\in (0; 6)$",
+                        "C. $t \\in (2; 4)$",
+                        "D. $t \\in (3; 5)$"
+                    ],
+                    correctAnswer: "A"
+                },
+                {
+                    id: 202, type: "true_false", 
+                    content: "Cho hình chóp đều S.ABCD có $SA = 2$, $AB = 1$. Các nhận định sau đúng hay sai?",
+                    propositions: [
+                        "SA và CD không vuông góc nhau",
+                        "Góc giữa SA và CD là $30^o$",
+                        "Khoảng cách giữa SA và CD bằng 1",
+                        "Thể tích bằng 2/3"
+                    ],
+                    correctAnswer: {0: 'true', 1: 'false', 2: 'true', 3: 'false'}
+                }
+            ]
+        };
 
-        // ------------- 1. AUTH & CƠ BẢN -------------
+        // --- HÀM TỰ ĐỘNG SINH UI DANH SÁCH ĐỀ THI ---
+        function renderExamLists() {
+            const tsaContainer = document.getElementById('tsa-exam-container');
+            const thptContainer = document.getElementById('thpt-exam-container');
+            
+            tsaContainer.innerHTML = '';
+            thptContainer.innerHTML = '';
+
+            examsMeta.forEach(exam => {
+                let cardHTML = '';
+                if (exam.type === 'TSA') {
+                    cardHTML = `
+                    <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden flex flex-col hover:shadow-md transition">
+                        <div class="relative h-48 bg-gray-200">
+                            <img src="${exam.img}" class="w-full h-full object-cover" alt="Cover">
+                            ${exam.isVip ? '<div class="absolute top-3 right-3 bg-yellow-400 text-yellow-900 text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1"><i class="fa-solid fa-crown"></i> VIP</div>' : ''}
+                        </div>
+                        <div class="p-5 flex flex-col flex-1">
+                            <h3 class="text-lg font-bold text-gray-800 mb-4 mt-2">${exam.title}</h3>
+                            <div class="flex gap-4 mb-6 text-sm text-gray-600 mt-auto">
+                                <div class="flex items-center gap-2">
+                                    <div class="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center text-blue-500"><i class="fa-regular fa-circle-question"></i></div>
+                                    <div><span class="block text-[10px] text-gray-400 uppercase">Câu hỏi</span><span class="font-bold">${exam.questionsCount} câu</span></div>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <div class="w-8 h-8 rounded-full bg-green-50 flex items-center justify-center text-green-500"><i class="fa-regular fa-clock"></i></div>
+                                    <div><span class="block text-[10px] text-gray-400 uppercase">Thời gian</span><span class="font-bold">${exam.time} phút</span></div>
+                                </div>
+                            </div>
+                            <button onclick="openConfirmModal('${exam.id}')" class="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-2.5 rounded-lg transition-colors text-sm">Bắt đầu thi</button>
+                        </div>
+                    </div>`;
+                    tsaContainer.innerHTML += cardHTML;
+                } 
+                else if (exam.type === 'THPT') {
+                    cardHTML = `
+                    <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden flex flex-col hover:shadow-md transition">
+                        <div class="relative h-48 bg-blue-100 flex items-center justify-center">
+                            <i class="fa-solid ${exam.img} text-6xl text-blue-300"></i>
+                        </div>
+                        <div class="p-5 flex flex-col flex-1">
+                            <h3 class="text-lg font-bold text-gray-800 mb-4 mt-2">${exam.title}</h3>
+                            <div class="flex gap-4 mb-6 text-sm text-gray-600 mt-auto">
+                                <div class="flex items-center gap-2">
+                                    <div class="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center text-blue-500"><i class="fa-regular fa-circle-question"></i></div>
+                                    <div><span class="block text-[10px] text-gray-400 uppercase">Câu hỏi</span><span class="font-bold">${exam.questionsCount} câu</span></div>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <div class="w-8 h-8 rounded-full bg-green-50 flex items-center justify-center text-green-500"><i class="fa-regular fa-clock"></i></div>
+                                    <div><span class="block text-[10px] text-gray-400 uppercase">Thời gian</span><span class="font-bold">${exam.time} phút</span></div>
+                                </div>
+                            </div>
+                            <button onclick="openConfirmModal('${exam.id}')" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2.5 rounded-lg transition-colors text-sm">Bắt đầu thi</button>
+                        </div>
+                    </div>`;
+                    thptContainer.innerHTML += cardHTML;
+                }
+            });
+        }
+
+        // --- HỆ THỐNG ĐĂNG NHẬP ---
         function switchAuth(mode) {
             const tabLogin = document.getElementById('tab-login');
             const tabRegister = document.getElementById('tab-register');
@@ -854,11 +764,7 @@
                 existingUsers[email] = {
                     name: document.getElementById('reg-name').value,
                     password: document.getElementById('reg-password').value,
-                    documents: [],
-                    dob: '',
-                    phone: '',
-                    school: '',
-                    className: ''
+                    documents: [], dob: '', phone: '', school: '', className: ''
                 };
                 localStorage.setItem('yaecute_users', JSON.stringify(existingUsers));
                 alert("Đăng ký thành công! Vui lòng đăng nhập.");
@@ -875,13 +781,7 @@
 
             if (email === 'admin@gmail.com' && !existingUsers['admin@gmail.com']) {
                 existingUsers['admin@gmail.com'] = { 
-                    name: 'Admin VIP', 
-                    password: '123', 
-                    documents: [],
-                    dob: '2005-01-01',
-                    phone: '0987654321',
-                    school: 'HUST',
-                    className: 'CNTT'
+                    name: 'Admin VIP', password: '123', documents: [], dob: '2005-01-01', phone: '0987654321', school: 'HUST', className: 'CNTT'
                 };
                 localStorage.setItem('yaecute_users', JSON.stringify(existingUsers));
             }
@@ -889,13 +789,14 @@
             if (existingUsers[email] && existingUsers[email].password === password) {
                 currentSessionEmail = email;
                 currentUser = existingUsers[email];
-
                 document.getElementById('display-user-name').textContent = currentUser.name;
                 document.getElementById('display-user-avatar').textContent = currentUser.name.charAt(0).toUpperCase();
                 
                 document.getElementById('view-auth').classList.add('hidden');
                 document.getElementById('app-container').classList.replace('hidden', 'flex');
                 
+                // Khởi tạo danh sách đề thi ngay khi login
+                renderExamLists();
                 switchView('home');
             } else {
                 document.getElementById('login-error').classList.remove('hidden');
@@ -913,19 +814,13 @@
             document.getElementById('profile-dropdown').classList.toggle('hidden');
         }
 
-        // ------------- 2. HỆ THỐNG ĐIỀU HƯỚNG -------------
         function switchView(viewName) {
             document.getElementById('profile-dropdown').classList.add('hidden');
-            
             const views = ['view-home', 'view-exam-list', 'view-exam-school-list', 'view-realtime-exam', 'view-documents', 'view-settings'];
             views.forEach(v => {
                 let el = document.getElementById(v);
-                if(el) {
-                    el.classList.add('hidden');
-                    el.classList.remove('block', 'flex');
-                }
+                if(el) { el.classList.add('hidden'); el.classList.remove('block', 'flex'); }
             });
-
             document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
 
             if (viewName === 'home') {
@@ -944,7 +839,7 @@
                 document.getElementById('view-realtime-exam').classList.add('flex');
                 document.getElementById('view-realtime-exam').classList.remove('hidden');
                 document.getElementById('nav-realtime-exam').classList.add('active');
-                joinRealtimeRoom(); 
+                // joinRealtimeRoom(); 
             } else if (viewName === 'documents') {
                 document.getElementById('view-documents').classList.add('block');
                 document.getElementById('view-documents').classList.remove('hidden');
@@ -964,7 +859,7 @@
             }
         }
 
-        // ------------- 3. CÀI ĐẶT & TÀI LIỆU -------------
+        // --- CÀI ĐẶT & TÀI LIỆU ---
         function saveSettings(event) {
             event.preventDefault();
             currentUser.name = document.getElementById('profile-name').value;
@@ -1018,20 +913,21 @@
             setTimeout(() => toast.classList.add('translate-y-20', 'opacity-0'), 3000);
         }
 
-        // ------------- 4. PHÒNG THI SOLO (MỚI) -------------
-        let currentExamTime = 60;
-        let soloTimerInterval;
+        // --- PHÒNG THI SOLO ---
+        function openConfirmModal(examId) {
+            const examInfo = examsMeta.find(e => e.id === examId);
+            if(!examInfo) return alert("Không tìm thấy dữ liệu đề thi!");
 
-        function openConfirmModal(title, time, questions, type = 'TSA') {
-            document.getElementById('confirm-exam-name').innerText = title;
-            document.getElementById('confirm-time').innerText = time + " phút";
-            document.getElementById('confirm-questions').innerText = questions + " câu";
+            document.getElementById('confirm-exam-name').innerText = examInfo.title;
+            document.getElementById('confirm-time').innerText = examInfo.time + " phút";
+            document.getElementById('confirm-questions').innerText = examInfo.questionsCount + " câu";
             document.getElementById('confirm-name').innerText = currentUser.name;
             
-            currentExamTime = time; 
-            totalExamTime = time * 60;
-            currentExamType = type; // 'THPT' hoặc 'TSA'
-            userAnswers = {}; // Reset đáp án của người dùng
+            currentExamId = examId;
+            currentExamTime = examInfo.time; 
+            totalExamTime = examInfo.time * 60;
+            currentExamType = examInfo.type; 
+            userAnswers = {}; 
             
             document.getElementById('modal-confirm').classList.remove('hidden');
         }
@@ -1043,6 +939,11 @@
         function renderExamContainer(examData) {
             const container = document.getElementById('exam-content-container'); 
             container.innerHTML = ''; 
+
+            if(examData.length === 0) {
+                container.innerHTML = '<p class="text-center text-gray-500 mt-10">Dữ liệu đề thi đang được cập nhật...</p>';
+                return;
+            }
 
             examData.forEach((q, index) => {
                 let questionHTML = `
@@ -1116,15 +1017,16 @@
             document.getElementById('app-container').classList.add('hidden');
             document.getElementById('view-active-exam').classList.remove('hidden');
             
-            const examTitle = document.getElementById('confirm-exam-name').innerText;
-            document.getElementById('active-exam-title').innerText = examTitle;
+            const examInfo = examsMeta.find(e => e.id === currentExamId);
+            document.getElementById('active-exam-title').innerText = examInfo.title;
             document.getElementById('exam-student-name').innerText = currentUser.name;
             
             const grid = document.getElementById('question-grid');
             grid.innerHTML = '';
             
-            // Xây dựng bảng lưới tương ứng với dữ liệu
-            tsaExamData.forEach((q, index) => {
+            const examQuestionsData = allExamsData[currentExamId] || [];
+            
+            examQuestionsData.forEach((q, index) => {
                 let classes = "w-10 h-10 rounded-full text-sm font-bold flex items-center justify-center transition-colors cursor-pointer hover:bg-gray-200 ";
                 classes += "bg-gray-100 text-gray-600";
                 grid.innerHTML += `<button id="grid-btn-${q.id}" onclick="scrollToQuestion(${index + 1})" class="${classes}">${index + 1}</button>`;
@@ -1136,7 +1038,7 @@
                 watermark.innerHTML += `<span class="watermark-text">${currentUser.name} - ${currentSessionEmail}</span>`;
             }
 
-            renderExamContainer(tsaExamData);
+            renderExamContainer(examQuestionsData);
 
             let timer = currentExamTime * 60;
             clearInterval(soloTimerInterval);
@@ -1192,7 +1094,6 @@
             }
         }
 
-        // Scroll
         function scrollToQuestion(index) {
             const questionElement = document.getElementById('question-' + index);
             if (questionElement) {
@@ -1200,13 +1101,16 @@
             }
         }
 
-        // CHẤM ĐIỂM
+        // --- CHẤM ĐIỂM TỰ ĐỘNG ---
         function calculateScore() {
             let totalScore = 0;
-            let totalQuestions = tsaExamData.length;
+            const examQuestionsData = allExamsData[currentExamId] || [];
+            let totalQuestions = examQuestionsData.length;
             let correctCount = 0;
 
-            tsaExamData.forEach(q => {
+            if(totalQuestions === 0) return { score: 0, correct: 0, total: 0 };
+
+            examQuestionsData.forEach(q => {
                 let isFullyCorrect = false;
 
                 if (q.type === 'multiple_choice') {
@@ -1229,7 +1133,6 @@
                         }
                     }
                     
-                    // Logic tính điểm THPT 2025
                     if (currentExamType === 'THPT') {
                         if (correctProps === 1) totalScore += 0.1;
                         else if (correctProps === 2) totalScore += 0.25;
@@ -1239,7 +1142,6 @@
                             isFullyCorrect = true;
                         }
                     } else {
-                        // Logic TSA đếm số câu Đúng
                         if (correctProps === q.propositions.length) isFullyCorrect = true;
                     }
                 }
@@ -1262,7 +1164,6 @@
             if(confirm("Xác nhận nộp bài? Hệ thống sẽ bắt đầu chấm điểm.")) {
                 clearInterval(soloTimerInterval);
                 
-                // Tính thời gian đã làm
                 let timeRemainingStr = document.getElementById('countdown-timer').innerText;
                 let parts = timeRemainingStr.split(':');
                 let secondsRemaining = (+parts[0]) * 3600 + (+parts[1]) * 60 + (+parts[2]);
@@ -1272,15 +1173,12 @@
                 let s = timeSpent % 60;
                 let timeFormatted = `${m < 10 ? '0'+m : m}:${s < 10 ? '0'+s : s}`;
 
-                // Chấm điểm
                 const result = calculateScore();
-                const accuracy = ((result.correct / result.total) * 100).toFixed(1);
+                const accuracy = result.total > 0 ? ((result.correct / result.total) * 100).toFixed(1) : 0;
 
-                // UI
                 document.getElementById('view-active-exam').classList.add('hidden');
                 document.getElementById('view-exam-result').classList.remove('hidden');
 
-                // Fill data vào Result View
                 document.getElementById('result-exam-title').innerText = document.getElementById('active-exam-title').innerText;
                 document.getElementById('result-time-spent').innerText = timeFormatted;
                 document.getElementById('result-accuracy').innerText = accuracy + '%';
@@ -1304,72 +1202,6 @@
             switchView('exam-list');
         }
 
-        // ------------- 5. PHÒNG THI SOCKET.IO (THỰC CHIẾN) -------------
-        let socket;
-        let hasJoinedRoom = false;
-
-        function joinRealtimeRoom() {
-            if(currentSessionEmail === 'admin@gmail.com') {
-                document.getElementById('btn-start-exam').classList.remove('hidden');
-            }
-            if (!socket) {
-                try {
-                    socket = io('http://localhost:3000');
-                    socket.on('connect', () => {
-                        if (!hasJoinedRoom) {
-                            socket.emit('join_room', currentUser.name);
-                            hasJoinedRoom = true;
-                            showToast("Đã kết nối Socket!");
-                        }
-                    });
-                    socket.on('update_players', (players) => renderLeaderboard(players, null));
-                    socket.on('update_scores', (scores) => renderLeaderboard(null, scores));
-                    socket.on('new_question', (question) => {
-                        document.getElementById('rt-exam-waiting').classList.add('hidden');
-                        document.getElementById('rt-exam-content').classList.remove('hidden');
-                        document.getElementById('room-status').innerHTML = "Đang thi...";
-                        document.getElementById('rt-live-question-text').innerText = question.content;
-                        
-                        const opts = document.getElementById('rt-live-options');
-                        opts.innerHTML = '';
-                        question.options.forEach(opt => {
-                            opts.innerHTML += `<button onclick="submitRTAnswer('${opt.charAt(0)}', this)" class="py-4 px-6 bg-gray-50 border border-gray-200 rounded-xl text-left font-bold text-navy hover:bg-blue-50 text-sm">${opt}</button>`;
-                        });
-                    });
-                } catch (e) {
-                    console.log("Socket connection skipped.");
-                }
-            }
-        }
-
-        function startRealtimeExam() {
-            if(socket) socket.emit('start_exam');
-            document.getElementById('btn-start-exam').innerText = "Câu tiếp theo";
-            document.getElementById('btn-start-exam').onclick = () => socket.emit('next_question');
-        }
-
-        function submitRTAnswer(ans, btnElement) {
-            socket.emit('submit_answer', ans);
-            Array.from(btnElement.parentElement.children).forEach(b => b.classList.add('opacity-50', 'pointer-events-none'));
-            btnElement.classList.replace('bg-gray-50', 'bg-blue-500');
-            btnElement.classList.add('text-white');
-            btnElement.classList.remove('opacity-50');
-        }
-
-        let rtPlayers = {};
-        function renderLeaderboard(players, scores) {
-            if (players) rtPlayers = players;
-            let list = document.getElementById('rt-live-leaderboard');
-            list.innerHTML = '';
-            for (let id in rtPlayers) {
-                let score = (scores && scores[id]) ? scores[id] : 0;
-                list.innerHTML += `
-                    <li class="flex justify-between p-3 bg-gray-50 rounded-xl border border-gray-100">
-                        <span class="font-bold text-navy text-sm">${rtPlayers[id]}</span>
-                        <span class="font-bold text-custom-red">${score}đ</span>
-                    </li>`;
-            }
-        }
     </script>
 </body>
 </html>
