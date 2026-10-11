@@ -302,7 +302,7 @@
                     </div>
                 </div>
 
-                <!-- 2.2 DANH SÁCH ĐỀ THI LÝ THUYẾT (Solo) -->
+                <!-- 2.2 DANH SÁCH ĐỀ THI LÝ THUYẾT (Solo TSA) -->
                 <div id="view-exam-list" class="hidden max-w-6xl mx-auto">
                     <div class="mb-8">
                         <h2 class="text-2xl font-extrabold text-navy">Kỳ thi Đánh giá tư duy TSA</h2>
@@ -330,7 +330,7 @@
                                         <div><span class="block text-[10px] text-gray-400 uppercase">Thời gian</span><span class="font-bold">150 phút</span></div>
                                     </div>
                                 </div>
-                                <button onclick="openConfirmModal('NTT DTHW', 150, 28)" class="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-2.5 rounded-lg transition-colors text-sm">Bắt đầu thi</button>
+                                <button onclick="openConfirmModal('NTT DTHW', 150, 28, 'TSA')" class="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-2.5 rounded-lg transition-colors text-sm">Bắt đầu thi</button>
                             </div>
                         </div>
                     </div>
@@ -357,14 +357,14 @@
                                 <div class="flex gap-4 mb-6 text-sm text-gray-600 mt-auto">
                                     <div class="flex items-center gap-2">
                                         <div class="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center text-blue-500"><i class="fa-regular fa-circle-question"></i></div>
-                                        <div><span class="block text-[10px] text-gray-400 uppercase">Câu hỏi</span><span class="font-bold">50 câu</span></div>
+                                        <div><span class="block text-[10px] text-gray-400 uppercase">Câu hỏi</span><span class="font-bold">28 câu</span></div>
                                     </div>
                                     <div class="flex items-center gap-2">
                                         <div class="w-8 h-8 rounded-full bg-green-50 flex items-center justify-center text-green-500"><i class="fa-regular fa-clock"></i></div>
                                         <div><span class="block text-[10px] text-gray-400 uppercase">Thời gian</span><span class="font-bold">90 phút</span></div>
                                     </div>
                                 </div>
-                                <button onclick="openConfirmModal('Sở GD Hà Nội L1', 90, 50)" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2.5 rounded-lg transition-colors text-sm">Bắt đầu thi</button>
+                                <button onclick="openConfirmModal('Sở GD Hà Nội L1', 90, 28, 'THPT')" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2.5 rounded-lg transition-colors text-sm">Bắt đầu thi</button>
                             </div>
                         </div>
                     </div>
@@ -561,7 +561,7 @@
                 <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-5 flex-1 flex flex-col overflow-hidden">
                     <h3 class="font-bold text-gray-800 text-sm text-center mb-4">Danh sách câu hỏi</h3>
                     <div class="flex justify-center gap-4 text-[10px] text-gray-500 mb-6">
-                        <div class="flex items-center gap-1"><div class="w-3 h-3 bg-blue-600 rounded-full"></div> Hiện tại</div>
+                        <div class="flex items-center gap-1"><div class="w-3 h-3 bg-gray-100 border border-gray-300 rounded-full"></div> Chưa làm</div>
                         <div class="flex items-center gap-1"><div class="w-3 h-3 bg-red-600 rounded-full"></div> Đã trả lời</div>
                     </div>
                     <div class="flex-1 overflow-y-auto pr-2 custom-scrollbar">
@@ -575,10 +575,65 @@
         </div>
     </div>
 
-    <!-- ================= 5. TẤT CẢ JAVASCRIPT GỘP ================= -->
+    <!-- ================= 6. MÀN HÌNH KẾT QUẢ HIỆN ĐẠI ================= -->
+    <div id="view-exam-result" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-gray-50 overflow-y-auto py-10">
+        <div class="absolute top-[-10%] right-[-10%] w-96 h-96 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-50"></div>
+        <div class="absolute bottom-[-10%] left-[-10%] w-96 h-96 bg-red-200 rounded-full mix-blend-multiply filter blur-3xl opacity-50"></div>
+
+        <div class="bg-white rounded-3xl shadow-2xl w-full max-w-2xl mx-4 p-8 md:p-12 relative z-10 border border-gray-100 flex flex-col items-center">
+            <div class="w-20 h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-4xl mb-6 shadow-sm">
+                <i class="fa-solid fa-check-double"></i>
+            </div>
+            
+            <h2 class="text-3xl font-black text-navy mb-2">Hoàn thành bài thi!</h2>
+            <p class="text-gray-500 font-medium mb-8" id="result-exam-title">Kỳ thi Đánh giá tư duy TSA</p>
+
+            <!-- Thẻ Điểm số -->
+            <div class="w-full bg-gray-50 rounded-2xl p-8 mb-8 border border-gray-100 flex flex-col items-center justify-center">
+                <div class="text-sm font-bold text-gray-500 uppercase tracking-widest mb-4" id="result-score-label">ĐIỂM SỐ / TỔNG CÂU</div>
+                <div class="text-6xl font-black text-custom-red tracking-tighter" id="result-score-value">0.00</div>
+                <div class="text-sm font-semibold text-blue-600 mt-4 bg-blue-50 px-4 py-1.5 rounded-full" id="result-exam-type-badge">Hệ số: Đề THPT 2025</div>
+            </div>
+
+            <!-- Thống kê chi tiết -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 w-full mb-10">
+                <div class="bg-white border border-gray-100 rounded-xl p-4 flex flex-col items-center shadow-sm">
+                    <i class="fa-regular fa-clock text-gray-400 text-xl mb-2"></i>
+                    <div class="text-xs text-gray-500 font-bold mb-1">THỜI GIAN LÀM</div>
+                    <div class="text-lg font-black text-navy" id="result-time-spent">00:00</div>
+                </div>
+                <div class="bg-white border border-gray-100 rounded-xl p-4 flex flex-col items-center shadow-sm">
+                    <i class="fa-solid fa-bullseye text-green-500 text-xl mb-2"></i>
+                    <div class="text-xs text-gray-500 font-bold mb-1">ĐỘ CHÍNH XÁC</div>
+                    <div class="text-lg font-black text-navy" id="result-accuracy">0%</div>
+                </div>
+                <div class="bg-white border border-gray-100 rounded-xl p-4 flex flex-col items-center shadow-sm">
+                    <i class="fa-solid fa-chart-simple text-blue-500 text-xl mb-2"></i>
+                    <div class="text-xs text-gray-500 font-bold mb-1">SỐ CÂU ĐÚNG</div>
+                    <div class="text-lg font-black text-navy" id="result-correct-count">0/0</div>
+                </div>
+            </div>
+
+            <div class="flex gap-4 w-full">
+                <button onclick="closeResultAndGoHome()" class="flex-1 py-3.5 bg-gray-100 hover:bg-gray-200 text-gray-700 font-bold rounded-xl transition-colors">
+                    Trở về thư viện
+                </button>
+                <button onclick="alert('Đang phát triển xem chi tiết!')" class="flex-1 py-3.5 bg-custom-red hover:bg-red-800 text-white font-bold rounded-xl shadow-lg transition-colors">
+                    Xem đáp án chi tiết
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= 7. TẤT CẢ JAVASCRIPT GỘP ================= -->
     <script>
         let currentSessionEmail = null;
         let currentUser = null;
+        
+        // CÁC BIẾN CHO HỆ THỐNG CHẤM ĐIỂM
+        let currentExamType = 'TSA'; 
+        let userAnswers = {}; 
+        let totalExamTime = 0;
         
         const tsaExamData = [
             {
@@ -761,6 +816,13 @@
             }
         ];
 
+        // MOCK ĐÁP ÁN ĐỂ TEST TÍNH ĐIỂM
+        tsaExamData.forEach(q => {
+            if(q.type === 'multiple_choice') q.correctAnswer = "A"; 
+            else if(q.type === 'fill_blank') q.correctAnswer = "10";
+            else if(q.type === 'true_false') q.correctAnswer = {0: 'true', 1: 'false', 2: 'true', 3: 'false'};
+        });
+
         // ------------- 1. AUTH & CƠ BẢN -------------
         function switchAuth(mode) {
             const tabLogin = document.getElementById('tab-login');
@@ -811,7 +873,6 @@
             const password = document.getElementById('login-password').value;
             const existingUsers = JSON.parse(localStorage.getItem('yaecute_users')) || {};
 
-            // Tài khoản Admin tự động tạo
             if (email === 'admin@gmail.com' && !existingUsers['admin@gmail.com']) {
                 existingUsers['admin@gmail.com'] = { 
                     name: 'Admin VIP', 
@@ -856,7 +917,6 @@
         function switchView(viewName) {
             document.getElementById('profile-dropdown').classList.add('hidden');
             
-            // Ẩn tất cả view con trong app-container
             const views = ['view-home', 'view-exam-list', 'view-exam-school-list', 'view-realtime-exam', 'view-documents', 'view-settings'];
             views.forEach(v => {
                 let el = document.getElementById(v);
@@ -866,10 +926,8 @@
                 }
             });
 
-            // Gỡ active khỏi toàn bộ menu
             document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
 
-            // Bật view tương ứng
             if (viewName === 'home') {
                 document.getElementById('view-home').classList.add('block');
                 document.getElementById('view-home').classList.remove('hidden');
@@ -897,7 +955,6 @@
                 document.getElementById('view-settings').classList.remove('hidden');
                 document.getElementById('nav-settings').classList.add('active');
                 
-                // Đổ dữ liệu từ bộ nhớ ra giao diện cài đặt
                 document.getElementById('profile-name').value = currentUser.name || '';
                 document.getElementById('profile-email').value = currentSessionEmail || '';
                 document.getElementById('profile-dob').value = currentUser.dob || '';
@@ -910,7 +967,6 @@
         // ------------- 3. CÀI ĐẶT & TÀI LIỆU -------------
         function saveSettings(event) {
             event.preventDefault();
-            // Cập nhật tất cả trường vào object currentUser
             currentUser.name = document.getElementById('profile-name').value;
             currentUser.dob = document.getElementById('profile-dob').value;
             currentUser.phone = document.getElementById('profile-phone').value;
@@ -966,12 +1022,17 @@
         let currentExamTime = 60;
         let soloTimerInterval;
 
-        function openConfirmModal(title, time, questions) {
+        function openConfirmModal(title, time, questions, type = 'TSA') {
             document.getElementById('confirm-exam-name').innerText = title;
             document.getElementById('confirm-time').innerText = time + " phút";
             document.getElementById('confirm-questions').innerText = questions + " câu";
             document.getElementById('confirm-name').innerText = currentUser.name;
+            
             currentExamTime = time; 
+            totalExamTime = time * 60;
+            currentExamType = type; // 'THPT' hoặc 'TSA'
+            userAnswers = {}; // Reset đáp án của người dùng
+            
             document.getElementById('modal-confirm').classList.remove('hidden');
         }
 
@@ -1011,8 +1072,8 @@
                                     <tr class="border-b hover:bg-gray-50">
                                         <td class="py-4 px-4 align-top font-semibold">${char})</td>
                                         <td class="py-4 px-4">${prop}</td>
-                                        <td class="py-4 px-4 text-center"><div class="custom-radio" onclick="selectRadio(this, 'true')"></div></td>
-                                        <td class="py-4 px-4 text-center"><div class="custom-radio" onclick="selectRadio(this, 'false')"></div></td>
+                                        <td class="py-4 px-4 text-center"><div class="custom-radio" onclick="selectRadio(this, ${q.id}, ${pIndex}, 'true')"></div></td>
+                                        <td class="py-4 px-4 text-center"><div class="custom-radio" onclick="selectRadio(this, ${q.id}, ${pIndex}, 'false')"></div></td>
                                     </tr>
                         `;
                     });
@@ -1022,15 +1083,16 @@
                     questionHTML += `
                         <div class="mt-4 flex items-center gap-3">
                             <span class="font-semibold text-gray-700">Điền đáp án:</span>
-                            <input type="text" class="w-48 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 font-mono" placeholder="Nhập giá trị...">
+                            <input type="text" oninput="saveFillBlank(${q.id}, this.value)" class="w-48 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 font-mono" placeholder="Nhập giá trị...">
                         </div>
                     `;
                 }
                 else if (q.type === 'multiple_choice') {
                     questionHTML += `<div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">`;
-                    q.options.forEach((opt) => {
+                    q.options.forEach((opt, optIdx) => {
+                        const char = String.fromCharCode(65 + optIdx);
                         questionHTML += `
-                            <button onclick="selectOption(this)" class="text-left py-3 px-5 border border-gray-200 rounded-xl hover:bg-blue-50 hover:border-blue-300 transition-all cursor-pointer">
+                            <button onclick="selectOption(this, ${q.id}, '${char}')" class="text-left py-3 px-5 border border-gray-200 rounded-xl hover:bg-blue-50 hover:border-blue-300 transition-all cursor-pointer">
                                 ${opt}
                             </button>
                         `;
@@ -1058,14 +1120,15 @@
             document.getElementById('active-exam-title').innerText = examTitle;
             document.getElementById('exam-student-name').innerText = currentUser.name;
             
-            const numQuestions = parseInt(document.getElementById('confirm-questions').innerText);
             const grid = document.getElementById('question-grid');
             grid.innerHTML = '';
-            for (let i = 1; i <= numQuestions; i++) {
+            
+            // Xây dựng bảng lưới tương ứng với dữ liệu
+            tsaExamData.forEach((q, index) => {
                 let classes = "w-10 h-10 rounded-full text-sm font-bold flex items-center justify-center transition-colors cursor-pointer hover:bg-gray-200 ";
-                classes += (i === 1) ? "bg-blue-600 text-white shadow-md" : "bg-gray-100 text-gray-600";
-                grid.innerHTML += `<button onclick="scrollToQuestion(${i})" class="${classes}">${i}</button>`;
-            }
+                classes += "bg-gray-100 text-gray-600";
+                grid.innerHTML += `<button id="grid-btn-${q.id}" onclick="scrollToQuestion(${index + 1})" class="${classes}">${index + 1}</button>`;
+            });
 
             const watermark = document.getElementById('watermark-container');
             watermark.innerHTML = '';
@@ -1073,7 +1136,6 @@
                 watermark.innerHTML += `<span class="watermark-text">${currentUser.name} - ${currentSessionEmail}</span>`;
             }
 
-            // Tạo đề thi tự động từ mảng
             renderExamContainer(tsaExamData);
 
             let timer = currentExamTime * 60;
@@ -1092,23 +1154,45 @@
             }, 1000);
         }
 
-        // Chọn đáp án True/False
-        function selectRadio(element, value) {
+        // LƯU ĐÁP ÁN CHO 3 DẠNG CÂU HỎI
+        function saveFillBlank(qId, value) {
+            userAnswers[qId] = value.trim();
+            updateQuestionGridStatus(qId, value.trim() !== "");
+        }
+
+        function selectOption(btn, qId, char) {
+            const siblings = btn.parentElement.querySelectorAll('button');
+            siblings.forEach(b => b.classList.remove('bg-blue-50', 'border-blue-500', 'text-blue-700', 'ring-2', 'ring-blue-200'));
+            btn.classList.add('bg-blue-50', 'border-blue-500', 'text-blue-700', 'ring-2', 'ring-blue-200');
+            
+            userAnswers[qId] = char;
+            updateQuestionGridStatus(qId, true);
+        }
+
+        function selectRadio(element, qId, pIndex, value) {
             const tr = element.closest('tr');
             tr.querySelectorAll('.custom-radio').forEach(r => r.classList.remove('selected'));
             element.classList.add('selected');
+            
+            if(!userAnswers[qId]) userAnswers[qId] = {};
+            userAnswers[qId][pIndex] = value;
+            updateQuestionGridStatus(qId, true);
         }
 
-        // Đổi màu đáp án Trắc nghiệm (A, B, C, D)
-        function selectOption(btn) {
-            const siblings = btn.parentElement.querySelectorAll('button');
-            siblings.forEach(b => {
-                b.classList.remove('bg-blue-50', 'border-blue-500', 'text-blue-700', 'ring-2', 'ring-blue-200');
-            });
-            btn.classList.add('bg-blue-50', 'border-blue-500', 'text-blue-700', 'ring-2', 'ring-blue-200');
+        function updateQuestionGridStatus(qId, isAnswered) {
+            const btn = document.getElementById(`grid-btn-${qId}`);
+            if(btn) {
+                if (isAnswered) {
+                    btn.classList.remove('bg-gray-100', 'text-gray-600');
+                    btn.classList.add('bg-red-600', 'text-white');
+                } else {
+                    btn.classList.remove('bg-red-600', 'text-white');
+                    btn.classList.add('bg-gray-100', 'text-gray-600');
+                }
+            }
         }
 
-        // Click số cuộn tới câu hỏi
+        // Scroll
         function scrollToQuestion(index) {
             const questionElement = document.getElementById('question-' + index);
             if (questionElement) {
@@ -1116,14 +1200,108 @@
             }
         }
 
-        function submitExam() {
-            if(confirm("Xác nhận nộp bài?")) {
-                clearInterval(soloTimerInterval);
-                alert("Đã nộp bài thành công!");
-                document.getElementById('view-active-exam').classList.add('hidden');
-                document.getElementById('app-container').classList.remove('hidden');
-                switchView('exam-list');
+        // CHẤM ĐIỂM
+        function calculateScore() {
+            let totalScore = 0;
+            let totalQuestions = tsaExamData.length;
+            let correctCount = 0;
+
+            tsaExamData.forEach(q => {
+                let isFullyCorrect = false;
+
+                if (q.type === 'multiple_choice') {
+                    if (userAnswers[q.id] === q.correctAnswer) {
+                        isFullyCorrect = true;
+                        if (currentExamType === 'THPT') totalScore += 0.25;
+                    }
+                } 
+                else if (q.type === 'fill_blank') {
+                    if (userAnswers[q.id] === q.correctAnswer) {
+                        isFullyCorrect = true;
+                        if (currentExamType === 'THPT') totalScore += 0.5;
+                    }
+                } 
+                else if (q.type === 'true_false') {
+                    let correctProps = 0;
+                    if (userAnswers[q.id]) {
+                        for (let i = 0; i < q.propositions.length; i++) {
+                            if (userAnswers[q.id][i] === q.correctAnswer[i]) correctProps++;
+                        }
+                    }
+                    
+                    // Logic tính điểm THPT 2025
+                    if (currentExamType === 'THPT') {
+                        if (correctProps === 1) totalScore += 0.1;
+                        else if (correctProps === 2) totalScore += 0.25;
+                        else if (correctProps === 3) totalScore += 0.5;
+                        else if (correctProps === 4) {
+                            totalScore += 1.0;
+                            isFullyCorrect = true;
+                        }
+                    } else {
+                        // Logic TSA đếm số câu Đúng
+                        if (correctProps === q.propositions.length) isFullyCorrect = true;
+                    }
+                }
+
+                if (isFullyCorrect) correctCount++;
+            });
+
+            if (currentExamType === 'TSA') {
+                totalScore = correctCount; 
             }
+
+            return {
+                score: currentExamType === 'THPT' ? totalScore.toFixed(2) : totalScore,
+                correct: correctCount,
+                total: totalQuestions
+            };
+        }
+
+        function submitExam() {
+            if(confirm("Xác nhận nộp bài? Hệ thống sẽ bắt đầu chấm điểm.")) {
+                clearInterval(soloTimerInterval);
+                
+                // Tính thời gian đã làm
+                let timeRemainingStr = document.getElementById('countdown-timer').innerText;
+                let parts = timeRemainingStr.split(':');
+                let secondsRemaining = (+parts[0]) * 3600 + (+parts[1]) * 60 + (+parts[2]);
+                let timeSpent = totalExamTime - secondsRemaining;
+                
+                let m = Math.floor(timeSpent / 60);
+                let s = timeSpent % 60;
+                let timeFormatted = `${m < 10 ? '0'+m : m}:${s < 10 ? '0'+s : s}`;
+
+                // Chấm điểm
+                const result = calculateScore();
+                const accuracy = ((result.correct / result.total) * 100).toFixed(1);
+
+                // UI
+                document.getElementById('view-active-exam').classList.add('hidden');
+                document.getElementById('view-exam-result').classList.remove('hidden');
+
+                // Fill data vào Result View
+                document.getElementById('result-exam-title').innerText = document.getElementById('active-exam-title').innerText;
+                document.getElementById('result-time-spent').innerText = timeFormatted;
+                document.getElementById('result-accuracy').innerText = accuracy + '%';
+                document.getElementById('result-correct-count').innerText = `${result.correct}/${result.total}`;
+                
+                if (currentExamType === 'THPT') {
+                    document.getElementById('result-score-label').innerText = "ĐIỂM SỐ (THANG 10)";
+                    document.getElementById('result-score-value').innerText = result.score;
+                    document.getElementById('result-exam-type-badge').innerText = "Hệ số: Đề THPT 2025";
+                } else {
+                    document.getElementById('result-score-label').innerText = "TỔNG SỐ CÂU ĐÚNG";
+                    document.getElementById('result-score-value').innerText = result.score;
+                    document.getElementById('result-exam-type-badge').innerText = "Hệ số: Barem TSA";
+                }
+            }
+        }
+
+        function closeResultAndGoHome() {
+            document.getElementById('view-exam-result').classList.add('hidden');
+            document.getElementById('app-container').classList.remove('hidden');
+            switchView('exam-list');
         }
 
         // ------------- 5. PHÒNG THI SOCKET.IO (THỰC CHIẾN) -------------
