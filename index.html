@@ -745,11 +745,15 @@
             if (existingUsers[email]) {
                 alert("Email này đã được đăng ký!");
             } else {
-                existingUsers[email] = { 
-                    name: document.getElementById('reg-name').value, 
-                    password: document.getElementById('reg-password').value,
-                    documents: [] 
-                };
+                existingUsers[email] = {
+                name: document.getElementById('reg-name').value,
+                password: document.getElementById('reg-password').value,
+                documents: [],
+                dob: '',
+                phone: '',
+                school: '',
+                className: ''
+            };
                 localStorage.setItem('yaecute_users', JSON.stringify(existingUsers));
                 alert("Đăng ký thành công! Vui lòng đăng nhập.");
                 switchAuth('login');
