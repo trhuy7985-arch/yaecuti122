@@ -836,10 +836,15 @@
                 document.getElementById('view-settings').classList.add('block');
                 document.getElementById('view-settings').classList.remove('hidden');
                 document.getElementById('nav-settings').classList.add('active');
-                document.getElementById('profile-name').value = currentUser.name;
-                document.getElementById('profile-email').value = currentSessionEmail;
+                
+                // Đổ dữ liệu từ bộ nhớ ra giao diện
+                document.getElementById('profile-name').value = currentUser.name || '';
+                document.getElementById('profile-email').value = currentSessionEmail || '';
+                document.getElementById('profile-dob').value = currentUser.dob || '';
+                document.getElementById('profile-phone').value = currentUser.phone || '';
+                document.getElementById('profile-school').value = currentUser.school || '';
+                document.getElementById('profile-class').value = currentUser.className || '';
             }
-        }
 
         // ------------- 3. CÀI ĐẶT & TÀI LIỆU -------------
         function saveSettings(event) {
