@@ -560,13 +560,47 @@
                 <button onclick="closeResultAndGoHome()" class="flex-1 py-3.5 bg-gray-100 hover:bg-gray-200 text-gray-700 font-bold rounded-xl transition-colors">
                     Trở về thư viện
                 </button>
-                <button onclick="alert('Đang phát triển xem chi tiết!')" class="flex-1 py-3.5 bg-custom-red hover:bg-red-800 text-white font-bold rounded-xl shadow-lg transition-colors">
+                <button onclick="openReviewExam()" class="flex-1 py-3.5 bg-custom-red hover:bg-red-800 text-white font-bold rounded-xl shadow-lg transition-colors">
                     Xem đáp án chi tiết
                 </button>
             </div>
         </div>
     </div>
+<!-- ================= MÀN HÌNH XEM LẠI ĐÁP ÁN ================= -->
+    <div id="view-exam-review" class="hidden fixed inset-0 bg-[#f8f9fa] z-50 flex flex-col">
+        <header class="bg-white h-16 border-b border-gray-200 flex items-center px-6 shrink-0 shadow-sm z-20 justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 bg-blue-600 text-white flex items-center justify-center font-black rounded text-lg"><i class="fa-solid fa-magnifying-glass"></i></div>
+                <h1 class="text-xl font-bold text-gray-900">Chi tiết bài làm: <span id="review-exam-title">...</span></h1>
+            </div>
+            <button onclick="closeReviewAndGoHome()" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 font-bold rounded-lg transition-colors text-sm">
+                <i class="fa-solid fa-arrow-left mr-2"></i> Về trang chủ
+            </button>
+        </header>
+        <div class="flex-1 flex overflow-hidden p-4 md:p-6 gap-6 relative">
+            
+            <!-- Khu vực câu hỏi & Đáp án (Trái) -->
+            <div class="flex-1 bg-white rounded-xl shadow-sm border border-gray-200 overflow-y-auto relative flex flex-col">
+                <div id="review-content-container" class="p-8 relative z-10 flex-1">
+                    <!-- JS sẽ tự động đổ danh sách câu hỏi xem lại vào đây -->
+                </div>
+            </div>
 
+            <!-- Panel Thông tin (Phải) -->
+            <div class="w-80 flex flex-col gap-6 shrink-0 h-full">
+                <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-5 flex-1 flex flex-col overflow-hidden">
+                    <h3 class="font-bold text-gray-800 text-sm text-center mb-4">Mức độ hoàn thành</h3>
+                    <div class="flex justify-center gap-4 text-[10px] text-gray-500 mb-6 font-bold uppercase">
+                        <div class="flex items-center gap-1"><div class="w-3 h-3 bg-green-500 rounded-full"></div> Đúng</div>
+                        <div class="flex items-center gap-1"><div class="w-3 h-3 bg-red-500 rounded-full"></div> Sai / Bỏ trống</div>
+                    </div>
+                    <div class="flex-1 overflow-y-auto pr-2 custom-scrollbar">
+                        <div class="grid grid-cols-5 gap-3" id="review-question-grid"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- ================= 6. JAVASCRIPT ================= -->
     <script>
         // --- CÁC BIẾN TOÀN CỤC ---
@@ -1375,7 +1409,165 @@
             document.getElementById('app-container').classList.remove('hidden');
             switchView('exam-list');
         }
+// --- HỆ THỐNG XEM LẠI ĐÁP ÁN (REVIEW) ---
+        function checkQuestionCorrectness(q) {
+            if (!userAnswers[q.id]) return false;
+            if (q.type === 'multiple_choice' || q.type === 'fill_blank') {
+                return userAnswers[q.id] === q.correctAnswer;
+            } else if (q.type === 'true_false') {
+                let correctProps = 0;
+                for (let i = 0; i < q.propositions.length; i++) {
+                    if (userAnswers[q.id][i] === q.correctAnswer[i]) correctProps++;
+                }
+                return correctProps === q.propositions.length; // Đúng 100% các ý mới tính là Xanh
+            }
+            return false;
+        }
 
+        function openReviewExam() {
+            // Ẩn màn hình Kết quả, Hiện màn hình Review
+            document.getElementById('view-exam-result').classList.add('hidden');
+            document.getElementById('view-exam-review').classList.remove('hidden');
+            
+            const examInfo = examsMeta.find(e => e.id === currentExamId);
+            document.getElementById('review-exam-title').innerText = examInfo.title;
+
+            const examQuestionsData = allExamsData[currentExamId] || [];
+            
+            // Vẽ bảng lưới bên phải (Đỏ/Xanh)
+            const grid = document.getElementById('review-question-grid');
+            grid.innerHTML = '';
+            
+            examQuestionsData.forEach((q, index) => {
+                let isFullyCorrect = checkQuestionCorrectness(q);
+                let bgClass = isFullyCorrect ? "bg-green-500 text-white shadow-sm" : "bg-red-500 text-white shadow-sm";
+                grid.innerHTML += `<button onclick="scrollToReviewQuestion(${index + 1})" class="w-10 h-10 rounded-full text-sm font-bold flex items-center justify-center transition-colors cursor-pointer ${bgClass} hover:opacity-80">${index + 1}</button>`;
+            });
+
+            // Vẽ nội dung câu hỏi
+            renderReviewContainer(examQuestionsData);
+        }
+
+        function renderReviewContainer(examData) {
+            const container = document.getElementById('review-content-container'); 
+            container.innerHTML = ''; 
+
+            examData.forEach((q, index) => {
+                let isFullyCorrect = checkQuestionCorrectness(q);
+                let qColor = isFullyCorrect ? "bg-green-500" : "bg-red-500";
+                let borderColor = isFullyCorrect ? "border-green-200 bg-green-50/30" : "border-red-200 bg-red-50/30";
+                
+                let questionHTML = `
+                    <div id="review-question-${index + 1}" class="flex items-start gap-4 mb-8 scroll-mt-6 p-6 rounded-2xl border ${borderColor}">
+                        <div class="w-10 h-10 shrink-0 ${qColor} text-white rounded-full flex items-center justify-center font-bold text-lg shadow-sm">${index + 1}</div>
+                        <div class="pt-1 flex-1 text-lg text-gray-800 w-full">
+                            <div class="mb-4 leading-relaxed font-medium">${q.content}</div>
+                `;
+
+                if (q.type === 'true_false') {
+                    questionHTML += `
+                        <div class="border border-gray-200 rounded-lg overflow-hidden bg-white mt-4">
+                            <table class="w-full text-left border-collapse">
+                                <thead>
+                                    <tr class="bg-gray-100 text-gray-600 text-sm">
+                                        <th class="py-3 px-4 border-b font-semibold w-20">Mệnh đề</th>
+                                        <th class="py-3 px-4 border-b font-semibold">Nội dung</th>
+                                        <th class="py-3 px-4 border-b font-semibold text-center w-32">Đáp án chuẩn</th>
+                                        <th class="py-3 px-4 border-b font-semibold text-center w-32">Bạn chọn</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="text-gray-800 text-base">
+                    `;
+                    q.propositions.forEach((prop, pIndex) => {
+                        const char = String.fromCharCode(97 + pIndex); 
+                        let uAns = userAnswers[q.id] ? userAnswers[q.id][pIndex] : null;
+                        let cAns = q.correctAnswer[pIndex];
+                        
+                        let isRightRow = uAns === cAns;
+                        let rowBg = uAns ? (isRightRow ? "bg-green-50/50" : "bg-red-50/50") : "bg-gray-50";
+                        
+                        let cLabel = cAns === 'true' ? '<span class="text-green-600 font-bold">Đúng</span>' : '<span class="text-red-600 font-bold">Sai</span>';
+                        
+                        let uLabel = '<span class="text-gray-400 italic">Bỏ trống</span>';
+                        if (uAns) {
+                            if (isRightRow) uLabel = `<span class="text-green-600 font-bold"><i class="fa-solid fa-check"></i> ${uAns === 'true' ? 'Đúng' : 'Sai'}</span>`;
+                            else uLabel = `<span class="text-red-600 font-bold"><i class="fa-solid fa-xmark"></i> ${uAns === 'true' ? 'Đúng' : 'Sai'}</span>`;
+                        }
+
+                        questionHTML += `
+                                    <tr class="border-b ${rowBg}">
+                                        <td class="py-4 px-4 align-top font-semibold text-center">${char})</td>
+                                        <td class="py-4 px-4">${prop}</td>
+                                        <td class="py-4 px-4 text-center bg-gray-50/50 border-l">${cLabel}</td>
+                                        <td class="py-4 px-4 text-center border-l">${uLabel}</td>
+                                    </tr>
+                        `;
+                    });
+                    questionHTML += `</tbody></table></div>`;
+                } 
+                else if (q.type === 'fill_blank') {
+                    let uAns = userAnswers[q.id] || "";
+                    let isCorrect = uAns === q.correctAnswer;
+                    questionHTML += `
+                        <div class="mt-4 flex flex-col gap-3 p-4 bg-white rounded-xl border border-gray-200">
+                            <div class="flex items-center gap-3">
+                                <span class="font-semibold text-gray-500 text-sm uppercase">Câu trả lời của bạn:</span>
+                                <div class="px-4 py-2 border rounded-lg font-mono font-bold ${isCorrect ? 'border-green-500 bg-green-50 text-green-700' : (uAns === "" ? 'border-gray-300 bg-gray-100 text-gray-500' : 'border-red-500 bg-red-50 text-red-700')}">
+                                    ${uAns === "" ? "Bỏ trống" : uAns}
+                                </div>
+                                ${isCorrect ? '<i class="fa-solid fa-check text-green-500 text-xl"></i>' : '<i class="fa-solid fa-xmark text-red-500 text-xl"></i>'}
+                            </div>
+                            ${!isCorrect ? `<div class="flex items-center gap-3 mt-2"><span class="font-semibold text-gray-500 text-sm uppercase">Đáp án chuẩn:</span><div class="px-4 py-2 border border-green-500 bg-green-50 rounded-lg font-mono font-bold text-green-700">${q.correctAnswer}</div></div>` : ''}
+                        </div>
+                    `;
+                }
+                else if (q.type === 'multiple_choice') {
+                    questionHTML += `<div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-5">`;
+                    q.options.forEach((opt, optIdx) => {
+                        const char = String.fromCharCode(65 + optIdx);
+                        let isCorrectAns = q.correctAnswer === char;
+                        let isUserSelected = userAnswers[q.id] === char;
+                        
+                        let btnClass = "border-gray-200 bg-white text-gray-600"; // default
+                        
+                        if (isCorrectAns) {
+                            btnClass = "border-green-500 bg-green-50 text-green-800 ring-2 ring-green-200 font-bold";
+                        } else if (isUserSelected && !isCorrectAns) {
+                            btnClass = "border-red-500 bg-red-50 text-red-800 ring-2 ring-red-200 font-bold opacity-80 line-through";
+                        }
+
+                        questionHTML += `
+                            <div class="text-left py-3 px-5 border rounded-xl ${btnClass} flex justify-between items-center">
+                                <span>${opt}</span>
+                                ${isCorrectAns ? '<i class="fa-solid fa-circle-check text-green-600 text-xl"></i>' : (isUserSelected ? '<i class="fa-solid fa-circle-xmark text-red-600 text-xl"></i>' : '')}
+                            </div>
+                        `;
+                    });
+                    questionHTML += `</div>`;
+                }
+
+                questionHTML += `</div></div>`;
+                container.innerHTML += questionHTML;
+            });
+
+            // Gọi MathJax render lại công thức Toán học
+            if (window.MathJax) {
+                MathJax.typesetPromise([container]).catch((err) => console.log(err.message));
+            }
+        }
+
+        function closeReviewAndGoHome() {
+            document.getElementById('view-exam-review').classList.add('hidden');
+            document.getElementById('app-container').classList.remove('hidden');
+            switchView('exam-list');
+        }
+
+        function scrollToReviewQuestion(index) {
+            const questionElement = document.getElementById('review-question-' + index);
+            if (questionElement) {
+                questionElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        }
     </script>
 </body>
 </html>
