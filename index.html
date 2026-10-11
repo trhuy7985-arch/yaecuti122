@@ -1078,6 +1078,26 @@
                     </li>`;
             }
         }
+// Hàm xử lý khi chọn đáp án Trắc nghiệm (A, B, C, D)
+        function selectOption(btn) {
+            // Lấy tất cả các nút đáp án trong cùng câu hỏi
+            const siblings = btn.parentElement.querySelectorAll('button');
+            // Xóa trạng thái "đã chọn" của các nút khác
+            siblings.forEach(b => {
+                b.classList.remove('bg-blue-50', 'border-blue-500', 'text-blue-700', 'ring-2', 'ring-blue-200');
+            });
+            // Thêm trạng thái "đã chọn" cho nút vừa click
+            btn.classList.add('bg-blue-50', 'border-blue-500', 'text-blue-700', 'ring-2', 'ring-blue-200');
+        }
+
+        // Hàm xử lý khi click vào bảng danh sách câu hỏi bên phải
+        function scrollToQuestion(index) {
+            const questionElement = document.getElementById('question-' + index);
+            if (questionElement) {
+                // Cuộn mượt mà đến đúng ID của câu hỏi
+                questionElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }        
     </script>
 </body>
 </html>
