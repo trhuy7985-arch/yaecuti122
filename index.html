@@ -933,7 +933,7 @@
                     questionHTML += `<div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">`;
                     q.options.forEach((opt) => {
                         questionHTML += `
-                            <button class="text-left py-3 px-5 border border-gray-200 rounded-xl hover:bg-blue-50 hover:border-blue-300 transition-colors">
+                            <button onclick="selectOption(this)" class="text-left py-3 px-5 border border-gray-200 rounded-xl hover:bg-blue-50 hover:border-blue-300 transition-all cursor-pointer">
                                 ${opt}
                             </button>
                         `;
