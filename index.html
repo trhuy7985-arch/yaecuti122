@@ -844,10 +844,17 @@
         // ------------- 3. CÀI ĐẶT & TÀI LIỆU -------------
         function saveSettings(event) {
             event.preventDefault();
+            // Cập nhật tất cả trường vào object currentUser
             currentUser.name = document.getElementById('profile-name').value;
+            currentUser.dob = document.getElementById('profile-dob').value;
+            currentUser.phone = document.getElementById('profile-phone').value;
+            currentUser.school = document.getElementById('profile-school').value;
+            currentUser.className = document.getElementById('profile-class').value;
+
             let users = JSON.parse(localStorage.getItem('yaecute_users'));
             users[currentSessionEmail] = currentUser;
             localStorage.setItem('yaecute_users', JSON.stringify(users));
+            
             document.getElementById('display-user-name').textContent = currentUser.name;
             showToast("Đã lưu cài đặt!");
         }
