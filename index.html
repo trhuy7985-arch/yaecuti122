@@ -84,6 +84,21 @@
             background-color: #3b82f6;
             border-radius: 50%;
         }
+
+        /* --- CSS HIỆU ỨNG CHUYỂN CẢNH ĐƯỢC THÊM VÀO ĐÂY --- */
+        @keyframes fadeSlideUp {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .animate-view {
+            animation: fadeSlideUp 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
     </style>
 </head>
 <body class="h-screen flex flex-col overflow-hidden relative">
@@ -246,7 +261,7 @@
             <main class="flex-1 overflow-y-auto p-6 md:p-8 relative">
                 
                 <!-- 2.1 TRANG CHỦ -->
-                <div id="view-home" class="block">
+                <div id="view-home" class="block animate-view">
                     <div class="flex flex-col xl:flex-row gap-6 mb-10">
                         <div class="flex-1 bg-white rounded-2xl p-8 shadow-sm flex flex-col justify-center border border-gray-100">
                             <h2 class="text-3xl font-extrabold text-navy mb-2">Chào mừng trở lại! 👋</h2>
@@ -260,7 +275,7 @@
                     
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         <!-- Card Chuyển tới Phòng Solo -->
-                        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow cursor-pointer flex flex-col h-full">
+                        <div onclick="switchView('exam-list')" class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md active:scale-95 transition-all duration-200 cursor-pointer flex flex-col h-full">
                             <div class="h-40 bg-purple-50 flex items-center justify-center">
                                 <span class="text-4xl font-extrabold text-purple-900 opacity-80">TSA & BMC</span>
                             </div>
@@ -268,12 +283,12 @@
                                 <span class="inline-block px-3 py-1 bg-purple-100 text-purple-800 text-[10px] font-bold rounded mb-3 w-max"><i class="fa-solid fa-laptop-file mr-1"></i> THƯ VIỆN ĐỀ</span>
                                 <h4 class="font-bold text-navy text-lg leading-tight mb-2">Luyện đề Đánh giá tư duy</h4>
                                 <p class="text-xs text-gray-500 mb-6 flex-1">Cập nhật đề thi mới nhất từ HUST</p>
-                                <button onclick="switchView('exam-list')" class="w-full py-2.5 bg-purple-50 hover:bg-purple-100 text-purple-700 font-bold rounded-lg transition-colors text-sm">Xem danh sách đề</button>
+                                <button class="w-full py-2.5 bg-purple-50 hover:bg-purple-100 text-purple-700 font-bold rounded-lg transition-colors text-sm pointer-events-none">Xem danh sách đề</button>
                             </div>
                         </div>
 
                         <!-- Card Chuyển tới Đề thi Trường/Sở -->
-                        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow cursor-pointer flex flex-col h-full">
+                        <div onclick="switchView('exam-school-list')" class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md active:scale-95 transition-all duration-200 cursor-pointer flex flex-col h-full">
                             <div class="h-40 bg-blue-50 flex items-center justify-center relative overflow-hidden">
                                 <span class="text-4xl font-extrabold text-blue-900 opacity-80 z-10">THPT & SỞ GD</span>
                             </div>
@@ -283,14 +298,14 @@
                                 </span>
                                 <h4 class="font-bold text-navy text-lg leading-tight mb-2">Đề thi Trường/Sở</h4>
                                 <p class="text-xs text-gray-500 mb-6 flex-1">Tổng hợp đề thi thử bám sát cấu trúc mới của Bộ GD&ĐT</p>
-                                <button onclick="switchView('exam-school-list')" class="w-full py-2.5 bg-blue-50 hover:bg-blue-100 text-blue-800 font-bold rounded-lg transition-colors text-sm">
+                                <button class="w-full py-2.5 bg-blue-50 hover:bg-blue-100 text-blue-800 font-bold rounded-lg transition-colors text-sm pointer-events-none">
                                     Xem danh sách đề
                                 </button>
                             </div>
                         </div>
 
                         <!-- Card Chuyển tới Phòng Thực chiến Socket -->
-                        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow cursor-pointer flex flex-col h-full">
+                        <div onclick="switchView('realtime-exam')" class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md active:scale-95 transition-all duration-200 cursor-pointer flex flex-col h-full">
                             <div class="h-40 bg-orange-50 flex items-center justify-center relative overflow-hidden">
                                 <span class="text-4xl font-extrabold text-orange-900 opacity-80 z-10">Thực Chiến</span>
                             </div>
@@ -298,7 +313,7 @@
                                 <span class="inline-block px-3 py-1 bg-orange-100 text-orange-800 text-[10px] font-bold rounded mb-3 w-max uppercase tracking-wider"><i class="fa-solid fa-users mr-1"></i> MULTIPLAYER</span>
                                 <h4 class="font-bold text-navy text-lg leading-tight mb-2">Phòng Thi Trực Tiếp</h4>
                                 <p class="text-xs text-gray-500 mb-6 flex-1">Thi đấu Real-time cùng bạn bè</p>
-                                <button onclick="switchView('realtime-exam')" class="w-full py-2.5 bg-orange-50 hover:bg-orange-100 text-orange-900 font-bold rounded-lg transition-colors text-sm">Vào Phòng Ngay</button>
+                                <button class="w-full py-2.5 bg-orange-50 hover:bg-orange-100 text-orange-900 font-bold rounded-lg transition-colors text-sm pointer-events-none">Vào Phòng Ngay</button>
                             </div>
                         </div>
                     </div>
@@ -1105,36 +1120,44 @@
         function switchView(viewName) {
             document.getElementById('profile-dropdown').classList.add('hidden');
             const views = ['view-home', 'view-exam-list', 'view-exam-school-list', 'view-realtime-exam', 'view-documents', 'view-settings', 'view-history'];
+            
+            // 1. Ẩn tất cả các view và gỡ bỏ class hiệu ứng
             views.forEach(v => {
                 let el = document.getElementById(v);
-                if(el) { el.classList.add('hidden'); el.classList.remove('block', 'flex'); }
+                if(el) { 
+                    el.classList.add('hidden'); 
+                    el.classList.remove('block', 'flex', 'animate-view'); 
+                }
             });
             document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
 
+            let targetView = null;
+
+            // 2. Kích hoạt class Layout tương ứng
             if (viewName === 'home') {
-                document.getElementById('view-home').classList.add('block');
-                document.getElementById('view-home').classList.remove('hidden');
+                targetView = document.getElementById('view-home');
+                targetView.classList.add('block');
                 document.getElementById('nav-home').classList.add('active');
             } else if (viewName === 'exam-list') {
-                document.getElementById('view-exam-list').classList.add('block');
-                document.getElementById('view-exam-list').classList.remove('hidden');
+                targetView = document.getElementById('view-exam-list');
+                targetView.classList.add('block');
                 document.getElementById('nav-exam-list').classList.add('active');
             } else if (viewName === 'exam-school-list') {
-                document.getElementById('view-exam-school-list').classList.add('block');
-                document.getElementById('view-exam-school-list').classList.remove('hidden');
+                targetView = document.getElementById('view-exam-school-list');
+                targetView.classList.add('block');
                 document.getElementById('nav-exam-school-list').classList.add('active');
             } else if (viewName === 'realtime-exam') {
-                document.getElementById('view-realtime-exam').classList.add('flex');
-                document.getElementById('view-realtime-exam').classList.remove('hidden');
+                targetView = document.getElementById('view-realtime-exam');
+                targetView.classList.add('flex');
                 document.getElementById('nav-realtime-exam').classList.add('active');
             } else if (viewName === 'documents') {
-                document.getElementById('view-documents').classList.add('block');
-                document.getElementById('view-documents').classList.remove('hidden');
+                targetView = document.getElementById('view-documents');
+                targetView.classList.add('block');
                 document.getElementById('nav-documents').classList.add('active');
                 loadDocuments();
             } else if (viewName === 'settings') {
-                document.getElementById('view-settings').classList.add('block');
-                document.getElementById('view-settings').classList.remove('hidden');
+                targetView = document.getElementById('view-settings');
+                targetView.classList.add('block');
                 document.getElementById('nav-settings').classList.add('active');
                 
                 document.getElementById('profile-name').value = currentUser.name || '';
@@ -1144,10 +1167,17 @@
                 document.getElementById('profile-school').value = currentUser.school || '';
                 document.getElementById('profile-class').value = currentUser.className || '';
             } else if (viewName === 'history') {
-                document.getElementById('view-history').classList.add('block');
-                document.getElementById('view-history').classList.remove('hidden');
+                targetView = document.getElementById('view-history');
+                targetView.classList.add('block');
                 document.getElementById('nav-history').classList.add('active');
                 renderExamHistory();
+            }
+
+            // 3. Hiển thị View và Kích hoạt lại hiệu ứng chuyển cảnh
+            if (targetView) {
+                targetView.classList.remove('hidden');
+                void targetView.offsetWidth; // Trick force reflow: Ép trình duyệt chạy lại animation
+                targetView.classList.add('animate-view');
             }
         }
 
