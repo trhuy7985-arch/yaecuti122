@@ -1726,6 +1726,7 @@
 
             const messagesContainer = document.getElementById('gemini-messages');
 
+            // 1. In tin nhắn của người dùng
             messagesContainer.innerHTML += `
                 <div class="flex gap-3 flex-row-reverse">
                     <div class="bg-blue-500 text-white p-3 rounded-2xl rounded-tr-none shadow-sm text-sm max-w-[85%]">
@@ -1736,6 +1737,7 @@
             inputField.value = '';
             messagesContainer.scrollTop = messagesContainer.scrollHeight;
 
+            // 2. Hiệu ứng đang gõ
             const typingId = 'typing-' + Date.now();
             messagesContainer.innerHTML += `
                 <div id="${typingId}" class="flex gap-3">
@@ -1752,51 +1754,52 @@
             messagesContainer.scrollTop = messagesContainer.scrollHeight;
 
             try {
-                // !!! QUAN TRỌNG: THAY BẰNG API KEY THỰC TẾ CỦA BẠN !!!
-                const API_KEY = "YOUR_GEMINI_API_KEY_HERE"; 
-                
-                const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-pro:generateContent?key=${API_KEY}`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        contents: [{ parts: [{ text: "Bạn là một gia sư AI thân thiện, hỗ trợ học sinh ôn thi THPT Quốc gia môn Toán, Lý, Hóa, Sinh. Hãy trả lời ngắn gọn, súc tích, dễ hiểu và format nội dung rõ ràng bằng markdown. Câu hỏi của học sinh: " + messageText }] }]
-                    })
-                });
+            // !!! BẠN DÁN MÃ VỪA COPY TRÊN THANH ĐỊA CHỈ VÀO GIỮA 2 DẤU NGOẶC KÉP NÀY !!!
+            const API_KEY = "Mã của bạn"; 
+            
+            const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-pro:generateContent?key=${API_KEY}`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    contents: [{ parts: [{ text: "Bạn là một gia sư AI thân thiện, hỗ trợ học sinh ôn thi THPT Quốc gia môn Toán, Lý, Hóa, Sinh. Hãy trả lời ngắn gọn, súc tích, dễ hiểu và format nội dung rõ ràng bằng markdown. Câu hỏi của học sinh: " + messageText }] }]
+                })
+            });
 
-                const data = await response.json();
-                let botReply = "Xin lỗi, mình đang gặp sự cố kết nối. Vui lòng thử lại!";
-                
-                if (data.candidates && data.candidates[0].content.parts[0].text) {
-                    botReply = data.candidates[0].content.parts[0].text;
-                    // Format Markdown to basic HTML
-                    botReply = botReply
-                        .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-                        .replace(/\*(.*?)\*/g, '<em>$1</em>')
-                        .replace(/\n/g, '<br>');
-                }
+            const data = await response.json();
+            document.getElementById(typingId).remove();
+            
+            let botReply = "";
 
-                document.getElementById(typingId).remove();
-
-                messagesContainer.innerHTML += `
-                    <div class="flex gap-3">
-                        <div class="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center shrink-0">
-                            <i class="fa-solid fa-wand-magic-sparkles"></i>
-                        </div>
-                        <div class="bg-white p-3 rounded-2xl rounded-tl-none shadow-sm border border-gray-100 text-gray-700 text-sm max-w-[85%] leading-relaxed overflow-x-auto">
-                            ${botReply}
-                        </div>
-                    </div>
-                `;
-            } catch (error) {
-                document.getElementById(typingId).remove();
-                messagesContainer.innerHTML += `
-                    <div class="flex gap-3">
-                        <div class="w-8 h-8 rounded-full bg-red-100 text-red-600 flex items-center justify-center shrink-0"><i class="fa-solid fa-triangle-exclamation"></i></div>
-                        <div class="bg-red-50 text-red-700 p-3 rounded-2xl rounded-tl-none shadow-sm border border-red-100 text-sm">Lỗi kết nối API. Bạn nhớ kiểm tra lại API_KEY nhé!</div>
-                    </div>
-                `;
+            if (!response.ok) {
+                botReply = `Lỗi từ Google: <b>${data.error.message}</b><br><br>👉 Bạn hãy kiểm tra lại API KEY nhé!`;
+            } else if (data.candidates && data.candidates[0].content.parts[0].text) {
+                botReply = data.candidates[0].content.parts[0].text;
+                botReply = botReply
+                    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                    .replace(/\*(.*?)\*/g, '<em>$1</em>')
+                    .replace(/\n/g, '<br>');
             }
-            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+
+            messagesContainer.innerHTML += `
+                <div class="flex gap-3">
+                    <div class="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center shrink-0">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    </div>
+                    <div class="bg-white p-3 rounded-2xl rounded-tl-none shadow-sm border border-gray-100 text-gray-700 text-sm max-w-[85%] leading-relaxed overflow-x-auto">
+                        ${botReply}
+                    </div>
+                </div>
+            `;
+        } catch (error) {
+            document.getElementById(typingId).remove();
+            messagesContainer.innerHTML += `
+                <div class="flex gap-3">
+                    <div class="w-8 h-8 rounded-full bg-red-100 text-red-600 flex items-center justify-center shrink-0"><i class="fa-solid fa-wifi"></i></div>
+                    <div class="bg-red-50 text-red-700 p-3 rounded-2xl rounded-tl-none shadow-sm border border-red-100 text-sm">Lỗi mất mạng. Vui lòng kiểm tra lại kết nối Internet!</div>
+                </div>
+            `;
+        }
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
         }
     </script>
 </body>
