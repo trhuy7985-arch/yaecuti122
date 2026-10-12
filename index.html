@@ -720,15 +720,15 @@
                 isVip: true 
             },
             {
-                id: "thpt_sinh_01",
+                id: "thpt_sinh_03",
                 type: "THPT",
-                subject: "biology", 
-                title: "Đề thi thử Sinh Học SGD Bắc Ninh",
-                questionsCount: 40,
-                time: 50,
-                img: "fa-dna", 
+                subject: "biology",
+                title: "Đề kiểm tra giữa kì 1 Sinh Học 12 - THPT Ngô Gia Tự",
+                questionsCount: 24,
+                time: 45,
+                img: "fa-dna",
                 isVip: false
-            }
+            },
         ];
 
         const allExamsData = {
@@ -1110,6 +1110,227 @@
                     id: 522, type: "fill_blank",
                     content: "Công ty chế biến $x$ tấn nguyên liệu ($1 \\le x \\le 200$), chi phí $C(x)=0,001x^3+30x+10$ (triệu) và doanh thu $R(x)=60x$ (triệu). Lợi nhuận lớn nhất công ty đạt được trong một tháng là bao nhiêu triệu đồng? <!--[cite: 5, 13] -->",
                     correctAnswer: "1990"
+                }
+            ],
+            "thpt_sinh_03": [
+                // --- PHẦN I: TRẮC NGHIỆM NHIỀU PHƯƠNG ÁN LỰA CHỌN (15 CÂU) ---
+                {
+                    id: 601, type: "multiple_choice",
+                    content: "Điều nào dưới đây không đúng với mã di truyền? <!--[cite: 16] -->",
+                    options: [
+                        "A. Các loài sinh vật đều có chung một bộ mã di truyền trừ một vài ngoại lệ.", 
+                        "B. Mã di truyền được đọc từ một điểm xác định và gối chồng lên nhau.", 
+                        "C. Mã di truyền có tính đặc hiệu nghĩa là một bộ ba chỉ mã hóa cho một amino acid.", 
+                        "D. Trình tự sắp xếp các nucleotide trong gene qui định trình tự sắp xếp các amino acid trong chuỗi polypeptide."
+                    ],
+                    correctAnswer: "B"
+                },
+                {
+                    id: 602, type: "multiple_choice",
+                    content: "Cơ chế điều hòa biểu hiện gene của operon Lac khi có lactose là? <!--[cite: 16] -->",
+                    options: [
+                        "A. Làm cho enzyme chuyển hóa nó có hoạt tính tăng lên nhiều lần.", 
+                        "B. Bất hoạt protein ức chế, hoạt hóa operon phiên mã tổng hợp enzyme phân giải lactose.", 
+                        "C. Là chất gây cảm ứng ức chế biểu hiện của operon, ức chế phiên mã.", 
+                        "D. Cùng protein ức chế bất hoạt vùng O, gây ức chế phiên mã."
+                    ],
+                    correctAnswer: "B"
+                },
+                {
+                    id: 603, type: "multiple_choice",
+                    content: "Ở một loài thực vật, tính trạng màu hoa do hai cặp gene A, a và B, b phân li độc lập cùng qui định. Kiểu gene có cả allele A và allele B thì hoa có màu đỏ, kiểu gene chỉ có allele A hoặc chỉ có allele B thì hoa có màu vàng, kiểu gene không có 2 loại allele trên thì hoa có màu trắng. Kiểu gene nào sau đây quy định kiểu hình hoa đỏ? <!--[cite: 16] -->",
+                    options: ["A. AaBb.", "B. AAbb.", "C. Aabb.", "D. aaBB."],
+                    correctAnswer: "A"
+                },
+                {
+                    id: 604, type: "multiple_choice",
+                    content: "Cho trình tự mạch bổ sung của một gene có trình tự các nucleotide là 5' ATTCGTAGGC 3'. Trình tự của mRNA được phiên mã từ gene này sẽ có trình tự là? <!--[cite: 16] -->",
+                    options: [
+                        "A. 5' AUUCGUAGGC 3'.", 
+                        "B. 3' UAAGCAUCCG 5'.", 
+                        "C. 5' ATTCGTAGGC 3'.", 
+                        "D. 3' AUUCGUAGGC 5'."
+                    ],
+                    correctAnswer: "A"
+                },
+                {
+                    id: 605, type: "multiple_choice",
+                    content: "Enzyme nào được sử dụng để cắt và nối các đoạn DNA trong quy trình tạo động vật biến đổi gene? <!--[cite: 17] -->",
+                    options: [
+                        "A. Reverse transcriptase và integrase.", 
+                        "B. Restrictase enzyme và ligase.", 
+                        "C. Protease và nuclease.", 
+                        "D. DNA polymerase và helicase."
+                    ],
+                    correctAnswer: "B"
+                },
+                {
+                    id: 606, type: "multiple_choice",
+                    content: "Đơn phân cấu tạo nên DNA là? <!--[cite: 17] -->",
+                    options: ["A. Amino acid.", "B. Glicerol.", "C. Monosaccharide.", "D. Nucleotide."],
+                    correctAnswer: "D"
+                },
+                {
+                    id: 607, type: "multiple_choice",
+                    content: "Khi thực hiện phép lai giữa hai cây hoa mõm chó thuần chủng có hoa màu đỏ và màu trắng với nhau thu được $F_1$ toàn cây có hoa màu hồng. Cho $F_1$ tự thụ phấn, thu được $F_2$ có kiểu hình phân li theo tỉ lệ 1 đỏ : 2 hồng : 1 trắng. Có thể kết luận tính trạng màu hoa do? <!--[cite: 17] -->",
+                    options: [
+                        "A. một gene có 2 allele trội, lặn hoàn toàn quy định.", 
+                        "B. một gene có 2 allele đồng trội quy định.", 
+                        "C. một gene có 2 allele trội, lặn không hoàn toàn quy định.", 
+                        "D. hai gene, mỗi gene có 2 allele cùng quy định."
+                    ],
+                    correctAnswer: "C"
+                },
+                {
+                    id: 608, type: "multiple_choice",
+                    content: "Ở người, allele A nằm trên nhiễm sắc thể X quy định máu đông bình thường là trội hoàn toàn so với allele a quy định bệnh máu khó đông. Biết không xảy ra đột biến. Theo lí thuyết, cặp bố mẹ nào sau đây không thể sinh con bị bệnh máu khó đông? <!--[cite: 17] -->",
+                    options: [
+                        "A. $X^AX^a \\times X^AY$.", 
+                        "B. $X^AX^A \\times X^aY$.", 
+                        "C. $X^AX^a \\times X^aY$.", 
+                        "D. $X^aX^a \\times X^AY$."
+                    ],
+                    correctAnswer: "B"
+                },
+                {
+                    id: 609, type: "multiple_choice",
+                    content: "Cho các thành tựu sau, đâu không phải là thành tựu của tạo động vật chuyển gene? <!--[cite: 17] -->",
+                    options: [
+                        "A. Cá hồi mang gene mã hóa hormone sinh trưởng có tốc độ sinh trưởng cao so với cá hồi thông thường.", 
+                        "B. Cừu Dolly được tạo ra từ nhân tế bào trứng kết hợp với tế bào chất tế bào vú không qua thụ tinh.", 
+                        "C. Bò có mang gene có chứa hàm lượng $\\beta$-lactoglobulin cao.", 
+                        "D. Cừu mang gene quy định protein antithrombin của người có thể tách chiết làm thuốc chống đông máu dùng trong các ca phẫu thuật."
+                    ],
+                    correctAnswer: "B"
+                },
+                {
+                    id: 610, type: "multiple_choice",
+                    content: "Cấu trúc của operon lac bao gồm những thành phần nào? <!--[cite: 17] -->",
+                    options: [
+                        "A. Gene điều hòa (lacI), vùng P, vùng O.", 
+                        "B. Gene điều hòa (lacI), gene cấu trúc(lacZ, lacY, lacA), vùng P.", 
+                        "C. vùng P, gene cấu trúc(lacZ, lacY, lacA), vùng O.", 
+                        "D. Gene điều hòa (lacI), gene cấu trúc(lacZ, lacY, lacA), vùng O."
+                    ],
+                    correctAnswer: "C"
+                },
+                {
+                    id: 611, type: "multiple_choice",
+                    content: "Cặp nhiễm sắc thể nào sau đây được xem là cặp tương đồng? <!--[cite: 17] -->",
+                    options: ["A. XX.", "B. ZW.", "C. XO.", "D. XY."],
+                    correctAnswer: "A"
+                },
+                {
+                    id: 612, type: "multiple_choice",
+                    content: "Ở cây đậu Hà Lan, xét gene quy định màu hoa có 2 allele nằm trên NST thường, allele A quy định hoa tím trội hoàn toàn so với allele a quy định hoa trắng. Tiến hành lai giữa các cây thu được kết quả như sau.<br><table class='w-full text-center border-collapse border border-gray-300 mt-2 text-sm'><tr><th class='border border-gray-300 p-2'>Phép lai</th><th class='border border-gray-300 p-2'>Tỉ lệ kiểu gene</th></tr><tr><td class='border border-gray-300 p-2'>Cây hoa tím A x Cây hoa trắng</td><td class='border border-gray-300 p-2'>F1:?</td></tr><tr><td class='border border-gray-300 p-2'>Cây F1 x Cây hoa tím dị hợp</td><td class='border border-gray-300 p-2'>F2: 1:2:1</td></tr></table><br>Phép lai ở P là ? <!--[cite: 17] -->",
+                    options: ["A. AA x aa.", "B. Aa x aa.", "C. Aa x Aa.", "D. AA x Aa."],
+                    correctAnswer: "A"
+                },
+                {
+                    id: 613, type: "multiple_choice",
+                    content: "Khi nói về quá trình tái bản DNA, phát biểu nào sau đây sai? <!--[cite: 17] -->",
+                    options: [
+                        "A. Nhờ các enzyme tháo xoắn, hai mạch đơn của DNA tách nhau dần tạo nên chạc chữ Y.", 
+                        "B. Enzyme DNA polimerase tổng hợp và kéo dài mạch mới theo chiều $3' \\rightarrow 5'$.", 
+                        "C. Quá trình tái bản DNA diễn ra theo nguyên tắc bổ sung và nguyên tắc bán bảo tồn.", 
+                        "D. Enzyme ligase (enzyme nối) nối các đoạn Okazaki thành mạch đơn hoàn chỉnh."
+                    ],
+                    correctAnswer: "B"
+                },
+                {
+                    id: 614, type: "multiple_choice",
+                    content: "Trong thành phần cấu trúc của một gene điển hình gồm có các phần? <!--[cite: 17] -->",
+                    options: [
+                        "A. Vùng khởi động, vùng mã hóa và vùng kết thúc.", 
+                        "B. Vùng điều hòa, vùng mã hóa và vùng kết thúc.", 
+                        "C. Vùng khởi động, vùng vận hành và vùng cấu trúc.", 
+                        "D. Vùng cấu trúc, vùng mã hóa và vùng kết thúc."
+                    ],
+                    correctAnswer: "B"
+                },
+                {
+                    id: 615, type: "multiple_choice",
+                    content: "Khi nói về cơ chế dịch mã ở sinh vật nhân thực thì phát biểu nào đúng, phát biểu nào sai? <!--[cite: 18] -->",
+                    options: [
+                        "A. Khi ribosome tiếp xúc với mã UGA thì quá trình dịch mã dừng lại.", 
+                        "B. Amino acid mở đầu trong quá trình dịch mã là methyonine.", 
+                        "C. Mỗi phân tử mRNA có thể tổng hợp được từ một đến nhiều chuỗi polypeptide cùng loại.", 
+                        "D. Khi dịch mã, ribosome dịch chuyển theo chiều $3' \\rightarrow 5'$ trên phân tử mRNA."
+                    ],
+                    correctAnswer: "A"
+                },
+
+                // --- PHẦN II: CÂU TRẮC NGHIỆM ĐÚNG/SAI (4 CÂU) ---
+                {
+                    id: 616, type: "true_false",
+                    content: "Thomas Hunt Morgan đã lai một con ruồi giấm cái mắt đỏ thuần chủng với một con đực mắt trắng, ở $F_1$ thu được 100% ruồi mắt đỏ. Cho $F_1$ tạp giao, thu được $F_2$ có cả ruồi mắt đỏ và mắt trắng. Tuy nhiên, màu mắt trắng chỉ xuất hiện ở con đực. Trong một phép lai khác giữa ruồi cái mắt trắng với ruồi đực mắt đỏ, thu được $F_1$, rồi cho $F_1$ tạp giao, thu được $F_2$. Mỗi nhận định sau đây là đúng hay sai khi xét về thí nghiệm trên đây? <!--[cite: 18] -->",
+                    propositions: [
+                        "a) Tính trạng màu mắt đỏ trội hơn so với màu mắt trắng. <!--[cite: 18, 24] -->",
+                        "b) Gene quy định màu mắt nằm trên nhiễm sắc thể giới tính X. <!--[cite: 18, 24] -->",
+                        "c) Ở thế hệ $F_1$ của phép lai 2 có 100% con cái mắt đỏ, 50% con đực mắt đỏ. <!--[cite: 18, 24] -->",
+                        "d) Nếu cho ruồi mắt đỏ ở thế hệ $F_2$ của phép lai 2 ngẫu phối thì $F_3$ không thu được màu mắt trắng. <!--[cite: 18, 24] -->"
+                    ],
+                    correctAnswer: {0: 'true', 1: 'true', 2: 'false', 3: 'false'}
+                },
+                {
+                    id: 617, type: "true_false",
+                    content: "Khi nói về cấu trúc siêu hiển vi của NST, mỗi nhận xét sau đây đúng hay sai? <!--[cite: 18] -->",
+                    propositions: [
+                        "a) Đơn vị cấu trúc nên NST là các nucleosome, có dạng hình cầu. <!--[cite: 18, 24] -->",
+                        "b) Mỗi nucleosome gồm lõi với 8 phân tử proteine histone và một đoạn DNA gồm khoảng 146 cặp nucleotide. <!--[cite: 18, 24] -->",
+                        "c) Chuỗi nucleosome có vùng dị nhiễm sắc chứa các gene hoạt động còn vùng nguyên nhiễm sắc nằm ở đầu mút hoặc tâm động thì chứa các gene bị bất hoạt. <!--[cite: 18, 24] -->",
+                        "d) Mỗi NST có một tâm động giúp NST di chuyển trong phân bào và trình tự đầu mút bảo vệ NST. <!--[cite: 18, 24] -->"
+                    ],
+                    correctAnswer: {0: 'false', 1: 'true', 2: 'false', 3: 'true'}
+                },
+                {
+                    id: 618, type: "true_false",
+                    content: "Một loài thực vật, cho cây thân cao, lá nguyên giao phấn với cây thân thấp, lá xẻ (P), thu được $F_1$ gồm toàn cây thân cao, lá nguyên. Lai phân tích cây $F_1$, thu được $F_a$ có kiểu hình phân li theo tỉ lệ 1 cây thân cao, lá nguyên : 1 cây thân cao, lá xẻ : 1 cây thân thấp, lá nguyên : 1 cây thân thấp, lá xẻ. Cho biết mỗi gene quy định một tính trạng. Theo lí thuyết, nhận định nào sau đây đúng hay sai? <!--[cite: 18] -->",
+                    propositions: [
+                        "a) Cây thân thấp, lá nguyên ở $F_a$ giảm phân bình thường tạo ra 2 loại giao tử. <!--[cite: 18, 24] -->",
+                        "b) Cho cây $F_1$ tự thụ phấn, thu được $F_2$ có $1/3$ số cây thân cao, lá xẻ. <!--[cite: 18, 24] -->",
+                        "c) Cây thân cao, lá xẻ ở $F_a$ đồng hợp tử về 2 cặp gene. <!--[cite: 18, 24] -->",
+                        "d) Kiểu gene cây thân cao, lá nguyên ở $F_a$ và $F_1$ là khác nhau. <!--[cite: 18, 24] -->"
+                    ],
+                    correctAnswer: {0: 'false', 1: 'false', 2: 'false', 3: 'false'}
+                },
+                {
+                    id: 619, type: "true_false",
+                    content: "Mỗi nhận định sau là đúng hay sai khi nói về quá trình phiên mã? <!--[cite: 18] -->",
+                    propositions: [
+                        "a) Mạch khuôn được dùng để tổng hợp RNA có chiều $5' \\rightarrow 3'$. <!--[cite: 18, 24] -->",
+                        "b) Quá trình tổng hợp mRNA được thực hiện theo đúng nguyên tắc bổ sung $A=U, T=A, C \\equiv G, G \\equiv C$. <!--[cite: 18, 24] -->",
+                        "c) Enzyme RNA polymerase di chuyển trên mạch khuôn theo chiều $5' \\rightarrow 3'$. <!--[cite: 18, 24] -->",
+                        "d) Enzyme tham gia quá trình phiên mã là enzyme RNA polymerase. <!--[cite: 18, 24] -->"
+                    ],
+                    correctAnswer: {0: 'false', 1: 'true', 2: 'false', 3: 'true'}
+                },
+
+                // --- PHẦN III: CÂU TRẢ LỜI NGẮN (5 CÂU) ---
+                {
+                    id: 620, type: "fill_blank",
+                    content: "Một phân tử DNA trên mạch 1 của phân tử DNA xoắn kép có tỷ lệ $(A+G)/(T+C)=2,5$ thì trên mạch bổ sung (mạch 2) tỉ lệ đó là bao nhiêu phần trăm (%)? <!--[cite: 18, 24] -->",
+                    correctAnswer: "40"
+                },
+                {
+                    id: 621, type: "fill_blank",
+                    content: "Hóa chất 5-BU có thể làm gene đột biến thay thế cặp A-T thành G-C qua mấy lần tái bản DNA? <!--[cite: 18, 24] -->",
+                    correctAnswer: "3"
+                },
+                {
+                    id: 622, type: "fill_blank",
+                    content: "Ở một Đậu Hà Lan, allele A quy định hạt vàng trội hoàn toàn so với allele a quy định hạt xanh; allele B quy định vỏ trơn trội hoàn toàn so với b quy định vỏ nhăn, hai cặp gene nằm trên hai cặp NST tương đồng khác nhau. Cho lai 2 cây với nhau thu được $F_1$ có tỉ lệ kiểu hình hạt vàng, vỏ nhăn chiếm 25%. Theo lí thuyết, có bao nhiêu phép lai phù hợp với kết quả trên? <!--[cite: 18, 19, 24] --><br>I. $AABb \\times AABb$<br>II. $Aabb \\times Aabb$<br>III. $Aabb \\times aaBb$<br>IV. $AaBb \\times aabb$",
+                    correctAnswer: "3"
+                },
+                {
+                    id: 623, type: "fill_blank",
+                    content: "Xét 7 amino acid đầu mạch của phân tử protein hemoglobin (Hb) ở người bình thường được kí hiệu là HbA và tương ứng của người bệnh kí hiệu là HbB có trình tự như sau: <!--[cite: 19] --><br>HbA: $Val - His - Leu - Thr - Pro - Glu - Glu$<br>HbB: $Val - His - Leu - Thr - Pro - Val - Glu$<br>Vị trí triplet xảy ra đột biến gene là bao nhiêu? <!--[cite: 19, 24] -->",
+                    correctAnswer: "6"
+                },
+                {
+                    id: 624, type: "fill_blank",
+                    content: "Một nhóm nghiên cứu nuôi một số vi khuẩn E.coli trong môi trường chỉ có nito đồng vị nặng ($^{15}N$). Sau đó, chuyển vi khuẩn sang nuôi tiếp năm thế hệ ở môi trường chỉ có nitơ đồng vị nhẹ ($^{14}N$). Tách DNA sau mỗi thệ hệ và thu được kết quả như hình dưới đây. Cho biết X là vị trí của DNA chứa cả hai mạch $^{15}N$, Y là vị trí của DNA chứa cả mạch $^{14}N$ và mạch $^{15}N$; Z là vị trí của DNA chứa cả hai mạch $^{14}N$. Ở thế hệ thứ 4 vạch Z chiếm tỉ lệ bao nhiêu ? (Hãy thể hiện kết quả bằng số thập phân và làm tròn đến 2 chữ số sau dấu phẩy).<br><img src='https://i.postimg.cc/rsHhs1q4/sinhpp.png' class='mt-4 mb-4 w-full max-w-sm mx-auto rounded-lg border border-gray-200 shadow-sm'><!--[cite: 19, 24] -->",
+                    correctAnswer: "0.88"
                 }
             ],
         };
