@@ -1,19 +1,17 @@
 // --- CẤU TRÚC LƯU NHIỀU ĐỀ THI ---
 const examsMeta = [
     // --- Nhóm TSA - Tổng hợp ---
-    { id: "tsa_01", type: "TSA", category: "comprehensive", title: "NTT DETHW - VIP", questionsCount: 28, time: 150, img: "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&q=80&w=800", isVip: true },
     { id: "tsa_02", type: "TSA", category: "comprehensive", title: "Đề thi thử HUST 2026 - Lần 1", questionsCount: 15, time: 60, img: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&q=80&w=800", isVip: false },
     
     // --- Nhóm TSA - Tư duy Toán học ---
     { id: "tsa_toan_01", type: "TSA", category: "math", title: "Đề thi Đánh giá Tư duy - TSA26A (Môn Toán)", questionsCount: 40, time: 90, img: "https://i.postimg.cc/FFbmqQ9X/A-nh-chu-p-ma-n-hi-nh-2026-10-14-004011.png", isVip: true },
 
     // --- Nhóm THPT ---
-    { id: "thpt_01", type: "THPT", subject: "math", title: "Sở GD&ĐT Hà Nội - Lần 1", questionsCount: 50, time: 90, img: "fa-building-columns", isVip: false },
-    { id: "thpt_toan_01", type: "THPT", subject: "math", title: "Đề thi thử Toán 2025 (Chuẩn cấu trúc)", questionsCount: 22, time: 90, img: "fa-calculator", isVip: false },
-    { id: "thpt_toan_02", type: "THPT", subject: "math", title: "Đề thi Tốt nghiệp THPT 2026 môn Toán (Mã đề 0101)", questionsCount: 22, time: 90, img: "fa-calculator", isVip: false },
-    { id: "thpt_ly_01", type: "THPT", subject: "physics", title: "Đề thi thử Vật Lý chuyên KHTN", questionsCount: 40, time: 50, img: "fa-atom", isVip: false },
-    { id: "thpt_hoa_01", type: "THPT", subject: "chemistry", title: "Đề thi thử Hóa Học THPT chuyên ĐH Vinh", questionsCount: 40, time: 50, img: "fa-flask", isVip: true },
-    { id: "thpt_sinh_03", type: "THPT", subject: "biology", title: "Đề kiểm tra giữa kì 1 Sinh Học 12 - THPT Ngô Gia Tự", questionsCount: 24, time: 45, img: "fa-dna", isVip: false }
+    { id: "thpt_toan_01", type: "THPT", subject: "math", title: "Đề thi thử Toán 2025 (Chuẩn cấu trúc)", questionsCount: 22, time: 90, img: "https://i.postimg.cc/FFbmqQ9X/A-nh-chu-p-ma-n-hi-nh-2026-10-14-004011.png", isVip: false },
+    { id: "thpt_toan_02", type: "THPT", subject: "math", title: "Đề thi Tốt nghiệp THPT 2026 môn Toán (Mã đề 0101)", questionsCount: 22, time: 90, img: "https://i.postimg.cc/FFbmqQ9X/A-nh-chu-p-ma-n-hi-nh-2026-10-14-004011.png", isVip: false },
+    { id: "thpt_ly_01", type: "THPT", subject: "physics", title: "Đề thi thử Vật Lý chuyên KHTN", questionsCount: 40, time: 50, img: "https://i.postimg.cc/FFbmqQ9X/A-nh-chu-p-ma-n-hi-nh-2026-10-14-004011.png", isVip: false },
+    { id: "thpt_hoa_01", type: "THPT", subject: "chemistry", title: "Đề thi thử Hóa Học THPT chuyên ĐH Vinh", questionsCount: 40, time: 50, img: "https://i.postimg.cc/FFbmqQ9X/A-nh-chu-p-ma-n-hi-nh-2026-10-14-004011.png", isVip: true },
+    { id: "thpt_sinh_03", type: "THPT", subject: "biology", title: "Đề kiểm tra giữa kì 1 Sinh Học 12 - THPT Ngô Gia Tự", questionsCount: 24, time: 45, img: "https://i.postimg.cc/FFbmqQ9X/A-nh-chu-p-ma-n-hi-nh-2026-10-14-004011.png", isVip: false }
 ];
 
 // --- DỮ LIỆU CÂU HỎI CHI TIẾT TỪNG ĐỀ ---
