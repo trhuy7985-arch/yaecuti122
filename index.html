@@ -742,14 +742,7 @@
     </div>
     
     <!-- ================= 6. JAVASCRIPT ================= -->
-    <!-- ================= 6. JAVASCRIPT ================= -->
-<script src="data.js"></script>
-
-<script>
-    // --- CÁC BIẾN TOÀN CỤC ---
-    let currentSessionEmail = null;
-    let currentUser = null;
-    // ...
+    <script src="data.js"></script>
     <script>
         // --- CÁC BIẾN TOÀN CỤC ---
         let currentSessionEmail = null;
@@ -761,8 +754,6 @@
         let currentExamTime = 0;
         let soloTimerInterval;
 
-        // --- CẤU TRÚC LƯU NHIỀU ĐỀ THI ---
-        
         // --- HÀM TỰ ĐỘNG SINH UI DANH SÁCH ĐỀ THI ---
         function renderExamLists() {
             const tsaContainer = document.getElementById('tsa-exam-container');
@@ -1664,11 +1655,10 @@
 
             try {
                 // !!! NHỚ DÁN LẠI API KEY CỦA BẠN VÀO ĐÂY !!!
-                const API_KEY = "DAN API CUA BAN VAO DAY"; 
+                const API_KEY = "DAN API CUA BAN"; 
                 
                 // Đã cập nhật URL sang phiên bản mới nhất: gemini-3.1-pro-preview
                 const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-pro-preview:generateContent?key=${API_KEY}`, {
-    // ... các phần giữ nguyên
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
@@ -1712,7 +1702,6 @@
             }
             messagesContainer.scrollTop = messagesContainer.scrollHeight;
         }
-        
     </script>
 </body>
 </html>
