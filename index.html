@@ -390,7 +390,7 @@
                         </div>
                     </div>
 
-                    <!-- BẢNG VÀNG CHUỖI HỌC TẬP (MỚI THÊM) -->
+                    <!-- BẢNG VÀNG CHUỖI HỌC TẬP -->
                     <div class="mt-12 mb-6 flex justify-between items-end">
                         <div>
                             <h3 class="text-2xl font-extrabold text-navy">Bảng Vàng Nỗ Lực 🏆</h3>
@@ -406,11 +406,18 @@
                     </div>
                 </div>
 
-                <!-- 2.2 DANH SÁCH ĐỀ THI LÝ THUYẾT (Solo TSA) -->
+                <!-- 2.2 DANH SÁCH ĐỀ THI LÝ THUYẾT (Solo TSA) - ĐÃ CẬP NHẬT TAB -->
                 <div id="view-exam-list" class="hidden max-w-6xl mx-auto">
-                    <div class="mb-8">
+                    <div class="mb-6">
                         <h2 class="text-2xl font-extrabold text-navy">Kỳ thi Đánh giá tư duy TSA</h2>
                         <p class="text-gray-500 mt-1">Luyện tập với các đề thi chuẩn cấu trúc mới nhất.</p>
+                    </div>
+                    <!-- Thanh chuyển Tab 4 phần TSA -->
+                    <div class="flex flex-wrap gap-2 mb-8 bg-white p-2 rounded-xl shadow-sm border border-gray-100 w-max">
+                        <button onclick="filterTSA('math')" id="tab-tsa-math" class="tsa-tab px-6 py-2.5 rounded-lg font-bold text-sm bg-purple-50 text-purple-700 transition-colors">Tư duy Toán học</button>
+                        <button onclick="filterTSA('reading')" id="tab-tsa-reading" class="tsa-tab px-6 py-2.5 rounded-lg font-bold text-sm text-gray-500 hover:bg-gray-50 transition-colors">Tư duy Đọc hiểu</button>
+                        <button onclick="filterTSA('science')" id="tab-tsa-science" class="tsa-tab px-6 py-2.5 rounded-lg font-bold text-sm text-gray-500 hover:bg-gray-50 transition-colors">Tư duy Khoa học</button>
+                        <button onclick="filterTSA('comprehensive')" id="tab-tsa-comprehensive" class="tsa-tab px-6 py-2.5 rounded-lg font-bold text-sm text-gray-500 hover:bg-gray-50 transition-colors">Đề Tổng hợp</button>
                     </div>
                     <div id="tsa-exam-container" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6"></div>
                 </div>
@@ -769,39 +776,52 @@
         let currentExamTime = 0;
         let soloTimerInterval;
 
-        // --- HÀM TỰ ĐỘNG SINH UI DANH SÁCH ĐỀ THI ---
-        function renderExamLists() {
+        // --- HÀM LỌC VÀ RENDER ĐỀ THI TSA ---
+        function filterTSA(category) {
+            document.querySelectorAll('.tsa-tab').forEach(tab => {
+                tab.classList.remove('bg-purple-50', 'text-purple-700');
+                tab.classList.add('text-gray-500', 'hover:bg-gray-50');
+            });
+            const activeTab = document.getElementById(`tab-tsa-${category}`);
+            if(activeTab) {
+                activeTab.classList.remove('text-gray-500', 'hover:bg-gray-50');
+                activeTab.classList.add('bg-purple-50', 'text-purple-700');
+            }
+
             const tsaContainer = document.getElementById('tsa-exam-container');
             tsaContainer.innerHTML = '';
+            
+            const filteredExams = examsMeta.filter(exam => exam.type === 'TSA' && exam.category === category);
 
-            examsMeta.forEach(exam => {
-                if (exam.type === 'TSA') {
-                    let cardHTML = `
-                    <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden flex flex-col hover:shadow-md transition">
-                        <div class="relative h-48 bg-gray-200">
-                            <img src="${exam.img}" class="w-full h-full object-cover" alt="Cover">
-                            ${exam.isVip ? '<div class="absolute top-3 right-3 bg-yellow-400 text-yellow-900 text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1"><i class="fa-solid fa-crown"></i> VIP</div>' : ''}
-                        </div>
-                        <div class="p-5 flex flex-col flex-1">
-                            <h3 class="text-lg font-bold text-gray-800 mb-4 mt-2">${exam.title}</h3>
-                            <div class="flex gap-4 mb-6 text-sm text-gray-600 mt-auto">
-                                <div class="flex items-center gap-2">
-                                    <div class="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center text-blue-500"><i class="fa-regular fa-circle-question"></i></div>
-                                    <div><span class="block text-[10px] text-gray-400 uppercase">Câu hỏi</span><span class="font-bold">${exam.questionsCount} câu</span></div>
-                                </div>
-                                <div class="flex items-center gap-2">
-                                    <div class="w-8 h-8 rounded-full bg-green-50 flex items-center justify-center text-green-500"><i class="fa-regular fa-clock"></i></div>
-                                    <div><span class="block text-[10px] text-gray-400 uppercase">Thời gian</span><span class="font-bold">${exam.time} phút</span></div>
-                                </div>
+            if (filteredExams.length === 0) {
+                tsaContainer.innerHTML = `<div class="col-span-full py-12 text-center text-gray-500 bg-white rounded-2xl border border-gray-100 font-semibold shadow-sm">Chưa có đề thi nào trong mục này.</div>`;
+                return;
+            }
+
+            filteredExams.forEach(exam => {
+                let cardHTML = `
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden flex flex-col hover:shadow-md transition">
+                    <div class="relative h-48 bg-gray-200">
+                        <img src="${exam.img || 'https://via.placeholder.com/400x200?text=Cover'}" class="w-full h-full object-cover" alt="Cover">
+                        ${exam.isVip ? '<div class="absolute top-3 right-3 bg-yellow-400 text-yellow-900 text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1"><i class="fa-solid fa-crown"></i> VIP</div>' : ''}
+                    </div>
+                    <div class="p-5 flex flex-col flex-1">
+                        <h3 class="text-lg font-bold text-gray-800 mb-4 mt-2">${exam.title}</h3>
+                        <div class="flex gap-4 mb-6 text-sm text-gray-600 mt-auto">
+                            <div class="flex items-center gap-2">
+                                <div class="w-8 h-8 rounded-full bg-purple-50 flex items-center justify-center text-purple-600"><i class="fa-regular fa-circle-question"></i></div>
+                                <div><span class="block text-[10px] text-gray-400 uppercase">Câu hỏi</span><span class="font-bold">${exam.questionsCount} câu</span></div>
                             </div>
-                            <button onclick="openConfirmModal('${exam.id}')" class="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-2.5 rounded-lg transition-colors text-sm">Bắt đầu thi</button>
+                            <div class="flex items-center gap-2">
+                                <div class="w-8 h-8 rounded-full bg-green-50 flex items-center justify-center text-green-500"><i class="fa-regular fa-clock"></i></div>
+                                <div><span class="block text-[10px] text-gray-400 uppercase">Thời gian</span><span class="font-bold">${exam.time} phút</span></div>
+                            </div>
                         </div>
-                    </div>`;
-                    tsaContainer.innerHTML += cardHTML;
-                }
+                        <button onclick="openConfirmModal('${exam.id}')" class="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-2.5 rounded-lg transition-colors text-sm">Bắt đầu thi</button>
+                    </div>
+                </div>`;
+                tsaContainer.innerHTML += cardHTML;
             });
-
-            filterTHPT('math');
         }
 
         // --- HÀM LỌC VÀ RENDER 4 MÔN THPT ---
@@ -849,6 +869,12 @@
                 </div>`;
                 thptContainer.innerHTML += cardHTML;
             });
+        }
+
+        // --- HÀM TỰ ĐỘNG SINH UI DANH SÁCH ĐỀ THI ---
+        function renderExamLists() {
+            filterTSA('math'); // Mặc định hiển thị tab Toán của TSA
+            filterTHPT('math'); // Mặc định hiển thị tab Toán của THPT
         }
 
         // --- HỆ THỐNG ĐĂNG NHẬP ---
@@ -1731,10 +1757,9 @@
 
             try {
                 // !!! NHỚ DÁN LẠI API KEY CỦA BẠN VÀO ĐÂY !!!
-                const API_KEY = "DAN API CUA BAN"; 
+                const API_KEY = "DAN_API_KEY_CUA_BAN_VAO_DAY"; 
                 
-                // Đã cập nhật URL sang phiên bản mới nhất: gemini-3.1-pro-preview
-                const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-pro-preview:generateContent?key=${API_KEY}`, {
+                const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-pro-latest:generateContent?key=${API_KEY}`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
