@@ -1,24 +1,22 @@
 // --- CẤU TRÚC LƯU NHIỀU ĐỀ THI ---
 const examsMeta = [
-    { id: "tsa_01", type: "TSA", title: "NTT DETHW - VIP", questionsCount: 28, time: 150, img: "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&q=80&w=800", isVip: true },
-    { id: "tsa_02", type: "TSA", title: "Đề thi thử HUST 2026 - Lần 1", questionsCount: 15, time: 60, img: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&q=80&w=800", isVip: false },
+    // --- Nhóm TSA - Tổng hợp ---
+    { id: "tsa_01", type: "TSA", category: "comprehensive", title: "NTT DETHW - VIP", questionsCount: 28, time: 150, img: "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&q=80&w=800", isVip: true },
+    { id: "tsa_02", type: "TSA", category: "comprehensive", title: "Đề thi thử HUST 2026 - Lần 1", questionsCount: 15, time: 60, img: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&q=80&w=800", isVip: false },
+    
+    // --- Nhóm TSA - Tư duy Toán học ---
+    { id: "tsa_toan_01", type: "TSA", category: "math", title: "Đề thi Đánh giá Tư duy - TSA26A (Môn Toán)", questionsCount: 40, time: 90, img: "https://images.unsplash.com/photo-1632516643720-e7f5d7d6eca8?auto=format&fit=crop&q=80&w=800", isVip: true },
+
+    // --- Nhóm THPT ---
     { id: "thpt_01", type: "THPT", subject: "math", title: "Sở GD&ĐT Hà Nội - Lần 1", questionsCount: 50, time: 90, img: "fa-building-columns", isVip: false },
     { id: "thpt_toan_01", type: "THPT", subject: "math", title: "Đề thi thử Toán 2025 (Chuẩn cấu trúc)", questionsCount: 22, time: 90, img: "fa-calculator", isVip: false },
     { id: "thpt_toan_02", type: "THPT", subject: "math", title: "Đề thi Tốt nghiệp THPT 2026 môn Toán (Mã đề 0101)", questionsCount: 22, time: 90, img: "fa-calculator", isVip: false },
     { id: "thpt_ly_01", type: "THPT", subject: "physics", title: "Đề thi thử Vật Lý chuyên KHTN", questionsCount: 40, time: 50, img: "fa-atom", isVip: false },
     { id: "thpt_hoa_01", type: "THPT", subject: "chemistry", title: "Đề thi thử Hóa Học THPT chuyên ĐH Vinh", questionsCount: 40, time: 50, img: "fa-flask", isVip: true },
-    { id: "thpt_sinh_03", type: "THPT", subject: "biology", title: "Đề kiểm tra giữa kì 1 Sinh Học 12 - THPT Ngô Gia Tự", questionsCount: 24, time: 45, img: "fa-dna", isVip: false },
-{
-                id: "tsa_toan_01",
-                type: "TSA",
-                title: "Đề thi Đánh giá Tư duy - TSA26A (Môn Toán)",
-                questionsCount: 40,
-                time: 90,
-                img: "https://images.unsplash.com/photo-1632516643720-e7f5d7d6eca8?auto=format&fit=crop&q=80&w=800",
-                isVip: true
-            },
+    { id: "thpt_sinh_03", type: "THPT", subject: "biology", title: "Đề kiểm tra giữa kì 1 Sinh Học 12 - THPT Ngô Gia Tự", questionsCount: 24, time: 45, img: "fa-dna", isVip: false }
 ];
 
+// --- DỮ LIỆU CÂU HỎI CHI TIẾT TỪNG ĐỀ ---
 const allExamsData = {
     "tsa_01": [
         { id: 1, type: "true_false", content: "Cho hàm số $y = f(x) = \\sqrt{1 + \\cos(x)}$. Khi ta xét $x \\in (0, \\pi)$, các nhận định dưới đây là đúng hay sai?", propositions: ["Phương trình $\\sqrt{1 + \\cos(x)} = \\cos\\left(\\frac{x}{2}\\right)$ có nghiệm", "Phương trình $\\sqrt{1 + \\cos(x)} = \\cos\\left(\\frac{x}{4}\\right)$ có nghiệm", "Phương trình $\\sqrt{1 + \\cos(x)} = \\cos\\left(\\frac{\\pi}{8}\\right)$ có đúng 01 nghiệm"], correctAnswer: {0: 'true', 1: 'false', 2: 'true'} },
@@ -35,244 +33,244 @@ const allExamsData = {
     "tsa_toan_01": [
                 {
                     id: 701, type: "multiple_choice",
-                    content: "Phần nguyên của số thực $x$ là số nguyên lớn nhất không vượt quá $x$, kí hiệu là $[x]$. Biết số $x=\\sqrt{2+\\sqrt{2+\\sqrt{2+\\sqrt{2+...}}}}$ với vô hạn dấu căn. Giá trị của $[x]$ bằng bao nhiêu? <!--[cite: 25] -->",
+                    content: "Phần nguyên của số thực $x$ là số nguyên lớn nhất không vượt quá $x$, kí hiệu là $[x]$. Biết số $x=\\sqrt{2+\\sqrt{2+\\sqrt{2+\\sqrt{2+...}}}}$ với vô hạn dấu căn. Giá trị của $[x]$ bằng bao nhiêu?",
                     options: ["A. 1", "B. 2", "C. 0", "D. -1"],
                     correctAnswer: "A"
                 },
                 {
                     id: 702, type: "fill_blank",
-                    content: "Cho hàm số $y=\\frac{x+\\sqrt{x}}{\\sqrt{x^2-1}}$.<br>- Tổng số đường tiệm cận đứng và tiệm cận ngang của đồ thị hàm số bằng [1].<br>- Khoảng cách từ $A(2;3)$ đến tiệm cận đứng của đồ thị hàm số bằng [2].<br><i>(Nhập các đáp án theo thứ tự, cách nhau bởi dấu chấm phẩy \"; \". Ví dụ: 3; 4)</i> <!--[cite: 26] -->",
+                    content: "Cho hàm số $y=\\frac{x+\\sqrt{x}}{\\sqrt{x^2-1}}$.<br>- Tổng số đường tiệm cận đứng và tiệm cận ngang của đồ thị hàm số bằng [1].<br>- Khoảng cách từ $A(2;3)$ đến tiệm cận đứng của đồ thị hàm số bằng [2].<br><i>(Nhập các đáp án theo thứ tự, cách nhau bởi dấu chấm phẩy \"; \". Ví dụ: 3; 4)</i>",
                     correctAnswer: "2; 1"
                 },
                 {
                     id: 703, type: "multiple_choice",
-                    content: "Cho đa giác lồi $n$ đỉnh ($n > 3$). Số tam giác có 3 đỉnh là 3 đỉnh của đa giác đã cho là: <!--[cite: 27] -->",
+                    content: "Cho đa giác lồi $n$ đỉnh ($n > 3$). Số tam giác có 3 đỉnh là 3 đỉnh của đa giác đã cho là:",
                     options: ["A. $A_n^3$", "B. $C_n^3$", "C. $\\frac{C_n^3}{3!}$", "D. $n!$"],
                     correctAnswer: "B"
                 },
                 {
                     id: 704, type: "true_false",
-                    content: "Cho hàm số $f(x)=x^3-\\frac{1}{2}x^2-4x$. Mỗi phát biểu sau đây là đúng hay sai? <!--[cite: 28] -->",
+                    content: "Cho hàm số $f(x)=x^3-\\frac{1}{2}x^2-4x$. Mỗi phát biểu sau đây là đúng hay sai?",
                     propositions: [
-                        "Đạo hàm của hàm số $y=f(x)$ tại $x=4$ là $f'(4)=3$. <!--[cite: 28] -->",
-                        "Nghiệm của bất phương trình $f'(x)<0$ là $T=(1; \\frac{4}{3})$. <!--[cite: 28] -->"
+                        "Đạo hàm của hàm số $y=f(x)$ tại $x=4$ là $f'(4)=3$.",
+                        "Nghiệm của bất phương trình $f'(x)<0$ là $T=(1; \\frac{4}{3})$."
                     ],
                     correctAnswer: {0: 'false', 1: 'false'}
                 },
                 {
                     id: 705, type: "fill_blank",
-                    content: "Trong không gian $Oxyz$, cho mặt cầu $(S): x^2+y^2+z^2-2x+4y-4z-27=0$. Bán kính $R$ của mặt cầu $(S)$ bằng bao nhiêu? <!--[cite: 29] -->",
+                    content: "Trong không gian $Oxyz$, cho mặt cầu $(S): x^2+y^2+z^2-2x+4y-4z-27=0$. Bán kính $R$ của mặt cầu $(S)$ bằng bao nhiêu?",
                     correctAnswer: "6"
                 },
                 {
                     id: 706, type: "fill_blank",
-                    content: "Cho dãy số $(u_n)$ là một cấp số cộng có $u_1=3$ và công sai $d=4$.<br>- Tổng của [1] số hạng đầu của dãy số là $S_n=253$.<br>- Số hạng thứ 10 của dãy số là $u_{10}=$ [2].<br><i>(Nhập các đáp án theo thứ tự, cách nhau bởi dấu chấm phẩy \"; \")</i> <!--[cite: 30] -->",
+                    content: "Cho dãy số $(u_n)$ là một cấp số cộng có $u_1=3$ và công sai $d=4$.<br>- Tổng của [1] số hạng đầu của dãy số là $S_n=253$.<br>- Số hạng thứ 10 của dãy số là $u_{10}=$ [2].<br><i>(Nhập các đáp án theo thứ tự, cách nhau bởi dấu chấm phẩy \"; \")</i>",
                     correctAnswer: "11; 39"
                 },
                 {
                     id: 707, type: "multiple_choice",
-                    content: "Trong không gian $Oxyz$, cho hai điểm là $A(1;3;-1), B(3;-1;5)$. Tọa độ của điểm $M$ thỏa mãn hệ thức $\\overrightarrow{MA} = 3\\overrightarrow{MB}$ bằng: <!--[cite: 31] -->",
+                    content: "Trong không gian $Oxyz$, cho hai điểm là $A(1;3;-1), B(3;-1;5)$. Tọa độ của điểm $M$ thỏa mãn hệ thức $\\overrightarrow{MA} = 3\\overrightarrow{MB}$ bằng:",
                     options: ["A. $M(\\frac{5}{3};\\frac{13}{3};1)$", "B. $M(\\frac{7}{3};\\frac{1}{3};3)$", "C. $M(\\frac{7}{3};\\frac{1}{3};-3)$", "D. $M(4;-3;8)$"],
                     correctAnswer: "D"
                 },
                 {
                     id: 708, type: "true_false",
-                    content: "Một lớp có 40 học sinh, có 18 học sinh tham gia bóng đá, 10 học sinh tham gia bóng chuyền, trong đó 6 học sinh tham gia cả hai môn. Chọn ngẫu nhiên một học sinh. Gọi $A$ là biến cố \"Chọn được học sinh tham gia bóng đá\", $B$ là biến cố \"Chọn được học sinh tham gia bóng chuyền\". Các phát biểu sau đúng hay sai? <!--[cite: 32] -->",
+                    content: "Một lớp có 40 học sinh, có 18 học sinh tham gia bóng đá, 10 học sinh tham gia bóng chuyền, trong đó 6 học sinh tham gia cả hai môn. Chọn ngẫu nhiên một học sinh. Gọi $A$ là biến cố \"Chọn được học sinh tham gia bóng đá\", $B$ là biến cố \"Chọn được học sinh tham gia bóng chuyền\". Các phát biểu sau đúng hay sai?",
                     propositions: [
-                        "$P(A) = \\frac{9}{20}$. <!--[cite: 32] -->",
-                        "$P(AB) = \\frac{7}{20}$. <!--[cite: 32] -->",
-                        "Xác suất để học sinh được chọn có tham gia ít nhất một môn thể thao bằng $\\frac{19}{20}$. <!--[cite: 32] -->"
+                        "$P(A) = \\frac{9}{20}$.",
+                        "$P(AB) = \\frac{7}{20}$.",
+                        "Xác suất để học sinh được chọn có tham gia ít nhất một môn thể thao bằng $\\frac{19}{20}$."
                     ],
                     correctAnswer: {0: 'true', 1: 'false', 2: 'false'}
                 },
                 {
                     id: 709, type: "fill_blank",
-                    content: "Có bao nhiêu cặp số nguyên $(x;y)$ thỏa mãn phương trình: $x^2+5y^2+4xy+2x+4y-3=0$? <!--[cite: 33] -->",
+                    content: "Có bao nhiêu cặp số nguyên $(x;y)$ thỏa mãn phương trình: $x^2+5y^2+4xy+2x+4y-3=0$?",
                     correctAnswer: "4"
                 },
                 {
                     id: 710, type: "fill_blank",
-                    content: "Cho phương trình $\\log_4(x+1)^2+2 = \\log_{\\sqrt{2}}\\sqrt{4-x} + \\log_8(4+x)^3$.<br>- Số nghiệm của phương trình đã cho là [1].<br>- Tổng của các nghiệm của phương trình đã cho là [2].<br><i>(Nhập các đáp án theo thứ tự, cách nhau bởi dấu chấm phẩy \"; \")</i> <!--[cite: 34] -->",
+                    content: "Cho phương trình $\\log_4(x+1)^2+2 = \\log_{\\sqrt{2}}\\sqrt{4-x} + \\log_8(4+x)^3$.<br>- Số nghiệm của phương trình đã cho là [1].<br>- Tổng của các nghiệm của phương trình đã cho là [2].<br><i>(Nhập các đáp án theo thứ tự, cách nhau bởi dấu chấm phẩy \"; \")</i>",
                     correctAnswer: "2; 4-2\\sqrt{6}"
                 },
                 {
                     id: 711, type: "multiple_choice",
-                    content: "Phương trình $\\sin(3x+\\frac{\\pi}{3})=-\\frac{\\sqrt{3}}{2}$ có bao nhiêu nghiệm thuộc khoảng $(0; \\frac{\\pi}{2})$? <!--[cite: 35] -->",
+                    content: "Phương trình $\\sin(3x+\\frac{\\pi}{3})=-\\frac{\\sqrt{3}}{2}$ có bao nhiêu nghiệm thuộc khoảng $(0; \\frac{\\pi}{2})$?",
                     options: ["A. 3", "B. 4", "C. 1", "D. 2"],
                     correctAnswer: "D"
                 },
                 {
                     id: 712, type: "fill_blank",
-                    content: "Cho hai hàm số $F(x)=(x^2+ax+b)e^{-x}$ và $f(x)=(-x^2+3x+6)e^{-x}$. Để $F(x)$ là một nguyên hàm của hàm số $f(x)$ thì $a=$ [1] và $b=$ [2].<br><i>(Nhập các đáp án theo thứ tự, cách nhau bởi dấu chấm phẩy \"; \")</i> <!--[cite: 36] -->",
+                    content: "Cho hai hàm số $F(x)=(x^2+ax+b)e^{-x}$ và $f(x)=(-x^2+3x+6)e^{-x}$. Để $F(x)$ là một nguyên hàm của hàm số $f(x)$ thì $a=$ [1] và $b=$ [2].<br><i>(Nhập các đáp án theo thứ tự, cách nhau bởi dấu chấm phẩy \"; \")</i>",
                     correctAnswer: "-1; 7"
                 },
                 {
                     id: 713, type: "true_false",
-                    content: "Cho hàm số $y=f(x) = \\begin{cases} \\frac{\\sqrt{1-x}-\\sqrt{1+x}}{x} & \\text{khi } x < 0 \\\\ m + \\frac{1-x}{1+x} & \\text{khi } x \\ge 0 \\end{cases}$. Phát biểu sau đúng hay sai? <!--[cite: 37] -->",
+                    content: "Cho hàm số $y=f(x) = \\begin{cases} \\frac{\\sqrt{1-x}-\\sqrt{1+x}}{x} & \\text{khi } x < 0 \\\\ m + \\frac{1-x}{1+x} & \\text{khi } x \\ge 0 \\end{cases}$. Phát biểu sau đúng hay sai?",
                     propositions: [
-                        "Hàm số $y=f(x)$ gián đoạn tại $x=0$ khi $m=-1$. <!--[cite: 37] -->",
-                        "Hàm số $y=f(x)$ liên tục trên $\\mathbb{R}$ khi $m \\neq -2$. <!--[cite: 37] -->"
+                        "Hàm số $y=f(x)$ gián đoạn tại $x=0$ khi $m=-1$.",
+                        "Hàm số $y=f(x)$ liên tục trên $\\mathbb{R}$ khi $m \\neq -2$."
                     ],
                     correctAnswer: {0: 'true', 1: 'false'}
                 },
                 {
                     id: 714, type: "fill_blank",
-                    content: "Trong thời gian liên tục 25 năm, một người luôn gửi đúng 4.000.000 đồng vào một ngày cố định của tháng ở ngân hàng với lãi suất không đổi là 0,6%/tháng. Số tiền người đó có được sau 25 năm là bao nhiêu triệu đồng? (Làm tròn đến chữ số thập phân thứ ba) <!--[cite: 38] -->",
+                    content: "Trong thời gian liên tục 25 năm, một người luôn gửi đúng 4.000.000 đồng vào một ngày cố định của tháng ở ngân hàng với lãi suất không đổi là 0,6%/tháng. Số tiền người đó có được sau 25 năm là bao nhiêu triệu đồng? (Làm tròn đến chữ số thập phân thứ ba)",
                     correctAnswer: "3364.867"
                 },
                 {
                     id: 715, type: "fill_blank",
-                    content: "- Ước chung của hai số $n+3$ và $2n+5$ là [1] với mọi $n \\in \\mathbb{N}$.<br>- Có [2] bộ số thỏa mãn hai số có tổng bằng 224 và ước chung lớn nhất bằng 28.<br><i>(Nhập các đáp án theo thứ tự, cách nhau bởi dấu chấm phẩy \"; \")</i> <!--[cite: 39] -->",
+                    content: "- Ước chung của hai số $n+3$ và $2n+5$ là [1] với mọi $n \\in \\mathbb{N}$.<br>- Có [2] bộ số thỏa mãn hai số có tổng bằng 224 và ước chung lớn nhất bằng 28.<br><i>(Nhập các đáp án theo thứ tự, cách nhau bởi dấu chấm phẩy \"; \")</i>",
                     correctAnswer: "1; 2"
                 },
                 {
                     id: 716, type: "multiple_choice",
-                    content: "Cho dãy số $(a_n)$ thỏa mãn $a_1=1$ và $a_n=10a_{n-1}-1$, $\\forall n \\ge 2$. Giá trị nhỏ nhất của $n$ để $\\log a_n > 100$ là: <!--[cite: 40] -->",
+                    content: "Cho dãy số $(a_n)$ thỏa mãn $a_1=1$ và $a_n=10a_{n-1}-1$, $\\forall n \\ge 2$. Giá trị nhỏ nhất của $n$ để $\\log a_n > 100$ là:",
                     options: ["A. 100", "B. 101", "C. 102", "D. 103"],
                     correctAnswer: "C"
                 },
                 {
                     id: 717, type: "fill_blank",
-                    content: "Hai người ngang tài tranh chức vô địch cờ tướng. Người thắng là người đầu tiên thắng 5 ván. Tại thời điểm người thứ nhất đã thắng 4 ván và người thứ hai thắng 2 ván, xác suất để người thứ nhất giành chiến thắng là bao nhiêu? (Nhập dưới dạng số thập phân) <!--[cite: 41] -->",
+                    content: "Hai người ngang tài tranh chức vô địch cờ tướng. Người thắng là người đầu tiên thắng 5 ván. Tại thời điểm người thứ nhất đã thắng 4 ván và người thứ hai thắng 2 ván, xác suất để người thứ nhất giành chiến thắng là bao nhiêu? (Nhập dưới dạng số thập phân)",
                     correctAnswer: "0.875"
                 },
                 {
                     id: 718, type: "multiple_choice",
-                    content: "Cho hàm số $y=\\frac{1-m\\sin x}{\\cos x+2}$. Có bao nhiêu giá trị nguyên của tham số $m \\in [0;10]$ để giá trị nhỏ nhất của hàm số nhỏ hơn $-2$? <!--[cite: 42] -->",
+                    content: "Cho hàm số $y=\\frac{1-m\\sin x}{\\cos x+2}$. Có bao nhiêu giá trị nguyên của tham số $m \\in [0;10]$ để giá trị nhỏ nhất của hàm số nhỏ hơn $-2$?",
                     options: ["A. 1", "B. 9", "C. 3", "D. 6"],
                     correctAnswer: "D"
                 },
                 {
                     id: 719, type: "fill_blank",
-                    content: "Người ta đo đường kính 61 cây gỗ thu được bảng ghép nhóm: [20;25) có 4 cây, [25;30) có 12 cây, [30;35) có 26 cây, [35;40) có 13 cây, [40;45) có 6 cây. <br>- Tứ phân vị thứ nhất bằng [1].<br>- Tứ phân vị thứ hai bằng [2].<br>- Tứ phân vị thứ ba bằng [3].<br><i>(Làm tròn đến chữ số thập phân thứ hai. Nhập đáp án cách nhau bởi \"; \")</i> <!--[cite: 44] -->",
+                    content: "Người ta đo đường kính 61 cây gỗ thu được bảng ghép nhóm: [20;25) có 4 cây, [25;30) có 12 cây, [30;35) có 26 cây, [35;40) có 13 cây, [40;45) có 6 cây. <br>- Tứ phân vị thứ nhất bằng [1].<br>- Tứ phân vị thứ hai bằng [2].<br>- Tứ phân vị thứ ba bằng [3].<br><i>(Làm tròn đến chữ số thập phân thứ hai. Nhập đáp án cách nhau bởi \"; \")</i>",
                     correctAnswer: "29.69; 32.79; 36.44"
                 },
                 {
                     id: 720, type: "fill_blank",
-                    content: "Cổng trường có hình dạng Parabol, chiều rộng 8m, chiều cao 12,5m. Diện tích của cổng là bao nhiêu $m^2$? <!--[cite: 46] -->",
+                    content: "Cổng trường có hình dạng Parabol, chiều rộng 8m, chiều cao 12,5m. Diện tích của cổng là bao nhiêu $m^2$?",
                     correctAnswer: "200/3"
                 },
                 {
                     id: 721, type: "multiple_choice",
-                    content: "Cho tam giác $ABC$ có $b=7, c=5, \\cos A = \\frac{3}{5}$. Độ dài đường cao $h_a$ của $\\Delta ABC$ bằng: <!--[cite: 47] -->",
+                    content: "Cho tam giác $ABC$ có $b=7, c=5, \\cos A = \\frac{3}{5}$. Độ dài đường cao $h_a$ của $\\Delta ABC$ bằng:",
                     options: ["A. $2\\sqrt{2}$", "B. $7\\sqrt{2}$", "C. $4\\sqrt{2}$", "D. $\\frac{7\\sqrt{2}}{2}$"],
                     correctAnswer: "D"
                 },
                 {
                     id: 722, type: "fill_blank",
-                    content: "Trong hệ $Oxyz$, một máy bay bay theo đường thẳng từ $A(5;0;5)$ đến $B(10;10;3)$ và hạ cánh tại vị trí $M(a;b;0)$ trên mặt phẳng $(Oxy)$. Giá trị của $2a-b$ bằng bao nhiêu? <!--[cite: 48] -->",
+                    content: "Trong hệ $Oxyz$, một máy bay bay theo đường thẳng từ $A(5;0;5)$ đến $B(10;10;3)$ và hạ cánh tại vị trí $M(a;b;0)$ trên mặt phẳng $(Oxy)$. Giá trị của $2a-b$ bằng bao nhiêu?",
                     correctAnswer: "10"
                 },
                 {
                     id: 723, type: "fill_blank",
-                    content: "Cho hàm số $y=\\frac{2x+1}{x+1}$ có đồ thị $(C)$. Có bao nhiêu tiếp tuyến của đồ thị $(C)$ song song với đường thẳng $\\Delta: y=x+1$? <!--[cite: 49] -->",
+                    content: "Cho hàm số $y=\\frac{2x+1}{x+1}$ có đồ thị $(C)$. Có bao nhiêu tiếp tuyến của đồ thị $(C)$ song song với đường thẳng $\\Delta: y=x+1$?",
                     correctAnswer: "1"
                 },
                 {
                     id: 724, type: "true_false",
-                    content: "Cho hàm số $y=x^2.e^{-x}$. Mỗi phát biểu sau đây là đúng hay sai? <!--[cite: 50] -->",
+                    content: "Cho hàm số $y=x^2.e^{-x}$. Mỗi phát biểu sau đây là đúng hay sai?",
                     propositions: [
-                        "Hàm số không có giá trị lớn nhất và giá trị nhỏ nhất. <!--[cite: 50] -->",
-                        "Hàm số đạt cực đại tại $x=0$ và đạt cực tiểu tại $x=2$. <!--[cite: 50] -->",
-                        "Giá trị nhỏ nhất của hàm số bằng 0. <!--[cite: 50] -->"
+                        "Hàm số không có giá trị lớn nhất và giá trị nhỏ nhất.",
+                        "Hàm số đạt cực đại tại $x=0$ và đạt cực tiểu tại $x=2$.",
+                        "Giá trị nhỏ nhất của hàm số bằng 0."
                     ],
                     correctAnswer: {0: 'false', 1: 'false', 2: 'true'}
                 },
                 {
                     id: 725, type: "multiple_choice",
-                    content: "Cho tập $A=\\{1;2;3;...;2024\\}$. Có bao nhiêu cách chọn 5 số từ tập hợp $A$ sao cho các số được chọn lập thành một cấp số nhân tăng có công bội là một số nguyên dương? <!--[cite: 51] -->",
+                    content: "Cho tập $A=\\{1;2;3;...;2024\\}$. Có bao nhiêu cách chọn 5 số từ tập hợp $A$ sao cho các số được chọn lập thành một cấp số nhân tăng có công bội là một số nguyên dương?",
                     options: ["A. 126", "B. 161", "C. 111", "D. 150"],
                     correctAnswer: "B"
                 },
                 {
                     id: 726, type: "fill_blank",
-                    content: "Cho hàm số bậc hai $y=f(x)$ có đồ thị $(P)$ và đường thẳng $d$ cắt $(P)$ tại $x=1$ (điểm $(1;3)$) và $x=6$ (điểm $(6;8)$). Biết diện tích hình phẳng giới hạn bởi $(P)$ và $d$ là $S=\\frac{125}{9}$.<br><img src='LINK_ANH_CUA_BAN' class='mt-4 mb-4 w-full max-w-sm mx-auto rounded-lg border border-gray-200 shadow-sm'><br>- Phương trình đường thẳng $d$ là: [1].<br>- $\\int_1^6 f'(x)dx$ bằng: [2].<br>- $\\int_1^6 f(x)dx$ bằng: [3].<br><i>(Nhập các đáp án cách nhau bởi \"; \". Ví dụ: y=2x+1; 4; 5/3)</i> <!--[cite: 53] -->",
+                    content: "Cho hàm số bậc hai $y=f(x)$ có đồ thị $(P)$ và đường thẳng $d$ cắt $(P)$ tại $x=1$ (điểm $(1;3)$) và $x=6$ (điểm $(6;8)$). Biết diện tích hình phẳng giới hạn bởi $(P)$ và $d$ là $S=\\frac{125}{9}$.<br><img src='LINK_ANH_CUA_BAN' class='mt-4 mb-4 w-full max-w-sm mx-auto rounded-lg border border-gray-200 shadow-sm'><br>- Phương trình đường thẳng $d$ là: [1].<br>- $\\int_1^6 f'(x)dx$ bằng: [2].<br>- $\\int_1^6 f(x)dx$ bằng: [3].<br><i>(Nhập các đáp án cách nhau bởi \"; \". Ví dụ: y=2x+1; 4; 5/3)</i>",
                     correctAnswer: "y=x+2; 5; 245/18"
                 },
                 {
                     id: 727, type: "multiple_choice",
-                    content: "Trong không gian $Oxyz$, cho điểm $A(2;-1;-2)$ và đường thẳng $(d): \\frac{x-1}{-1}=\\frac{y-1}{1}=\\frac{z+1}{1}$. Gọi $(P)$ là mặt phẳng đi qua $A$, song song với $(d)$ và khoảng cách từ $(d)$ tới $(P)$ lớn nhất. Mặt phẳng $(P)$ vuông góc với mặt phẳng nào sau đây? <!--[cite: 55] -->",
+                    content: "Trong không gian $Oxyz$, cho điểm $A(2;-1;-2)$ và đường thẳng $(d): \\frac{x-1}{-1}=\\frac{y-1}{1}=\\frac{z+1}{1}$. Gọi $(P)$ là mặt phẳng đi qua $A$, song song với $(d)$ và khoảng cách từ $(d)$ tới $(P)$ lớn nhất. Mặt phẳng $(P)$ vuông góc với mặt phẳng nào sau đây?",
                     options: ["A. $x-y-6=0$", "B. $x+3y+2z+10=0$", "C. $x-2y-3z-1=0$", "D. $3x+z+2=0$"],
                     correctAnswer: "D"
                 },
                 {
                     id: 728, type: "multiple_choice",
-                    content: "Cho hình chóp $S.ABCD$ có $ABCD$ là hình chữ nhật tâm $O$, $AB=a, BC=a\\sqrt{3}$. Hình chiếu vuông góc của $S$ lên $(ABCD)$ là trung điểm $AO$. Góc giữa $(SAC)$ và $(SBC)$ là $60^\\circ$. Thể tích khối chóp $S.ABCD$ là: <!--[cite: 56] -->",
+                    content: "Cho hình chóp $S.ABCD$ có $ABCD$ là hình chữ nhật tâm $O$, $AB=a, BC=a\\sqrt{3}$. Hình chiếu vuông góc của $S$ lên $(ABCD)$ là trung điểm $AO$. Góc giữa $(SAC)$ và $(SBC)$ là $60^\\circ$. Thể tích khối chóp $S.ABCD$ là:",
                     options: ["A. $\\frac{a^3\\sqrt{3}}{3}$", "B. $\\frac{a^3\\sqrt{3}}{2}$", "C. $\\frac{a^3}{2}$", "D. $\\frac{a^3\\sqrt{6}}{8}$"],
                     correctAnswer: "D"
                 },
                 {
                     id: 729, type: "true_false",
-                    content: "Cho hàm số $y=x^4-4x^3+(m-2)x^2+8x+4$ có đồ thị $(C)$. Phát biểu sau đây đúng hay sai? <!--[cite: 58] -->",
+                    content: "Cho hàm số $y=x^4-4x^3+(m-2)x^2+8x+4$ có đồ thị $(C)$. Phát biểu sau đây đúng hay sai?",
                     propositions: [
-                        "Với $m=2$ thì đồ thị hàm số $(C)$ đã cho cắt trục hoành tại 3 điểm phân biệt. <!--[cite: 58] -->",
-                        "Có tất cả 10 giá trị nguyên của $m$ để đồ thị $(C)$ cắt trục hoành tại đúng hai điểm có hoành độ lớn hơn 1. <!--[cite: 58] -->"
+                        "Với $m=2$ thì đồ thị hàm số $(C)$ đã cho cắt trục hoành tại 3 điểm phân biệt.",
+                        "Có tất cả 10 giá trị nguyên của $m$ để đồ thị $(C)$ cắt trục hoành tại đúng hai điểm có hoành độ lớn hơn 1."
                     ],
                     correctAnswer: {0: 'false', 1: 'false'}
                 },
                 {
                     id: 730, type: "multiple_choice",
-                    content: "Cho hình lăng trụ đứng $ABC.A'B'C'$. Góc giữa $(A'BC)$ và $(ABC)$ là $30^\\circ$, tam giác $A'BC$ đều và có diện tích bằng $\\sqrt{3}$. Thể tích khối lăng trụ $ABC.A'B'C'$ bằng: <!--[cite: 60] -->",
+                    content: "Cho hình lăng trụ đứng $ABC.A'B'C'$. Góc giữa $(A'BC)$ và $(ABC)$ là $30^\\circ$, tam giác $A'BC$ đều và có diện tích bằng $\\sqrt{3}$. Thể tích khối lăng trụ $ABC.A'B'C'$ bằng:",
                     options: ["A. $2\\sqrt{3}$", "B. $6$", "C. $\\frac{3\\sqrt{3}}{4}$", "D. $\\frac{\\sqrt{3}}{4}$"],
                     correctAnswer: "C"
                 },
                 {
                     id: 731, type: "fill_blank",
-                    content: "Bảng tần số ghép nhóm thống kê thời gian gọi điện (giây): [0;60) có 8 cuộc, [60;120) có 10 cuộc, [120;180) có 7 cuộc, [180;240) có 5 cuộc, [240;300) có 2 cuộc, [300;360) có 1 cuộc. Khoảng tứ phân vị của mẫu số liệu ghép nhóm trên bằng bao nhiêu? <!--[cite: 61] -->",
+                    content: "Bảng tần số ghép nhóm thống kê thời gian gọi điện (giây): [0;60) có 8 cuộc, [60;120) có 10 cuộc, [120;180) có 7 cuộc, [180;240) có 5 cuộc, [240;300) có 2 cuộc, [300;360) có 1 cuộc. Khoảng tứ phân vị của mẫu số liệu ghép nhóm trên bằng bao nhiêu?",
                     correctAnswer: "116.3"
                 },
                 {
                     id: 732, type: "fill_blank",
-                    content: "Một đống đất được vun thành hình chóp cụt tứ giác đều có cạnh đáy lớn 2m, cạnh đáy nhỏ 1m, chiều cao 2m. Khối lượng đống đất (thể tích) có giá trị gần nhất bằng bao nhiêu $m^3$? (Làm tròn đến 2 chữ số thập phân) <!--[cite: 63] -->",
+                    content: "Một đống đất được vun thành hình chóp cụt tứ giác đều có cạnh đáy lớn 2m, cạnh đáy nhỏ 1m, chiều cao 2m. Khối lượng đống đất (thể tích) có giá trị gần nhất bằng bao nhiêu $m^3$? (Làm tròn đến 2 chữ số thập phân)",
                     correctAnswer: "4.67"
                 },
                 {
                     id: 733, type: "multiple_choice",
-                    content: "Gọi $S$ là tập hợp các giá trị của $m$ để bất phương trình $\\log_3(x^2-5x+m) > \\log_3(x-2)$ có tập nghiệm chứa khoảng $(2;+\\infty)$. Khẳng định nào đúng? <!--[cite: 65] -->",
+                    content: "Gọi $S$ là tập hợp các giá trị của $m$ để bất phương trình $\\log_3(x^2-5x+m) > \\log_3(x-2)$ có tập nghiệm chứa khoảng $(2;+\\infty)$. Khẳng định nào đúng?",
                     options: ["A. $S=(7;+\\infty)$", "B. $S=[6;+\\infty)$", "C. $S=(-\\infty;4)$", "D. $S=(-\\infty;5]$"],
                     correctAnswer: "A"
                 },
                 {
                     id: 734, type: "true_false",
-                    content: "Cho hình chóp $S.ABCD$ có đáy là hình thoi tâm $O$, $SO \\perp (ABCD)$. Biết $AB=SB=a$, $SO=\\frac{a\\sqrt{6}}{3}$. Gọi $M$ là trung điểm $SA$. Phát biểu sau đúng hay sai? <!--[cite: 67] -->",
+                    content: "Cho hình chóp $S.ABCD$ có đáy là hình thoi tâm $O$, $SO \\perp (ABCD)$. Biết $AB=SB=a$, $SO=\\frac{a\\sqrt{6}}{3}$. Gọi $M$ là trung điểm $SA$. Phát biểu sau đúng hay sai?",
                     propositions: [
-                        "Góc giữa hai mặt phẳng $(SAB)$ và $(SAD)$ là góc $\\widehat{BMD}$. <!--[cite: 67] -->",
-                        "Số đo góc $\\widehat{BMO} = 60^\\circ$. <!--[cite: 67] -->",
-                        "Số đo góc giữa $(SAB)$ và $(SAD)$ là $60^\\circ$. <!--[cite: 67] -->"
+                        "Góc giữa hai mặt phẳng $(SAB)$ và $(SAD)$ là góc $\\widehat{BMD}$.",
+                        "Số đo góc $\\widehat{BMO} = 60^\\circ$.",
+                        "Số đo góc giữa $(SAB)$ và $(SAD)$ là $60^\\circ$."
                     ],
                     correctAnswer: {0: 'true', 1: 'false', 2: 'false'}
                 },
                 {
                     id: 735, type: "multiple_choice",
-                    content: "An và Bình thi thử Tốt nghiệp THPT. Ngoài 3 môn bắt buộc, mỗi bạn đăng kí 2 môn tự chọn trong 3 môn (Lý, Hóa, Sinh). Mỗi môn tự chọn có 8 mã đề. Xác suất để An và Bình có chung đúng một môn thi tự chọn và chung một mã đề là: <!--[cite: 69] -->",
+                    content: "An và Bình thi thử Tốt nghiệp THPT. Ngoài 3 môn bắt buộc, mỗi bạn đăng kí 2 môn tự chọn trong 3 môn (Lý, Hóa, Sinh). Mỗi môn tự chọn có 8 mã đề. Xác suất để An và Bình có chung đúng một môn thi tự chọn và chung một mã đề là:",
                     options: ["A. $\\frac{1}{9}$", "B. $\\frac{1}{10}$", "C. $\\frac{1}{12}$", "D. $\\frac{1}{24}$"],
                     correctAnswer: "C"
                 },
                 {
                     id: 736, type: "multiple_choice",
-                    content: "Cho hình lăng trụ $ABC.A'B'C'$ có đáy $ABC$ là tam giác đều cạnh $a$. Hình chiếu của $A'$ lên $(ABC)$ là trung điểm $BC$. Biết góc giữa $(ABB'A')$ và $(A'B'C')$ bằng $60^\\circ$. Khoảng cách $d$ giữa $B'C'$ và $AA'$ bằng: <!--[cite: 71] -->",
+                    content: "Cho hình lăng trụ $ABC.A'B'C'$ có đáy $ABC$ là tam giác đều cạnh $a$. Hình chiếu của $A'$ lên $(ABC)$ là trung điểm $BC$. Biết góc giữa $(ABB'A')$ và $(A'B'C')$ bằng $60^\\circ$. Khoảng cách $d$ giữa $B'C'$ và $AA'$ bằng:",
                     options: ["A. $d=\\frac{3a\\sqrt{7}}{14}$", "B. $d=\\frac{a\\sqrt{21}}{14}$", "C. $d=\\frac{3a}{4}$", "D. $d=\\frac{a\\sqrt{3}}{4}$"],
                     correctAnswer: "A"
                 },
                 {
                     id: 737, type: "fill_blank",
-                    content: "Trong hệ $Oxyz$, cho $d: \\frac{x}{2}=\\frac{y-1}{-1}=\\frac{z+1}{-1}$ và $A(1;1;1)$. Hai điểm $B, C$ di động trên $d$ sao cho $(OAB) \\perp (OAC)$. Gọi $B'$ là hình chiếu của $B$ lên $AC$. Quỹ tích $B'$ là đường tròn cố định có bán kính bằng bao nhiêu? (Làm tròn đến 2 chữ số thập phân) <!--[cite: 74] -->",
+                    content: "Trong hệ $Oxyz$, cho $d: \\frac{x}{2}=\\frac{y-1}{-1}=\\frac{z+1}{-1}$ và $A(1;1;1)$. Hai điểm $B, C$ di động trên $d$ sao cho $(OAB) \\perp (OAC)$. Gọi $B'$ là hình chiếu của $B$ lên $AC$. Quỹ tích $B'$ là đường tròn cố định có bán kính bằng bao nhiêu? (Làm tròn đến 2 chữ số thập phân)",
                     correctAnswer: "0.67"
                 },
                 {
                     id: 738, type: "fill_blank",
-                    content: "Một khối lập phương lớn tạo bởi 27 khối lập phương đơn vị. Một mặt phẳng vuông góc với đường chéo của khối lập phương lớn tại trung điểm của nó. Mặt phẳng này cắt ngang (không đi qua đỉnh) bao nhiêu khối lập phương đơn vị? <!--[cite: 76] -->",
+                    content: "Một khối lập phương lớn tạo bởi 27 khối lập phương đơn vị. Một mặt phẳng vuông góc với đường chéo của khối lập phương lớn tại trung điểm của nó. Mặt phẳng này cắt ngang (không đi qua đỉnh) bao nhiêu khối lập phương đơn vị?",
                     correctAnswer: "19"
                 },
                 {
                     id: 739, type: "multiple_choice",
-                    content: "Tỉ lệ người nghiện thuốc lào tại khu vực X là 10%. Tỉ lệ bị bệnh phổi ở người nghiện thuốc lào là 70%, ở người không nghiện là 15%. Xác suất gặp ngẫu nhiên một người mà người đó nghiện thuốc lào khi biết họ bị bệnh phổi bằng: <!--[cite: 78] -->",
+                    content: "Tỉ lệ người nghiện thuốc lào tại khu vực X là 10%. Tỉ lệ bị bệnh phổi ở người nghiện thuốc lào là 70%, ở người không nghiện là 15%. Xác suất gặp ngẫu nhiên một người mà người đó nghiện thuốc lào khi biết họ bị bệnh phổi bằng:",
                     options: ["A. $\\frac{14}{41}$", "B. $\\frac{6}{13}$", "C. $\\frac{4}{13}$", "D. $\\frac{41}{200}$"],
                     correctAnswer: "A"
                 },
                 {
                     id: 740, type: "fill_blank",
-                    content: "Doanh số bán lẻ tivi mỗi năm là 2500 chiếc. Phí lưu kho là 200k/năm/chiếc. Phí đặt hàng: 10 triệu đồng đặt cọc + 3 triệu đồng/chiếc. Số tivi trung bình trong kho bằng một nửa số tivi mỗi lần đặt. Để chi phí tồn kho thấp nhất, cửa hàng nên đặt hàng [1] lần/năm, mỗi lần [2] chiếc.<br><i>(Nhập các đáp án cách nhau bởi \"; \")</i> <!--[cite: 79] -->",
+                    content: "Doanh số bán lẻ tivi mỗi năm là 2500 chiếc. Phí lưu kho là 200k/năm/chiếc. Phí đặt hàng: 10 triệu đồng đặt cọc + 3 triệu đồng/chiếc. Số tivi trung bình trong kho bằng một nửa số tivi mỗi lần đặt. Để chi phí tồn kho thấp nhất, cửa hàng nên đặt hàng [1] lần/năm, mỗi lần [2] chiếc.<br><i>(Nhập các đáp án cách nhau bởi \"; \")</i>",
                     correctAnswer: "5; 500"
                 }
             ],
@@ -305,7 +303,7 @@ const allExamsData = {
         { id: 502, type: "multiple_choice", content: "Cho các hàm số $y=f(x)$ và $y=g(x)$ có đạo hàm trên tập số thực $\\mathbb{R}$ thỏa mãn $f'(x)=x$ và $g'(x)=x^2$. Đạo hàm của hàm số $y=f(x)+g(x)$ là", options: ["A. $3x$.", "B. $1+x^2$.", "C. $x+x^2$.", "D. $1+2x$."], correctAnswer: "C" },
         { id: 503, type: "multiple_choice", content: "Cho $\\int f(x)dx = \\sin x + C$. Phát biểu nào sau đây là đúng?", options: ["A. $\\int [3+f(x)]dx = 3x + \\cos x + C$.", "B. $\\int [3+f(x)]dx = 3x + \\sin x + C$.", "C. $\\int [3+f(x)]dx = 3x - \\cos x + C$.", "D. $\\int [3+f(x)]dx = 3x - \\sin x + C$."], correctAnswer: "B" },
         { id: 504, type: "multiple_choice", content: "Nghiệm của phương trình $\\log_3(x-1)=1$ là", options: ["A. $x=2$.", "B. $x=3$.", "C. $x=5$.", "D. $x=4$."], correctAnswer: "D" },
-        { id: 505, type: "multiple_choice", content: "Trong không gian với hệ tọa độ $Oxyz$, cho hai điểm $A(1;5;1)$ và $B(3;3;1)$. Vectơ $\\overrightarrow{AB}$ có tọa độ là", options: ["A. $(2;-2;0)$.", "B. $(-2;2;0)$.", "C. $(4;8;2)$.", "D. $(2;4;1)$."], correctAnswer: "A" },
+        { id: 505, type: "multiple_choice", content: "Trong không gian với hệ tọa độ $Oxyz$, cho hai điểm $A(1;5;1)$ và $B(3;3;1)$. Vectơ $\\overrightarrow{AB}$ có tọa độ là", options: ["A. $(2;-2;0)$.", "B. (-2;2;0).", "C. $(4;8;2)$.", "D. $(2;4;1)$."], correctAnswer: "A" },
         { id: 506, type: "multiple_choice", content: "Cho hai biến cố độc lập $A$ và $B$ có xác suất thỏa mãn $P(A)=0,5$ và $P(B)=0,4$. Giá trị của $P(AB)$ bằng", options: ["A. 0,8.", "B. 0,1.", "C. 0,9.", "D. 0,2."], correctAnswer: "D" },
         { id: 507, type: "multiple_choice", content: "Cho hình lập phương $ABCD.A'B'C'D'$ (xem hình dưới). Vectơ nào sau đây bằng vectơ $\\overrightarrow{AB}$?<br><img src='https://i.postimg.cc/GpwpRfVD/c7.png' class='mt-4 mb-4 w-full max-w-sm mx-auto rounded-lg border border-gray-200 shadow-sm'>", options: ["A. $\\overrightarrow{AA'}$.", "B. $\\overrightarrow{D'C'}$.", "C. $\\overrightarrow{CD}$.", "D. $\\overrightarrow{AD}$."], correctAnswer: "B" },
         { id: 508, type: "multiple_choice", content: "Cặp số nào sau đây là nghiệm của hệ bất phương trình $\\begin{cases}x+y-3<0\\\\ x-y+1>0\\end{cases}$?", options: ["A. $(1;0)$.", "B. $(0;2)$.", "C. $(-1;1)$.", "D. $(1;2)$."], correctAnswer: "A" },
