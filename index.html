@@ -1704,28 +1704,7 @@
             }
             messagesContainer.scrollTop = messagesContainer.scrollHeight;
         }
-        <!-- ================= 6. JAVASCRIPT ================= -->
-    <!-- Nhúng file dữ liệu -->
-    <script src="data.js"></script>
-
-    <script>
-        // --- CÁC BIẾN TOÀN CỤC ---
-        let currentSessionEmail = null;
-        let currentUser = null;
-        let currentExamId = null;
-        let currentExamType = 'TSA'; 
-        let userAnswers = {}; 
-        let totalExamTime = 0;
-        let currentExamTime = 0;
-        let soloTimerInterval;
-
-        // Xóa phần examsMeta và allExamsData ở đây đi vì đã chuyển sang data.js
-
-        // --- HÀM TỰ ĐỘNG SINH UI DANH SÁCH ĐỀ THI ---
-        function renderExamLists() {
-            const tsaContainer = document.getElementById('tsa-exam-container');
-            tsaContainer.innerHTML = '';
-            // ... (Phần code logic bên dưới giữ nguyên)
+        
     </script>
 </body>
 </html>
