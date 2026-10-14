@@ -10,7 +10,7 @@ const examsMeta = [
     
     { id: "thpt_toan_02", type: "THPT", subject: "math", title: "Đề thi Tốt nghiệp THPT 2026 môn Toán (Mã đề 0101)", questionsCount: 22, time: 90, img: "https://i.postimg.cc/Qd7xWCzY/ID-3.png", isVip: false },
     { id: "thpt_ly_01", type: "THPT", subject: "physics", title: "Đề thi thử Vật Lý chuyên KHTN", questionsCount: 40, time: 50, img: "https://i.postimg.cc/FFbmqQ9X/A-nh-chu-p-ma-n-hi-nh-2026-10-14-004011.png", isVip: false },
-    
+    { id: "thpt_ly_03", type: "THPT", subject: "physics", title: "Đề ôn tập Giữa HK1 Vật Lí 12 - Đề số 3", questionsCount: 28, time: 50, img: "https://i.postimg.cc/FFbmqQ9X/A-nh-chu-p-ma-n-hi-nh-2026-10-14-004011.png", isVip: false },
     { id: "thpt_hoa_02", type: "THPT", subject: "chemistry", title: "Đề kiểm tra Giữa HK1 Hóa Học 12 (Đề 2)", questionsCount: 28, time: 45, img: "https://i.postimg.cc/y8x0qmW2/ID-2.png", isVip: false },
     { id: "thpt_sinh_03", type: "THPT", subject: "biology", title: "Đề kiểm tra giữa kì 1 Sinh Học 12 - THPT Ngô Gia Tự", questionsCount: 24, time: 45, img: "https://i.postimg.cc/FFbmqQ9X/A-nh-chu-p-ma-n-hi-nh-2026-10-14-004011.png", isVip: false }
 ];
@@ -62,7 +62,7 @@ const allExamsData = {
         },
         {
             id: 807, type: "multiple_choice",
-            content: "Nicotine làm tăng huyết áp và nhịp tim, có khả năng gây xơ vữa động mạch vành và suy giảm trí nhớ. Trong cây thuốc lá và khói thuốc lá chứa một amine rất độc, đó là nicotine với công thức cấu tạo như sau:<br><img src='LINK_ANH_CUA_BAN' class='mt-4 mb-4 max-w-xs mx-auto rounded-lg border border-gray-200 shadow-sm'><br>Công thức phân tử nicotine là <!--[cite: 80] -->",
+            content: "Nicotine làm tăng huyết áp và nhịp tim, có khả năng gây xơ vữa động mạch vành và suy giảm trí nhớ. Trong cây thuốc lá và khói thuốc lá chứa một amine rất độc, đó là nicotine với công thức cấu tạo như sau:<br><img src='https://i.postimg.cc/vm3BGjkd/nc.png' class='mt-4 mb-4 max-w-xs mx-auto rounded-lg border border-gray-200 shadow-sm'><br>Công thức phân tử nicotine là <!--[cite: 80] -->",
             options: ["A. $C_{10}H_{14}N_2$.", "B. $C_{10}H_{12}N_2$.", "C. $C_{11}H_{12}N_2$.", "D. $C_{11}H_{16}N_2$."],
             correctAnswer: "A"
         },
@@ -353,5 +353,284 @@ const allExamsData = {
         { id: 622, type: "fill_blank", content: "Ở một Đậu Hà Lan, allele A quy định hạt vàng trội hoàn toàn so với allele a quy định hạt xanh; allele B quy định vỏ trơn trội hoàn toàn so với b quy định vỏ nhăn, hai cặp gene nằm trên hai cặp NST tương đồng khác nhau. Cho lai 2 cây với nhau thu được $F_1$ có tỉ lệ kiểu hình hạt vàng, vỏ nhăn chiếm 25%. Theo lí thuyết, có bao nhiêu phép lai phù hợp với kết quả trên?<br>I. $AABb \\times AABb$<br>II. $Aabb \\times Aabb$<br>III. $Aabb \\times aaBb$<br>IV. $AaBb \\times aabb$ <!--[cite: 18, 19, 24] -->", correctAnswer: "3" },
         { id: 623, type: "fill_blank", content: "Xét 7 amino acid đầu mạch của phân tử protein hemoglobin (Hb) ở người bình thường được kí hiệu là HbA và tương ứng của người bệnh kí hiệu là HbB có trình tự như sau:<br>HbA: $Val - His - Leu - Thr - Pro - Glu - Glu$<br>HbB: $Val - His - Leu - Thr - Pro - Val - Glu$<br>Vị trí triplet xảy ra đột biến gene là bao nhiêu? <!--[cite: 19, 24] -->", correctAnswer: "6" },
         { id: 624, type: "fill_blank", content: "Một nhóm nghiên cứu nuôi một số vi khuẩn E.coli trong môi trường chỉ có nito đồng vị nặng ($^{15}N$). Sau đó, chuyển vi khuẩn sang nuôi tiếp năm thế hệ ở môi trường chỉ có nitơ đồng vị nhẹ ($^{14}N$). Tách DNA sau mỗi thệ hệ và thu được kết quả như hình dưới đây. Cho biết X là vị trí của DNA chứa cả hai mạch $^{15}N$, Y là vị trí của DNA chứa cả mạch $^{14}N$ và mạch $^{15}N$; Z là vị trí của DNA chứa cả hai mạch $^{14}N$. Ở thế hệ thứ 4 vạch Z chiếm tỉ lệ bao nhiêu ? (Hãy thể hiện kết quả bằng số thập phân và làm tròn đến 2 chữ số sau dấu phẩy).<br><img src='https://i.postimg.cc/rsHhs1q4/sinhpp.png' class='mt-4 mb-4 w-full max-w-sm mx-auto rounded-lg border border-gray-200 shadow-sm'><!--[cite: 19, 24] -->", correctAnswer: "0.88" }
-    ]
+    ],
+    "thpt_ly_03": [
+        // --- PHẦN I: CÂU TRẮC NGHIỆM NHIỀU PHƯƠNG ÁN LỰA CHỌN (18 CÂU) ---
+        {
+            id: 901, type: "multiple_choice",
+            content: "Khi cho 2 vật chênh lệch nhiệt độ tiếp xúc nhau, năng lượng nhiệt luôn truyền từ vật có (1)..... sang vật có (2)..... Quá trình truyền nhiệt kết thúc khi hai vật (3)..... (trạng thái này được gọi là trạng thái (4).....). Chọn đáp án có các cụm từ thích hợp điền vào chỗ trống. <!-- -->",
+            options: [
+                "A. (1) nhiệt độ thấp; (2) nhiệt độ cao; (3) có cùng nội năng; (4) cân bằng nội năng.",
+                "B. (1) nhiệt độ thấp; (2) nhiệt độ cao; (3) có cùng nhiệt độ; (4) cân bằng nhiệt.",
+                "C. (1) nhiệt độ cao; (2) nhiệt độ thấp; (3) có cùng nội năng; (4) cân bằng nội năng.",
+                "D. (1) nhiệt độ cao; (2) nhiệt độ thấp; (3) có cùng nhiệt độ; (4) cân bằng nhiệt."
+            ],
+            correctAnswer: "D"
+        },
+        {
+            id: 902, type: "multiple_choice",
+            content: "Một nhiệt kế thể tích không đổi hiển thị nhiệt độ $0^\\circ\\text{C}$ và $100^\\circ\\text{C}$ tương ứng với các áp suất $50\\text{ cmHg}$ và $90\\text{ cmHg}$. Biết nhiệt độ đọc được là hàm bậc nhất của áp suất. Khi áp suất thủy ngân là $60\\text{ cmHg}$ thì nhiệt độ đọc được bằng <!-- -->",
+            options: [
+                "A. $25^\\circ\\text{C}$.",
+                "B. $40^\\circ\\text{C}$.",
+                "C. $15^\\circ\\text{C}$.",
+                "D. $12,5^\\circ\\text{C}$."
+            ],
+            correctAnswer: "A"
+        },
+        {
+            id: 903, type: "multiple_choice",
+            content: "Chiều cao của cột thủy ngân trong nhiệt kế thủy ngân thay đổi theo nhiệt độ. Ứng với hai vạch có nhiệt độ là $0^\\circ\\text{C}$ và $100^\\circ\\text{C}$ thì chiều cao của cột thủy ngân trong nhiệt kế là $2\\text{ cm}$ và $22\\text{ cm}$. Khi sử dụng nhiệt kế này để đo nhiệt độ của cơ thể một em bé đang bị sốt thì thấy cột thủy ngân cao $9,9\\text{ cm}$. Theo thang nhiệt Kelvin, nhiệt độ của em bé lúc này là bao nhiêu? <!-- -->",
+            options: [
+                "A. $321,5\\text{ K}$.",
+                "B. $305,5\\text{ K}$.",
+                "C. $312,5\\text{ K}$.",
+                "D. $327,0\\text{ K}$."
+            ],
+            correctAnswer: "C"
+        },
+        {
+            id: 904, type: "multiple_choice",
+            content: "Nội năng của một hệ là <!-- -->",
+            options: [
+                "A. tổng công và nhiệt mà hệ truyền ra bên ngoài.",
+                "B. tổng công và nhiệt mà hệ nhận được từ bên ngoài.",
+                "C. tổng động năng và thế năng tương tác của các phân tử cấu tạo nên hệ.",
+                "D. tổng động năng và thế năng của hệ."
+            ],
+            correctAnswer: "C"
+        },
+        {
+            id: 905, type: "multiple_choice",
+            content: "Khi thép đang nóng chảy được làm nguội nhanh về nhiệt độ phòng sẽ giúp tăng độ cứng cho thép và cách làm như vậy được gọi là tôi thép. Người ta có thể sử dụng nước để làm hạ nhiệt độ nhanh cho thép đang nóng đỏ vì <!--[cite: 83] -->",
+            options: [
+                "A. nhiệt dung riêng của nước cao hơn nhiều so với của thép trong khi đó nhiệt độ sôi của nước lại thấp hơn nhiều so với nhiệt độ nóng chảy của thép.",
+                "B. nước có khả năng bốc hơi rất nhanh khi gặp kim loại nóng.",
+                "C. nhiệt độ nóng chảy của nước thấp hơn nhiều so với của thép.",
+                "D. sử dụng nước là do thói quen vì thật ra có thể để thép nóng đỏ trong không khí thì thép cũng hạ nhanh về nhiệt độ phòng."
+            ],
+            correctAnswer: "A"
+        },
+        {
+            id: 906, type: "multiple_choice",
+            content: "Khi nói về thang đo nhiệt độ Kelvin và Celsius, kết luận nào sau đây là sai? <!--[cite: 83] -->",
+            options: [
+                "A. Nhiệt độ trong thang nhiệt độ Kelvin được kí hiệu là $T$, có đơn vị $\\text{K}$.",
+                "B. Nhiệt độ trong thang nhiệt độ Celsius được kí hiệu là $t$, có đơn vị $^\\circ\\text{C}$.",
+                "C. Một độ chia trên thang nhiệt độ Kelvin có giá trị gấp 273 lần một độ chia trên thang nhiệt độ Celsius.",
+                "D. Mối liên hệ về các giá trị nhiệt độ giữa hai thang đo là: $T(\\text{K}) = t(^\\circ\\text{C}) + 273,15$."
+            ],
+            correctAnswer: "C"
+        },
+        {
+            id: 907, type: "multiple_choice",
+            content: "Sắp xếp các nhiệt độ sau: $300\\text{ K}, 20^\\circ\\text{C}, 280\\text{ K}, 30^\\circ\\text{C}$ theo thứ tự tăng dần. Thứ tự đúng là: <!--[cite: 83] -->",
+            options: [
+                "A. $300\\text{ K}, 280\\text{ K}, 20^\\circ\\text{C}, 30^\\circ\\text{C}$.",
+                "B. $20^\\circ\\text{C}, 30^\\circ\\text{C}, 280\\text{ K}, 300\\text{ K}$.",
+                "C. $280\\text{ K}, 20^\\circ\\text{C}, 300\\text{ K}, 30^\\circ\\text{C}$.",
+                "D. $30^\\circ\\text{C}, 300\\text{ K}, 20^\\circ\\text{C}, 280\\text{ K}$."
+            ],
+            correctAnswer: "C"
+        },
+        {
+            id: 908, type: "multiple_choice",
+            content: "Khi nói về quá trình truyền nhiệt lượng khi cho hai vật tiếp xúc với nhau. Kết luận nào sau đây là sai? <!--[cite: 83] -->",
+            options: [
+                "A. Năng lượng nhiệt được truyền từ vật có nội năng lớn hơn sang vật có nội năng nhỏ hơn.",
+                "B. Năng lượng nhiệt được truyền từ vật có nhiệt độ cao sang vật có nhiệt độ thấp hơn.",
+                "C. Vật nóng hơn sẽ giảm nhiệt độ, vật lạnh hơn sẽ tăng nhiệt độ.",
+                "D. Khi hai vật ở cùng nhiệt độ, không có truyền năng lượng nhiệt giữa chúng."
+            ],
+            correctAnswer: "A"
+        },
+        {
+            id: 909, type: "multiple_choice",
+            content: "Nhiệt hóa hơi riêng của một chất là nhiệt lượng cần cung cấp để $1\\text{ kg}$ chất đó: <!--[cite: 83] -->",
+            options: [
+                "A. bay hơi hết.",
+                "B. hóa hơi hoàn toàn.",
+                "C. hóa hơi hoàn toàn ở nhiệt độ sôi.",
+                "D. hóa hơi."
+            ],
+            correctAnswer: "C"
+        },
+        {
+            id: 910, type: "multiple_choice",
+            content: "Các nhiệt kế thường dùng như nhiệt kế rượu, nhiệt kế thủy ngân, được chế tạo dựa trên <!--[cite: 83] -->",
+            options: [
+                "A. sự nở vì nhiệt của thể tích một lượng khí xác định ở áp suất không đổi.",
+                "B. sự nở vì nhiệt của ống thủy tinh chứa chất lỏng.",
+                "C. sự nở dài của chất lỏng trong ống thủy tinh.",
+                "D. sự nở dài của một thanh kim loại thẳng."
+            ],
+            correctAnswer: "C"
+        },
+        {
+            id: 911, type: "multiple_choice",
+            content: "Phần năng lượng nhiệt mà vật này truyền cho vật kia hoặc vật này nhận từ vật kia gọi là <!--[cite: 83] -->",
+            options: [
+                "A. nội năng.",
+                "B. nhiệt lượng.",
+                "C. nhiệt độ.",
+                "D. thế năng."
+            ],
+            correctAnswer: "B"
+        },
+        {
+            id: 912, type: "multiple_choice",
+            content: "Cặp nhiệt độ được chọn làm mốc trong thang đo nhiệt độ Kelvin là <!--[cite: 83] -->",
+            options: [
+                "A. nhiệt độ nước đóng băng và nhiệt độ sôi của băng.",
+                "B. độ không tuyệt đối và nhiệt độ nước sôi của nước tinh khiết.",
+                "C. độ không tuyệt đối và nhiệt độ điểm ba của nước.",
+                "D. nhiệt độ nước đóng băng và nhiệt độ điểm ba của nước."
+            ],
+            correctAnswer: "C"
+        },
+        {
+            id: 913, type: "multiple_choice",
+            content: "Chọn phát biểu sai? Sự bay hơi của một khối chất lỏng <!--[cite: 83] -->",
+            options: [
+                "A. phụ thuộc vào nhiệt độ, nhiệt độ càng cao sự bay hơi xảy ra càng nhanh.",
+                "B. phụ thuộc vào độ ẩm của không khí trên mặt thoáng, độ ẩm càng lớn thì sự bay hơi xảy ra càng nhanh.",
+                "C. phụ thuộc vào diện tích mặt thoáng, diện tích mặt thoáng càng lớn thì sự bay hơi xảy ra càng nhanh.",
+                "D. xảy ra ở nhiệt độ bất kỳ."
+            ],
+            correctAnswer: "B"
+        },
+        {
+            id: 914, type: "multiple_choice",
+            content: "Khi làm muối, người ta dựa vào hiện tượng nào của nước? <!--[cite: 83] -->",
+            options: [
+                "A. Đông đặc.",
+                "B. Ngưng tụ.",
+                "C. Bay hơi.",
+                "D. Sự sôi."
+            ],
+            correctAnswer: "C"
+        },
+        {
+            id: 915, type: "multiple_choice",
+            content: "Phát biểu nào sau đây nói về nội năng là không đúng? <!--[cite: 83] -->",
+            options: [
+                "A. Nội năng là một dạng năng lượng.",
+                "B. Nội năng của một vật có thể tăng lên hoặc giảm đi.",
+                "C. Nội năng là nhiệt lượng.",
+                "D. Nội năng có thể chuyển hóa thành các dạng năng lượng khác."
+            ],
+            correctAnswer: "C"
+        },
+        {
+            id: 916, type: "multiple_choice",
+            content: "Để diệt trừ các bào tử nấm và kích thích quá trình nảy mầm của hạt giống lúa, người nông dân đã sử dụng một kinh nghiệm dân gian là ngâm chúng vào trong nước ấm theo công thức \"hai sôi, ba lạnh\". Tức là nước ấm ở nhiệt độ $t^\\circ\\text{C}$ sẽ được tạo ra bằng cách pha hai phần nước sôi ($100^\\circ\\text{C}$) với ba phần nước lạnh ($t_0^\\circ\\text{C}$). Chọn biểu thức đúng. <!--[cite: 83] -->",
+            options: [
+                "A. $t = \\frac{200 + 2t_0}{5}$.",
+                "B. $t = \\frac{200 + 3t_0}{5}$.",
+                "C. $t = \\frac{300 + 2t_0}{5}$.",
+                "D. $t = \\frac{100 + 3t_0}{5}$."
+            ],
+            correctAnswer: "B"
+        },
+        {
+            id: 917, type: "multiple_choice",
+            content: "Dùng một ca nước ở thùng chứa nước A có nhiệt độ $t_A = 20^\\circ\\text{C}$ và ở thùng chứa nước B ở nhiệt độ $t_B = 80^\\circ\\text{C}$ rồi đổ vào thùng nước C. Biết rằng trước khi đổ, trong thùng chứa nước C đã có sẵn một lượng nước ở nhiệt độ $t_C = 40^\\circ\\text{C}$ và bằng tổng số ca nước vừa mới đổ thêm vào nó. Bỏ qua sự trao đổi nhiệt với môi trường, với bình chứa và ca múc nước. Để có nhiệt độ nước ở thùng C là $50^\\circ\\text{C}$ thì số ca nước phải múc ở mỗi thùng A và B lần lượt là: <!--[cite: 83] -->",
+            options: [
+                "A. $n$ ca và $2n$ ca.",
+                "B. $3n$ ca và $2n$ ca.",
+                "C. $2n$ ca và $n$ ca.",
+                "D. $n$ ca và $3n$ ca."
+            ],
+            correctAnswer: "A"
+        },
+        {
+            id: 918, type: "multiple_choice",
+            content: "Nhiệt hóa hơi riêng có đơn vị đo là <!--[cite: 83] -->",
+            options: [
+                "A. J/kg.độ",
+                "B. J",
+                "C. J/kg.K",
+                "D. J/kg"
+            ],
+            correctAnswer: "D"
+        },
+
+        // --- PHẦN II: CÂU TRẮC NGHIỆM ĐÚNG/SAI (4 CÂU) ---
+        {
+            id: 919, type: "true_false",
+            content: "Tại điểm ba của nước: <!--[cite: 83] -->",
+            propositions: [
+                "a) nước tinh khiết tồn tại đồng thời ở cả ba thể: rắn, lỏng, khí. <!--[cite: 83] -->",
+                "b) nhiệt độ của hệ khảo sát được chọn làm mốc trên thang đo Kelvin và có giá trị là $273,16\\text{ K}$. <!--[cite: 83] -->",
+                "c) hệ khảo sát có áp suất $1\\text{ atm}$. <!--[cite: 83] -->",
+                "d) hệ khảo sát có nhiệt độ theo thang Celsius là $0,01^\\circ\\text{C}$. <!--[cite: 83] -->"
+            ],
+            correctAnswer: {0: 'true', 1: 'true', 2: 'false', 3: 'true'}
+        },
+        {
+            id: 920, type: "true_false",
+            content: "Có hai chai nước lạnh A và B hoàn toàn giống nhau. Cho chai nước A vào chậu nước đến khi cân bằng nhiệt thì thấy nhiệt độ nước trong chậu giảm xuống. Lấy chai nước A ra ngoài và cho chai nước B vào chậu nước đến khi cân bằng nhiệt thì thấy nhiệt độ nước trong chậu tiếp tục giảm xuống, lấy chai B ra khỏi chậu nước. Xem như chỉ có sự trao đổi nhiệt giữa chai nước A, B và nước trong chậu. <!--[cite: 83] -->",
+            propositions: [
+                "a) Độ giảm nhiệt độ của chậu nước trong lần nhúng chai nước A nhiều hơn lần nhúng chai nước B. <!--[cite: 83] -->",
+                "b) Sau khi lấy các chai nước ra khỏi chậu thì nhiệt độ của chai nước A cao hơn nhiệt độ của chai nước B. <!--[cite: 83] -->",
+                "c) Tổng độ tăng nhiệt độ của 2 chai nước bằng tổng độ giảm nhiệt độ của nước trong chậu ở 2 lần nhúng. <!--[cite: 83] -->",
+                "d) Nhiệt lượng của chậu nước truyền cho hai chai nước là như nhau. <!--[cite: 83] -->"
+            ],
+            correctAnswer: {0: 'true', 1: 'true', 2: 'false', 3: 'false'}
+        },
+        {
+            id: 921, type: "true_false",
+            content: "Giả sử một học sinh tạo ra một nhiệt kế sử dụng một thang nhiệt độ mới cho riêng mình, gọi là thang nhiệt độ Z, có đơn vị là $^\\circ\\text{Z}$. Trong đó, nhiệt độ của nước đá đang tan ở $1\\text{ atm}$ là $x^\\circ\\text{Z}$, nhiệt độ nước sôi ở $1\\text{ atm}$ là $y^\\circ\\text{Z}$. Từ vạch $x^\\circ\\text{Z}$ đến vạch $y^\\circ\\text{Z}$ được chia thành 180 khoảng, mỗi khoảng ứng với $1^\\circ\\text{Z}$. <!--[cite: 83] -->",
+            propositions: [
+                "a) Nếu nhiệt độ cơ thể người là $37^\\circ\\text{C}$ tương ứng với $86,6^\\circ\\text{Z}$ thì giá trị của $x$ là 20. <!--[cite: 83] -->",
+                "b) Độ biến thiên nhiệt độ $18^\\circ\\text{C}$ trong thang nhiệt độ Celsius bằng với độ biến thiên nhiệt độ $10^\\circ\\text{Z}$ trong thang nhiệt độ Z. <!--[cite: 83] -->",
+                "c) Mối liên hệ giữa $x$ và $y$ là: $y = x + 180$. <!--[cite: 83] -->",
+                "d) Một độ chia trên thang nhiệt độ Z bằng 1,8 lần độ chia trên thang nhiệt độ Celsius. <!--[cite: 83] -->"
+            ],
+            correctAnswer: {0: 'true', 1: 'false', 2: 'true', 3: 'false'}
+        },
+        {
+            id: 922, type: "true_false",
+            content: "Khi nung nóng một khối khí chứa trong một xilanh có pit-tông đóng kín làm cho nhiệt độ của khối khí tăng. Pit-tông này có thể dịch chuyển không ma sát trong xilanh.<br><img src='LINK_ANH_CUA_BAN' class='mt-4 mb-4 w-full max-w-xs mx-auto rounded-lg border border-gray-200 shadow-sm'><!--[cite: 83] -->",
+            propositions: [
+                "a) Nhiệt độ của khối khí trong xilanh thay đổi do quá trình truyền nhiệt. <!--[cite: 83] -->",
+                "b) Khi nhận nhiệt, động năng của các phân tử là không đổi. <!--[cite: 83] -->",
+                "c) Khi cho pit-tông chuyển động tự do để khối khí dãn nở với áp suất không đổi. Lúc này khối khí đã sinh công. <!--[cite: 83] -->",
+                "d) Khi giữ pit-tông để thể tích khí không đổi thì toàn bộ nhiệt lượng khối khí nhận được dùng để tăng nội năng của khí (khối khí không tỏa nhiệt). <!--[cite: 83] -->"
+            ],
+            correctAnswer: {0: 'true', 1: 'false', 2: 'true', 3: 'true'}
+        },
+
+        // --- PHẦN III: CÂU TRẮC NGHIỆM TRẢ LỜI NGẮN (6 CÂU) ---
+        {
+            id: 923, type: "fill_blank",
+            content: "Một vật có khối lượng $2\\text{ kg}$ trượt không vận tốc đầu từ đỉnh xuống chân một mặt nghiêng dài $40\\text{ m}$, nghiêng một góc $60^\\circ$ so với phương ngang. Tốc độ của vật ở chân mặt phẳng nghiêng là $4,5\\text{ m/s}$. Cho rằng, $75\\%$ công của lực ma sát giữa mặt phẳng nghiêng và vật chuyển thành nội năng của vật, bỏ qua phần nhiệt lượng mặt phẳng nghiêng truyền cho vật. Lấy $g = 9,8\\text{ m/s}^2$. Độ biến thiên nội năng của vật trong quá trình trên là bao nhiêu kilôjun (kJ)? (Kết quả lấy đến hai chữ số sau dấu phẩy thập phân, dùng dấu chấm). <!--[cite: 83] -->",
+            correctAnswer: "0.49"
+        },
+        {
+            id: 924, type: "fill_blank",
+            content: "Trong một hệ đun nước bằng năng lượng Mặt Trời, bức xạ Mặt Trời đi vào trong phần góp qua các lớp phủ trong suốt làm nóng nước trong ống. Giả thiết rằng hiệu suất của toàn bộ hệ là $20\\%$ (nghĩa là $80\\%$ năng lượng Mặt Trời bị mất khỏi hệ). Hỏi diện tích của phần góp là bao nhiêu mét vuông khi cần nâng nhiệt độ của $200\\text{ lít}$ nước trong bình chứa từ $20^\\circ\\text{C}$ đến $40^\\circ\\text{C}$ trong 1 giờ? (Kết quả lấy đến một chữ số thập phân, dùng dấu chấm). Biết khối lượng riêng của nước là $1000\\text{ kg/m}^3$; nhiệt dung riêng của nước là $4200\\text{ J/kg.K}$; cường độ ánh sáng Mặt Trời tới là $700\\text{ W/m}^2$.<br><img src='LINK_ANH_CUA_BAN' class='mt-4 mb-4 w-full max-w-md mx-auto rounded-lg border border-gray-200 shadow-sm'><!--[cite: 83] -->",
+            correctAnswer: "33.3"
+        },
+        {
+            id: 925, type: "fill_blank",
+            content: "Trong một bình nhiệt lượng kế có chứa $200\\text{ ml}$ nước ở nhiệt độ ban đầu $t_0 = 10^\\circ\\text{C}$. Người ta đổ một cốc $50\\text{ ml}$ nước ở nhiệt độ $60^\\circ\\text{C}$ vào bình rồi sau khi cân bằng nhiệt lại múc ra khỏi bình $50\\text{ ml}$ nước. Bỏ qua sự trao đổi nhiệt với các bình và môi trường. Hỏi sau tối thiểu bao nhiêu lượt thì nhiệt độ của nước trong bình sẽ lớn hơn $40^\\circ\\text{C}$? (Một lượt đổ gồm một lần múc nước vào và một lần múc nước ra). <!--[cite: 83] -->",
+            correctAnswer: "5"
+        },
+        {
+            id: 926, type: "fill_blank",
+            content: "Biết nhiệt dung riêng của nước đá là $2100\\text{ J/kg.K}$, nhiệt dung riêng của nước là $4200\\text{ J/kg.K}$. Để tìm nhiệt nóng chảy riêng của nước đá, người ta dùng một bếp điện để đun một hệ gồm một bình bằng đồng đựng một lượng nước đá với nhiệt độ ban đầu của hệ là $-5^\\circ\\text{C}$. Dùng nhiệt kế đo nhiệt độ của hệ, thu được bảng sau:<br><img src='LINK_ANH_CUA_BAN' class='mt-4 mb-4 w-full max-w-xl mx-auto rounded-lg border border-gray-200 shadow-sm'><br>Biết rằng từ thời điểm 0 đến $60\\text{ s}$ và $1340\\text{ s}$ đến $1540\\text{ s}$, số chỉ của nhiệt kế tăng liên tục. Coi như nhiệt lượng mà hệ nhận được tỉ lệ với thời gian đun. Nhiệt nóng chảy riêng của nước đá đo được trong thí nghiệm này là $a \\cdot 10^5\\text{ J/kg}$. Giá trị của $a$ bằng bao nhiêu? (Dùng dấu chấm thập phân) <!--[cite: 83] -->",
+            correctAnswer: "3.36"
+        },
+        {
+            id: 927, type: "fill_blank",
+            content: "Sự biến thiên nhiệt độ của khối nước đá đựng trong ca nhôm theo nhiệt lượng cung cấp được cho trên đồ thị. Cho nhiệt dung riêng của nước và nhôm lần lượt là $c_1 = 4200\\text{ J/kg.K}$; $c_2 = 880\\text{ J/kg.K}$, nhiệt nóng chảy riêng của nước đá là $\\lambda = 3,4 \\cdot 10^5\\text{ J/kg}$. Khối lượng của ca nhôm bằng bao nhiêu gam? (Kết quả làm tròn đến hàng đơn vị).<br><img src='LINK_ANH_CUA_BAN' class='mt-4 mb-4 w-full max-w-sm mx-auto rounded-lg border border-gray-200 shadow-sm'><!--[cite: 83] -->",
+            correctAnswer: "455"
+        },
+        {
+            id: 928, type: "fill_blank",
+            content: "Hiện nay, người ta có thể dùng các vỉ đá được làm nóng sẵn trong lò để nướng thức ăn. Giả sử, một vỉ đá có khối lượng $1,2\\text{ kg}$; nhiệt độ ban đầu là $28^\\circ\\text{C}$ được làm nóng trong lò có công suất $20\\text{ kW}$. Coi như toàn bộ năng lượng của lò cung cấp sẽ dùng để làm nóng vỉ đá. Biết rằng, để làm cho $1\\text{ kg}$ đá làm vỉ này tăng thêm $1^\\circ\\text{C}$ thì cần nhiệt lượng $5500\\text{ J}$. Để vỉ đá đạt được nhiệt độ $1000^\\circ\\text{C}$ thì cần thời gian bao nhiêu phút? (Kết quả lấy đến hai chữ số sau dấu phẩy thập phân, dùng dấu chấm). <!--[cite: 83] -->",
+            correctAnswer: "5.35"
+        }
+    ],
 };
