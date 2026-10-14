@@ -68,7 +68,7 @@ const allExamsData = {
         },
         {
             id: 808, type: "multiple_choice",
-            content: "DHA là loại omega-3 phổ biến, có nhiều công dụng đặc biệt là đối với sự phát triển của trẻ em. DHA có công thức khung phân tử như sau:<br><img src='LINK_ANH_CUA_BAN' class='mt-4 mb-4 w-full max-w-lg mx-auto rounded-lg border border-gray-200 shadow-sm'><br>Trong công thức cấu tạo của DHA có bao nhiêu nguyên tử carbon? <!--[cite: 80] -->",
+            content: "DHA là loại omega-3 phổ biến, có nhiều công dụng đặc biệt là đối với sự phát triển của trẻ em. DHA có công thức khung phân tử như sau:<br><img src='https://i.postimg.cc/qM95gvnm/A-nh-chu-p-ma-n-hi-nh-2026-10-14-125914.png' class='mt-4 mb-4 w-full max-w-lg mx-auto rounded-lg border border-gray-200 shadow-sm'><br>Trong công thức cấu tạo của DHA có bao nhiêu nguyên tử carbon? <!--[cite: 80] -->",
             options: ["A. 22.", "B. 23.", "C. 24.", "D. 25."],
             correctAnswer: "A"
         },
