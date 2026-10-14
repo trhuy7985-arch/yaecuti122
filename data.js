@@ -18,7 +18,7 @@ const examsMeta = [
 
 // --- DỮ LIỆU CÂU HỎI CHI TIẾT TỪNG ĐỀ ---
 const allExamsData = {
-    "thpt_hoa_01": [
+    "thpt_hoa_02": [
                 // --- PHẦN I: TRẮC NGHIỆM NHIỀU PHƯƠNG ÁN LỰA CHỌN (18 CÂU) ---
                 {
                     id: 801, type: "multiple_choice",
