@@ -36,10 +36,10 @@ const allExamsData = {
                     id: 803, type: "multiple_choice",
                     content: "Công thức cấu tạo dạng mạch vòng $\\beta$-fructose là: <!--[cite: 80] -->",
                     options: [
-                        "A. <img src='LINK_ANH_CUA_BAN_A' class='h-20 inline-block'>", 
-                        "B. <img src='LINK_ANH_CUA_BAN_B' class='h-20 inline-block'>", 
-                        "C. <img src='LINK_ANH_CUA_BAN_C' class='h-20 inline-block'>", 
-                        "D. <img src='LINK_ANH_CUA_BAN_D' class='h-20 inline-block'>"
+                        "A. <img src='https://i.postimg.cc/fbzDPyVh/3a.png' class='h-20 inline-block'>", 
+                        "B. <img src='https://i.postimg.cc/BvTNjZpD/3b.png' class='h-20 inline-block'>", 
+                        "C. <img src='https://i.postimg.cc/C1JN4vWn/3c.png' class='h-20 inline-block'>", 
+                        "D. <img src='https://i.postimg.cc/wxf2yGXG/3d.png' class='h-20 inline-block'>"
                     ],
                     correctAnswer: "D"
                 },
@@ -144,7 +144,7 @@ const allExamsData = {
                 },
                 {
                     id: 818, type: "multiple_choice",
-                    content: "Cho phổ IR của ba chất hữu cơ ngẫu nhiên trong các chất sau: $HOCH_2CH_2OH$ (1); $CH_3CH_2CHO$ (2); $CH_3COOCH_3$ (3).<br><img src='LINK_ANH_CUA_BAN_IR' class='mt-4 mb-4 w-full max-w-xl mx-auto rounded-lg border border-gray-200 shadow-sm'><br>Ghép cặp nào sau đây là đúng? <!--[cite: 80] -->",
+                    content: "Cho phổ IR của ba chất hữu cơ ngẫu nhiên trong các chất sau: $HOCH_2CH_2OH$ (1); $CH_3CH_2CHO$ (2); $CH_3COOCH_3$ (3).<br><img src='https://i.postimg.cc/WpHmbJjv/18.png' class='mt-4 mb-4 w-full max-w-xl mx-auto rounded-lg border border-gray-200 shadow-sm'><br>Ghép cặp nào sau đây là đúng? <!--[cite: 80] -->",
                     options: ["A. 1-a, 2-b, 3-c.", "B. 1-b, 2-c, 3-a.", "C. 1-b, 2-a, 3-c.", "D. 1-c, 2-a, 3-b."],
                     correctAnswer: "A"
                 },
@@ -203,12 +203,12 @@ const allExamsData = {
                 },
                 {
                     id: 824, type: "fill_blank",
-                    content: "Lactose chủ yếu được tìm thấy trong sữa và các sản phẩm từ sữa. Trong phân tử lactose, có một nhóm -OH hemiacetal. Dựa trên hình vẽ dưới đây, hãy cho biết nhóm -OH hemiacetal của lactose là nhóm nằm ở vị trí số mấy?<br><img src='LINK_ANH_CUA_BAN' class='mt-4 mb-4 w-full max-w-md mx-auto rounded-lg border border-gray-200 shadow-sm'> <!--[cite: 80] -->",
+                    content: "Lactose chủ yếu được tìm thấy trong sữa và các sản phẩm từ sữa. Trong phân tử lactose, có một nhóm -OH hemiacetal. Dựa trên hình vẽ dưới đây, hãy cho biết nhóm -OH hemiacetal của lactose là nhóm nằm ở vị trí số mấy?<br><img src='https://i.postimg.cc/CK7kyRJm/2-tln.png' class='mt-4 mb-4 w-full max-w-md mx-auto rounded-lg border border-gray-200 shadow-sm'> <!--[cite: 80] -->",
                     correctAnswer: "7"
                 },
                 {
                     id: 825, type: "fill_blank",
-                    content: "Geranyl acetate được tìm thấy trong hoa hồng và geranium. Khi phân tích thành phần khối lượng nguyên tố thì cho kết quả như sau: %C = 73,47%, %O = 16,33%, còn lại là hydrogen. Phổ khối lượng (MS) xác định phân tử khối của hợp chất này là 196.<br><img src='LINK_ANH_CUA_BAN' class='mt-4 mb-4 w-full max-w-lg mx-auto rounded-lg border border-gray-200 shadow-sm'><br>Trong phân tử geranyl acetate có bao nhiêu nguyên tử hydrogen? <!--[cite: 80] -->",
+                    content: "Geranyl acetate được tìm thấy trong hoa hồng và geranium. Khi phân tích thành phần khối lượng nguyên tố thì cho kết quả như sau: %C = 73,47%, %O = 16,33%, còn lại là hydrogen. Phổ khối lượng (MS) xác định phân tử khối của hợp chất này là 196.<br><img src='https://i.postimg.cc/DyGGvjB7/3-tln.png' class='mt-4 mb-4 w-full max-w-lg mx-auto rounded-lg border border-gray-200 shadow-sm'><br>Trong phân tử geranyl acetate có bao nhiêu nguyên tử hydrogen? <!--[cite: 80] -->",
                     correctAnswer: "20"
                 },
                 {
