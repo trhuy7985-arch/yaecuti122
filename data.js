@@ -12,10 +12,229 @@ const examsMeta = [
     { id: "thpt_ly_01", type: "THPT", subject: "physics", title: "Đề thi thử Vật Lý chuyên KHTN", questionsCount: 40, time: 50, img: "https://i.postimg.cc/FFbmqQ9X/A-nh-chu-p-ma-n-hi-nh-2026-10-14-004011.png", isVip: false },
     { id: "thpt_hoa_01", type: "THPT", subject: "chemistry", title: "Đề thi thử Hóa Học THPT chuyên ĐH Vinh", questionsCount: 40, time: 50, img: "https://i.postimg.cc/FFbmqQ9X/A-nh-chu-p-ma-n-hi-nh-2026-10-14-004011.png", isVip: true },
     { id: "thpt_sinh_03", type: "THPT", subject: "biology", title: "Đề kiểm tra giữa kì 1 Sinh Học 12 - THPT Ngô Gia Tự", questionsCount: 24, time: 45, img: "https://i.postimg.cc/FFbmqQ9X/A-nh-chu-p-ma-n-hi-nh-2026-10-14-004011.png", isVip: false }
+{
+                id: "thpt_hoa_01",
+                type: "THPT",
+                subject: "chemistry",
+                title: "Đề kiểm tra Giữa HK1 Hóa Học 12 (Đề 2)",
+                questionsCount: 28,
+                time: 45,
+                img: "fa-flask",
+                isVip: false
+            },
 ];
 
 // --- DỮ LIỆU CÂU HỎI CHI TIẾT TỪNG ĐỀ ---
 const allExamsData = {
+    "thpt_hoa_01": [
+                // --- PHẦN I: TRẮC NGHIỆM NHIỀU PHƯƠNG ÁN LỰA CHỌN (18 CÂU) ---
+                {
+                    id: 801, type: "multiple_choice",
+                    content: "Chất thuộc loại carbohydrate là: <!--[cite: 80] -->",
+                    options: ["A. polyethylene.", "B. glycerol.", "C. alanine.", "D. cellulose."],
+                    correctAnswer: "D"
+                },
+                {
+                    id: 802, type: "multiple_choice",
+                    content: "Ester tạo bởi acid acetic và glycerol có công thức cấu tạo là: <!--[cite: 80] -->",
+                    options: ["A. $(C_3H_5COO)_3C_3H_5$.", "B. $C_3H_5OOCCH_3$.", "C. $(CH_3COO)_3C_3H_5$.", "D. $(CH_3COO)_2C_2H_4$."],
+                    correctAnswer: "C"
+                },
+                {
+                    id: 803, type: "multiple_choice",
+                    content: "Công thức cấu tạo dạng mạch vòng $\\beta$-fructose là: <!--[cite: 80] -->",
+                    options: [
+                        "A. <img src='LINK_ANH_CUA_BAN_A' class='h-20 inline-block'>", 
+                        "B. <img src='LINK_ANH_CUA_BAN_B' class='h-20 inline-block'>", 
+                        "C. <img src='LINK_ANH_CUA_BAN_C' class='h-20 inline-block'>", 
+                        "D. <img src='LINK_ANH_CUA_BAN_D' class='h-20 inline-block'>"
+                    ],
+                    correctAnswer: "D"
+                },
+                {
+                    id: 804, type: "multiple_choice",
+                    content: "Hình ảnh Jack Sparrow với bình rượu và câu nói cửa miệng: “Rum is gone!” trong bộ phim “Cướp biển vùng Caribbean” khiến nhiều người nhớ đến Rum, loại rượu gắn với những tên cướp biển, được lên men từ nước cây mía. Trong nước mía có carbohydrate là: <!--[cite: 80] -->",
+                    options: ["A. Saccharose.", "B. Glucose.", "C. Fructose.", "D. Lactose."],
+                    correctAnswer: "A"
+                },
+                {
+                    id: 805, type: "multiple_choice",
+                    content: "Chất phản ứng được với các dung dịch: $NaOH, HCl$ là <!--[cite: 80] -->",
+                    options: ["A. $C_2H_6$.", "B. $H_2N-CH_2-COOH$.", "C. $CH_3COOH$.", "D. $C_2H_5OH$."],
+                    correctAnswer: "B"
+                },
+                {
+                    id: 806, type: "multiple_choice",
+                    content: "Số đồng phân ester ứng với công thức phân tử $C_4H_8O_2$ là <!--[cite: 80] -->",
+                    options: ["A. 6.", "B. 5.", "C. 2.", "D. 4."],
+                    correctAnswer: "D"
+                },
+                {
+                    id: 807, type: "multiple_choice",
+                    content: "Nicotine làm tăng huyết áp và nhịp tim, có khả năng gây xơ vữa động mạch vành và suy giảm trí nhớ. Trong cây thuốc lá và khói thuốc lá chứa một amine rất độc, đó là nicotine với công thức cấu tạo như sau:<br><img src='LINK_ANH_CUA_BAN' class='mt-4 mb-4 max-w-xs mx-auto rounded-lg border border-gray-200 shadow-sm'><br>Công thức phân tử nicotine là <!--[cite: 80] -->",
+                    options: ["A. $C_{10}H_{14}N_2$.", "B. $C_{10}H_{12}N_2$.", "C. $C_{11}H_{12}N_2$.", "D. $C_{11}H_{16}N_2$."],
+                    correctAnswer: "A"
+                },
+                {
+                    id: 808, type: "multiple_choice",
+                    content: "DHA là loại omega-3 phổ biến, có nhiều công dụng đặc biệt là đối với sự phát triển của trẻ em. DHA có công thức khung phân tử như sau:<br><img src='LINK_ANH_CUA_BAN' class='mt-4 mb-4 w-full max-w-lg mx-auto rounded-lg border border-gray-200 shadow-sm'><br>Trong công thức cấu tạo của DHA có bao nhiêu nguyên tử carbon? <!--[cite: 80] -->",
+                    options: ["A. 22.", "B. 23.", "C. 24.", "D. 25."],
+                    correctAnswer: "A"
+                },
+                {
+                    id: 809, type: "multiple_choice",
+                    content: "Trong phân tử cellulose các mắt xích liên kết với nhau bằng liên kết nào? <!--[cite: 80] -->",
+                    options: ["A. $\\alpha$-1,4-glucoside.", "B. $\\alpha$-1,4-glycoside.", "C. $\\beta$-1,4-glucoside.", "D. $\\beta$-1,4-glycoside."],
+                    correctAnswer: "D"
+                },
+                {
+                    id: 810, type: "multiple_choice",
+                    content: "Xà phòng được điều chế bằng cách nào trong các cách sau: <!--[cite: 80] -->",
+                    options: ["A. Thủy phân saccharose.", "B. Thủy phân mỡ trong kiềm.", "C. Phản ứng của acid với kim loại.", "D. Dehydrogen hóa mỡ tự nhiên."],
+                    correctAnswer: "B"
+                },
+                {
+                    id: 811, type: "multiple_choice",
+                    content: "Cho các phát biểu sau:<br>(1) Glucose và fructose không tham gia phản ứng thủy phân.<br>(2) Có thể phân biệt glucose và fructose bằng nước bromine.<br>(3) Carbohydrate là những hợp chất hữu cơ tạp chức, thường có công thức chung là $C_n(H_2O)_m$.<br>(4) Chất béo không phải là carbohydrate.<br>Số phát biểu đúng là <!--[cite: 80] -->",
+                    options: ["A. 1.", "B. 2.", "C. 3.", "D. 4."],
+                    correctAnswer: "D"
+                },
+                {
+                    id: 812, type: "multiple_choice",
+                    content: "Công thức hóa học nào sau đây là của nước Schweizer, dùng để hòa tan cellulose trong quá trình sản xuất tơ nhân tạo? <!--[cite: 80] -->",
+                    options: ["A. $[Cu(NH_3)_4](OH)_2$.", "B. $[Zn(NH_3)_4](OH)_2$.", "C. $[Cu(NH_3)_4]OH$.", "D. $[Ag(NH_3)_4]OH$."],
+                    correctAnswer: "A"
+                },
+                {
+                    id: 813, type: "multiple_choice",
+                    content: "Ester nào sau đây khi phản ứng với dung dịch NaOH dư, đun nóng không tạo ra hai muối? <!--[cite: 80] -->",
+                    options: [
+                        "A. $C_6H_5COOC_6H_5$.", 
+                        "B. $CH_3COOC_6H_5$.", 
+                        "C. $CH_3COO-[CH_2]_2-OOCCH_2CH_3$.", 
+                        "D. $CH_3OOC-COOCH_3$."
+                    ],
+                    correctAnswer: "D"
+                },
+                {
+                    id: 814, type: "multiple_choice",
+                    content: "Mùi của ester nào sau đây là đúng? <!--[cite: 80] -->",
+                    options: [
+                        "A. Methyl salicylate có mùi dầu gió.", 
+                        "B. Benzyl acetate có mùi thơm dâu tây.", 
+                        "C. Isoamyl acetate có mùi táo.", 
+                        "D. Methyl butanoate có mùi chuối chín."
+                    ],
+                    correctAnswer: "A"
+                },
+                {
+                    id: 815, type: "multiple_choice",
+                    content: "Phát biểu nào dưới đây không đúng khi nói về protein? <!--[cite: 80] -->",
+                    options: [
+                        "A. Protein là những hợp chất cao phân tử.", 
+                        "B. Protein phức tạp là những protein tạo thành từ protein đơn giản và lipid.", 
+                        "C. Protein đơn giản là những protein tạo thành từ các gốc $\\beta$-amino acid.", 
+                        "D. Protein có vai trò là nền tảng về cấu trúc và chức năng của mọi sự sống."
+                    ],
+                    correctAnswer: "C"
+                },
+                {
+                    id: 816, type: "multiple_choice",
+                    content: "Ở nhiệt độ thường, nhỏ vài giọt dung dịch iodine vào lát cắt củ khoai lang thấy <!--[cite: 80] -->",
+                    options: ["A. màu xanh rêu.", "B. màu xanh tím.", "C. màu nâu đỏ.", "D. màu hồng."],
+                    correctAnswer: "B"
+                },
+                {
+                    id: 817, type: "multiple_choice",
+                    content: "Công thức chung của amine no, đơn chức, mạch hở là <!--[cite: 80] -->",
+                    options: ["A. $C_nH_{2n+3}N$.", "B. $C_nH_{2n+1}N$.", "C. $C_nH_{2n-1}NH_2$.", "D. $C_nH_{2n+2}NH_2$."],
+                    correctAnswer: "A"
+                },
+                {
+                    id: 818, type: "multiple_choice",
+                    content: "Cho phổ IR của ba chất hữu cơ ngẫu nhiên trong các chất sau: $HOCH_2CH_2OH$ (1); $CH_3CH_2CHO$ (2); $CH_3COOCH_3$ (3).<br><img src='LINK_ANH_CUA_BAN_IR' class='mt-4 mb-4 w-full max-w-xl mx-auto rounded-lg border border-gray-200 shadow-sm'><br>Ghép cặp nào sau đây là đúng? <!--[cite: 80] -->",
+                    options: ["A. 1-a, 2-b, 3-c.", "B. 1-b, 2-c, 3-a.", "C. 1-b, 2-a, 3-c.", "D. 1-c, 2-a, 3-b."],
+                    correctAnswer: "A"
+                },
+
+                // --- PHẦN II: CÂU TRẮC NGHIỆM ĐÚNG/SAI (4 CÂU) ---
+                {
+                    id: 819, type: "true_false",
+                    content: "Protein là hợp chất cao phân tử được hình thành từ một hay nhiều chuỗi polypeptide. Protein có thể được phân loại thành protein đơn giản và protein phức tạp. Các phát biểu sau đúng hay sai? <!--[cite: 80] -->",
+                    propositions: [
+                        "Insulin, albumin (có nhiều trong lòng trắng trứng) thuộc loại protein đơn giản. <!--[cite: 80] -->",
+                        "Fibroin (có trong tơ tằm) thuộc loại protein phức tạp. <!--[cite: 80] -->",
+                        "Các nguyên tố tạo nên protein đơn giản là C, H, O và N. <!--[cite: 80] -->",
+                        "Nucleic acid, lipid thuộc loại protein phức tạp. <!--[cite: 80] -->"
+                    ],
+                    correctAnswer: {0: 'true', 1: 'false', 2: 'true', 3: 'true'}
+                },
+                {
+                    id: 820, type: "true_false",
+                    content: "Ethyl propionate là một ester có mùi thơm của dứa chín. Các phát biểu sau đúng hay sai? <!--[cite: 80] -->",
+                    propositions: [
+                        "Công thức phân tử của ethyl propionate là $CH_3COOC_2H_5$. <!--[cite: 80] -->",
+                        "Ở điều kiện thường, ethyl propionate là chất khí. <!--[cite: 80] -->",
+                        "Phản ứng thủy phân ethyl propionate trong môi trường acid là phản ứng thuận nghịch. <!--[cite: 80] -->",
+                        "Ethyl propionate được điều chế từ propanoic acid và ethyl alcohol. <!--[cite: 80] -->"
+                    ],
+                    correctAnswer: {0: 'false', 1: 'false', 2: 'true', 3: 'true'}
+                },
+                {
+                    id: 821, type: "true_false",
+                    content: "Glucose và fructose là hai hợp chất có sự quan trọng đáng kể trong lĩnh vực y tế và công nghiệp thực phẩm. <!--[cite: 80] -->",
+                    propositions: [
+                        "Trong y học, glucose được dùng làm thuốc tăng lực. <!--[cite: 80] -->",
+                        "Trong công nghiệp thực phẩm, fructose dùng để sản xuất siro, kẹo mứt, nước trái cây. <!--[cite: 80] -->",
+                        "Glucose được sử dụng trong sản xuất bánh kẹo, ethyl alcohol. <!--[cite: 80] -->",
+                        "Glucose là nguyên liệu để tráng gương, tráng ruột phích. <!--[cite: 80] -->"
+                    ],
+                    correctAnswer: {0: 'true', 1: 'false', 2: 'true', 3: 'false'}
+                },
+                {
+                    id: 822, type: "true_false",
+                    content: "Trong tự nhiên, carbohydrate có vai trò không thể thay thế trong việc cấu thành các cấu trúc sinh vật. Khi nói về cấu trúc và tính chất của một số carbohydrate: <!--[cite: 80] -->",
+                    propositions: [
+                        "Phân biệt glucose và saccharose bằng phản ứng tráng gương. <!--[cite: 80] -->",
+                        "Phân biệt saccharose và glycerol bằng $Cu(OH)_2$. <!--[cite: 80] -->",
+                        "Phân biệt tinh bột và cellulose bằng $I_2$. <!--[cite: 80] -->",
+                        "Phân biệt glucose và fructose bằng dung dịch $Br_2$. <!--[cite: 80] -->"
+                    ],
+                    correctAnswer: {0: 'true', 1: 'false', 2: 'true', 3: 'true'}
+                },
+
+                // --- PHẦN III: CÂU TRẢ LỜI NGẮN (6 CÂU) ---
+                {
+                    id: 823, type: "fill_blank",
+                    content: "Cho dãy các dung dịch: glucose, saccharose, ethanol, glycerol, aldehyde acetic, ethylen glycol, ethyl formate. Số dung dịch trong dãy phản ứng được với $Cu(OH)_2$ ở nhiệt độ thường tạo thành dung dịch có màu xanh lam là bao nhiêu? <!--[cite: 80] -->",
+                    correctAnswer: "4"
+                },
+                {
+                    id: 824, type: "fill_blank",
+                    content: "Lactose chủ yếu được tìm thấy trong sữa và các sản phẩm từ sữa. Trong phân tử lactose, có một nhóm -OH hemiacetal. Dựa trên hình vẽ dưới đây, hãy cho biết nhóm -OH hemiacetal của lactose là nhóm nằm ở vị trí số mấy?<br><img src='LINK_ANH_CUA_BAN' class='mt-4 mb-4 w-full max-w-md mx-auto rounded-lg border border-gray-200 shadow-sm'> <!--[cite: 80] -->",
+                    correctAnswer: "7"
+                },
+                {
+                    id: 825, type: "fill_blank",
+                    content: "Geranyl acetate được tìm thấy trong hoa hồng và geranium. Khi phân tích thành phần khối lượng nguyên tố thì cho kết quả như sau: %C = 73,47%, %O = 16,33%, còn lại là hydrogen. Phổ khối lượng (MS) xác định phân tử khối của hợp chất này là 196.<br><img src='LINK_ANH_CUA_BAN' class='mt-4 mb-4 w-full max-w-lg mx-auto rounded-lg border border-gray-200 shadow-sm'><br>Trong phân tử geranyl acetate có bao nhiêu nguyên tử hydrogen? <!--[cite: 80] -->",
+                    correctAnswer: "20"
+                },
+                {
+                    id: 826, type: "fill_blank",
+                    content: "Tiến hành thí nghiệm thử tính chất của cellulose theo các bước sau:<br>- Bước 1: Cho lần lượt 4 mL $HNO_3$, 8 mL $H_2SO_4$ đặc vào cốc thủy tinh, lắc đều và làm lạnh.<br>- Bước 2: Thêm tiếp vào cốc một nhúm bông. Đặt cốc chứa hỗn hợp phản ứng vào nồi nước nóng (khoảng 60-70°C) khuấy nhẹ trong 5 phút.<br>- Bước 3: Lọc lấy chất rắn rửa sạch bằng nước, ép khô bằng giấy lọc sau đó sấy khô.<br>Cho các nhận định sau:<br>(1) Sau bước 3, sản phẩm thu được có màu vàng.<br>(2) Có thể thay thế nhúm bông bằng tinh bột.<br>(3) Sau bước 3, sản phẩm thu được là cellulose nitrate có tính dễ cháy.<br>(4) Thí nghiệm trên chứng minh trong phân tử cellulose có 3 nhóm OH tự do.<br>(5) Sau bước 3, lấy sản phẩm thu được đốt cháy thấy có khói trắng xuất hiện.<br>(6) Phản ứng xảy ra giữa cellulose và hỗn hợp acid tạo ra sản phẩm dễ tan trong acetone.<br>(7) Nước lạnh được sử dụng để rửa sản phẩm nhằm loại bỏ acid còn sót lại.<br>(8) Sau bước 3, sản phẩm thu được có thể được sử dụng làm màng phim.<br>Có bao nhiêu nhận định ĐÚNG? <!--[cite: 80] -->",
+                    correctAnswer: "5"
+                },
+                {
+                    id: 827, type: "fill_blank",
+                    content: "Cho dung dịch methylamine đến dư vào 5 ống nghiệm chứa lần lượt các dung dịch sau: $HCl, FeCl_3, CuSO_4, MgCl_2, CH_3COOH$. Sau phản ứng có bao nhiêu ống nghiệm thu được kết tủa? <!--[cite: 80] -->",
+                    correctAnswer: "2"
+                },
+                {
+                    id: 828, type: "fill_blank",
+                    content: "Thủy phân hoàn toàn 8,8 gam ester đơn chức, mạch hở X với 100 mL dung dịch NaOH 1M (vừa đủ) thu được 8,2 gam muối hữu cơ Y và một alcohol Z. Số nguyên tử hydrogen có trong X là bao nhiêu? <!--[cite: 80] -->",
+                    correctAnswer: "8"
+                }
+            ],
     "tsa_01": [
         { id: 1, type: "true_false", content: "Cho hàm số $y = f(x) = \\sqrt{1 + \\cos(x)}$. Khi ta xét $x \\in (0, \\pi)$, các nhận định dưới đây là đúng hay sai?", propositions: ["Phương trình $\\sqrt{1 + \\cos(x)} = \\cos\\left(\\frac{x}{2}\\right)$ có nghiệm", "Phương trình $\\sqrt{1 + \\cos(x)} = \\cos\\left(\\frac{x}{4}\\right)$ có nghiệm", "Phương trình $\\sqrt{1 + \\cos(x)} = \\cos\\left(\\frac{\\pi}{8}\\right)$ có đúng 01 nghiệm"], correctAnswer: {0: 'true', 1: 'false', 2: 'true'} },
         { id: 2, type: "fill_blank", content: "Bất phương trình $(\\log_2 x)^2 + \\log_3 \\frac{36}{x} \\leq \\left(1 + \\log_3 \\frac{36}{x}\\right) \\log_2 x$ có tập nghiệm là $x \\in [a, b]$. Giá trị của $a + b/2 =$", correctAnswer: "10" },
