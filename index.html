@@ -531,6 +531,9 @@
                     <a href="javascript:void(0)" onclick="switchView('exam-list')" id="nav-exam-list" class="nav-item flex items-center gap-3 px-4 py-3 text-gray-600 rounded-xl hover:bg-gray-50 hover:text-navy font-semibold transition-colors text-sm">
                         <i class="fa-solid fa-file-pen w-5 text-center text-gray-400"></i> Thư viện Đề thi TSA
                     </a>
+                    <a href="javascript:void(0)" onclick="switchView('exam-hsa-list')" id="nav-exam-hsa-list" class="nav-item flex items-center gap-3 px-4 py-3 text-gray-600 rounded-xl hover:bg-gray-50 hover:text-navy font-semibold transition-colors text-sm">
+    <i class="fa-solid fa-compass-drafting w-5 text-center text-emerald-500"></i> Thư viện Đề thi HSA
+</a>
                     <a href="javascript:void(0)" onclick="switchView('exam-school-list')" id="nav-exam-school-list" class="nav-item flex items-center gap-3 px-4 py-3 text-gray-600 rounded-xl hover:bg-gray-50 hover:text-navy font-semibold transition-colors text-sm">
                         <i class="fa-solid fa-graduation-cap w-5 text-center text-gray-400"></i> Đề thi Trường/Sở
                     </a>
@@ -596,8 +599,8 @@
                         <h3 class="text-2xl font-extrabold text-navy">Bắt đầu học</h3>
                     </div>
                     
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        <!-- Card Chuyển tới Phòng Solo -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+                        <!-- 1. Card Chuyển tới Phòng Solo TSA -->
                         <div onclick="switchView('exam-list')" class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md active:scale-95 transition-all duration-200 cursor-pointer flex flex-col h-full">
                             <div class="h-40 bg-purple-50 flex items-center justify-center">
                                 <span class="text-4xl font-extrabold text-purple-900 opacity-80">TSA & BMC</span>
@@ -610,7 +613,24 @@
                             </div>
                         </div>
 
-                        <!-- Card Chuyển tới Đề thi Trường/Sở -->
+                        <!-- 2. Card Chuyển tới Thư viện Đề HSA (MỚI THÊM VÀO NGAY SAU TSA) -->
+                        <div onclick="switchView('exam-hsa-list')" class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md active:scale-95 transition-all duration-200 cursor-pointer flex flex-col h-full">
+                            <div class="h-40 bg-emerald-50 flex items-center justify-center relative overflow-hidden">
+                                <span class="text-4xl font-extrabold text-emerald-900 opacity-80 z-10">HSA - VNU</span>
+                            </div>
+                            <div class="p-6 flex flex-col flex-1">
+                                <span class="inline-block px-3 py-1 bg-emerald-100 text-emerald-800 text-[10px] font-bold rounded mb-3 w-max uppercase tracking-wider">
+                                    <i class="fa-solid fa-compass-drafting mr-1"></i> ĐGNL ĐHQGHN
+                                </span>
+                                <h4 class="font-bold text-navy text-lg leading-tight mb-2">Luyện đề Đánh giá năng lực</h4>
+                                <p class="text-xs text-gray-500 mb-6 flex-1">Định lượng, Định tính & Khoa học chuẩn cấu trúc HSA</p>
+                                <button class="w-full py-2.5 bg-emerald-50 hover:bg-emerald-100 text-emerald-700 font-bold rounded-lg transition-colors text-sm pointer-events-none">
+                                    Xem danh sách đề
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- 3. Card Chuyển tới Đề thi Trường/Sở -->
                         <div onclick="switchView('exam-school-list')" class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md active:scale-95 transition-all duration-200 cursor-pointer flex flex-col h-full">
                             <div class="h-40 bg-blue-50 flex items-center justify-center relative overflow-hidden">
                                 <span class="text-4xl font-extrabold text-blue-900 opacity-80 z-10">THPT & SỞ GD</span>
@@ -627,7 +647,7 @@
                             </div>
                         </div>
 
-                        <!-- Card Chuyển tới Phòng Thực chiến Socket -->
+                        <!-- 4. Card Chuyển tới Phòng Thực chiến Socket -->
                         <div onclick="switchView('realtime-exam')" class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md active:scale-95 transition-all duration-200 cursor-pointer flex flex-col h-full">
                             <div class="h-40 bg-orange-50 flex items-center justify-center relative overflow-hidden">
                                 <span class="text-4xl font-extrabold text-orange-900 opacity-80 z-10">Thực Chiến</span>
@@ -671,6 +691,29 @@
                     </div>
                     <div id="tsa-exam-container" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6"></div>
                 </div>
+                <!-- 2.2B DANH SÁCH ĐỀ THI HSA (4 PHẦN) -->
+<div id="view-exam-hsa-list" class="hidden max-w-6xl mx-auto">
+    <div class="mb-6">
+        <h2 class="text-2xl font-extrabold text-navy">Kỳ thi Đánh giá năng lực HSA (ĐHQG Hà Nội)</h2>
+        <p class="text-gray-500 mt-1">Luyện tập đầy đủ 3 phần thi thành phần và đề tổng hợp chuẩn cấu trúc mới nhất.</p>
+    </div>
+    <!-- Thanh chuyển Tab 4 phần HSA -->
+    <div class="flex flex-wrap gap-2 mb-8 bg-white p-2 rounded-xl shadow-sm border border-gray-100 w-max max-w-full">
+        <button onclick="filterHSA('math')" id="tab-hsa-math" class="hsa-tab px-6 py-2.5 rounded-lg font-bold text-sm bg-emerald-50 text-emerald-700 transition-colors">
+            Tư duy Định lượng (Toán)
+        </button>
+        <button onclick="filterHSA('language')" id="tab-hsa-language" class="hsa-tab px-6 py-2.5 rounded-lg font-bold text-sm text-gray-500 hover:bg-gray-50 transition-colors">
+            Tư duy Định tính (Văn)
+        </button>
+        <button onclick="filterHSA('science')" id="tab-hsa-science" class="hsa-tab px-6 py-2.5 rounded-lg font-bold text-sm text-gray-500 hover:bg-gray-50 transition-colors">
+            Khoa học & Tiếng Anh
+        </button>
+        <button onclick="filterHSA('comprehensive')" id="tab-hsa-comprehensive" class="hsa-tab px-6 py-2.5 rounded-lg font-bold text-sm text-gray-500 hover:bg-gray-50 transition-colors">
+            Đề Tổng hợp HSA
+        </button>
+    </div>
+    <div id="hsa-exam-container" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6"></div>
+</div>
 
                 <!-- 2.3 DANH SÁCH ĐỀ THI TRƯỜNG/SỞ -->
                 <div id="view-exam-school-list" class="hidden max-w-6xl mx-auto">
@@ -1073,14 +1116,16 @@
             }
         }
 
-        // --- HÀM RENDER THẺ ĐỀ THI DÙNG CHUNG (HỖ TRỢ CẢ LINK ẢNH & ICON) ---
+        // --- HÀM RENDER THẺ ĐỀ THI DÙNG CHUNG (ĐÃ THÊM MÀU XANH NGỌC CHO HSA) ---
         function buildExamCardHTML(exam) {
             const isTSA = exam.type === 'TSA';
+            const isHSA = exam.type === 'HSA';
             const isUrlImg = exam.img && (exam.img.startsWith('http://') || exam.img.startsWith('https://') || exam.img.startsWith('data:'));
-            const coverBgClass = isTSA ? 'bg-purple-100' : 'bg-blue-100';
-            const iconColorClass = isTSA ? 'text-purple-300' : 'text-blue-300';
-            const btnBgClass = isTSA ? 'bg-purple-600 hover:bg-purple-700' : 'bg-blue-600 hover:bg-blue-700';
-            const qIconBgClass = isTSA ? 'bg-purple-50 text-purple-600' : 'bg-blue-50 text-blue-500';
+            
+            const coverBgClass = isTSA ? 'bg-purple-100' : (isHSA ? 'bg-emerald-100' : 'bg-blue-100');
+            const iconColorClass = isTSA ? 'text-purple-300' : (isHSA ? 'text-emerald-300' : 'text-blue-300');
+            const btnBgClass = isTSA ? 'bg-purple-600 hover:bg-purple-700' : (isHSA ? 'bg-emerald-600 hover:bg-emerald-700' : 'bg-blue-600 hover:bg-blue-700');
+            const qIconBgClass = isTSA ? 'bg-purple-50 text-purple-600' : (isHSA ? 'bg-emerald-50 text-emerald-600' : 'bg-blue-50 text-blue-500');
             const actualCount = (allExamsData[exam.id] && allExamsData[exam.id].length > 0) ? allExamsData[exam.id].length : exam.questionsCount;
 
             const mediaHTML = isUrlImg
@@ -1137,6 +1182,34 @@
             });
         }
 
+        // --- HÀM LỌC VÀ RENDER ĐỀ THI HSA (MỚI) ---
+        function filterHSA(category) {
+            document.querySelectorAll('.hsa-tab').forEach(tab => {
+                tab.classList.remove('bg-emerald-50', 'text-emerald-700');
+                tab.classList.add('text-gray-500', 'hover:bg-gray-50');
+            });
+            const activeTab = document.getElementById(`tab-hsa-${category}`);
+            if (activeTab) {
+                activeTab.classList.remove('text-gray-500', 'hover:bg-gray-50');
+                activeTab.classList.add('bg-emerald-50', 'text-emerald-700');
+            }
+
+            const hsaContainer = document.getElementById('hsa-exam-container');
+            if (!hsaContainer) return;
+            hsaContainer.innerHTML = '';
+            
+            const filteredExams = examsMeta.filter(exam => exam.type === 'HSA' && exam.category === category);
+
+            if (filteredExams.length === 0) {
+                hsaContainer.innerHTML = `<div class="col-span-full py-12 text-center text-gray-500 bg-white rounded-2xl border border-gray-100 font-semibold shadow-sm">Chưa có đề thi HSA nào trong mục này.</div>`;
+                return;
+            }
+
+            filteredExams.forEach(exam => {
+                hsaContainer.innerHTML += buildExamCardHTML(exam);
+            });
+        }
+
         // --- HÀM LỌC VÀ RENDER 4 MÔN THPT ---
         function filterTHPT(subject) {
             document.querySelectorAll('.thpt-tab').forEach(tab => {
@@ -1171,7 +1244,7 @@
                 return;
             }
 
-            const views = ['view-home', 'view-exam-list', 'view-exam-school-list', 'view-realtime-exam', 'view-documents', 'view-settings', 'view-history'];
+            const views = ['view-home', 'view-exam-list', 'view-exam-hsa-list', 'view-exam-school-list', 'view-realtime-exam', 'view-documents', 'view-settings', 'view-history'];
             views.forEach(v => {
                 const el = document.getElementById(v);
                 if (el) { el.classList.add('hidden'); el.classList.remove('block', 'flex'); }
@@ -1211,6 +1284,7 @@
         // --- HÀM TỰ ĐỘNG SINH UI DANH SÁCH ĐỀ THI ---
         function renderExamLists() {
             filterTSA('math');
+            filterHSA('math');
             filterTHPT('math');
         }
 
@@ -1313,7 +1387,7 @@
                 backdrop.classList.add('hidden');
             }
 
-            const views = ['view-home', 'view-exam-list', 'view-exam-school-list', 'view-realtime-exam', 'view-documents', 'view-settings', 'view-history'];
+            const views = ['view-home', 'view-exam-list', 'view-exam-hsa-list', 'view-exam-school-list', 'view-realtime-exam', 'view-documents', 'view-settings', 'view-history'];
             
             views.forEach(v => {
                 let el = document.getElementById(v);
@@ -1335,6 +1409,10 @@
                 targetView = document.getElementById('view-exam-list');
                 targetView.classList.add('block');
                 document.getElementById('nav-exam-list').classList.add('active');
+            } else if (viewName === 'exam-hsa-list') {
+                targetView = document.getElementById('view-exam-hsa-list');
+                targetView.classList.add('block');
+                document.getElementById('nav-exam-hsa-list').classList.add('active');
             } else if (viewName === 'exam-school-list') {
                 targetView = document.getElementById('view-exam-school-list');
                 targetView.classList.add('block');
@@ -1750,22 +1828,18 @@
         function calculateScore() {
             let totalScore = 0;
             const examQuestionsData = allExamsData[currentExamId] || [];
-            const examInfo = examsMeta.find(e => e.id === currentExamId) || {};
             let totalQuestions = examQuestionsData.length;
             let correctCount = 0;
 
             if(totalQuestions === 0) return { score: 0, correct: 0, total: 0 };
 
-            // Xác định điểm mỗi câu trả lời ngắn (Phần III) tùy theo cấu trúc môn thi THPT
-            let fillBlankPoint = 0.5; // Mặc định môn Toán (12 MC + 4 TF + 6 FB = 3 + 4 + 3 = 10đ)
+            let fillBlankPoint = 0.5;
             if (currentExamType === 'THPT') {
                 const mcCount = examQuestionsData.filter(q => q.type === 'multiple_choice').length;
                 const fbCount = examQuestionsData.filter(q => q.type === 'fill_blank').length;
                 if (mcCount === 18 && fbCount === 6) {
-                    // Đề Lý, Hóa chuẩn 28 câu: 18*0.25 (4.5đ) + 4*1.0 (4.0đ) + 6*0.25 (1.5đ) = 10.0đ
                     fillBlankPoint = 0.25;
                 } else if (mcCount === 15 && fbCount === 5) {
-                    // Đề Sinh 24 câu: 15*0.25 (3.75đ) + 4*1.0 (4.0đ) + 5*0.45 (2.25đ) = 10.0đ
                     fillBlankPoint = 0.45;
                 }
             }
@@ -1809,7 +1883,7 @@
                 if (isFullyCorrect) correctCount++;
             });
 
-            if (currentExamType === 'TSA') {
+            if (currentExamType === 'TSA' || currentExamType === 'HSA') {
                 totalScore = correctCount; 
             }
 
@@ -1846,7 +1920,7 @@
                     renderStreakLeaderboard();
                 }
 
-                // --- LƯU LỊCH SỬ LÀM BÀI (KÈM ĐÁP ÁN ĐÃ CHỌN) ---
+                // --- LƯU LỊCH SỬ LÀM BÀI ---
                 if (!currentUser.examHistory) {
                     currentUser.examHistory = []; 
                 }
@@ -1883,10 +1957,10 @@
                 } else {
                     document.getElementById('result-score-label').innerText = "TỔNG SỐ CÂU ĐÚNG";
                     document.getElementById('result-score-value').innerText = `${result.score}/${result.total}`;
-                    document.getElementById('result-exam-type-badge').innerText = "Hệ số: Barem TSA";
+                    document.getElementById('result-exam-type-badge').innerText = currentExamType === 'HSA' ? "Hệ số: Barem HSA (ĐHQGHN)" : "Hệ số: Barem TSA";
                 }
 
-                lastActiveViewBeforeReview = currentExamType === 'THPT' ? 'exam-school-list' : 'exam-list';
+                lastActiveViewBeforeReview = currentExamType === 'THPT' ? 'exam-school-list' : (currentExamType === 'HSA' ? 'exam-hsa-list' : 'exam-list');
             }
         }
 
