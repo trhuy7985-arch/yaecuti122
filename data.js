@@ -1427,7 +1427,7 @@ const allExamsData = {
       "D. 0,16."
     ],
     "correctAnswer": "C",
-    "image": "LINK_ANH_TAI_DAY"
+    "image": "https://i.postimg.cc/8zg1fFjm/102.png"
   },
   {
     "id": 103,
