@@ -646,7 +646,7 @@ const allExamsData = {
         },
         {
             id: 1002, type: "fill_blank",
-            content: "Cho hàm số $y=f(x)$ có đồ thị như hình vẽ.<br><img src='LINK_ANH_CUA_BAN' class='mt-4 mb-4 w-full max-w-sm mx-auto rounded-lg border border-gray-200 shadow-sm'><br>Hàm số $g(x)=f\\left(\\frac{2x+3}{x+1}\\right)$ có bao nhiêu điểm cực trị? <!--[cite: 84] -->",
+            content: "Cho hàm số $y=f(x)$ có đồ thị như hình vẽ.<br><img src='https://i.postimg.cc/J4cxxXzn/C2.png' class='mt-4 mb-4 w-full max-w-sm mx-auto rounded-lg border border-gray-200 shadow-sm'><br>Hàm số $g(x)=f\\left(\\frac{2x+3}{x+1}\\right)$ có bao nhiêu điểm cực trị? <!--[cite: 84] -->",
             correctAnswer: "1"
         },
         {
@@ -704,7 +704,7 @@ const allExamsData = {
         },
         {
             id: 1011, type: "fill_blank",
-            content: "Hình phẳng $(H)$ được giới hạn bởi đồ thị $(C)$ của hàm số đa thức bậc ba và parabol $(P)$ có trục đối xứng vuông góc với trục hoành. Phần tô đậm như hình vẽ có diện tích bằng $\\frac{a}{b}$ ($a, b \\in \\mathbb{Z}; (a,b)=1$). Giá trị của biểu thức $a-3b$ bằng bao nhiêu?<br><img src='LINK_ANH_CUA_BAN' class='mt-4 mb-4 w-full max-w-sm mx-auto rounded-lg border border-gray-200 shadow-sm'><!--[cite: 87, 88] -->",
+            content: "Hình phẳng $(H)$ được giới hạn bởi đồ thị $(C)$ của hàm số đa thức bậc ba và parabol $(P)$ có trục đối xứng vuông góc với trục hoành. Phần tô đậm như hình vẽ có diện tích bằng $\\frac{a}{b}$ ($a, b \\in \\mathbb{Z}; (a,b)=1$). Giá trị của biểu thức $a-3b$ bằng bao nhiêu?<br><img src='https://i.postimg.cc/pdyBP1Yr/C11.png' class='mt-4 mb-4 w-full max-w-sm mx-auto rounded-lg border border-gray-200 shadow-sm'><!--[cite: 87, 88] -->",
             correctAnswer: "1"
         },
         {
@@ -721,7 +721,7 @@ const allExamsData = {
         },
         {
             id: 1014, type: "fill_blank",
-            content: "Cho hàm số $y=f(x)$. Hàm số $y=f'(x)$ liên tục trên $\\mathbb{R}$ và có đồ thị như hình vẽ. Biết $f(-1)=\\frac{13}{4}, f(2)=6$. Giá trị nhỏ nhất của hàm số $g(x)=f^3(x)-3f(x)$ trên đoạn $[-1;2]$ bằng bao nhiêu? (Nhập kết quả dưới dạng phân số tối giản a/b)<br><img src='LINK_ANH_CUA_BAN' class='mt-4 mb-4 w-full max-w-sm mx-auto rounded-lg border border-gray-200 shadow-sm'><!--[cite: 89, 90] -->",
+            content: "Cho hàm số $y=f(x)$. Hàm số $y=f'(x)$ liên tục trên $\\mathbb{R}$ và có đồ thị như hình vẽ. Biết $f(-1)=\\frac{13}{4}, f(2)=6$. Giá trị nhỏ nhất của hàm số $g(x)=f^3(x)-3f(x)$ trên đoạn $[-1;2]$ bằng bao nhiêu? (Nhập kết quả dưới dạng phân số tối giản a/b)<br><img src='https://i.postimg.cc/GtnPJ30y/C14.png' class='mt-4 mb-4 w-full max-w-sm mx-auto rounded-lg border border-gray-200 shadow-sm'><!--[cite: 89, 90] -->",
             correctAnswer: "1573/64"
         },
         {
@@ -748,7 +748,7 @@ const allExamsData = {
         },
         {
             id: 1018, type: "multiple_choice",
-            content: "Biểu đồ bên dưới thể hiện giá trị sản phẩm trung bình thu được trên một hecta đất trồng cao su và đất trồng cà phê của cả nước từ năm 2018 đến năm 2022 (đơn vị: triệu đồng).<br><img src='LINK_ANH_CUA_BAN' class='mt-4 mb-4 w-full max-w-xl mx-auto rounded-lg border border-gray-200 shadow-sm'><br>Phát biểu nào sau đây là sai? <!--[cite: 92, 93] -->",
+            content: "Biểu đồ bên dưới thể hiện giá trị sản phẩm trung bình thu được trên một hecta đất trồng cao su và đất trồng cà phê của cả nước từ năm 2018 đến năm 2022 (đơn vị: triệu đồng).<br><img src='https://i.postimg.cc/dQGjQCd7/C18.png' class='mt-4 mb-4 w-full max-w-xl mx-auto rounded-lg border border-gray-200 shadow-sm'><br>Phát biểu nào sau đây là sai? <!--[cite: 92, 93] -->",
             options: [
                 "A. Giá trị sản phẩm trung bình thu được trên một hecta đất trồng cà phê cao hơn trên một hecta đất trồng cao su.",
                 "B. Giá trị sản phẩm thu được trên cả đất trồng cao su và đất trồng cà phê đều có xu hướng tăng từ năm 2018 đến năm 2022.",
@@ -776,7 +776,7 @@ const allExamsData = {
         },
         {
             id: 1021, type: "multiple_choice",
-            content: "Cho hàm số $y=ax^3+bx^2+cx+d$ ($a,b,c,d \\in \\mathbb{R}$) có đồ thị là đường cong trong hình bên. Có bao nhiêu số dương trong các số $a,b,c,d$?<br><img src='LINK_ANH_CUA_BAN' class='mt-4 mb-4 w-full max-w-sm mx-auto rounded-lg border border-gray-200 shadow-sm'><!--[cite: 93, 94] -->",
+            content: "Cho hàm số $y=ax^3+bx^2+cx+d$ ($a,b,c,d \\in \\mathbb{R}$) có đồ thị là đường cong trong hình bên. Có bao nhiêu số dương trong các số $a,b,c,d$?<br><img src='https://i.postimg.cc/QxskFMJC/C21.png' class='mt-4 mb-4 w-full max-w-sm mx-auto rounded-lg border border-gray-200 shadow-sm'><!--[cite: 93, 94] -->",
             options: ["A. 1.", "B. 3.", "C. 2.", "D. 4."],
             correctAnswer: "A"
         },
@@ -822,7 +822,7 @@ const allExamsData = {
         },
         {
             id: 1029, type: "multiple_choice",
-            content: "Cho hàm số $f(x)$ là hàm đa thức bậc 3 và có đồ thị như hình vẽ.<br><img src='LINK_ANH_CUA_BAN' class='mt-4 mb-4 w-full max-w-sm mx-auto rounded-lg border border-gray-200 shadow-sm'><br>Xét hàm số $g(x)=f(2x^3+x-1)+m$. Với giá trị nào của $m$ thì giá trị nhỏ nhất của $g(x)$ trên đoạn $[0;1]$ bằng $-20$? <!-- -->",
+            content: "Cho hàm số $f(x)$ là hàm đa thức bậc 3 và có đồ thị như hình vẽ.<br><img src='https://i.postimg.cc/bwVQV9X5/C29.png' class='mt-4 mb-4 w-full max-w-sm mx-auto rounded-lg border border-gray-200 shadow-sm'><br>Xét hàm số $g(x)=f(2x^3+x-1)+m$. Với giá trị nào của $m$ thì giá trị nhỏ nhất của $g(x)$ trên đoạn $[0;1]$ bằng $-20$? <!-- -->",
             options: ["A. -19.", "B. 2.", "C. -21.", "D. 11."],
             correctAnswer: "A"
         },
@@ -874,7 +874,7 @@ const allExamsData = {
         },
         {
             id: 1038, type: "fill_blank",
-            content: "Mái của một căn nhà nghiêng đều một góc $\\alpha$ so với mặt đất được minh họa như hình vẽ. Biết rằng nếu đặt trong không gian $Oxyz$ thì mặt đất nằm tương ứng với mặt phẳng $(Oxy)$, đoạn $AB$ là một cạnh của mái nhà với $A(2;-4;3)$ và $B(-3;1;4)$. Góc $\\alpha$ bằng bao nhiêu độ? (Kết quả làm tròn đến hàng đơn vị)<br><img src='LINK_ANH_CUA_BAN' class='mt-4 mb-4 w-full max-w-xs mx-auto rounded-lg border border-gray-200 shadow-sm'><!-- -->",
+            content: "Mái của một căn nhà nghiêng đều một góc $\\alpha$ so với mặt đất được minh họa như hình vẽ. Biết rằng nếu đặt trong không gian $Oxyz$ thì mặt đất nằm tương ứng với mặt phẳng $(Oxy)$, đoạn $AB$ là một cạnh của mái nhà với $A(2;-4;3)$ và $B(-3;1;4)$. Góc $\\alpha$ bằng bao nhiêu độ? (Kết quả làm tròn đến hàng đơn vị)<br><img src='https://i.postimg.cc/LXLLXdqP/C38.png' class='mt-4 mb-4 w-full max-w-xs mx-auto rounded-lg border border-gray-200 shadow-sm'><!-- -->",
             correctAnswer: "8"
         },
         {
@@ -906,7 +906,7 @@ const allExamsData = {
         },
         {
             id: 1043, type: "fill_blank",
-            content: "Cho hàm số $y=f(x)$ có đồ thị hàm số $y=f'(x)$ trên đoạn $[-1;3]$ như hình vẽ sau:<br><img src='LINK_ANH_CUA_BAN' class='mt-4 mb-4 w-full max-w-sm mx-auto rounded-lg border border-gray-200 shadow-sm'><br>Giá trị của biểu thức $f(3)-f(-1)$ là <!--[cite: 104, 105] -->",
+            content: "Cho hàm số $y=f(x)$ có đồ thị hàm số $y=f'(x)$ trên đoạn $[-1;3]$ như hình vẽ sau:<br><img src='https://i.postimg.cc/5NxLxRfd/C43.png' class='mt-4 mb-4 w-full max-w-sm mx-auto rounded-lg border border-gray-200 shadow-sm'><br>Giá trị của biểu thức $f(3)-f(-1)$ là <!--[cite: 104, 105] -->",
             correctAnswer: "6"
         },
         {
@@ -937,7 +937,7 @@ const allExamsData = {
         },
         {
             id: 1048, type: "multiple_choice",
-            content: "Cho hình chóp $S.ABC$ có $SA \\perp (ABC), AB \\perp BC, SA=AB=a, AC=a\\sqrt{3}$.<br><img src='LINK_ANH_CUA_BAN' class='mt-4 mb-4 w-full max-w-xs mx-auto rounded-lg border border-gray-200 shadow-sm'><br>Góc giữa đường thẳng $SC$ và mặt phẳng $(SAB)$ là góc <!-- -->",
+            content: "Cho hình chóp $S.ABC$ có $SA \\perp (ABC), AB \\perp BC, SA=AB=a, AC=a\\sqrt{3}$.<br><img src='https://i.postimg.cc/Z5nNNv9V/C48.png' class='mt-4 mb-4 w-full max-w-xs mx-auto rounded-lg border border-gray-200 shadow-sm'><br>Góc giữa đường thẳng $SC$ và mặt phẳng $(SAB)$ là góc <!-- -->",
             options: ["A. $\\widehat{CSA}$.", "B. $\\widehat{SCA}$.", "C. $\\widehat{CSB}$.", "D. $\\widehat{SCB}$."],
             correctAnswer: "C"
         },
