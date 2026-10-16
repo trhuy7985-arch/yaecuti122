@@ -1402,4 +1402,591 @@ const allExamsData = {
             correctAnswer: "A"
         }
     ],
+    "hsa_khoahoc_01": [
+  {
+    "id": 101,
+    "type": "multiple_choice",
+    "content": "Khi nói về hiện tượng sôi của chất lỏng, nhận xét nào dưới đây là sai?",
+    "options": [
+      "A. Hiện tượng hóa hơi xảy ra ngay trên bề mặt chất lỏng.",
+      "B. Hiện tượng hóa hơi xảy ra ngay trong lòng chất lỏng.",
+      "C. Khi chuyển sang thể khí, thế năng tương tác phân tử giảm.",
+      "D. Khi áp suất tăng, nhiệt độ sôi của chất lỏng cũng tăng."
+    ],
+    "correctAnswer": "C"
+  },
+  {
+    "id": 102,
+    "type": "multiple_choice",
+    "content": "Một học sinh thực hiện thí nghiệm xác định hệ số ma sát trượt giữa một vật nặng hình trụ nhỏ bằng thép và một tấm ván phẳng. Ban đầu, vật nặng được giữ tại vị trí A ở đầu trên ván nghiêng nhờ một nam châm điện. Đặt một cổng quang điện tại vị trí B cách A một khoảng 35 cm. Kết nối cổng quang điện và công tắc của nam châm điện với một máy đo để đo thời gian từ lúc vật bắt đầu chuyển động từ A tới khi chạm tới vị trí cổng quang điện tại B. Điều chỉnh góc nghiêng của ván trượt đến 20°. Ngắt nam châm điện để vật nặng bắt đầu trượt xuống. Máy đo được khoảng thời gian vật nặng trượt từ A đến B là 0,58 s. Cho gia tốc trọng trường g = 9,8 m/s². Hệ số ma sát trượt giữa vật nặng và máng trượt đo được xấp xỉ bằng:",
+    "options": [
+      "A. 0,10.",
+      "B. 0,12.",
+      "C. 0,14.",
+      "D. 0,16."
+    ],
+    "correctAnswer": "C"
+  },
+  {
+    "id": 103,
+    "type": "fill_in_the_blank",
+    "content": "Một người cần di chuyển một chiếc tủ gỗ có dạng hình hộp chữ nhật bằng cách đẩy nó theo phương ngang để nó trượt chậm và đều, sao cho mặt dưới của tủ luôn tiếp xúc toàn diện với mặt sàn nhà. Kích thước chiều cao và chiều rộng của tủ lần lượt là 1,8 m và 1,1 m. Biết hệ số ma sát giữa tủ và sàn nhà bằng 0,35. Độ cao tối đa của điểm đặt lực đẩy so với sàn nhà có giá trị bằng bao nhiêu (tính theo đơn vị mét, kết quả lấy dưới dạng phân số tối giản)?",
+    "options": [],
+    "correctAnswer": "11/7"
+  },
+  {
+    "id": 104,
+    "type": "multiple_choice",
+    "content": "Bếp từ là thiết bị đun nấu phổ biến trong gia đình. Khi bếp hoạt động, dòng điện chạy qua cuộn dây đồng đặt dưới mặt kính của bếp sẽ sinh ra dòng từ trường biến thiên trong vùng không gian phía trên mặt bếp, làm xuất hiện dòng điện chạy bên trong đáy nồi. Dòng điện này được gọi là dòng Foucault, có tác dụng sinh nhiệt rất lớn. Nguyên tắc hoạt động của bếp từ dựa trên hiện tượng:",
+    "options": [
+      "A. Cảm ứng điện từ.",
+      "B. Bức xạ nhiệt.",
+      "C. Dẫn nhiệt do tiếp xúc.",
+      "D. Giao thoa sóng điện từ."
+    ],
+    "correctAnswer": "A"
+  },
+  {
+    "id": 105,
+    "type": "multiple_choice",
+    "content": "Trong một công trường xây dựng, một khối đá lớn được kéo lên dọc theo một mặt phẳng nghiêng dài có góc nghiêng 53° bằng một dây cáp nối với động cơ điện. Dây cáp được vắt qua một ròng rọc cố định đặt trên một mặt phẳng ngang ở trên cao. Bỏ qua khối lượng dây cáp, khối lượng ròng rọc, và sức cản không khí. Cho hệ số ma sát giữa bề mặt khối đá và mặt phẳng nghiêng là 0,4. Nếu khối đá được kéo lên với tốc độ không đổi thì hiệu suất chuyển hóa từ cơ năng của động cơ thành thế năng trọng trường của khối đá xấp xỉ bằng:",
+    "options": [
+      "A. 23%.",
+      "B. 35%.",
+      "C. 65%.",
+      "D. 77%."
+    ],
+    "correctAnswer": "D"
+  },
+  {
+    "id": 106,
+    "type": "multiple_choice",
+    "content": "Một người chơi đàn ghi-ta cần điều chỉnh dây đàn sao cho âm thanh mà nó phát ra chính là nốt A4 (có tần số 440 Hz). Biết rằng hai đầu dây đàn được gắn cố định. Trước khi điều chỉnh thì tần số âm thanh do dây đàn phát ra là 400 Hz, và khi gẩy thì trên dây có một bụng sóng. Để đạt được nốt A4, người chơi cần vặn chốt điều chỉnh để làm tăng lực căng của dây đàn trong khi không làm thay đổi chiều dài dây. Biết tốc độ truyền sóng trên dây đàn tỉ lệ thuận với căn bậc hai của lực căng dây. Hỏi để đàn phát ra âm A4, và khi gẩy vẫn chỉ có một bụng sóng trên dây, thì người chơi phải tăng lực căng dây đàn thêm bao nhiêu phần trăm?",
+    "options": [
+      "A. 4,9%.",
+      "B. 10%.",
+      "C. 21%.",
+      "D. 24%."
+    ],
+    "correctAnswer": "C"
+  },
+  {
+    "id": 107,
+    "type": "multiple_choice",
+    "content": "Một người dùng một bóng đèn sợi đốt sử dụng điện xoay chiều có ghi thông số 120V - 45W để thắp sáng một căn phòng nhỏ. Để bóng đèn này có thể sáng bình thường ở mạng điện xoay chiều có điện áp 220 V thì cần mắc nối tiếp nó với một điện trở phụ R có giá trị xấp xỉ bằng:",
+    "options": [
+      "A. 251 Ω.",
+      "B. 260 Ω.",
+      "C. 267 Ω.",
+      "D. 274 Ω."
+    ],
+    "correctAnswer": "C"
+  },
+  {
+    "id": 108,
+    "type": "multiple_choice",
+    "content": "Đưa một khối thép có khối lượng 10 kg và nhiệt độ 25 °C vào trong một lò nung điện có công suất 5 kW. Cho nhiệt độ nóng chảy của thép là 1500 °C; nhiệt dung riêng và nhiệt nóng chảy riêng của thép lần lượt là 460 J/kg.K và 2,5.10^5 J/kg. Biết rằng 87% điện năng tiêu thụ của lò nung chuyển thành nhiệt năng làm nóng khối thép. Để làm nóng chảy hoàn toàn khối thép trên, cần sử dụng lò nung trong thời gian tối thiểu là:",
+    "options": [
+      "A. 1782 s.",
+      "B. 1971 s.",
+      "C. 2135 s.",
+      "D. 2355 s."
+    ],
+    "correctAnswer": "C"
+  },
+  {
+    "id": 109,
+    "type": "multiple_choice",
+    "content": "Cho một căn phòng trống hình hộp chữ nhật rộng 5 m, dài 10 m, và cao 3 m. Căn phòng có tường cách nhiệt và nhiệt độ không khí trong phòng đang là 0 °C. Sau khi mở cửa và để không khí trong phòng cân bằng nhiệt với môi trường bên ngoài thì thấy nhiệt độ trong phòng tăng lên 20 °C. Biết áp suất không khí trong phòng luôn cân bằng với áp suất khí quyển bên ngoài và có giá trị là 1,01.10^5 Pa. Cho khối lượng mol của không khí là 29 g/mol; hằng số khí lý tưởng là R = 8,31 J/mol.K. Khối lượng không khí trong phòng đã thoát ra ngoài khi mở cửa xấp xỉ bằng:",
+    "options": [
+      "A. 13,2 kg.",
+      "B. 14,1 kg.",
+      "C. 15,2 kg.",
+      "D. 16,1 kg."
+    ],
+    "correctAnswer": "A"
+  },
+  {
+    "id": 110,
+    "type": "multiple_choice",
+    "content": "Nhúng chìm một khối kim loại có khối lượng 5 kg vào bình chứa 2 kg nước. Ban đầu, kim loại và nước cùng ở nhiệt độ phòng. Cấp nhiệt cho bình chứa để làm nóng nước và kim loại cho đến khi nhiệt độ trong bình ổn định ở một mức nhiệt độ nào đó. Biết nhiệt dung riêng của nước lớn gấp 9 lần nhiệt dung riêng của kim loại. Khi so sánh giữa nhiệt lượng mà khối kim loại hấp thụ Q1 và nhiệt lượng mà nước hấp thụ Q2, nhận xét nào dưới đây là đúng?",
+    "options": [
+      "A. Q2 = 9Q1.",
+      "B. Q1 = 9Q2.",
+      "C. Q2 = 3,6Q1.",
+      "D. Q1 = 3,6Q2."
+    ],
+    "correctAnswer": "C"
+  },
+  {
+    "id": 111,
+    "type": "multiple_choice",
+    "content": "Một khối khí lý tưởng thực hiện một chu trình được biểu diễn thành giản đồ P-V. Trong đó, áp suất P tính bằng kPa và thể tích V tính bằng m³. Nhiệt độ của khối khí ở trạng thái (2) là 200 K, và ở trạng thái (3) là 1800 K. Thể tích của khối khí ở trạng thái (1) là:",
+    "options": [
+      "A. 1 m³.",
+      "B. 2 m³.",
+      "C. 3 m³.",
+      "D. 4 m³."
+    ],
+    "correctAnswer": "C"
+  },
+  {
+    "id": 112,
+    "type": "multiple_choice",
+    "content": "Một máy chiếu xạ sử dụng nguồn phóng xạ Co-60 với chu kỳ bán rã là 5,27 năm để điều trị ung thư. Để đảm bảo liều lượng chiếu xạ, nguồn Co-60 cần được thay mới khi độ phóng xạ giảm xuống còn một nửa so với độ phóng xạ lúc mới được sản xuất. Tại thời điểm vừa được sản xuất, nguồn Co-60 có độ phóng xạ 1000 Ci. Ở thời điểm hiện tại, độ phóng xạ của nguồn Co-60 đo được là 800 Ci. Sau bao lâu nữa thì cần thay mới nguồn?",
+    "options": [
+      "A. 1,71 năm.",
+      "B. 2,23 năm.",
+      "C. 3,14 năm.",
+      "D. 3,57 năm."
+    ],
+    "correctAnswer": "D"
+  },
+  {
+    "id": 113,
+    "type": "multiple_choice",
+    "content": "Một thanh kim loại MN có chiều dài L được kéo với vận tốc v không đổi dọc theo hai thanh ray dẫn điện nằm ngang không ma sát. Từ trường đều B được tạo ra trong vùng không gian chuyển động của thanh kim loại, với các đường sức từ vuông góc với mặt phẳng hình vẽ và hướng từ trong ra ngoài. Cho L = 10 cm, v = 5,0 m/s và B = 1,2 T. Điện trở của thanh kim loại là R = 0,4 Ω. Bỏ qua điện trở của các thanh ray. Công suất tỏa nhiệt trên thanh kim loại xấp xỉ bằng:",
+    "options": [
+      "A. 0,6 W.",
+      "B. 0,7 W.",
+      "C. 0,8 W.",
+      "D. 0,9 W."
+    ],
+    "correctAnswer": "D"
+  },
+  {
+    "id": 114,
+    "type": "multiple_choice",
+    "content": "Sơ đồ của một máy phát điện xoay chiều đơn giản gồm một khung dây dẫn phẳng gồm 200 vòng dây, mỗi vòng có diện tích 100 cm². Cho khung dây quay đều trong từ trường đều với tốc độ 20 vòng/s quanh một trục vuông góc với các đường sức từ. Biết độ lớn cảm ứng từ bằng 0,02 T. Chọn thời điểm ban đầu t = 0 là lúc vectơ pháp tuyến của khung dây ngược hướng với cảm ứng từ. Tại thời điểm t = 2 ms, suất điện động cảm ứng xuất hiện trên khung dây có giá trị xấp xỉ bằng:",
+    "options": [
+      "A. 1,25 V.",
+      "B. -1,25 V.",
+      "C. 4,86 V.",
+      "D. -4,86 V."
+    ],
+    "correctAnswer": "B"
+  },
+  {
+    "id": 115,
+    "type": "multiple_choice",
+    "content": "Trong nghiên cứu các đặc tính về âm và sóng âm, cường độ âm I được định nghĩa là năng lượng mà sóng âm truyền qua một mét vuông diện tích đặt vuông góc với phương truyền sóng trong một giây. Biết cường độ âm nhỏ nhất mà tai người có thể nghe được (ngưỡng nghe) có giá trị I0 = 10^-12 W/m². Trên công trường xây dựng có một máy khoan đang hoạt động và phát ra âm thanh rất lớn. Biết rằng máy khoan phát ra âm thanh đẳng hướng (giống nhau theo mọi hướng) với công suất phát âm là P = 5 W. Bỏ qua sự hấp thụ và phản xạ âm của môi trường. Cường độ âm tại một vị trí cách máy khoan 30 m có giá trị là:",
+    "options": [
+      "A. 2,2.10^-4 W/m².",
+      "B. 4,4.10^-4 W/m².",
+      "C. 1,8.10^-4 W/m².",
+      "D. 1,8.10^-3 W/m²."
+    ],
+    "correctAnswer": "B"
+  },
+  {
+    "id": 116,
+    "type": "multiple_choice",
+    "content": "Trong vùng không gian trống trãi, để không nghe thấy âm thanh do máy khoan (công suất P = 5 W) phát ra thì người nghe phải đứng xa máy khoan một khoảng cách tối thiểu bằng:",
+    "options": [
+      "A. 10000 m.",
+      "B. 630783 m.",
+      "C. 126156 m.",
+      "D. 1261566 m."
+    ],
+    "correctAnswer": "B"
+  },
+  {
+    "id": 117,
+    "type": "multiple_choice",
+    "content": "Để đo lường độ to của âm thanh, người ta thường sử dụng khái niệm 'mức cường độ âm' tại một vị trí, tính theo đơn vị đêxiben (dB), được tính bằng công thức L = 10.log(I/I0), trong đó I là cường độ âm tại vị trí đó, và I0 là ngưỡng nghe. Quy định an toàn lao động đòi hỏi mức cường độ âm tại nơi làm việc không được vượt quá 85 dB. Khoảng cách tối thiểu từ máy khoan (P = 5 W) đến vị trí làm việc theo đúng quy định an toàn với tiếng ồn xấp xỉ bằng:",
+    "options": [
+      "A. 12 m.",
+      "B. 24 m.",
+      "C. 36 m.",
+      "D. 48 m."
+    ],
+    "correctAnswer": "C"
+  },
+  {
+    "id": 201,
+    "type": "multiple_choice",
+    "content": "Khối lượng của 1 proton gấp bao nhiêu lần khối lượng của 1 electron?",
+    "options": [
+      "A. Khoảng 1836 lần.",
+      "B. Khoảng 5,4 lần.",
+      "C. Khoảng 1,8.10^-53 lần.",
+      "D. Khoảng 0,0005 lần."
+    ],
+    "correctAnswer": "A"
+  },
+  {
+    "id": 202,
+    "type": "multiple_choice",
+    "content": "Cho phức chất K3[Fe(C2O4)3] có cấu tạo xung quanh ion trung tâm Fe3+. Số phối tử của phức chất và số phối trí của nhân trung tâm lần lượt là bao nhiêu?",
+    "options": [
+      "A. 6 và 6.",
+      "B. 3 và 3.",
+      "C. 3 và 6.",
+      "D. 6 và 3."
+    ],
+    "correctAnswer": "C"
+  },
+  {
+    "id": 203,
+    "type": "multiple_choice",
+    "content": "Phương trình nào dưới đây biểu diễn phản ứng giữa hai khí gồm ammonia và hydrogen chloride ở điều kiện thường?",
+    "options": [
+      "A. NH3(g) + HCl(g) -> NH2Cl(s) + H2(g)",
+      "B. NH3(g) + HCl(g) -> NH4Cl(s)",
+      "C. NH3(g) + 3HCl(g) -> NCl3(s) + 3H2(g)",
+      "D. 2NH3(g) + 2HCl(g) -> N2(g) + Cl2(g) + 4H2(g)"
+    ],
+    "correctAnswer": "B"
+  },
+  {
+    "id": 204,
+    "type": "multiple_choice",
+    "content": "Hợp chất X phản ứng với thuốc thử Tollens tạo thành lớp bạc sáng bóng bám trên bề mặt ống nghiệm. Chất X thuộc loại hợp chất nào dưới đây?",
+    "options": [
+      "A. Aldehyde.",
+      "B. Alkyne.",
+      "C. Phenol.",
+      "D. Alcohol."
+    ],
+    "correctAnswer": "A"
+  },
+  {
+    "id": 205,
+    "type": "multiple_choice",
+    "content": "Trong cơn giông khi có sấm sét, khí nitrogen và khí oxygen trong không khí phản ứng trực tiếp với nhau tạo thành hợp chất nào?",
+    "options": [
+      "A. NO.",
+      "B. NO2.",
+      "C. N2O.",
+      "D. N2O5."
+    ],
+    "correctAnswer": "A"
+  },
+  {
+    "id": 206,
+    "type": "multiple_choice",
+    "content": "Số oxi hoá của các nguyên tử hydrogen trong hợp chất BH3 là bao nhiêu?",
+    "options": [
+      "A. 0.",
+      "B. +3.",
+      "C. +1.",
+      "D. -1."
+    ],
+    "correctAnswer": "D"
+  },
+  {
+    "id": 207,
+    "type": "multiple_choice",
+    "content": "Phát biểu nào sau đây không đúng về tính chất hóa học của ethylamine?",
+    "options": [
+      "A. Dung dịch ethylamine trong nước làm quỳ tím hóa xanh.",
+      "B. Ethylamine có tính base vì phân tử có chứa nhóm -NH2.",
+      "C. Ethylamine tác dụng với nitrous acid ở nhiệt độ thấp (0 - 5 °C) thu được muối diazonium.",
+      "D. Dung dịch ethylamine tác dụng được với dung dịch muối FeCl3."
+    ],
+    "correctAnswer": "C"
+  },
+  {
+    "id": 208,
+    "type": "multiple_choice",
+    "content": "Nhận xét nào dưới đây không đúng khi nói về glucose và fructose?",
+    "options": [
+      "A. Đều có trong mật ong.",
+      "B. Đều làm mất màu nước bromine.",
+      "C. Đều tạo được kết tủa đỏ gạch khi tác dụng với Cu(OH)2, đun nóng trong môi trường kiềm.",
+      "D. Đều tạo được dung dịch màu xanh lam khi tác dụng với Cu(OH)2 trong môi trường kiềm."
+    ],
+    "correctAnswer": "B"
+  },
+  {
+    "id": 209,
+    "type": "multiple_choice",
+    "content": "Ethyl pentanoate được tạo nên từ phản ứng ester hóa giữa:",
+    "options": [
+      "A. ethene và pentan-1-ol.",
+      "B. ethane và pentanoic acid.",
+      "C. ethanol và pentanoic acid.",
+      "D. ethanoic acid và pentan-1-ol."
+    ],
+    "correctAnswer": "C"
+  },
+  {
+    "id": 210,
+    "type": "multiple_choice",
+    "content": "Bảng thông số vật lý của halogen ở áp suất thường: F2 (nóng chảy -220 °C, sôi -188 °C), Cl2 (-101 °C, -35 °C), Br2 (-7 °C, 59 °C), I2 (114 °C, 184 °C). Phương án nào dưới đây giải thích đúng về sự tăng nhiệt độ nóng chảy và nhiệt độ sôi từ F2 đến I2?",
+    "options": [
+      "A. Do tạo được liên kết hydrogen giữa các phân tử.",
+      "B. Do năng lượng liên kết đơn trong phân tử tăng dần từ F2 đến I2.",
+      "C. Do tương tác van der Waals giảm dần từ F2 đến I2.",
+      "D. Do khối lượng, kích thước phân tử và số lượng electron trong các phân tử tăng dần từ F2 đến I2."
+    ],
+    "correctAnswer": "D"
+  },
+  {
+    "id": 211,
+    "type": "multiple_choice",
+    "content": "Nhiệt độ phân hủy thành oxide của các muối carbonate của kim loại nhóm IIA giảm dần theo dãy nào sau đây?",
+    "options": [
+      "A. MgCO3, CaCO3, SrCO3, BaCO3.",
+      "B. BaCO3, SrCO3, CaCO3, MgCO3.",
+      "C. BaCO3, CaCO3, SrCO3, MgCO3.",
+      "D. MgCO3, BaCO3, SrCO3, CaCO3."
+    ],
+    "correctAnswer": "B"
+  },
+  {
+    "id": 212,
+    "type": "fill_in_the_blank",
+    "content": "Một học sinh cần điều chế một lượng nhỏ 12,4 mL khí acetylene ở điều kiện chuẩn từ calcium carbide CaC2 (độ tinh khiết 99%, M = 64,10 g/mol). Nếu hiệu suất phản ứng là 100%, học sinh này cần sử dụng tối thiểu bao nhiêu mg calcium carbide (làm tròn đến hàng đơn vị)?",
+    "options": [],
+    "correctAnswer": "32"
+  },
+  {
+    "id": 213,
+    "type": "multiple_choice",
+    "content": "Trong công nghiệp methanol (CH3OH) được tổng hợp từ CO và H2 ở nhiệt độ và áp suất cao. Khi cho dòng khí CH4 vào cổng (1) và hơi nước vào cổng (2) ở 200 °C và áp suất 10 bar, phản ứng xảy ra trong hỗn hợp A là:",
+    "options": [
+      "A. 2CH4 + 2H2O <=> CH3OH + CO + 4H2",
+      "B. 2CH4 + H2O <=> 2CO2 + 5H2",
+      "C. CH4 + H2O <=> CH3OH + H2",
+      "D. CH4 + H2O <=> CO + 3H2"
+    ],
+    "correctAnswer": "D"
+  },
+  {
+    "id": 214,
+    "type": "multiple_choice",
+    "content": "Sau khi hạ nhiệt độ của hỗn hợp A (gồm CO, H2, CH4 dư, H2O dư) về 25 °C thì thu được hỗn hợp B và chất nào bị ngưng tụ rồi được loại khỏi hệ phản ứng qua cổng (4)?",
+    "options": [
+      "A. Nước và CH4.",
+      "B. Methanol, nước và CH4.",
+      "C. Nước.",
+      "D. Methanol và nước."
+    ],
+    "correctAnswer": "C"
+  },
+  {
+    "id": 215,
+    "type": "multiple_choice",
+    "content": "Biết phản ứng tổng hợp methanol từ hỗn hợp gồm CO và H2 là một quá trình tỏa nhiệt (ΔH < 0). Để chuyển dịch cân bằng theo chiều tạo ra methanol (tăng hiệu suất tổng hợp), quá trình này nên thực hiện ở:",
+    "options": [
+      "A. nhiệt độ thấp và áp suất cao.",
+      "B. nhiệt độ cao và áp suất thấp.",
+      "C. nhiệt độ cao và áp suất cao.",
+      "D. nhiệt độ thấp và áp suất thấp."
+    ],
+    "correctAnswer": "A"
+  },
+  {
+    "id": 216,
+    "type": "multiple_choice",
+    "content": "Biết Pb2+ trong dung dịch oxi hóa được Sn. Khi nhúng hai thanh kim loại Pb và Sn nối với nhau bằng dây dẫn điện vào một dung dịch chất điện li thì:",
+    "options": [
+      "A. cả Pb và Sn đều bị ăn mòn điện hóa.",
+      "B. cả Pb và Sn đều không bị ăn mòn điện hóa.",
+      "C. chỉ có Pb bị ăn mòn điện hóa.",
+      "D. chỉ có Sn bị ăn mòn điện hóa."
+    ],
+    "correctAnswer": "D"
+  },
+  {
+    "id": 217,
+    "type": "multiple_choice",
+    "content": "Điện phân dung dịch KNO3 và điện phân dung dịch H2SO4 với điện cực trơ giống nhau ở điều gì?",
+    "options": [
+      "A. Đều là không làm thay đổi số mol chất tan.",
+      "B. Nồng độ mol/L của các chất không thay đổi.",
+      "C. Ở cathode đều xảy ra sự khử H2O.",
+      "D. pH của dung dịch không đổi trong quá trình điện phân."
+    ],
+    "correctAnswer": "A"
+  },
+  {
+    "id": 301,
+    "type": "multiple_choice",
+    "content": "Sắp xếp trình tự các giai đoạn trong cơ chế hoạt động của enzyme sao cho đúng?\n(1) Enzyme xúc tác làm biến đổi cơ chất.\n(2) Enzyme liên kết cơ chất tạo nên phức hợp enzyme - cơ chất.\n(3) Tạo sản phẩm và giải phóng enzyme.",
+    "options": [
+      "A. (2) -> (1) -> (3).",
+      "B. (2) -> (3) -> (1).",
+      "C. (1) -> (2) -> (3).",
+      "D. (1) -> (3) -> (2)."
+    ],
+    "correctAnswer": "A"
+  },
+  {
+    "id": 302,
+    "type": "multiple_choice",
+    "content": "Hiệu ứng nhà kính là một hiện tượng tăng nồng độ khí CO2 trong khí quyển do các nhà máy sản xuất, hoạt động giao thông, đốt cháy các nhiên liệu hóa thạch làm trái đất nóng lên, băng tan chảy, mực nước biển dâng cao và các loài sinh vật trên trái đất nguy cơ tuyệt chủng. Có bao nhiêu giải pháp làm giảm hiệu ứng nhà kính trong các ý sau?\n(1) Trồng rừng phủ xanh đồi trọc để chúng quang hợp làm giảm CO2.\n(2) Ra qui định bảo vệ rừng, xử lý mạnh các trường hợp phá rừng.\n(3) Thực hiện làm màng xanh xung quanh nhà để điều tiết vi khí hậu trong gia đình.\n(4) Tuyên truyền và giáo dục ý thức về giá trị và ích lợi của việc bảo vệ rừng.",
+    "options": [
+      "A. 1.",
+      "B. 2.",
+      "C. 3.",
+      "D. 4."
+    ],
+    "correctAnswer": "D"
+  },
+  {
+    "id": 303,
+    "type": "multiple_choice",
+    "content": "Nối bộ phận với chức năng của các ngăn tim ở người cho đúng.\n1. Tâm nhĩ trái - a. Nhận máu giàu CO2 từ tĩnh mạch chủ bơm vào tâm thất\n2. Tâm nhĩ phải - b. Nhận máu từ tâm nhĩ bơm vào động mạch chủ nuôi cơ thể\n3. Tâm thất trái - c. Nhận máu từ tâm nhĩ bơm vào động mạch phổi trao đổi chất\n4. Tâm thất phải - d. Nhận máu giàu O2 từ tĩnh mạch phổi bơm vào tâm thất",
+    "options": [
+      "A. 1d, 2a, 3b, 4c.",
+      "B. 1a, 2d, 3c, 4d.",
+      "C. 1d, 2b, 3a, 4c.",
+      "D. 1a, 2b, 3c, 4d."
+    ],
+    "correctAnswer": "A"
+  },
+  {
+    "id": 304,
+    "type": "multiple_choice",
+    "content": "Mô tả các bộ phận của hệ dẫn truyền tim: [M] là nút xoang nhĩ, [N] là nút nhĩ thất, [O] là bó His, [P] là mạng Purkinje. Dựa vào kiến thức về hệ dẫn truyền tim, hãy cho biết có bao nhiêu phát biểu sau đây là đúng?\n1. [M] hoạt động làm cơ tâm nhĩ co.\n2. [N] có khả năng tự phát xung theo chu kì.\n3. [P] lan truyền xung thần kinh từ dưới lên.\n4. [O] là mạng Purkinje, [P] là bó His.",
+    "options": [
+      "A. 1.",
+      "B. 2.",
+      "C. 3.",
+      "D. 4."
+    ],
+    "correctAnswer": "B"
+  },
+  {
+    "id": 305,
+    "type": "multiple_choice",
+    "content": "Sơ đồ cơ chế điều hòa cân bằng nội môi gồm: [1] Bộ phận tiếp nhận kích thích, [2] Bộ phận điều khiển, [3] Bộ phận thực hiện. Cho các phát biểu sau:\n1. [1] là bộ phận điều khiển, [2] là bộ phận tiếp nhận, [3] là bộ phận thực hiện.\n2. Tín hiệu được truyền từ [2] truyền đến [3] dưới dạng xung thần kinh hoặc hormone.\n3. [5] là quá trình kết quả đáp ứng tác động ngược đến bộ phận tiếp nhận kích thích.\n4. Quá trình điều khiển trong được thực hiện bởi trung ương thần kinh hoặc tuyến nội tiết.\nCó bao nhiêu phát biểu đúng?",
+    "options": [
+      "A. 1, 2, 4.",
+      "B. 2, 3, 4.",
+      "C. 1, 3, 4.",
+      "D. 1, 2, 3."
+    ],
+    "correctAnswer": "B"
+  },
+  {
+    "id": 306,
+    "type": "multiple_choice",
+    "content": "Quan sát biểu đồ mức độ hấp thụ ánh sáng của các sắc tố quang hợp (Chlorophyll a, Chlorophyll b, Carotenoid). Cho các phát biểu sau:\n1. Diệp lục hấp thụ ánh sáng chủ yếu ở vùng đỏ (700nm) và xanh tím (400 - 500nm).\n2. Carotenoid hấp thụ ánh sáng chủ yếu ở vùng xanh tím.\n3. Diệp lục và carotenoid gần như không hấp thụ được ánh sáng ở vùng xanh lục (500 - 600nm).\n4. Ở vùng ánh sáng xanh tím, diệp lục hấp thụ mạnh hơn carotenoid.\nCó bao nhiêu phát biểu đúng?",
+    "options": [
+      "A. 1, 2, 3.",
+      "B. 2, 3, 4.",
+      "C. 1, 3, 4.",
+      "D. 1, 2, 4."
+    ],
+    "correctAnswer": "A"
+  },
+  {
+    "id": 307,
+    "type": "multiple_choice",
+    "content": "Quan sát sơ đồ chu trình Calvin trong quang hợp. Cho các phát biểu sau:\n1. [1] là PEP và là chất nhận CO2 đầu tiên.\n2. [2] là PGA (3C) và là sản phẩm cố định CO2 đầu tiên.\n3. [3] là ATP, [4] là NADPH được cung cấp từ pha sáng.\n4. Giai đoạn cố định CO2 liên quan chặt chẽ đến sự thoát hơi nước.\nPhát biểu nào sau đây đúng?",
+    "options": [
+      "A. 1, 2, 4.",
+      "B. 1, 3, 4.",
+      "C. 2, 3, 4.",
+      "D. 1, 2, 3."
+    ],
+    "correctAnswer": "C"
+  },
+  {
+    "id": 308,
+    "type": "multiple_choice",
+    "content": "Thầy giáo tiến hành thí nghiệm trồng cùng một loại cây theo 2 cách: một chậu để thẳng đứng và một chậu để nằm ngang. Khi nói về thí nghiệm này, cho các phát biểu sau:\n1. Thí nghiệm chứng minh cho tính hướng trọng lực của thân và rễ.\n2. Hiện tượng này có ý nghĩa đảm bảo cây được định vị vững chắc, không bị đổ, chống lại gió bão.\n3. Trọng lực làm auxin (AIA) ở 2 phía của thân và rễ không đều nhau.\n4. Thí nghiệm cho thấy thân hướng trọng lực âm, rễ hướng trọng lực dương.\nSố phát biểu đúng là:",
+    "options": [
+      "A. 1, 2, 3.",
+      "B. 1, 2, 4.",
+      "C. 1, 3, 4.",
+      "D. 2, 3, 4."
+    ],
+    "correctAnswer": "A"
+  },
+  {
+    "id": 309,
+    "type": "multiple_choice",
+    "content": "Ở chó Labrador, màu sắc lông do 2 locut gen nằm trên 2 cặp NST thường quy định (Gen A/a quy định khả năng sản xuất Eumelanin, Gen B/b quy định khả năng sản xuất Pheomelanin). Sự tương tác giữa hai cặp gen này quyết định kiểu hình màu lông đen, nâu hoặc vàng. Tính trạng màu sắc lông ở chó Labrador di truyền theo quy luật di truyền nào?",
+    "options": [
+      "A. Phân li độc lập.",
+      "B. Liên kết gen.",
+      "C. Hoán vị gen.",
+      "D. Tương tác gen."
+    ],
+    "correctAnswer": "D"
+  },
+  {
+    "id": 310,
+    "type": "multiple_choice",
+    "content": "Đem lai các cá thể chó Labrador lông đen (có 4 kiểu gen A-B-) với các cá thể lông nâu (có 2 kiểu gen A-bb), theo lí thuyết sẽ có tối đa bao nhiêu sơ đồ lai nếu không kể vai trò bố mẹ của các tính trạng đem lai?",
+    "options": [
+      "A. 10.",
+      "B. 12.",
+      "C. 8.",
+      "D. 6."
+    ],
+    "correctAnswer": "C"
+  },
+  {
+    "id": 311,
+    "type": "multiple_choice",
+    "content": "Khi nói về tính trạng màu sắc lông ở chó Labrador (màu đen, nâu, vàng do tương tác gen A/a và B/b), cho các phát biểu sau:\nI. Lôcut gen A, a quy định khả năng sản xuất sắc tố Eumelanin trong cơ thể chó Labrador.\nII. Lôcut gen B, b quy định khả năng sản xuất cả 2 loại sắc tố Pheomelanin và Eumelanin.\nIII. Đem lai 2 dòng chó Labrador lông vàng và lông nâu thuần chủng, có thể thu được đời con có toàn bộ đều lông đen.\nIV. Một cặp bố mẹ lông đen và nâu sinh con có thể có cả đen, nâu, vàng; nếu điều này xảy ra thì tỷ lệ con lông đen là cao nhất.\nCó bao nhiêu phát biểu đúng?",
+    "options": [
+      "A. 1.",
+      "B. 2.",
+      "C. 3.",
+      "D. 4."
+    ],
+    "correctAnswer": "B"
+  },
+  {
+    "id": 312,
+    "type": "fill_in_the_blank",
+    "content": "Sơ đồ phả hệ mô tả 2 bệnh di truyền ở người, trong đó bệnh P do gen lặn nằm trên NST thường quy định, bệnh Q do gen lặn nằm trên vùng không tương đồng của NST giới tính X quy định. Biết rằng không có đột biến mới xảy ra. Xác suất cặp vợ chồng 13-14 sinh đứa con đầu lòng bị cả hai bệnh là bao nhiêu (viết dưới dạng phân số tối giản)?",
+    "options": [],
+    "correctAnswer": "1/80"
+  },
+  {
+    "id": 313,
+    "type": "multiple_choice",
+    "content": "Trong số các cơ chế hình thành loài sau đây, cơ chế nào hình thành loài mới nhanh nhất?",
+    "options": [
+      "A. Lai xa và đa bội hóa.",
+      "B. Cách li địa lý.",
+      "C. Cách li sinh thái.",
+      "D. Cách li tập tính."
+    ],
+    "correctAnswer": "A"
+  },
+  {
+    "id": 314,
+    "type": "multiple_choice",
+    "content": "Phiêu bạt di truyền (biến động di truyền) có thể ảnh hưởng nhất tới quần thể nào sau đây?",
+    "options": [
+      "A. Một quần thể lớn và giao phối ngẫu nhiên.",
+      "B. Một quần thể lớn với sự nhập cư thường xuyên từ quần thể lân cận.",
+      "C. Một quần thể nhỏ bị cô lập.",
+      "D. Một quần thể lớn và giao phối không ngẫu nhiên."
+    ],
+    "correctAnswer": "C"
+  },
+  {
+    "id": 315,
+    "type": "multiple_choice",
+    "content": "Quy trình kỹ thuật dựa trên nguyên lý tái tổ hợp DNA và nguyên lý biểu hiện gene, tạo ra các phân tử DNA tái tổ hợp và protein tái tổ hợp được gọi là:",
+    "options": [
+      "A. Công nghệ DNA tái tổ hợp.",
+      "B. Công nghệ sinh học.",
+      "C. Công nghệ tế bào.",
+      "D. Công nghệ vi sinh vật."
+    ],
+    "correctAnswer": "A"
+  },
+  {
+    "id": 316,
+    "type": "multiple_choice",
+    "content": "Phát biểu nào sau đây đúng về mối quan hệ giữa các cá thể trong quần thể?",
+    "options": [
+      "A. Hiện tượng ăn thịt đồng loại luôn dẫn đến sự diệt vong của loài.",
+      "B. Quan hệ hỗ trợ giúp quần thể thích nghi tốt hơn với môi trường.",
+      "C. Quan hệ cạnh tranh không xảy ra ở các quần thể thực vật.",
+      "D. Sự cạnh tranh trong quần thể chỉ xảy ra khi môi trường thiếu thức ăn."
+    ],
+    "correctAnswer": "B"
+  }
+],
 };
