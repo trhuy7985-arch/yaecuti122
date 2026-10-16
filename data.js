@@ -5,7 +5,7 @@ const examsMeta = [
     
     // --- Nhóm TSA - Tư duy Toán học ---
     { id: "tsa_toan_01", type: "TSA", category: "math", title: "Đề thi Đánh giá Tư duy - TSA26A (Môn Toán)", questionsCount: 40, time: 60, img: "https://i.postimg.cc/FFbmqQ9X/A-nh-chu-p-ma-n-hi-nh-2026-10-14-004011.png", isVip: true },
-
+    { id: "hsa_toan_01", type: "HSA", category: "math", title: "Đề ĐGNL HSA Số 01 - Định lượng ", questionsCount: 50, time: 75, img: "https://i.postimg.cc/FFbmqQ9X/A-nh-chu-p-ma-n-hi-nh-2026-10-14-004011.png", isVip: true }
     // --- Nhóm THPT ---
     
     { id: "thpt_toan_02", type: "THPT", subject: "math", title: "Đề thi Tốt nghiệp THPT 2026 môn Toán (Mã đề 0101)", questionsCount: 22, time: 90, img: "https://i.postimg.cc/Qd7xWCzY/ID-3.png", isVip: false },
@@ -631,6 +631,323 @@ const allExamsData = {
             id: 928, type: "fill_blank",
             content: "Hiện nay, người ta có thể dùng các vỉ đá được làm nóng sẵn trong lò để nướng thức ăn. Giả sử, một vỉ đá có khối lượng $1,2\\text{ kg}$; nhiệt độ ban đầu là $28^\\circ\\text{C}$ được làm nóng trong lò có công suất $20\\text{ kW}$. Coi như toàn bộ năng lượng của lò cung cấp sẽ dùng để làm nóng vỉ đá. Biết rằng, để làm cho $1\\text{ kg}$ đá làm vỉ này tăng thêm $1^\\circ\\text{C}$ thì cần nhiệt lượng $5500\\text{ J}$. Để vỉ đá đạt được nhiệt độ $1000^\\circ\\text{C}$ thì cần thời gian bao nhiêu phút? (Kết quả lấy đến hai chữ số sau dấu phẩy thập phân, dùng dấu chấm). <!--[cite: 83] -->",
             correctAnswer: "5.35"
+        }
+    ],
+    "hsa_toan_01": [
+        {
+            id: 1001, type: "multiple_choice",
+            content: "Một chiếc cổng hình parabol có phương trình $y=-3x^2$ và có chiều rộng $d=8\\text{ m}$. Hãy tính chiều cao $h$ của chiếc cổng. <!-- -->",
+            options: ["A. $h=45\\text{ m}$.", "B. $h=48\\text{ m}$.", "C. $h=50\\text{ m}$.", "D. $h=40\\text{ m}$."],
+            correctAnswer: "B"
+        },
+        {
+            id: 1002, type: "fill_blank",
+            content: "Cho hàm số $y=f(x)$ có đồ thị như hình vẽ.<br><img src='LINK_ANH_CUA_BAN' class='mt-4 mb-4 w-full max-w-sm mx-auto rounded-lg border border-gray-200 shadow-sm'><br>Hàm số $g(x)=f\\left(\\frac{2x+3}{x+1}\\right)$ có bao nhiêu điểm cực trị? <!--[cite: 84] -->",
+            correctAnswer: "1"
+        },
+        {
+            id: 1003, type: "multiple_choice",
+            content: "Cho hàm số $f(x)=\\log_2(x^2+1)$. Tính $f'(1)$. <!--[cite: 85] -->",
+            options: ["A. $f'(1)=\\frac{1}{2\\ln 2}$.", "B. $f'(1)=\\frac{1}{\\ln 2}$.", "C. $f'(1)=\\frac{1}{2}$.", "D. $f'(1)=1$."],
+            correctAnswer: "B"
+        },
+        {
+            id: 1004, type: "multiple_choice",
+            content: "Họ nguyên hàm của hàm số $f(x)=e^{2x}$ là <!--[cite: 85] -->",
+            options: ["A. $\\frac{1}{2}e^x+C$.", "B. $\\frac{1}{2}e^{2x}+C$.", "C. $2e^{2x}+C$.", "D. $2e^x+C$."],
+            correctAnswer: "B"
+        },
+        {
+            id: 1005, type: "multiple_choice",
+            content: "Cho hình chóp tứ giác $S.ABCD$ có tất cả các cạnh đều bằng $a$. Khoảng cách từ $D$ đến đường thẳng $SB$ bằng <!--[cite: 85] -->",
+            options: ["A. $a$.", "B. $\\frac{a}{2}$.", "C. $\\frac{a}{3}$.", "D. $\\frac{a\\sqrt{3}}{2}$."],
+            correctAnswer: "A"
+        },
+        {
+            id: 1006, type: "multiple_choice",
+            content: "Trong các mệnh đề sau, mệnh đề nào sai? <!--[cite: 85, 86] -->",
+            options: [
+                "A. Hai đường thẳng cùng vuông góc với một mặt phẳng thì song song.",
+                "B. Hai mặt phẳng phân biệt cùng vuông góc với một đường thẳng thì song song.",
+                "C. Hai đường thẳng phân biệt cùng vuông góc với một đường thẳng thì song song.",
+                "D. Hai mặt phẳng phân biệt cùng vuông góc với một mặt phẳng thì song song."
+            ],
+            correctAnswer: "C"
+        },
+        {
+            id: 1007, type: "multiple_choice",
+            content: "Trong không gian $Oxyz$, điểm $A(1;2;3)$ thuộc mặt phẳng có phương trình nào dưới đây? <!--[cite: 86] -->",
+            options: ["A. $x-2y+z=0$.", "B. $x+2y+3z=0$.", "C. $x-2y+3z=0$.", "D. $x+2y+3z=1$."],
+            correctAnswer: "A"
+        },
+        {
+            id: 1008, type: "multiple_choice",
+            content: "Cho tứ diện $ABCD$. Gọi $M$ là trung điểm của $AB$. Cắt tứ diện $ABCD$ bởi mặt phẳng đi qua $M$ và song song với $BC$ và $AD$, thiết diện thu được là hình gì? <!--[cite: 86] -->",
+            options: ["A. Tam giác đều.", "B. Tam giác vuông.", "C. Hình bình hành.", "D. Ngũ giác."],
+            correctAnswer: "C"
+        },
+        {
+            id: 1009, type: "multiple_choice",
+            content: "Cấp số cộng $(u_n)$ có số hạng đầu $u_1=1$ và công sai $d=2$. Công thức số hạng tổng quát của dãy số $(u_n)$ là <!-- -->",
+            options: ["A. $u_n=2n-3$.", "B. $u_n=2n+1$.", "C. $u_n=2n-1$.", "D. $u_n=2n+3$."],
+            correctAnswer: "C"
+        },
+        {
+            id: 1010, type: "multiple_choice",
+            content: "Cho hình chóp $S.ABCD$ có đáy $ABCD$ là hình vuông tâm $O$, cạnh $a$. Đường thẳng $SO$ vuông góc với mặt phẳng đáy và $SO=\\frac{a\\sqrt{3}}{2}$. Tính góc giữa $(SCD)$ và $(ABCD)$. <!--[cite: 87] -->",
+            options: ["A. $90^\\circ$.", "B. $45^\\circ$.", "C. $60^\\circ$.", "D. $30^\\circ$."],
+            correctAnswer: "C"
+        },
+        {
+            id: 1011, type: "fill_blank",
+            content: "Hình phẳng $(H)$ được giới hạn bởi đồ thị $(C)$ của hàm số đa thức bậc ba và parabol $(P)$ có trục đối xứng vuông góc với trục hoành. Phần tô đậm như hình vẽ có diện tích bằng $\\frac{a}{b}$ ($a, b \\in \\mathbb{Z}; (a,b)=1$). Giá trị của biểu thức $a-3b$ bằng bao nhiêu?<br><img src='LINK_ANH_CUA_BAN' class='mt-4 mb-4 w-full max-w-sm mx-auto rounded-lg border border-gray-200 shadow-sm'><!--[cite: 87, 88] -->",
+            correctAnswer: "1"
+        },
+        {
+            id: 1012, type: "multiple_choice",
+            content: "Trong năm đầu tiên đi làm, anh A được nhận lương là 10 triệu đồng mỗi tháng. Cứ hết một năm, anh A lại được tăng lương, mỗi tháng năm sau tăng 12% so với mỗi tháng năm trước. Mỗi khi lĩnh lương anh A đều cất đi phần lương tăng so với năm ngay trước để tiết kiệm mua ô tô. Hỏi sau ít nhất bao nhiêu năm thì anh A mua được ô tô giá 500 triệu biết rằng anh A được gia đình hỗ trợ 32% giá trị chiếc xe? <!--[cite: 88, 89] -->",
+            options: ["A. 11 năm.", "B. 12 năm.", "C. 13 năm.", "D. 10 năm."],
+            correctAnswer: "C"
+        },
+        {
+            id: 1013, type: "multiple_choice",
+            content: "Trong một buổi giao lưu, có 7 học sinh trường A và 7 học sinh trường B ngồi vào 2 bàn dài đối diện nhau. Hỏi có bao nhiêu cách xếp sao cho 2 người ngồi đối diện và ngồi cạnh nhau thì không cùng trường? <!-- -->",
+            options: ["A. $2 \\cdot 7!$.", "B. $2 \\cdot 7!7!$.", "C. $7!7!$.", "D. $7!$."],
+            correctAnswer: "B"
+        },
+        {
+            id: 1014, type: "fill_blank",
+            content: "Cho hàm số $y=f(x)$. Hàm số $y=f'(x)$ liên tục trên $\\mathbb{R}$ và có đồ thị như hình vẽ. Biết $f(-1)=\\frac{13}{4}, f(2)=6$. Giá trị nhỏ nhất của hàm số $g(x)=f^3(x)-3f(x)$ trên đoạn $[-1;2]$ bằng bao nhiêu? (Nhập kết quả dưới dạng phân số tối giản a/b)<br><img src='LINK_ANH_CUA_BAN' class='mt-4 mb-4 w-full max-w-sm mx-auto rounded-lg border border-gray-200 shadow-sm'><!--[cite: 89, 90] -->",
+            correctAnswer: "1573/64"
+        },
+        {
+            id: 1015, type: "multiple_choice",
+            content: "Số sản phẩm một công nhân làm được trong một ngày được cho như sau:<br>18, 25, 39, 12, 54, 27, 46, 25, 19, 8, 36, 22, 20, 19, 17, 44, 5, 18, 23, 28, 25, 34, 46, 27, 16.<br>Hãy chuyển mẫu số liệu sang dạng ghép nhóm với sáu nhóm có độ dài bằng nhau: $[1;10), [10;19), [19;28), [28;37), [37;46), [46;55)$. Sau đó tính mốt của mẫu số liệu ghép nhóm trên. <!--[cite: 90, 91] -->",
+            options: ["A. 24.", "B. 22,75.", "C. 19.", "D. 23,5."],
+            correctAnswer: "B"
+        },
+        {
+            id: 1016, type: "multiple_choice",
+            content: "Một thư viện có 9 quyển sách Văn học, 10 quyển sách Khoa học tự nhiên và 12 quyển sách Kinh tế học, các quyển sách đôi một khác nhau. Có 10 học sinh muốn mượn mỗi bạn 1 quyển sách. Hỏi nếu thư viện yêu cầu sau khi họ mượn xong mỗi thể loại còn ít nhất 1 quyển thì họ có bao nhiêu cách mượn sách? <!--[cite: 91] -->",
+            options: [
+                "A. $A_{31}^{10}-9!-10!-12!$.",
+                "B. $22 \\cdot 9!+10!+A_{12}^{10}$.",
+                "C. $A_{31}^{10}-22 \\cdot 9!-10!$.",
+                "D. $A_{31}^{10}-9!-22 \\cdot 10!$."
+            ],
+            correctAnswer: "C"
+        },
+        {
+            id: 1017, type: "fill_blank",
+            content: "Cho tam giác vuông $ABC$ vuông tại $A$ có tích độ dài hai cạnh góc vuông bằng 15. Khi chu vi tam giác $ABC$ nhỏ nhất thì độ dài cạnh $BC$ bằng bao nhiêu? (Làm tròn đến chữ số thập phân thứ nhất, dùng dấu chấm) <!--[cite: 91, 92] -->",
+            correctAnswer: "5.5"
+        },
+        {
+            id: 1018, type: "multiple_choice",
+            content: "Biểu đồ bên dưới thể hiện giá trị sản phẩm trung bình thu được trên một hecta đất trồng cao su và đất trồng cà phê của cả nước từ năm 2018 đến năm 2022 (đơn vị: triệu đồng).<br><img src='LINK_ANH_CUA_BAN' class='mt-4 mb-4 w-full max-w-xl mx-auto rounded-lg border border-gray-200 shadow-sm'><br>Phát biểu nào sau đây là sai? <!--[cite: 92, 93] -->",
+            options: [
+                "A. Giá trị sản phẩm trung bình thu được trên một hecta đất trồng cà phê cao hơn trên một hecta đất trồng cao su.",
+                "B. Giá trị sản phẩm thu được trên cả đất trồng cao su và đất trồng cà phê đều có xu hướng tăng từ năm 2018 đến năm 2022.",
+                "C. Tổng giá trị sản phẩm trung bình thu được trên một hecta đất trồng cà phê cao gấp khoảng 1,1 lần trên một hecta đất trồng cao su.",
+                "D. Giá trị sản phẩm thu được trên đất trồng cao su từ năm 2020 đến năm 2022 không tăng nhanh bằng từ năm 2018 đến năm 2020."
+            ],
+            correctAnswer: "C"
+        },
+        {
+            id: 1019, type: "multiple_choice",
+            content: "Cho tam giác $ABC$ thỏa mãn điều kiện $\\sin B = 2\\sin C \\cdot \\cos A$. Mệnh đề nào sau đây đúng? <!-- -->",
+            options: [
+                "A. Tam giác $ABC$ vuông tại $A$.",
+                "B. Tam giác $ABC$ vuông tại $B$.",
+                "C. Tam giác $ABC$ cân tại $A$.",
+                "D. Tam giác $ABC$ cân tại $B$."
+            ],
+            correctAnswer: "D"
+        },
+        {
+            id: 1020, type: "multiple_choice",
+            content: "Giá trị của tổng $P=C_4^0-2C_4^1+4C_4^2-8C_4^3+16C_4^4$ là <!--[cite: 93] -->",
+            options: ["A. 1.", "B. -1.", "C. 81.", "D. 0."],
+            correctAnswer: "A"
+        },
+        {
+            id: 1021, type: "multiple_choice",
+            content: "Cho hàm số $y=ax^3+bx^2+cx+d$ ($a,b,c,d \\in \\mathbb{R}$) có đồ thị là đường cong trong hình bên. Có bao nhiêu số dương trong các số $a,b,c,d$?<br><img src='LINK_ANH_CUA_BAN' class='mt-4 mb-4 w-full max-w-sm mx-auto rounded-lg border border-gray-200 shadow-sm'><!--[cite: 93, 94] -->",
+            options: ["A. 1.", "B. 3.", "C. 2.", "D. 4."],
+            correctAnswer: "A"
+        },
+        {
+            id: 1022, type: "multiple_choice",
+            content: "Một hộp đựng 10 chiếc thẻ được đánh số từ 0 đến 9. Lấy ngẫu nhiên ra 3 chiếc thẻ, tính xác suất để 3 chữ số trên 3 chiếc thẻ được lấy ra có thể ghép thành một số chia hết cho 5. <!--[cite: 94] -->",
+            options: ["A. $\\frac{2}{5}$.", "B. $\\frac{3}{5}$.", "C. $\\frac{8}{15}$.", "D. $\\frac{7}{15}$."],
+            correctAnswer: "C"
+        },
+        {
+            id: 1023, type: "multiple_choice",
+            content: "Cho $\\Delta ABC$ có $AB=4, AC=7, \\widehat{A}=55^\\circ$. Độ lớn của góc $B$ gần nhất với số nào sau đây? <!--[cite: 94, 95] -->",
+            options: ["A. $70,6^\\circ$.", "B. $64,31^\\circ$.", "C. $55^\\circ$.", "D. $90,15^\\circ$."],
+            correctAnswer: "D"
+        },
+        {
+            id: 1024, type: "multiple_choice",
+            content: "Một chất điểm A xuất phát từ O, chuyển động thẳng với vận tốc biến thiên theo thời gian bởi quy luật $v(t)=\\frac{1}{150}t^2+\\frac{59}{75}t\\text{ (m/s)}$, trong đó $t$ là khoảng thời gian tính từ lúc A bắt đầu chuyển động. Từ trạng thái nghỉ, một chất điểm B cũng xuất phát từ O, chuyển động thẳng cùng hướng với A nhưng chậm hơn 3 giây so với A và có gia tốc bằng $a\\text{ (m/s}^2\\text{)}$ ($a$ là hằng số). Sau khi B xuất phát được 12 giây thì đuổi kịp A. Vận tốc của B tại thời điểm đuổi kịp A bằng: <!--[cite: 95] -->",
+            options: ["A. $20\\text{ (m/s)}$.", "B. $16\\text{ (m/s)}$.", "C. $13\\text{ (m/s)}$.", "D. $15\\text{ (m/s)}$."],
+            correctAnswer: "B"
+        },
+        {
+            id: 1025, type: "multiple_choice",
+            content: "Cho hình thang $ABCD$ vuông tại $A$ và $D$ có $AB=6a, AD=CD=\\frac{1}{2}AB$, $M$ thuộc cạnh $AD$ sao cho $AM=\\frac{1}{3}AD$. Tính $T=(\\overrightarrow{MB}+2\\overrightarrow{MC})\\cdot(\\overrightarrow{CD}-\\overrightarrow{BD})$. <!--[cite: 95, 96] -->",
+            options: ["A. $T=27a$.", "B. $T=\\frac{1}{27}a$.", "C. $T=27a^2$.", "D. $T=\\frac{1}{27}a^2$."],
+            correctAnswer: "C"
+        },
+        {
+            id: 1026, type: "multiple_choice",
+            content: "Xác định các giá trị của tham số $m$ để hàm số $y=x^3-3mx^2-m$ nghịch biến trên khoảng $(0;1)$? <!--[cite: 96] -->",
+            options: ["A. $m \\ge 0$.", "B. $m < \\frac{1}{2}$.", "C. $m \\le 0$.", "D. $m \\ge \\frac{1}{2}$."],
+            correctAnswer: "D"
+        },
+        {
+            id: 1027, type: "fill_blank",
+            content: "Cho hình lập phương $ABCD.A'B'C'D'$ cạnh bằng $a$. Lấy điểm $M$ thuộc đoạn $AD'$, điểm $N$ thuộc đoạn $BD$ sao cho $AM=DN=x$ ($0 < x < \\frac{a\\sqrt{2}}{2}$). Khi độ dài đoạn $MN$ đạt giá trị nhỏ nhất thì $x=ka$. Giá trị của biểu thức $T=9k^2+1$ bằng bao nhiêu? <!--[cite: 96, 97] -->",
+            correctAnswer: "3"
+        },
+        {
+            id: 1028, type: "fill_blank",
+            content: "Gọi $S_n$ là tổng $n$ số hạng đầu tiên trong cấp số cộng $(a_n)$ với $a_1 \\neq 0$. Biết $S_8=S_{11}$, tỉ số $\\frac{a_4}{a_6}$ bằng bao nhiêu? (Nhập kết quả dưới dạng phân số tối giản a/b) <!--[cite: 97] -->",
+            correctAnswer: "3/2"
+        },
+        {
+            id: 1029, type: "multiple_choice",
+            content: "Cho hàm số $f(x)$ là hàm đa thức bậc 3 và có đồ thị như hình vẽ.<br><img src='LINK_ANH_CUA_BAN' class='mt-4 mb-4 w-full max-w-sm mx-auto rounded-lg border border-gray-200 shadow-sm'><br>Xét hàm số $g(x)=f(2x^3+x-1)+m$. Với giá trị nào của $m$ thì giá trị nhỏ nhất của $g(x)$ trên đoạn $[0;1]$ bằng $-20$? <!-- -->",
+            options: ["A. -19.", "B. 2.", "C. -21.", "D. 11."],
+            correctAnswer: "A"
+        },
+        {
+            id: 1030, type: "multiple_choice",
+            content: "Tất cả các giá trị thực của tham số $m$ để hàm số $y=-x^3-6x^2+(4m-9)x+4$ nghịch biến trên khoảng $(-\\infty;-1)$ là <!--[cite: 98, 99] -->",
+            options: ["A. $(-\\infty;-\\frac{3}{4}]$.", "B. $[-\\frac{3}{4};+\\infty)$.", "C. $[0;+\\infty)$.", "D. $(-\\infty;0]$."],
+            correctAnswer: "A"
+        },
+        {
+            id: 1031, type: "multiple_choice",
+            content: "Đường tròn $x^2+y^2-1=0$ tiếp xúc đường thẳng nào trong các đường thẳng dưới đây? <!--[cite: 99] -->",
+            options: ["A. $x+y=0$.", "B. $3x+4y-1=0$.", "C. $3x-4y+5=0$.", "D. $x+y-1=0$."],
+            correctAnswer: "C"
+        },
+        {
+            id: 1032, type: "multiple_choice",
+            content: "Phương trình $\\sqrt{x-2}+\\sqrt{4-x}=x^2-6x+11$ có bao nhiêu nghiệm nguyên? <!--[cite: 99] -->",
+            options: ["A. 3.", "B. 2.", "C. 1.", "D. 0."],
+            correctAnswer: "C"
+        },
+        {
+            id: 1033, type: "fill_blank",
+            content: "Cho hàm số $f(x)$ có đạo hàm $f'(x)=-x^{2027}(x+1)^{2028}(2x+7)^{2029}, \\forall x \\in \\mathbb{R}$. Số điểm cực trị của hàm số đã cho là <!--[cite: 100] -->",
+            correctAnswer: "2"
+        },
+        {
+            id: 1034, type: "multiple_choice",
+            content: "Một cơ sở in ấn mua máy in với giá 100 triệu đồng. Trong 5 năm tiếp theo, mỗi năm giá trị máy in giảm 5% so với năm trước và từ năm thứ 6 trở đi, mỗi năm giá trị máy in giảm 10% so với năm trước. Sau 10 năm kể từ khi mua máy in, cơ sở đã thanh lí máy in bằng với giá trị của máy. Cơ sở in ấn đã thanh lí máy in với giá bao nhiêu? (Lấy kết quả gần nhất) <!--[cite: 100] -->",
+            options: ["A. 50,2 triệu đồng.", "B. 46,9 triệu đồng.", "C. 49,5 triệu đồng.", "D. 45,7 triệu đồng."],
+            correctAnswer: "D"
+        },
+        {
+            id: 1035, type: "multiple_choice",
+            content: "Số nghiệm phương trình $\\sin x \\cos\\left(2x+\\frac{\\pi}{6}\\right)-\\frac{1}{2}\\sin 2x=0$ trong khoảng $(0;\\pi]$ là <!--[cite: 100, 101] -->",
+            options: ["A. 4.", "B. 1.", "C. 2.", "D. 3."],
+            correctAnswer: "C"
+        },
+        {
+            id: 1036, type: "multiple_choice",
+            content: "Cho hàm số $y=x^3+\\frac{3}{2}(m+1)x^2+3(m+1)x+2022$. Tìm điều kiện của $m$ để hàm số không có cực trị? <!--[cite: 101] -->",
+            options: ["A. $m < -1$ hoặc $m > 3$.", "B. $m \\le -1$ hoặc $m \\ge 3$.", "C. $m \\in (-1;3)$.", "D. $m \\in [-1;3]$."],
+            correctAnswer: "D"
+        },
+        {
+            id: 1037, type: "fill_blank",
+            content: "Một khu rừng có trữ lượng gỗ là $8 \\cdot 10^6\\text{ (m}^3\\text{)}$. Giả sử tốc độ sinh trưởng của các cây ở khu rừng đó không đổi và bằng $3,05\\%$ mỗi năm và lượng gỗ thu được sau $n$ năm xác định bởi công thức $S_n=Ae^{nr}$ với $A$ là trữ lượng gỗ ban đầu, $r$ là tốc độ sinh trưởng của các cây trong khu rừng sau một năm. Sau 20 năm, khu rừng đó sẽ có trữ lượng gỗ là bao nhiêu triệu $\\text{m}^3$? Coi như rừng cây không bị khai thác và kết quả làm tròn đến hàng đơn vị. <!--[cite: 101] -->",
+            correctAnswer: "15"
+        },
+        {
+            id: 1038, type: "fill_blank",
+            content: "Mái của một căn nhà nghiêng đều một góc $\\alpha$ so với mặt đất được minh họa như hình vẽ. Biết rằng nếu đặt trong không gian $Oxyz$ thì mặt đất nằm tương ứng với mặt phẳng $(Oxy)$, đoạn $AB$ là một cạnh của mái nhà với $A(2;-4;3)$ và $B(-3;1;4)$. Góc $\\alpha$ bằng bao nhiêu độ? (Kết quả làm tròn đến hàng đơn vị)<br><img src='LINK_ANH_CUA_BAN' class='mt-4 mb-4 w-full max-w-xs mx-auto rounded-lg border border-gray-200 shadow-sm'><!-- -->",
+            correctAnswer: "8"
+        },
+        {
+            id: 1039, type: "fill_blank",
+            content: "Gọi $S$ là tập nghiệm của phương trình $(2^{x^2-x}-4)\\sqrt{2-\\log_2 x}=0$. Số phần tử của $S$ là <!--[cite: 102] -->",
+            correctAnswer: "2"
+        },
+        {
+            id: 1040, type: "multiple_choice",
+            content: "Cho hình chóp $S.ABCD$ đáy $ABCD$ là hình vuông cạnh bằng $a$; cạnh bên $SA$ vuông góc với đáy, góc giữa $SC$ và đáy bằng $45^\\circ$. Khoảng cách giữa hai đường thẳng $SC$ và $BD$ bằng? <!--[cite: 102, 103] -->",
+            options: ["A. $\\frac{a}{2}$.", "B. $\\frac{3a}{2}$.", "C. $a$.", "D. $2a$."],
+            correctAnswer: "A"
+        },
+        {
+            id: 1041, type: "multiple_choice",
+            content: "Cho hình chóp tam giác đều $S.ABC$ có cạnh đáy bằng $a$, góc giữa mặt bên và mặt đáy bằng $60^\\circ$. Tính diện tích xung quanh của hình nón đỉnh $S$, đáy là hình tròn ngoại tiếp tam giác $ABC$. <!--[cite: 103] -->",
+            options: [
+                "A. $\\frac{\\pi a^2\\sqrt{3}}{3}$.",
+                "B. $\\frac{\\pi a^2\\sqrt{7}}{6}$.",
+                "C. $\\frac{\\pi a^2\\sqrt{7}}{4}$.",
+                "D. $\\frac{\\pi a^2\\sqrt{10}}{8}$."
+            ],
+            correctAnswer: "B"
+        },
+        {
+            id: 1042, type: "fill_blank",
+            content: "Từ các số $7, 8, 9$ lập được bao nhiêu số tự nhiên gồm 6 chữ số thỏa mãn đồng thời hai điều kiện sau: Mỗi chữ số xuất hiện đúng hai lần và hai chữ số giống nhau không đứng cạnh nhau? <!-- -->",
+            correctAnswer: "76"
+        },
+        {
+            id: 1043, type: "fill_blank",
+            content: "Cho hàm số $y=f(x)$ có đồ thị hàm số $y=f'(x)$ trên đoạn $[-1;3]$ như hình vẽ sau:<br><img src='LINK_ANH_CUA_BAN' class='mt-4 mb-4 w-full max-w-sm mx-auto rounded-lg border border-gray-200 shadow-sm'><br>Giá trị của biểu thức $f(3)-f(-1)$ là <!--[cite: 104, 105] -->",
+            correctAnswer: "6"
+        },
+        {
+            id: 1044, type: "multiple_choice",
+            content: "Trong không gian $Oxyz$, cho điểm $I(2;-3;1)$ và mặt phẳng $(P): 2x-y+2z-3=0$. Mặt cầu tâm $I$ và tiếp xúc với $(P)$ có phương trình là <!--[cite: 105] -->",
+            options: [
+                "A. $(x-2)^2+(y+3)^2+(z-1)^2=9$.",
+                "B. $(x-2)^2+(y+3)^2+(z-1)^2=3$.",
+                "C. $(x+2)^2+(y-3)^2+(z+1)^2=9$.",
+                "D. $(x+2)^2+(y-3)^2+(z+1)^2=3$."
+            ],
+            correctAnswer: "A"
+        },
+        {
+            id: 1045, type: "fill_blank",
+            content: "Kết quả khảo sát 100 khán giả trường quay và cho điểm tiết mục biểu diễn X theo thang điểm 100 được thống kê dưới bảng sau đây:<br><table class='w-full text-center border-collapse border border-gray-300 mt-2 text-sm'><tr><th class='border border-gray-300 p-2'>Số điểm</th><td class='border border-gray-300 p-2'>[50;60)</td><td class='border border-gray-300 p-2'>[60;70)</td><td class='border border-gray-300 p-2'>[70;80)</td><td class='border border-gray-300 p-2'>[80;90)</td><td class='border border-gray-300 p-2'>[90;100)</td></tr><tr><th class='border border-gray-300 p-2'>Số người</th><td class='border border-gray-300 p-2'>3</td><td class='border border-gray-300 p-2'>25</td><td class='border border-gray-300 p-2'>32</td><td class='border border-gray-300 p-2'>18</td><td class='border border-gray-300 p-2'>22</td></tr></table><br>Phương sai của mẫu số liệu ghép nhóm trên bằng bao nhiêu? (làm tròn đến hàng đơn vị) <!--[cite: 105] -->",
+            correctAnswer: "133"
+        },
+        {
+            id: 1046, type: "fill_blank",
+            content: "Trong không gian $Oxyz$, cho ba điểm $A(1;-2;1), B(0;3;3), C(2;-1;5)$ và điểm $M$ thuộc mặt phẳng $(\\alpha): x+2y+2z+1=0$. Biểu thức $P=|2\\overrightarrow{MA}+5\\overrightarrow{MB}-\\overrightarrow{MC}|$ đạt giá trị nhỏ nhất bằng bao nhiêu? <!--[cite: 106] -->",
+            correctAnswer: "18"
+        },
+        {
+            id: 1047, type: "fill_blank",
+            content: "Hình phẳng giới hạn bởi các đường $y=4+2x-x^2, y=x^2, x=-1, x=2$ có diện tích là bao nhiêu? <!--[cite: 106] -->",
+            correctAnswer: "9"
+        },
+        {
+            id: 1048, type: "multiple_choice",
+            content: "Cho hình chóp $S.ABC$ có $SA \\perp (ABC), AB \\perp BC, SA=AB=a, AC=a\\sqrt{3}$.<br><img src='LINK_ANH_CUA_BAN' class='mt-4 mb-4 w-full max-w-xs mx-auto rounded-lg border border-gray-200 shadow-sm'><br>Góc giữa đường thẳng $SC$ và mặt phẳng $(SAB)$ là góc <!-- -->",
+            options: ["A. $\\widehat{CSA}$.", "B. $\\widehat{SCA}$.", "C. $\\widehat{CSB}$.", "D. $\\widehat{SCB}$."],
+            correctAnswer: "C"
+        },
+        {
+            id: 1049, type: "multiple_choice",
+            content: "Cho hình chóp $S.ABC$ có $SA \\perp (ABC), AB \\perp BC, SA=AB=a, AC=a\\sqrt{3}$. Giá trị $\\tan \\widehat{CSB}$ bằng bao nhiêu? <!--[cite: 107] -->",
+            options: ["A. 0.", "B. $\\sqrt{3}$.", "C. $\\frac{\\sqrt{3}}{3}$.", "D. 1."],
+            correctAnswer: "D"
+        },
+        {
+            id: 1050, type: "multiple_choice",
+            content: "Cho hình chóp $S.ABC$ có $SA \\perp (ABC), AB \\perp BC, SA=AB=a, AC=a\\sqrt{3}$. Góc giữa đường thẳng $SC$ và mặt phẳng $(SAB)$ bằng <!--[cite: 107] -->",
+            options: ["A. $30^\\circ$.", "B. $45^\\circ$.", "C. $60^\\circ$.", "D. $90^\\circ$."],
+            correctAnswer: "B"
         }
     ],
 };
