@@ -1455,7 +1455,7 @@ const allExamsData = {
   {"id": 315, "type": "multiple_choice", "content": "Quy trình kỹ thuật dựa trên nguyên lý tái tổ hợp DNA và nguyên lý biểu hiện gene, tạo ra các phân tử DNA tái tổ hợp và protein tái tổ hợp được gọi là:", "options": ["A. Công nghệ DNA tái tổ hợp.", "B. Công nghệ sinh học.", "C. Công nghệ tế bào.", "D. Công nghệ vi sinh vật."], "correctAnswer": "A", "image": null},
   {"id": 316, "type": "multiple_choice", "content": "Phát biểu nào sau đây đúng về mối quan hệ giữa các cá thể trong quần thể?", "options": ["A. Hiện tượng ăn thịt đồng loại luôn dẫn đến sự diệt vong của loài.", "B. Quan hệ hỗ trợ giúp quần thể thích nghi tốt hơn với môi trường.", "C. Quan hệ cạnh tranh không xảy ra ở các quần thể thực vật.", "D. Sự cạnh tranh trong quần thể chỉ xảy ra khi môi trường thiếu thức ăn."], "correctAnswer": "B", "image": null}
 ],
-    "thpt_hoa_02": [
+    "thpt_hoa_03": [
   {"id": 1, "type": "multiple_choice", "content": "Hợp chất nào sau đây là ester?", "options": ["A. CH3COOH.", "B. CH3CHO.", "C. CH3COOCH3.", "D. CH3COCH3."], "correctAnswer": "C", "image": null},
   {"id": 2, "type": "multiple_choice", "content": "Triolein là chất béo không no, ở trạng thái lỏng. Công thức hóa học của triolein là", "options": ["A. (C17H33COO)3C3H5.", "B. (C17H35COO)3C3H5.", "C. (C15H31COO)3C3H5.", "D. (C17H31COO)3C3H5."], "correctAnswer": "A", "image": null},
   {"id": 3, "type": "multiple_choice", "content": "Chất nào sau đây là thành phần chính của xà phòng?", "options": ["A. CH3[CH2]3COONa.", "B. CH3[CH2]11OSO3Na.", "C. CH3[CH2]14COONa.", "D. CH3[CH2]16COOH."], "correctAnswer": "C", "image": null},
