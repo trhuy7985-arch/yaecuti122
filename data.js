@@ -1427,11 +1427,11 @@ const allExamsData = {
       "D. 0,16."
     ],
     "correctAnswer": "C",
-    "image": "https://i.postimg.cc/8zg1fFjm/102.png"
+    "image": "LINK_ANH_TAI_DAY"
   },
   {
     "id": 103,
-    "type": "fill_in_the_blank",
+    "type": "fill_blank",
     "content": "Một người cần di chuyển một chiếc tủ gỗ có dạng hình hộp chữ nhật bằng cách đẩy nó theo phương ngang để nó trượt chậm và đều, sao cho mặt dưới của tủ luôn tiếp xúc toàn diện với mặt sàn nhà. Kích thước chiều cao và chiều rộng của tủ lần lượt là 1,8 m và 1,1 m. Biết hệ số ma sát giữa tủ và sàn nhà bằng 0,35. Độ cao tối đa của điểm đặt lực đẩy so với sàn nhà có giá trị bằng bao nhiêu (tính theo đơn vị mét, kết quả lấy dưới dạng phân số tối giản)?",
     "options": [],
     "correctAnswer": "11/7",
@@ -1764,7 +1764,7 @@ const allExamsData = {
   },
   {
     "id": 212,
-    "type": "fill_in_the_blank",
+    "type": "fill_blank",
     "content": "Một học sinh cần điều chế một lượng nhỏ 12,4 mL khí acetylene ở điều kiện chuẩn từ calcium carbide CaC2 (độ tinh khiết 99%, M = 64,10 g/mol). Nếu hiệu suất phản ứng là 100%, học sinh này cần sử dụng tối thiểu bao nhiêu mg calcium carbide (làm tròn đến hàng đơn vị)?",
     "options": [],
     "correctAnswer": "32",
@@ -1980,7 +1980,7 @@ const allExamsData = {
   },
   {
     "id": 312,
-    "type": "fill_in_the_blank",
+    "type": "fill_blank",
     "content": "Sơ đồ phả hệ mô tả 2 bệnh di truyền ở người, trong đó bệnh P do gen lặn nằm trên NST thường quy định, bệnh Q do gen lặn nằm trên vùng không tương đồng của NST giới tính X quy định. Biết rằng không có đột biến mới xảy ra. Xác suất cặp vợ chồng 13-14 sinh đứa con đầu lòng bị cả hai bệnh là bao nhiêu (viết dưới dạng phân số tối giản)?",
     "options": [],
     "correctAnswer": "1/80",
