@@ -1402,7 +1402,7 @@ const allExamsData = {
             correctAnswer: "A"
         }
     ],
-    "hsa_khoahoc_01": [
+  "hsa_khoahoc_01": [
   {
     "id": 101,
     "type": "multiple_choice",
@@ -1413,7 +1413,8 @@ const allExamsData = {
       "C. Khi chuyển sang thể khí, thế năng tương tác phân tử giảm.",
       "D. Khi áp suất tăng, nhiệt độ sôi của chất lỏng cũng tăng."
     ],
-    "correctAnswer": "C"
+    "correctAnswer": "C",
+    "image": null
   },
   {
     "id": 102,
@@ -1425,14 +1426,16 @@ const allExamsData = {
       "C. 0,14.",
       "D. 0,16."
     ],
-    "correctAnswer": "C"
+    "correctAnswer": "C",
+    "image": "LINK_ANH_TAI_DAY"
   },
   {
     "id": 103,
     "type": "fill_in_the_blank",
     "content": "Một người cần di chuyển một chiếc tủ gỗ có dạng hình hộp chữ nhật bằng cách đẩy nó theo phương ngang để nó trượt chậm và đều, sao cho mặt dưới của tủ luôn tiếp xúc toàn diện với mặt sàn nhà. Kích thước chiều cao và chiều rộng của tủ lần lượt là 1,8 m và 1,1 m. Biết hệ số ma sát giữa tủ và sàn nhà bằng 0,35. Độ cao tối đa của điểm đặt lực đẩy so với sàn nhà có giá trị bằng bao nhiêu (tính theo đơn vị mét, kết quả lấy dưới dạng phân số tối giản)?",
     "options": [],
-    "correctAnswer": "11/7"
+    "correctAnswer": "11/7",
+    "image": null
   },
   {
     "id": 104,
@@ -1444,7 +1447,8 @@ const allExamsData = {
       "C. Dẫn nhiệt do tiếp xúc.",
       "D. Giao thoa sóng điện từ."
     ],
-    "correctAnswer": "A"
+    "correctAnswer": "A",
+    "image": null
   },
   {
     "id": 105,
@@ -1456,7 +1460,8 @@ const allExamsData = {
       "C. 65%.",
       "D. 77%."
     ],
-    "correctAnswer": "D"
+    "correctAnswer": "D",
+    "image": null
   },
   {
     "id": 106,
@@ -1468,7 +1473,8 @@ const allExamsData = {
       "C. 21%.",
       "D. 24%."
     ],
-    "correctAnswer": "C"
+    "correctAnswer": "C",
+    "image": null
   },
   {
     "id": 107,
@@ -1480,7 +1486,8 @@ const allExamsData = {
       "C. 267 Ω.",
       "D. 274 Ω."
     ],
-    "correctAnswer": "C"
+    "correctAnswer": "C",
+    "image": null
   },
   {
     "id": 108,
@@ -1492,7 +1499,8 @@ const allExamsData = {
       "C. 2135 s.",
       "D. 2355 s."
     ],
-    "correctAnswer": "C"
+    "correctAnswer": "C",
+    "image": null
   },
   {
     "id": 109,
@@ -1504,7 +1512,8 @@ const allExamsData = {
       "C. 15,2 kg.",
       "D. 16,1 kg."
     ],
-    "correctAnswer": "A"
+    "correctAnswer": "A",
+    "image": null
   },
   {
     "id": 110,
@@ -1516,7 +1525,8 @@ const allExamsData = {
       "C. Q2 = 3,6Q1.",
       "D. Q1 = 3,6Q2."
     ],
-    "correctAnswer": "C"
+    "correctAnswer": "C",
+    "image": null
   },
   {
     "id": 111,
@@ -1528,7 +1538,8 @@ const allExamsData = {
       "C. 3 m³.",
       "D. 4 m³."
     ],
-    "correctAnswer": "C"
+    "correctAnswer": "C",
+    "image": "LINK_ANH_TAI_DAY"
   },
   {
     "id": 112,
@@ -1540,7 +1551,8 @@ const allExamsData = {
       "C. 3,14 năm.",
       "D. 3,57 năm."
     ],
-    "correctAnswer": "D"
+    "correctAnswer": "D",
+    "image": null
   },
   {
     "id": 113,
@@ -1552,7 +1564,8 @@ const allExamsData = {
       "C. 0,8 W.",
       "D. 0,9 W."
     ],
-    "correctAnswer": "D"
+    "correctAnswer": "D",
+    "image": "LINK_ANH_TAI_DAY"
   },
   {
     "id": 114,
@@ -1564,7 +1577,8 @@ const allExamsData = {
       "C. 4,86 V.",
       "D. -4,86 V."
     ],
-    "correctAnswer": "B"
+    "correctAnswer": "B",
+    "image": "LINK_ANH_TAI_DAY"
   },
   {
     "id": 115,
@@ -1576,7 +1590,8 @@ const allExamsData = {
       "C. 1,8.10^-4 W/m².",
       "D. 1,8.10^-3 W/m²."
     ],
-    "correctAnswer": "B"
+    "correctAnswer": "B",
+    "image": null
   },
   {
     "id": 116,
@@ -1588,7 +1603,8 @@ const allExamsData = {
       "C. 126156 m.",
       "D. 1261566 m."
     ],
-    "correctAnswer": "B"
+    "correctAnswer": "B",
+    "image": null
   },
   {
     "id": 117,
@@ -1600,7 +1616,8 @@ const allExamsData = {
       "C. 36 m.",
       "D. 48 m."
     ],
-    "correctAnswer": "C"
+    "correctAnswer": "C",
+    "image": null
   },
   {
     "id": 201,
@@ -1612,7 +1629,8 @@ const allExamsData = {
       "C. Khoảng 1,8.10^-53 lần.",
       "D. Khoảng 0,0005 lần."
     ],
-    "correctAnswer": "A"
+    "correctAnswer": "A",
+    "image": null
   },
   {
     "id": 202,
@@ -1624,7 +1642,8 @@ const allExamsData = {
       "C. 3 và 6.",
       "D. 6 và 3."
     ],
-    "correctAnswer": "C"
+    "correctAnswer": "C",
+    "image": "LINK_ANH_TAI_DAY"
   },
   {
     "id": 203,
@@ -1636,7 +1655,8 @@ const allExamsData = {
       "C. NH3(g) + 3HCl(g) -> NCl3(s) + 3H2(g)",
       "D. 2NH3(g) + 2HCl(g) -> N2(g) + Cl2(g) + 4H2(g)"
     ],
-    "correctAnswer": "B"
+    "correctAnswer": "B",
+    "image": null
   },
   {
     "id": 204,
@@ -1648,7 +1668,8 @@ const allExamsData = {
       "C. Phenol.",
       "D. Alcohol."
     ],
-    "correctAnswer": "A"
+    "correctAnswer": "A",
+    "image": null
   },
   {
     "id": 205,
@@ -1660,7 +1681,8 @@ const allExamsData = {
       "C. N2O.",
       "D. N2O5."
     ],
-    "correctAnswer": "A"
+    "correctAnswer": "A",
+    "image": null
   },
   {
     "id": 206,
@@ -1672,7 +1694,8 @@ const allExamsData = {
       "C. +1.",
       "D. -1."
     ],
-    "correctAnswer": "D"
+    "correctAnswer": "D",
+    "image": null
   },
   {
     "id": 207,
@@ -1684,7 +1707,8 @@ const allExamsData = {
       "C. Ethylamine tác dụng với nitrous acid ở nhiệt độ thấp (0 - 5 °C) thu được muối diazonium.",
       "D. Dung dịch ethylamine tác dụng được với dung dịch muối FeCl3."
     ],
-    "correctAnswer": "C"
+    "correctAnswer": "C",
+    "image": null
   },
   {
     "id": 208,
@@ -1696,7 +1720,8 @@ const allExamsData = {
       "C. Đều tạo được kết tủa đỏ gạch khi tác dụng với Cu(OH)2, đun nóng trong môi trường kiềm.",
       "D. Đều tạo được dung dịch màu xanh lam khi tác dụng với Cu(OH)2 trong môi trường kiềm."
     ],
-    "correctAnswer": "B"
+    "correctAnswer": "B",
+    "image": null
   },
   {
     "id": 209,
@@ -1708,7 +1733,8 @@ const allExamsData = {
       "C. ethanol và pentanoic acid.",
       "D. ethanoic acid và pentan-1-ol."
     ],
-    "correctAnswer": "C"
+    "correctAnswer": "C",
+    "image": null
   },
   {
     "id": 210,
@@ -1720,7 +1746,8 @@ const allExamsData = {
       "C. Do tương tác van der Waals giảm dần từ F2 đến I2.",
       "D. Do khối lượng, kích thước phân tử và số lượng electron trong các phân tử tăng dần từ F2 đến I2."
     ],
-    "correctAnswer": "D"
+    "correctAnswer": "D",
+    "image": "LINK_ANH_TAI_DAY"
   },
   {
     "id": 211,
@@ -1732,14 +1759,16 @@ const allExamsData = {
       "C. BaCO3, CaCO3, SrCO3, MgCO3.",
       "D. MgCO3, BaCO3, SrCO3, CaCO3."
     ],
-    "correctAnswer": "B"
+    "correctAnswer": "B",
+    "image": null
   },
   {
     "id": 212,
     "type": "fill_in_the_blank",
     "content": "Một học sinh cần điều chế một lượng nhỏ 12,4 mL khí acetylene ở điều kiện chuẩn từ calcium carbide CaC2 (độ tinh khiết 99%, M = 64,10 g/mol). Nếu hiệu suất phản ứng là 100%, học sinh này cần sử dụng tối thiểu bao nhiêu mg calcium carbide (làm tròn đến hàng đơn vị)?",
     "options": [],
-    "correctAnswer": "32"
+    "correctAnswer": "32",
+    "image": null
   },
   {
     "id": 213,
@@ -1751,7 +1780,8 @@ const allExamsData = {
       "C. CH4 + H2O <=> CH3OH + H2",
       "D. CH4 + H2O <=> CO + 3H2"
     ],
-    "correctAnswer": "D"
+    "correctAnswer": "D",
+    "image": "LINK_ANH_TAI_DAY"
   },
   {
     "id": 214,
@@ -1763,7 +1793,8 @@ const allExamsData = {
       "C. Nước.",
       "D. Methanol và nước."
     ],
-    "correctAnswer": "C"
+    "correctAnswer": "C",
+    "image": "LINK_ANH_TAI_DAY"
   },
   {
     "id": 215,
@@ -1775,7 +1806,8 @@ const allExamsData = {
       "C. nhiệt độ cao và áp suất cao.",
       "D. nhiệt độ thấp và áp suất thấp."
     ],
-    "correctAnswer": "A"
+    "correctAnswer": "A",
+    "image": null
   },
   {
     "id": 216,
@@ -1787,7 +1819,8 @@ const allExamsData = {
       "C. chỉ có Pb bị ăn mòn điện hóa.",
       "D. chỉ có Sn bị ăn mòn điện hóa."
     ],
-    "correctAnswer": "D"
+    "correctAnswer": "D",
+    "image": null
   },
   {
     "id": 217,
@@ -1799,7 +1832,8 @@ const allExamsData = {
       "C. Ở cathode đều xảy ra sự khử H2O.",
       "D. pH của dung dịch không đổi trong quá trình điện phân."
     ],
-    "correctAnswer": "A"
+    "correctAnswer": "A",
+    "image": null
   },
   {
     "id": 301,
@@ -1811,7 +1845,8 @@ const allExamsData = {
       "C. (1) -> (2) -> (3).",
       "D. (1) -> (3) -> (2)."
     ],
-    "correctAnswer": "A"
+    "correctAnswer": "A",
+    "image": null
   },
   {
     "id": 302,
@@ -1823,7 +1858,8 @@ const allExamsData = {
       "C. 3.",
       "D. 4."
     ],
-    "correctAnswer": "D"
+    "correctAnswer": "D",
+    "image": null
   },
   {
     "id": 303,
@@ -1835,7 +1871,8 @@ const allExamsData = {
       "C. 1d, 2b, 3a, 4c.",
       "D. 1a, 2b, 3c, 4d."
     ],
-    "correctAnswer": "A"
+    "correctAnswer": "A",
+    "image": null
   },
   {
     "id": 304,
@@ -1847,7 +1884,8 @@ const allExamsData = {
       "C. 3.",
       "D. 4."
     ],
-    "correctAnswer": "B"
+    "correctAnswer": "B",
+    "image": "LINK_ANH_TAI_DAY"
   },
   {
     "id": 305,
@@ -1859,7 +1897,8 @@ const allExamsData = {
       "C. 1, 3, 4.",
       "D. 1, 2, 3."
     ],
-    "correctAnswer": "B"
+    "correctAnswer": "B",
+    "image": "LINK_ANH_TAI_DAY"
   },
   {
     "id": 306,
@@ -1871,7 +1910,8 @@ const allExamsData = {
       "C. 1, 3, 4.",
       "D. 1, 2, 4."
     ],
-    "correctAnswer": "A"
+    "correctAnswer": "A",
+    "image": "LINK_ANH_TAI_DAY"
   },
   {
     "id": 307,
@@ -1883,7 +1923,8 @@ const allExamsData = {
       "C. 2, 3, 4.",
       "D. 1, 2, 3."
     ],
-    "correctAnswer": "C"
+    "correctAnswer": "C",
+    "image": "LINK_ANH_TAI_DAY"
   },
   {
     "id": 308,
@@ -1895,7 +1936,8 @@ const allExamsData = {
       "C. 1, 3, 4.",
       "D. 2, 3, 4."
     ],
-    "correctAnswer": "A"
+    "correctAnswer": "A",
+    "image": "LINK_ANH_TAI_DAY"
   },
   {
     "id": 309,
@@ -1907,7 +1949,8 @@ const allExamsData = {
       "C. Hoán vị gen.",
       "D. Tương tác gen."
     ],
-    "correctAnswer": "D"
+    "correctAnswer": "D",
+    "image": null
   },
   {
     "id": 310,
@@ -1919,7 +1962,8 @@ const allExamsData = {
       "C. 8.",
       "D. 6."
     ],
-    "correctAnswer": "C"
+    "correctAnswer": "C",
+    "image": null
   },
   {
     "id": 311,
@@ -1931,14 +1975,16 @@ const allExamsData = {
       "C. 3.",
       "D. 4."
     ],
-    "correctAnswer": "B"
+    "correctAnswer": "B",
+    "image": null
   },
   {
     "id": 312,
     "type": "fill_in_the_blank",
     "content": "Sơ đồ phả hệ mô tả 2 bệnh di truyền ở người, trong đó bệnh P do gen lặn nằm trên NST thường quy định, bệnh Q do gen lặn nằm trên vùng không tương đồng của NST giới tính X quy định. Biết rằng không có đột biến mới xảy ra. Xác suất cặp vợ chồng 13-14 sinh đứa con đầu lòng bị cả hai bệnh là bao nhiêu (viết dưới dạng phân số tối giản)?",
     "options": [],
-    "correctAnswer": "1/80"
+    "correctAnswer": "1/80",
+    "image": "LINK_ANH_TAI_DAY"
   },
   {
     "id": 313,
@@ -1950,7 +1996,8 @@ const allExamsData = {
       "C. Cách li sinh thái.",
       "D. Cách li tập tính."
     ],
-    "correctAnswer": "A"
+    "correctAnswer": "A",
+    "image": null
   },
   {
     "id": 314,
@@ -1962,7 +2009,8 @@ const allExamsData = {
       "C. Một quần thể nhỏ bị cô lập.",
       "D. Một quần thể lớn và giao phối không ngẫu nhiên."
     ],
-    "correctAnswer": "C"
+    "correctAnswer": "C",
+    "image": null
   },
   {
     "id": 315,
@@ -1974,7 +2022,8 @@ const allExamsData = {
       "C. Công nghệ tế bào.",
       "D. Công nghệ vi sinh vật."
     ],
-    "correctAnswer": "A"
+    "correctAnswer": "A",
+    "image": null
   },
   {
     "id": 316,
@@ -1986,7 +2035,8 @@ const allExamsData = {
       "C. Quan hệ cạnh tranh không xảy ra ở các quần thể thực vật.",
       "D. Sự cạnh tranh trong quần thể chỉ xảy ra khi môi trường thiếu thức ăn."
     ],
-    "correctAnswer": "B"
+    "correctAnswer": "B",
+    "image": null
   }
 ],
 };
