@@ -7,9 +7,9 @@ const examsMeta = [
     // --- Nhóm TSA - Tư duy Toán học ---
     { id: "tsa_toan_01", type: "TSA", category: "math", title: "Đề thi Đánh giá Tư duy - TSA26A (Môn Toán)", questionsCount: 40, time: 60, img: "https://i.postimg.cc/FFbmqQ9X/A-nh-chu-p-ma-n-hi-nh-2026-10-14-004011.png", isVip: true },
     // --- Nhóm HSA - Định tính (Ngữ văn) ---
-    { id: "hsa_van_01", type: "HSA", category: "language", title: "Đề ôn tập ĐGNL HSA - Định tính (Đề A)", questionsCount: 50, time: 60, img: "https://i.postimg.cc/FFbmqQ9X/A-nh-chu-p-ma-n-hi-nh-2026-10-14-004011.png", isVip: false },
+    { id: "hsa_van_01", type: "HSA", category: "language", title: "Đề ĐGNL HSA Số 01 - Định tính (VLCM)", questionsCount: 50, time: 60, img: "https://i.postimg.cc/FFbmqQ9X/A-nh-chu-p-ma-n-hi-nh-2026-10-14-004011.png", isVip: true },
     // --- Nhóm HSA ---
-    { id: "hsa_toan_01", type: "HSA", category: "math", title: "Đề dự đoán ĐGNL HSA Số 01 - Định lượng (VLCM)", questionsCount: 50, time: 75, img: "https://i.postimg.cc/FFbmqQ9X/A-nh-chu-p-ma-n-hi-nh-2026-10-14-004011.png", isVip: true },
+    { id: "hsa_toan_01", type: "HSA", category: "math", title: "Đề ĐGNL HSA Số 01 - Định lượng (VLCM)", questionsCount: 50, time: 75, img: "https://i.postimg.cc/FFbmqQ9X/A-nh-chu-p-ma-n-hi-nh-2026-10-14-004011.png", isVip: true },
 
     // --- Nhóm THPT ---
     { id: "thpt_toan_01", type: "THPT", subject: "math", title: "Đề thi thử Toán 2025 (Chuẩn cấu trúc)", questionsCount: 22, time: 90, img: "https://i.postimg.cc/FFbmqQ9X/A-nh-chu-p-ma-n-hi-nh-2026-10-14-004011.png", isVip: false },
