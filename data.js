@@ -18,7 +18,7 @@ const examsMeta = [
     
     { id: "thpt_ly_03", type: "THPT", subject: "physics", title: "Đề ôn tập Giữa HK1 Vật Lí 12 - Đề số 3", questionsCount: 28, time: 50, img: "https://i.postimg.cc/FFbmqQ9X/A-nh-chu-p-ma-n-hi-nh-2026-10-14-004011.png", isVip: false },
     { id: "thpt_hoa_02", type: "THPT", subject: "chemistry", title: "Đề kiểm tra Giữa HK1 Hóa Học 12", questionsCount: 28, time: 45, img: "https://i.postimg.cc/y8x0qmW2/ID-2.png", isVip: false },
-    { id: "thpt_hoa_03", type: "THPT", subject: "chemistry", title: "Đề kiểm tra Giữa HK1 Hóa Học 12 Đề 2", questionsCount: 28, time: 45, img: "https://i.postimg.cc/y8x0qmW2/ID-2.png", isVip: false },
+    { id: "thpt_hoa_03", type: "THPT", subject: "chemistry", title: "Đề kiểm tra Giữa HK1 Hóa Học 12 (VLCM)", questionsCount: 28, time: 45, img: "https://i.postimg.cc/y8x0qmW2/ID-2.png", isVip: false },
     { id: "thpt_sinh_03", type: "THPT", subject: "biology", title: "Đề kiểm tra giữa kì 1 Sinh Học 12 - THPT Ngô Gia Tự", questionsCount: 24, time: 45, img: "https://i.postimg.cc/FFbmqQ9X/A-nh-chu-p-ma-n-hi-nh-2026-10-14-004011.png", isVip: false }
 ];
 
@@ -1484,5 +1484,5 @@ const allExamsData = {
   {"id": 204, "type": "fill_blank", "content": "Chuyển hóa glucose thành lactic acid giải phóng 2% năng lượng cho cơ thể. Chạy bộ tiêu tốn 400 kcal. Khối lượng lactic acid được chuyển hóa bằng bao nhiêu gam? (làm tròn đến hàng phần mười)", "options": [], "correctAnswer": "40.2", "image": null},
   {"id": 205, "type": "fill_blank", "content": "Cho các chất: cellulose (1), saccharose (2), aniline (3), albumin (4), tristearin (5) và Gly-Ala-Val (6). Có bao nhiêu chất bị thủy phân trong môi trường acid ở điều kiện thích hợp?", "options": [], "correctAnswer": "5", "image": null},
   {"id": 206, "type": "fill_blank", "content": "Hợp chất hữu cơ Y có 32% C; 6,67% H; 18,67% N; còn lại O. Phổ khối lượng m/z = 75. Thực hiện phản ứng ester hóa giữa Y với CH3OH trong HCl khan. Sản phẩm hữu cơ thu được có tổng số nguyên tử bằng bao nhiêu?", "options": [], "correctAnswer": "15", "image": "LINK_ANH_TAI_DAY"}
-],
+  ],
 };
