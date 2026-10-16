@@ -6,7 +6,8 @@ const examsMeta = [
     
     // --- Nhóm TSA - Tư duy Toán học ---
     { id: "tsa_toan_01", type: "TSA", category: "math", title: "Đề thi Đánh giá Tư duy - TSA26A (Môn Toán)", questionsCount: 40, time: 60, img: "https://i.postimg.cc/FFbmqQ9X/A-nh-chu-p-ma-n-hi-nh-2026-10-14-004011.png", isVip: true },
-
+    // --- Nhóm HSA - Định tính (Ngữ văn) ---
+    { id: "hsa_van_01", type: "HSA", category: "literature", title: "Đề ôn tập ĐGNL HSA - Định tính (Đề A)", questionsCount: 50, time: 60, img: "https://i.postimg.cc/FFbmqQ9X/A-nh-chu-p-ma-n-hi-nh-2026-10-14-004011.png", isVip: false },
     // --- Nhóm HSA ---
     { id: "hsa_toan_01", type: "HSA", category: "math", title: "Đề dự đoán ĐGNL HSA Số 01 - Định lượng (VLCM)", questionsCount: 50, time: 75, img: "https://i.postimg.cc/FFbmqQ9X/A-nh-chu-p-ma-n-hi-nh-2026-10-14-004011.png", isVip: true },
 
@@ -952,6 +953,452 @@ const allExamsData = {
             content: "Cho hình chóp $S.ABC$ có $SA \\perp (ABC), AB \\perp BC, SA=AB=a, AC=a\\sqrt{3}$. Góc giữa đường thẳng $SC$ và mặt phẳng $(SAB)$ bằng <!--[cite: 107] -->",
             options: ["A. $30^\\circ$.", "B. $45^\\circ$.", "C. $60^\\circ$.", "D. $90^\\circ$."],
             correctAnswer: "B"
+        }
+    ],
+    "hsa_van_01": [
+        // --- CÂU 1 - 5: ĐỌC HIỂU VĂN BẢN 1 ---
+        {
+            id: 271810, type: "multiple_choice",
+            content: "<b>Đọc đoạn trích sau và trả lời các câu hỏi từ 1 đến 5:</b><br><i>“Một người tù cổ đeo gông, chân vướng xiềng, đang dậm tô nét chữ trên tấm lụa trắng tinh căng phẳng trên mảnh ván. Người tù viết xong một chữ, viên quản ngục lại vội khúm núm cất những đồng tiền kẽm đánh dấu ô chữ đặt trên phiến lụa óng. Và cái thầy thơ lại gầy gò, thì run run bưng chậu mực. Thay bút con, đề xong lạc khoản, ông Huấn Cao thở dài, buồn bã đỡ viên quản ngục đứng thẳng người dậy và đĩnh đạc bảo:<br>- Ở đây lẫn lộn. Ta khuyên thầy Quản nên thay chốn ở đi. Chỗ này không phải là nơi để treo một bức lụa trắng trẻo với những nét chữ vuông vắn tươi tắn nó nói lên những cái hoài bão tung hoành của một đời con người. Thoi mực, thầy mua ở đâu tốt và thơm quá. Thầy có thấy mùi thơm ở chậu mực bốc lên không?... Tôi bảo thực đấy: thầy Quản nên tìm về nhà quê mà ở đã, thầy hãy thoát khỏi cái nghề này đi đã, rồi hãy nghĩ đến chuyện chơi chữ. Ở đây, khó giữ <u><b>thiên lương</b></u> cho lành vững và rồi cũng đến nhem nhuốc mất cái đời lương thiện đi.”</i><br>(Nguyễn Tuân, <i>Chữ người tử tù</i>)<br><br><b>Câu 1:</b> Xét trong văn bản, từ nào sau đây được sử dụng với nghĩa chuyển?",
+            options: ["A. Khúm núm.", "B. Đĩnh đạc.", "C. Buồn bã.", "D. Nhem nhuốc."],
+            correctAnswer: "D"
+        },
+        {
+            id: 271811, type: "multiple_choice",
+            content: "<b>Câu 2:</b> Dòng nào sau đây giải thích đúng nghĩa của từ <u><b>thiên lương</b></u> (gạch chân, in đậm) trong đoạn trích ở Câu 1?",
+            options: [
+                "A. Sự tốt bụng của con người được hình thành trong quá trình sống.",
+                "B. Lòng yêu và ham thích cái đẹp, cái cao quý của con người.",
+                "C. Bản tính tốt đẹp của con người do trời phú mà có được.",
+                "D. Đức tính hi sinh và sự nhẫn nhịn của con người trong cuộc sống."
+            ],
+            correctAnswer: "C"
+        },
+        {
+            id: 271813, type: "multiple_choice",
+            content: "<b>Câu 3:</b> Trong đoạn văn ở Câu 1, tác giả đã miêu tả nhân vật Huấn Cao gắn liền với",
+            options: ["A. khí phách hiên ngang.", "B. tinh thần bất khuất.", "C. nhân cách cao đẹp.", "D. tài năng siêu việt."],
+            correctAnswer: "C"
+        },
+        {
+            id: 271812, type: "multiple_choice",
+            content: "<b>Câu 4:</b> Bối cảnh giao tiếp hẹp xuất hiện trong văn bản ở Câu 1 là",
+            options: [
+                "A. nơi cung cấp nhiều quan lại nhũng nhiễu.",
+                "B. nơi pháp trường khi kẻ tử tù vừa bị hành hình.",
+                "C. đêm cuối cùng của kẻ tử tù ở trong nhà ngục.",
+                "D. ngày đầu tiên của kẻ tử tù khi chuyển nhà ngục mới."
+            ],
+            correctAnswer: "C"
+        },
+        {
+            id: 271814, type: "multiple_choice",
+            content: "<b>Câu 5:</b> Dòng nào sau đây nói KHÔNG đúng về đặc sắc nghệ thuật trong đoạn văn ở Câu 1?",
+            options: ["A. Thủ pháp nhân hóa.", "B. Nghệ thuật tương phản.", "C. Bút pháp lãng mạn.", "D. Nghệ thuật miêu tả."],
+            correctAnswer: "A"
+        },
+
+        // --- CÂU 6 - 10: ĐỌC HIỂU VĂN BẢN 2 ---
+        {
+            id: 271815, type: "multiple_choice",
+            content: "<b>Đọc đoạn trích sau và trả lời các câu hỏi từ 6 đến 10:</b><br><i>“Gió theo lối gió, mây đường mây,<br>Dòng nước buồn thiu, hoa bắp lay...<br>Thuyền ai đậu bến <u><b>sông Trăng</b></u> đó,<br>Có chở trăng về kịp tối nay?<br><br>Mơ khách đường xa, khách đường xa<br>Áo em trắng quá nhìn không ra...<br>Ở đây sương khói mờ nhân ảnh<br>Ai biết tình ai có đậm đà?”</i><br>(Hàn Mặc Tử, <i>Đây thôn Vĩ Dạ</i>, Ngữ văn 11, tập hai, NXB Giáo dục Việt Nam, 2017)<br><br><b>Câu 6:</b> Phương thức biểu đạt chính được sử dụng trong văn bản là",
+            options: ["A. tự sự.", "B. biểu cảm.", "C. nghị luận.", "D. thuyết minh."],
+            correctAnswer: "B"
+        },
+        {
+            id: 271817, type: "multiple_choice",
+            content: "<b>Câu 7:</b> Đâu là cách hiểu đúng của câu thơ: <i>“Gió theo lối gió, mây đường mây”</i>?",
+            options: [
+                "A. Thiên nhiên liên tục vận động theo quy luật của vũ trụ.",
+                "B. Thiên nhiên quấn quýt, gắn bó không thể tách rời.",
+                "C. Hình ảnh thiên nhiên gắn với sự tan tác, chia lìa.",
+                "D. Sự thanh nhã, lãng mạn của đời sống thiên nhiên."
+            ],
+            correctAnswer: "C"
+        },
+        {
+            id: 271818, type: "multiple_choice",
+            content: "<b>Câu 8:</b> Từ <u><b>sông Trăng</b></u> (gạch chân, in đậm) trong đoạn trích ở Câu 6, được hiểu là",
+            options: [
+                "A. dòng sông được người dân đặt tên là “Trăng” vì vẻ đẹp thuần khiết.",
+                "B. con sông ở tỉnh Sóc Trăng – nơi tác giả sinh sống và chữa bệnh.",
+                "C. ánh sáng của mặt trăng chiếu xuống dòng sông vô cùng lấp lánh.",
+                "D. tác giả thấy mặt trăng xuất hiện nhiều như thể có cả một dòng sông."
+            ],
+            correctAnswer: "C"
+        },
+        {
+            id: 271816, type: "multiple_choice",
+            content: "<b>Câu 9:</b> Việc sử dụng đại từ “ai” trong đoạn thơ ở Câu 6 có ý nghĩa:",
+            options: ["A. thể hiện sự mơ hồ.", "B. thể hiện sự hoài nghi.", "C. thể hiện sự chán nản.", "D. thể hiện sự lãng quên."],
+            correctAnswer: "A"
+        },
+        {
+            id: 271819, type: "multiple_choice",
+            content: "<b>Câu 10:</b> Biện pháp tu từ nào được sử dụng trong câu thơ <i>“Mơ khách đường xa, khách đường xa”</i>?",
+            options: ["A. Điệp từ.", "B. Điệp ngữ.", "C. Nhân hóa.", "D. Hoán dụ."],
+            correctAnswer: "B"
+        },
+
+        // --- CÂU 11 - 15: ĐỌC HIỂU VĂN BẢN 3 ---
+        {
+            id: 271820, type: "multiple_choice",
+            content: "<b>Đọc đoạn trích sau và trả lời các câu hỏi từ 11 đến 15:</b><br>(1) <i>“Văn hóa ứng xử từ lâu đã trở thành chuẩn mực trong việc đánh giá nhân cách con người. Cảm ơn là một trong các biểu hiện của ứng xử có văn hóa. Ở ta, từ cảm ơn được nghe rất nhiều trong các cuộc họp: cảm ơn sự có mặt của quý vị đại biểu, cảm ơn sự chú ý của mọi người... Nhưng đó chỉ là những lời khô cứng, ít cảm xúc. Chỉ có lời cảm ơn <u><b>chân thành</b></u>, xuất phát từ đáy lòng, từ sự tôn trọng nhau bất kể trên dưới mới thực sự là điều cần có cho một xã hội văn minh. Người ta có thể cảm ơn vì những chuyện rất nhỏ như được nhường vào cửa trước, được chỉ đường khi hỏi... Ấy là chưa kể đến những chuyện lớn lao như cảm ơn người đã cứu mạng mình, người đã chìa tay giúp đỡ mình trong cơn hoạn nạn... Những lúc đó, lời cảm ơn còn có nghĩa là đội ơn.</i><br>(2) <i>Còn một từ nữa cũng thông dụng không kém ở các xứ sở văn minh là \"Xin lỗi\". Ở những nơi công cộng, người ta hết sức tránh chen lấn, va chạm nhau. Nếu có ai đó vô ý khẽ chạm vào người khác, lập tức từ xin lỗi được bật ra hết sức tự nhiên. Từ xin lỗi còn được dùng cả khi không có lỗi. Xin lỗi khi xin phép nhường đường, xin lỗi trước khi dừng ai đó lại hỏi đường hay nhờ bấm hộ một kiểu ảnh. Tóm lại, khi biết mình có thể làm phiền đến người khác dù rất nhỏ, người ta cũng đều xin lỗi. Hiển nhiên, xin lỗi còn được thốt ra trong những lúc người nói cảm thấy mình thực sự có lỗi. Từ xin lỗi ở đây đi kèm với một tâm trạng hối lỗi, mong được tha thứ hơn là một cử chỉ văn minh thông thường. Đôi khi, lời xin lỗi được nói ra đúng nơi, đúng lúc còn có thể xóa bỏ biết bao mặc cảm, thù hận, đau khổ... Người có lỗi mà không biết nhận lỗi là có lỗi lớn nhất. Xem ra sức mạnh của từ xin lỗi còn lớn hơn cảm ơn.</i><br>(3) <i>Nếu toa thuốc cảm ơn có thể trị bệnh khiếm nhã, vô ơn, ích kỷ thì toa thuốc xin lỗi có thể trị được bệnh tự cao tự đại, coi thường người khác. Vì thế, hãy để cảm ơn và xin lỗi trở thành hai từ thông dụng trong ngôn ngữ hàng ngày của chúng ta.”</i><br>(Sưu tầm)<br><br><b>Câu 11:</b> Chủ đề của đoạn trích trên là gì?",
+            options: [
+                "A. Ý nghĩa của lời cảm ơn trong cuộc sống thường ngày.",
+                "B. Văn hóa nước ta trong sự so sánh với thế giới.",
+                "C. Lời xin lỗi và cách hành xử văn minh của con người.",
+                "D. Văn hóa ứng xử của con người trong đời sống."
+            ],
+            correctAnswer: "D"
+        },
+        {
+            id: 271821, type: "multiple_choice",
+            content: "<b>Câu 12:</b> Theo đoạn trích ở Câu 11, lời cảm ơn nên được dùng khi nào?",
+            options: [
+                "A. Trong các cuộc họp có nhiều người quan trọng.",
+                "B. Trong những tình huống nghiêm trọng.",
+                "C. Trong những chuyện nhỏ nhặt hàng ngày.",
+                "D. Trong mọi tình huống cần thiết của cuộc sống."
+            ],
+            correctAnswer: "D"
+        },
+        {
+            id: 271824, type: "multiple_choice",
+            content: "<b>Câu 13:</b> Đoạn văn ở Câu 11 sử dụng phương thức biểu đạt chính nào?",
+            options: ["A. Tự sự.", "B. Thuyết minh.", "C. Giải thích.", "D. Nghị luận."],
+            correctAnswer: "D"
+        },
+        {
+            id: 271822, type: "multiple_choice",
+            content: "<b>Câu 14:</b> Tác giả khẳng định: <i>“toa thuốc xin lỗi có thể trị được bệnh tự cao tự đại, coi thường người khác.”</i> vì sao?",
+            options: [
+                "A. Vì lời xin lỗi sẽ giúp ta biết nhận ra khuyết điểm, sửa lỗi để hoàn thiện bản thân.",
+                "B. Vì khi nói lời xin lỗi sẽ khiến cuộc giao tiếp diễn ra suôn sẻ, bớt căng thẳng hơn.",
+                "C. Vì nói lời xin lỗi sẽ giúp cho chúng ta nhận ra được những hạn chế của bản thân.",
+                "D. Vì lời xin lỗi sẽ làm cho đối phương cảm thấy mình được kính nể và tôn trọng."
+            ],
+            correctAnswer: "A"
+        },
+        {
+            id: 271823, type: "multiple_choice",
+            content: "<b>Câu 15:</b> Từ <u><b>chân thành</b></u> (in đậm, gạch chân) trong đoạn trích ở Câu 11 gần nghĩa hơn cả với từ nào sau đây?",
+            options: ["A. Thành thục.", "B. Thân thiết.", "C. Thành tâm.", "D. Thiết thực."],
+            correctAnswer: "C"
+        },
+
+        // --- CÂU 16 - 20: ĐỌC HIỂU VĂN BẢN 4 ---
+        {
+            id: 271829, type: "multiple_choice",
+            content: "<b>Đọc đoạn trích sau và trả lời các câu hỏi từ 16 đến 20:</b><br><i>“Sự ngưng tụ hơi nước là quá trình hơi nước trong không khí được chuyển sang thể nước lỏng. Ngưng tụ hơi nước rất quan trọng đối với chu trình tuần hoàn nước bởi vì nó hình thành nên các đám mây. Những đám mây này có thể tạo ra mưa, nó là cách chính để nước quay trở lại Trái Đất. Ngưng tụ hơi nước là quá trình ngược với bốc hơi nước. Sự ngưng tụ hơi nước cũng là nguyên nhân của hiện tượng sương, hoặc nước trên mắt kính của bạn khi bạn từ một phòng lạnh đi ra ngoài trong một ngày nóng, ẩm ướt, còn trong một ngày lạnh nước có thể nhỏ giọt bên ngoài cốc uống nước của bạn hay có nước ở phía bên trong cửa sổ ngôi nhà bạn.<br>Thậm chí trên những bầu trời trong xanh không một gợn mây, thì nước vẫn tồn tại dưới hình thức hơi nước và những giọt nước li ti không thể nhìn thấy được. Những phân tử nước kết hợp với những phân tử nhỏ bé của bụi, muối, khói trong khí quyển để hình thành nên các hạt nhân mây (giọt mây nhỏ, đám mây nhỏ), nó gia tăng khối lượng và phát triển thành những đám mây. Khi những giọt nước kết hợp với nhau, gia tăng về kích thước, những đám mây có thể phát triển và mưa có thể xảy ra. Các đám mây hình thành trong khí quyển do không khí chứa hơi nước bốc lên cao và lạnh đi. Phần quan trọng của quá trình này là không khí sát mặt đất ấm lên do bức xạ mặt trời. Nguyên nhân lớp khí quyển phía bên trên mặt đất lạnh đi là do áp lực không khí. Không khí có trọng lượng và tại mực nước biển trọng lượng của một cột không khí nén xuống trên đầu bạn khoảng 32kg trên mỗi inch vuông, áp lực này, được gọi là khí áp, nó là kết quả của mật độ không khí trong cột không khí phía trên. Càng lên cao càng ít không khí phía bên trên, và vì thế càng ít áp lực. Khí áp thấp hơn và mật độ không khí giảm theo độ cao. Điều này làm cho không khí trở nên lạnh hơn.”</i><br>(Theo Gleick, <i>Tài nguyên nước, Bách khoa từ điển về khí hậu và thời tiết</i>, NXB Đại học Oxford, New York, quyển 2, trang 817-823)<br><br><b>Câu 16:</b> Xác định phong cách ngôn ngữ của đoạn trích.",
+            options: ["A. Khoa học.", "B. Nghệ thuật.", "C. Chính luận.", "D. Sinh hoạt."],
+            correctAnswer: "A"
+        },
+        {
+            id: 271825, type: "multiple_choice",
+            content: "<b>Câu 17:</b> Theo tác giả, quá trình hơi nước trong không khí được chuyển sang thể nước lỏng được gọi là gì?",
+            options: [
+                "A. Bản chất của hạt mưa rơi.",
+                "B. Nguyên nhân nước bốc hơi.",
+                "C. Hiện tượng xuất hiện sương.",
+                "D. Sự ngưng tụ hơi nước."
+            ],
+            correctAnswer: "D"
+        },
+        {
+            id: 271828, type: "multiple_choice",
+            content: "<b>Câu 18:</b> Theo đoạn trích ở Câu 16, khi có áp lực không khí sẽ dẫn tới điều gì sau đây?",
+            options: [
+                "A. Những giọt nước li ti không nhìn thấy được.",
+                "B. Những đám mây mỏng có thể tạo ra mưa.",
+                "C. Lớp khí quyển phía bên trên mặt đất lạnh đi.",
+                "D. Xuất hiện sương mù dày đặc trên mặt đất."
+            ],
+            correctAnswer: "C"
+        },
+        {
+            id: 271826, type: "multiple_choice",
+            content: "<b>Câu 19:</b> Thông tin nào KHÔNG được nhắc tới trong đoạn văn thứ hai của ngữ liệu ở Câu 16?",
+            options: [
+                "A. Lớp khí quyển phía bên trên mặt đất lạnh đi và tác động bức xạ đến mặt trời.",
+                "B. Khi các hạt nhân mây (giọt mây nhỏ và đám mây nhỏ) gia tăng khối lượng.",
+                "C. Những phân tử nước kết hợp với những phân tử nhỏ bé của bụi trong khí quyển.",
+                "D. Những phân tử nhỏ bé của khói trong khí quyển kết hợp với các phân tử nước."
+            ],
+            correctAnswer: "A"
+        },
+        {
+            id: 271827, type: "multiple_choice",
+            content: "<b>Câu 20:</b> Đoạn trích ở Câu 16 bàn về vấn đề gì?",
+            options: [
+                "A. Nguyên nhân xuất hiện lớp khí quyển.",
+                "B. Sự vận động của những giọt nước li ti.",
+                "C. Nguyên nhân xuất hiện hạt phân tử nước.",
+                "D. Sự ngưng tụ hơi nước trong không khí."
+            ],
+            correctAnswer: "D"
+        },
+
+        // --- CÂU 21 - 25: TÌM LỖI SAI ---
+        {
+            id: 183816, type: "multiple_choice",
+            content: "<b>Câu 21:</b> Xác định một từ/cụm từ SAI về ngữ pháp/ngữ nghĩa/logic/phong cách.<br><i>Đang trên ghế giảng đường, song nhiều bạn trẻ đã rất năng động, tự tìm tòi việc làm, mang về thu nhập hàng chục triệu đồng.</i>",
+            options: ["A. Đang.", "B. song.", "C. tìm tòi.", "D. thu nhập."],
+            correctAnswer: "C"
+        },
+        {
+            id: 183817, type: "multiple_choice",
+            content: "<b>Câu 22:</b> Xác định một từ/cụm từ SAI về ngữ pháp/ngữ nghĩa/logic/phong cách.<br><i>Với tỉ lệ 92,79% đại biểu có mặt tán thành, Quốc hội thông qua Nghị quyết thí điểm một số cơ chế, chính sách đặc thù phát triển thành phố Cần Thơ, với nhiều chính sách được ban hành ngay lập tức.</i>",
+            options: ["A. tán thành.", "B. thí điểm.", "C. đặc thù.", "D. ngay lập tức."],
+            correctAnswer: "D"
+        },
+        {
+            id: 183818, type: "multiple_choice",
+            content: "<b>Câu 23:</b> Xác định một từ/cụm từ SAI về ngữ pháp/ngữ nghĩa/logic/phong cách.<br><i>Trong sự chuyển mình của Hà Nội, có những cái tưởng như được thêm vào, và thực chất lại là mất đi một cách rất đáng tiếc.</i>",
+            options: ["A. chuyển mình.", "B. cái.", "C. và.", "D. rất đáng tiếc."],
+            correctAnswer: "C"
+        },
+        {
+            id: 183819, type: "multiple_choice",
+            content: "<b>Câu 24:</b> Xác định một từ/cụm từ SAI về ngữ pháp/ngữ nghĩa/logic/phong cách.<br><i>Bài thơ “Từ ấy” là lời tâm nguyện của người thanh niên yêu nước giác ngộ lý tưởng cách mạng. Sự vận động của tâm trạng nhà thơ được thể hiện linh động bằng những hình ảnh tươi sáng, các biện pháp tu từ và ngôn ngữ giàu nhạc điệu.</i>",
+            options: ["A. tâm nguyện.", "B. giác ngộ.", "C. linh động.", "D. ngôn ngữ."],
+            correctAnswer: "C"
+        },
+        {
+            id: 183820, type: "multiple_choice",
+            content: "<b>Câu 25:</b> Xác định một từ/cụm từ SAI về ngữ pháp/hoặc ngữ nghĩa/logic/phong cách.<br><i>Trong thời đại khoa học công nghệ phát triển làm mưa làm gió và sự xuất hiện của cuộc cách mạng công nghiệp lần thứ tư thì đổi mới giáo dục đào tạo không chỉ trở nên quan trọng mà còn bức thiết hơn bao giờ hết, có ý nghĩa quyết định tương lai của mỗi dân tộc, mỗi quốc gia.</i>",
+            options: ["A. khoa học công nghệ.", "B. làm mưa làm gió.", "C. cách mạng công nghiệp.", "D. quyết định tương lai."],
+            correctAnswer: "B"
+        },
+
+        // --- CÂU 26 - 28: TÌM TỪ KHÁC NHÓM ---
+        {
+            id: 183821, type: "multiple_choice",
+            content: "<b>Câu 26:</b> Chọn một từ mà cấu tạo/ý nghĩa của nó KHÔNG cùng nhóm với các từ còn lại.",
+            options: ["A. xanh xao.", "B. trắng bệch.", "C. vàng vọt.", "D. đỏ rực."],
+            correctAnswer: "D"
+        },
+        {
+            id: 183822, type: "multiple_choice",
+            content: "<b>Câu 27:</b> Chọn một từ mà cấu tạo/ý nghĩa của nó KHÔNG cùng nhóm với các từ còn lại.",
+            options: ["A. đùm bọc.", "B. cứu trợ.", "C. cứu giúp.", "D. ủng hộ."],
+            correctAnswer: "D"
+        },
+        {
+            id: 183823, type: "multiple_choice",
+            content: "<b>Câu 28:</b> Chọn một từ mà cấu tạo/ý nghĩa của nó KHÔNG cùng nhóm với các từ còn lại.",
+            options: ["A. cao.", "B. thấp.", "C. nông.", "D. dài."],
+            correctAnswer: "C"
+        },
+
+        // --- CÂU 29 - 33: ĐIỀN TỪ VÀO CHỖ TRỐNG ---
+        {
+            id: 183826, type: "multiple_choice",
+            content: "<b>Câu 29:</b> Chọn từ/cụm từ thích hợp nhất để điền vào chỗ trống trong câu dưới đây:<br><i>Mặt Trời điều khiển vòng tuần hoàn nước _____ việc làm nóng nước trên những đại dương, làm bốc hơi nước _____ trong không khí.</i>",
+            options: ["A. bằng/ lên.", "B. bằng/ vào.", "C. từ/ lên.", "D. bằng/ trên."],
+            correctAnswer: "B"
+        },
+        {
+            id: 183827, type: "multiple_choice",
+            content: "<b>Câu 30:</b> Chọn từ/cụm từ thích hợp nhất để điền vào chỗ trống trong câu dưới đây:<br><i>Nếu học sinh được phép học trực tiếp, các nhà trường _____ làm tốt công tác phòng chống dịch, tận dụng tối đa thời gian để ôn tập, củng cố nội dung còn khiếm khuyết _____ học sinh học trực tuyến.</i>",
+            options: ["A. cần/ khi.", "B. đã/ khi.", "C. đã/ lúc.", "D. cần/ nhưng."],
+            correctAnswer: "A"
+        },
+        {
+            id: 183828, type: "multiple_choice",
+            content: "<b>Câu 31:</b> Chọn từ/cụm từ thích hợp nhất để điền vào chỗ trống trong câu dưới đây:<br><i>Đô thị hóa _____ sự phát triển riêng của một đô thị về quy mô và số lượng dân số, mà còn gắn liền với những biến đổi về kinh tế - xã hội _____ môi trường thiên nhiên của một hệ thống đô thị.</i>",
+            options: ["A. không chỉ là/ và.", "B. không chỉ/ cùng.", "C. chính là/ và.", "D. chính là/ cùng."],
+            correctAnswer: "A"
+        },
+        {
+            id: 183829, type: "multiple_choice",
+            content: "<b>Câu 32:</b> Chọn từ/cụm từ thích hợp nhất để điền vào chỗ trống trong câu dưới đây:<br><i>Theo báo cáo được UNICEF _____ ngày 11/12/2006, trong vòng nhiều năm qua, Việt Nam luôn dẫn đầu khu vực châu Á – Thái Bình Dương về các chỉ số bình đẳng giới.</i>",
+            options: ["A. giới thiệu.", "B. truyền ra.", "C. tiết lộ.", "D. công bố."],
+            correctAnswer: "D"
+        },
+        {
+            id: 183830, type: "multiple_choice",
+            content: "<b>Câu 33:</b> Chọn từ/cụm từ thích hợp nhất để điền vào chỗ trống trong câu dưới đây:<br><i>_____ văn học biểu hiện trước hết ở cách nhìn, cách cảm thụ có tính chất khám phá, ở giọng điệu riêng biệt của tác giả.</i>",
+            options: ["A. Quá trình.", "B. Giai đoạn.", "C. Phong cách.", "D. Trào lưu."],
+            correctAnswer: "C"
+        },
+
+        // --- CÂU 34 - 43: ĐỌC HIỂU ĐOẠN TRÍCH NGẮN ---
+        {
+            id: 183831, type: "multiple_choice",
+            content: "<b>Câu 34:</b> Đọc đoạn trích sau đây và trả lời câu hỏi:<br><i>“Thấy hắn toan làm dữ, cụ đành dịu giọng:<br>- Thôi, cầm lấy vậy, tôi không còn hơn.<br>Hắn vênh cái mặt lên, rất là kiêu ngạo:<br>- Tao đã bảo tao không đòi tiền.<br>- Giỏi! Hôm nay mới thấy anh không đòi tiền. Thế thì anh cần gì?<br>Hắn dõng dạc:<br>- Tao muốn làm người lương thiện.<br>Bá Kiến cười ha hả:<br>- Ô tưởng gì! Tôi chỉ cần anh lương thiện cho thiên hạ nhờ.”</i><br>(Nam Cao, <i>Chí Phèo</i>, Ngữ văn 11, tập một, NXB Giáo dục Việt Nam, 2014)<br><br>Nét nổi bật nhất về nghệ thuật của đoạn trích là gì?",
+            options: [
+                "A. Từ ngữ giàu tính tạo hình.",
+                "B. Lựa chọn chi tiết đặc sắc.",
+                "C. Phân tích tâm lí nhân vật.",
+                "D. Ngôn ngữ đối thoại sinh động."
+            ],
+            correctAnswer: "D"
+        },
+        {
+            id: 183832, type: "multiple_choice",
+            content: "<b>Câu 35:</b> Đọc đoạn trích sau đây và trả lời câu hỏi:<br><i>“Theo các nhà nghiên cứu, Omicron gắn chặt hơn vào các tế bào và chống lại được một số kháng thể. Mô hình cấu trúc về cách thức Omicron gắn vào tế bào và kháng thể giúp làm rõ phương thức hoạt động của biến thể này, cũng như tạo ra được các kháng thể trung hòa. Các nhà nghiên cứu ví von biến thể Omicron có cấu tạo giống như “hai đôi bàn tay đan vào nhau”. Bằng cách sử dụng các mô hình máy tính để tìm hiểu về protein đột biến trên bề mặt biến thể Omicron, các nhà nghiên cứu tiến hành phân tích được các tương tác phân tử diễn ra khi một đột biến này bám vào một protein bề mặt tế bào được gọi là thụ thể ACE2 - vốn được coi là “cửa ngõ” để virus xâm nhập vào tế bào, nhằm giúp hiểu rõ cách thức các đột biến của Omicron liên kết với nhau để làm lây nhiễm sang các tế bào.”</i><br>(Cổng thông tin điện tử Bộ Y Tế (MOH))<br><br>Phong cách ngôn ngữ của đoạn trích là gì?",
+            options: ["A. Khoa học.", "B. Chính luận.", "C. Nghệ thuật.", "D. Sinh hoạt."],
+            correctAnswer: "A"
+        },
+        {
+            id: 183833, type: "multiple_choice",
+            content: "<b>Câu 36:</b> Đọc đoạn trích sau đây và trả lời câu hỏi:<br><i>(1) “Tràn trề trên mặt bàn, chạm cả vào cành quất Lí cố tình để sát vào mâm cỗ cho bữa ăn thêm đẹp, thêm sang, là la liệt bát đĩa ngồn ngộn các món ăn. (2) Ngoài các món thường thấy ở cỗ Tết như gà luộc, giò, chả, nem, măng hầm chân giò, miến nấu lòng gà, xúp lơ xào thịt bò... – món nào cũng mang dấu ấn tài hoa của người chế biến – là các món khác thường như gà quay ướp húng lìu, vịt tần hạt sen, chả chìa, mọc, vây...”</i><br>(Ma Văn Kháng, <i>Mùa lá rụng trong vườn</i>, Ngữ văn 12, tập hai, NXB Giáo dục Việt Nam, 2008)<br><br>Xác định tác dụng của dấu gạch ngang (–) trong câu (2).",
+            options: [
+                "A. Đánh dấu lời nói trực tiếp của nhân vật.",
+                "B. Để chỉ sự ngang hàng trong quan hệ.",
+                "C. Đánh dấu bộ phận chú thích, giải thích.",
+                "D. Nối các từ nằm trong một liên danh."
+            ],
+            correctAnswer: "C"
+        },
+        {
+            id: 183834, type: "multiple_choice",
+            content: "<b>Câu 37:</b> Đọc đoạn trích sau đây và trả lời câu hỏi:<br><i>“Con gặp lại nhân dân như nai về suối cũ<br>Cỏ đón giêng hai, chim én gặp mùa,<br>Như đứa trẻ thơ đói lòng gặp sữa<br>Chiếc nôi ngừng bỗng gặp cánh tay đưa.”</i><br>(Chế Lan Viên, <i>Tiếng hát con tàu</i>, Ngữ văn 12, tập một, NXB Giáo dục Việt Nam, 2021)<br><br>Biện pháp tu từ nghệ thuật nào được sử dụng trong câu thơ: <i>“Con gặp lại nhân dân như nai về suối cũ”</i>?",
+            options: ["A. So sánh.", "B. Nhân hóa.", "C. Đảo ngữ.", "D. Hoán dụ."],
+            correctAnswer: "A"
+        },
+        {
+            id: 183835, type: "multiple_choice",
+            content: "<b>Câu 38:</b> Đọc đoạn trích sau đây và trả lời câu hỏi:<br><i>“Cô Hiền bên ngoại, chị Đại bên nội là những người đàn bà có đầu óc rất thực tế. Mọi sự mọi việc đều được các bà tính toán trước cả. Và luôn luôn tính đúng vì không có lòng tự ái, sự ganh đua, thói thời thượng chen vô. Không có cả sự lãng mạn hay mộng mơ vớ vẩn. Đã tính là làm, đã làm là không thèm để ý đến những đàm tiếu của thiên hạ. Cô tuyên bố thẳng thừng với tôi: “Một đời tao chưa từng bị ai cám dỗ, kể cả chế độ.””</i><br>(Nguyễn Khải, <i>Một người Hà Nội</i>, Ngữ văn 12, tập hai, NXB Giáo dục Việt Nam, 2018)<br><br>Đoạn trích thể hiện tính cách nổi bật nào của nhân vật cô Hiền?",
+            options: [
+                "A. Kín đáo, tế nhị.",
+                "B. Chăm chỉ, chịu khó.",
+                "C. Ngay thẳng, thật thà.",
+                "D. Giỏi giang, bản lĩnh."
+            ],
+            correctAnswer: "D"
+        },
+        {
+            id: 183836, type: "multiple_choice",
+            content: "<b>Câu 39:</b> Đọc đoạn trích sau đây và trả lời câu hỏi:<br><i>“Bà lão khẽ dặng hắng một tiếng, nhẹ nhàng nói với “nàng dâu mới”:<br>- Ừ, thôi thì các con đã phải duyên phải kiếp với nhau, u cũng mừng lòng...<br>Tràng <u><b>thở đánh phào một cái</b></u>, ngực nhẹ hẳn đi. Hắn ho khẽ một tiếng, bước từng bước dài ra sân.”</i><br>(Kim Lân, <i>Vợ nhặt</i>, Ngữ văn 12, tập hai, NXB Giáo dục Việt Nam, 2014)<br><br>Cụm từ <u><b>thở đánh phào một cái</b></u> (gạch chân, in đậm) trong đoạn trích trên thể hiện tâm trạng gì của nhân vật Tràng?",
+            options: [
+                "A. Chán nản vì người mẹ đã nói quá nhiều về mình.",
+                "B. Buồn bã vì người vợ mới không được như ý mình.",
+                "C. Vui mừng vì mẹ đã chấp nhận người vợ của mình.",
+                "D. Sợ hãi khi mẹ nói về hoàn cảnh gia đình của mình."
+            ],
+            correctAnswer: "C"
+        },
+        {
+            id: 183837, type: "multiple_choice",
+            content: "<b>Câu 40:</b> Đọc đoạn trích sau đây và trả lời câu hỏi:<br><i>“Con sóng dưới lòng sâu<br>Con sóng trên mặt nước<br>Ôi con sóng nhớ bờ<br>Ngày đêm không ngủ được<br>Lòng em nhớ đến anh<br>Cả trong mơ còn thức”</i><br>(Xuân Quỳnh, <i>Sóng</i>, Ngữ văn 12, tập một, NXB Giáo dục Việt Nam, 2021)<br><br>Những trạng thái của \"sóng\" trong đoạn trích trên thể hiện điều gì dưới đây?",
+            options: [
+                "A. Một trái tim rạo rực, khao khát được yêu thương.",
+                "B. Nỗi trăn trở của người phụ nữ trong tình yêu.",
+                "C. Khát vọng muốn bất tử hóa tình yêu của tác giả.",
+                "D. Nỗi nhớ trong tình yêu của người phụ nữ."
+            ],
+            correctAnswer: "D"
+        },
+        {
+            id: 183838, type: "multiple_choice",
+            content: "<b>Câu 41:</b> Đọc đoạn trích sau đây và trả lời câu hỏi:<br><i>“Nhưng bây giờ thì hắn tỉnh. Hắn bâng khuâng như tỉnh dậy sau một cơn say rất dài. Cũng như những người say tỉnh dậy, hắn thấy miệng đắng, lòng mơ hồ buồn. Người thì bủn rủn, chân tay không buồn nhấc. Hay là đói rượu? <u><b>Nghĩ đến rượu, hắn hơi rùng mình.</b></u> Ruột gan lại nôn nao lên một tí. Hắn sợ rượu cũng như những người ốm thường sợ cơm. Tiếng chim hót ngoài kia vui vẻ quá! Có tiếng cười nói của những người đi chợ. Anh thuyền chài gõ mái chèo đuổi cá. Những tiếng quen thuộc ấy hôm nào chả có. Nhưng hôm nay hắn mới nghe thấy... Chao ôi là buồn!”</i><br>(Nam Cao, <i>Chí Phèo</i>, Ngữ văn 11, tập một, NXB Giáo dục Việt Nam, 2014)<br><br>Câu <u><b>Nghĩ đến rượu, hắn hơi rùng mình.</b></u> (gạch chân, in đậm) trong đoạn trích đã diễn tả:",
+            options: [
+                "A. “Hắn” bỗng nhiên cảm thấy rượu hôm qua không ngon như mọi khi.",
+                "B. Nhân vật “hắn” lo sợ về bệnh tật kéo đến ở tuổi già.",
+                "C. Báo hiệu một chuyển biến trong con người nhân vật.",
+                "D. Cơn say trước kéo dài khiến “hắn” cảm thấy mệt."
+            ],
+            correctAnswer: "C"
+        },
+        {
+            id: 183839, type: "multiple_choice",
+            content: "<b>Câu 42:</b> Đọc đoạn trích sau đây và trả lời câu hỏi:<br><i>“Bác nhớ miền Nam, nỗi nhớ nhà<br>Miền Nam mong Bác, nỗi mong cha.”</i><br>(Tố Hữu, <i>Bác ơi!</i>, Ngữ văn 12, tập một, NXB Giáo dục Việt Nam, 2019)<br><br>Biện pháp tu từ nào được sử dụng trong câu thơ trên?",
+            options: ["A. Nhân hóa.", "B. Hoán dụ.", "C. Nói quá.", "D. Liệt kê."],
+            correctAnswer: "B"
+        },
+        {
+            id: 183840, type: "multiple_choice",
+            content: "<b>Câu 43:</b> Đọc đoạn trích sau đây và trả lời câu hỏi:<br><i>“Em ơi em Đất Nước là máu xương của mình<br>Phải biết gắn bó san sẻ<br>Phải biết hóa thân cho dáng hình xứ sở<br>Làm nên Đất Nước muôn đời...”</i><br>(Nguyễn Khoa Điềm, <i>Đất Nước</i> - trích trường ca <i>Mặt đường khát vọng</i>, Ngữ văn 12, tập hai, NXB Giáo dục Việt Nam, 2014)<br><br>Giọng điệu chủ đạo của toàn bộ đoạn trích trên là gì?",
+            options: [
+                "A. Ngọt ngào, say đắm.",
+                "B. Thiết tha, bồi hồi.",
+                "C. Hạnh phúc, tự hào.",
+                "D. Lưu luyến, bịn rịn."
+            ],
+            correctAnswer: "A"
+        },
+
+        // --- CÂU 44 - 48: ĐỌC HIỂU VĂN BẢN 5 ---
+        {
+            id: 82775, type: "multiple_choice",
+            content: "<b>Đọc văn bản sau và trả lời các câu hỏi từ 44 đến 48:</b><br><i>“Người đàn bà nhận ra được tôi ngay. Mụ nhấp nhổm xoay mình trên chiếc ghế như bị kiến đốt, và về sau tôi mới sực nghĩ ra, mụ nghĩ rằng tòa án đã bố trí sẵn tôi ngồi phía sau để chuẩn bị làm nhân chứng.<br>- Chị cứ ngồi nguyên đấy! - Đẩu nói với vẻ mặt đầy hào hứng của một con người bảo vệ công lí vừa có thêm người đến tiếp viện, anh chạy sang phòng bên xách một chiếc ghế cho tôi. Bấy giờ, dưới con mắt của người đàn bà hàng chài, vị chánh án không phải là Đẩu đã trở về ngồi sau chiếc bàn lớn mà là tôi, với mấy vết thương đã lên da non nhưng vẫn để lại dấu vết trên mặt.<br>- Tùy bà! - Đẩu thay đổi cách xưng hô, khoác lên mình cái cung cách bề ngoài của một vị chánh án - chủ trương nguyên tắc của chúng tôi là kêu gọi hòa thuận...<br>Đang ngồi cúi gục xuống, người đàn bà bỗng ngẩng lên nhìn thẳng vào chúng tôi, lần lượt từng người một, với một vẻ ban đầu hơi ngơ ngác.<br>- Chị cảm ơn các chú! – Người đàn bà đột nhiên thốt lên bằng một giọng khẩn thiết – Đây là chị nói thành thực, chị cảm ơn các chú. Lòng các chú tốt, nhưng các chú đâu có phải là người làm ăn... cho nên các chú đâu có hiểu được cái việc của các người làm ăn lam lũ, khó nhọc...<br>Chỉ mấy lời mào đầu ấy, người đàn bà đã mất hết cái vẻ ngoài khúm núm, sợ sệt. Điệu bộ khác, ngôn ngữ khác.<br>Cũng phải nói thật, những lời ấy, nhất là đấy lại là lời một người đàn bà khốn khổ, không phải dễ nghe đối với chúng tôi. Dẫu mặt hãy còn trẻ, Đẩu cũng là một chánh án huyện. Còn tôi, một người đáng lẽ mụ phải biết ơn...”</i><br>(Nguyễn Minh Châu, <i>Chiếc thuyền ngoài xa</i>, Ngữ văn 12, tập hai, NXB Giáo dục Việt Nam, 2018)<br><br><b>Câu 44:</b> Vì sao tác giả lại nói <i>“dưới con mắt của người đàn bà hàng chài, vị chánh án không phải là Đẩu đã trở về ngồi sau chiếc bàn lớn mà là tôi”</i>?",
+            options: [
+                "A. Đẩu là chánh án của huyện nhưng người kể chuyện ở đây (nhân vật xưng “tôi”) mới thực sự tham gia xét xử vụ án này.",
+                "B. Người đàn bà sợ cái uy của nhân vật xưng “tôi” hơn là sự kiểu cách trong lời lẽ của Đẩu – vị chánh án huyện.",
+                "C. Người kể chuyện (nhân vật xưng “tôi”) đã chứng kiến và biết rõ sự thật mà người đàn bà đang cố tình muốn giấu.",
+                "D. Người đàn bà thấy được phiên tòa đã có đầy đủ các thành viên và đặc biệt là sự xuất hiện của nhân chứng."
+            ],
+            correctAnswer: "C"
+        },
+        {
+            id: 82771, type: "multiple_choice",
+            content: "<b>Câu 45:</b> Đâu là nhận định đúng về hoàn cảnh của \"người đàn bà\" trong đoạn trích ở Câu 44?",
+            options: [
+                "A. Người phụ nữ vô cùng bất hạnh vì liên tục bị chồng mình đánh đập.",
+                "B. Người đàn bà có cuộc sống nghèo khổ, quanh năm làm lụng vất vả.",
+                "C. Người đàn bà hạnh phúc vì đã sinh được nhiều đứa con trai thông minh.",
+                "D. Người phụ nữ xấu xí và ế chồng nên đã phải chấp nhận sống trên thuyền."
+            ],
+            correctAnswer: "B"
+        },
+        {
+            id: 82772, type: "multiple_choice",
+            content: "<b>Câu 46:</b> Đâu là cách giải thích hợp lý cho sự thay đổi thái độ của nhân vật Đẩu trong đoạn trích ở Câu 44?",
+            options: [
+                "A. Đẩu cảm thấy chán nản với câu chuyện của người đàn bà nên muốn bà ta nhanh chóng rời đi.",
+                "B. Đẩu cảm thấy mình ở vị trí cao hơn nên không cần thiết phải tỏ ra vui vẻ, nồng nhiệt với người đàn bà.",
+                "C. Đẩu thấy trong phòng đã có thêm người ủng hộ mình nên không còn lo lắng về người phụ nữ trước mặt.",
+                "D. Đẩu muốn dùng cung cách vị chánh án để người đàn bà nhận thức được toàn bộ các vấn đề trong câu chuyện mà họ đã nói."
+            ],
+            correctAnswer: "D"
+        },
+        {
+            id: 82773, type: "multiple_choice",
+            content: "<b>Câu 47:</b> Câu nói của người phụ nữ: <i>“Lòng các chú tốt, nhưng các chú đâu có phải là người làm ăn...”</i> tương đồng về ý nghĩa với câu nào sau đây?",
+            options: [
+                "A. Con người ta muốn sống tốt thì cần có một công việc đàng hoàng.",
+                "B. Trong cuộc sống, không thể chủ quan trong việc đánh giá một con người.",
+                "C. Cuộc sống có nhiều điều phức tạp, không thể chỉ đánh giá, nhìn nhận một chiều.",
+                "D. Người tốt thì thường gặp những trở ngại rất lớn trong việc làm kinh tế."
+            ],
+            correctAnswer: "C"
+        },
+        {
+            id: 82774, type: "multiple_choice",
+            content: "<b>Câu 48:</b> Trong đoạn trích ở Câu 44, tác giả đã có tâm trạng như thế nào?",
+            options: [
+                "A. Sung sướng vì mình đã bảo vệ được công lý khi làm chứng cho người đàn bà.",
+                "B. Cảm thấy khó hiểu trong cách hành xử và suy nghĩ của người đàn bà.",
+                "C. Khó chịu khi thấy người đàn bà dùng thái độ bề trên để nói chuyện với mình.",
+                "D. Bức bối vì không thể đánh trả người đã làm cho mình bị thương trên mặt."
+            ],
+            correctAnswer: "B"
+        },
+
+        // --- CÂU 49 - 50: ĐỌC HIỂU NGẮN ---
+        {
+            id: 266086, type: "multiple_choice",
+            content: "<b>Câu 49:</b> Đọc đoạn trích sau và trả lời câu hỏi:<br><i>“Hà Giang là tỉnh địa đầu của Tổ quốc, phía đông giáp tỉnh Cao Bằng, phía tây giáp tỉnh Yên Bái và Lào Cai, phía nam giáp tỉnh Tuyên Quang, phía bắc giáp Trung Quốc. Các cung đường Hà Giang quanh co, cheo leo vốn đầy thách thức cho người lái xe. Thế nhưng khi bạn phóng tầm mắt xung quanh, căng thẳng nhường lại chỗ cho cảm giác thư thái khi chiêm ngưỡng vẻ đẹp cao nguyên. Khí hậu Hà Giang lạnh rõ rệt so với vùng thấp và trung du kế cận. Nhiệt độ trung bình năm khoảng 21-23 độ C. Nét nổi bật của khí hậu là độ ẩm cao trong năm, mưa nhiều và kéo dài. Bạn có thể du lịch Hà Giang vào bất kỳ mùa nào trong năm. Người ta thường đến Hà Giang vào mùa thu lúa chín vàng. Thời gian đẹp nhất là tháng 10, 11 và 12, khi hoa tam giác mạch hay những cánh đồng cải khoe sắc. Còn mùa xuân, hoa mơ, hoa mận nở trắng rừng khiến bạn như đang bồng bềnh trên mây.”</i><br>(Theo <i>vnexpress.net</i>)<br><br>Ý nào sau đây KHÔNG nói về đặc điểm địa lý của tỉnh Hà Giang?",
+            options: [
+                "A. Phía Đông giáp tỉnh Cao Bằng, phía tây giáp tỉnh Yên Bái và Lào Cai.",
+                "B. Tạo cảm giác thư thái cho du khách khi chiêm ngưỡng vẻ đẹp Hà Giang.",
+                "C. Hà Giang là một tỉnh có độ ẩm cao suốt năm, mưa nhiều và thường kéo dài.",
+                "D. Có khí hậu Hà Giang lạnh rõ rệt so với các vùng đồng bằng, trung du kế cận."
+            ],
+            correctAnswer: "B"
+        },
+        {
+            id: 266087, type: "multiple_choice",
+            content: "<b>Câu 50:</b> Đọc đoạn trích sau đây và trả lời câu hỏi:<br><i>“Trong tâm hồn người con gái nhỏ bé, tình yêu và niềm tin mãnh liệt vào cuộc sống, cái sợi chỉ xanh óng ánh ấy, bao nhiêu bom đạn giội xuống cũng không hề đứt, không thể nào tàn phá nổi ư?”</i><br><br>Xác định các biện pháp tu từ có trong câu văn trên.",
+            options: [
+                "A. Ẩn dụ, câu hỏi tu từ.",
+                "B. Hoán dụ, câu hỏi tu từ.",
+                "C. Ẩn dụ, so sánh.",
+                "D. Hoán dụ, so sánh."
+            ],
+            correctAnswer: "A"
         }
     ],
 };
