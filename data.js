@@ -1,28 +1,33 @@
-// --- CẤU TRÚC LƯU NHIỀU ĐỀ THI ---
+// --- CẤU TRÚC LƯU NHIỀU ĐỀ THI (ĐÃ SỬA LỖI & ĐỒNG BỘ) ---
 const examsMeta = [
     // --- Nhóm TSA - Tổng hợp ---
     { id: "tsa_01", type: "TSA", category: "comprehensive", title: "NTT DETHW - VIP", questionsCount: 3, time: 150, img: "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&q=80&w=800", isVip: true },
-    { id: "tsa_02", type: "TSA", category: "comprehensive", title: "Đề thi thử HUST 2026 - Lần 1", questionsCount: 15, time: 60, img: "https://i.postimg.cc/tg7k50hw/ID.png", isVip: false },
+    { id: "tsa_02", type: "TSA", category: "comprehensive", title: "Đề thi thử HUST 2026 - Lần 1", questionsCount: 1, time: 60, img: "https://i.postimg.cc/tg7k50hw/ID.png", isVip: false },
     
     // --- Nhóm TSA - Tư duy Toán học ---
     { id: "tsa_toan_01", type: "TSA", category: "math", title: "Đề thi Đánh giá Tư duy - TSA26A (Môn Toán)", questionsCount: 40, time: 60, img: "https://i.postimg.cc/FFbmqQ9X/A-nh-chu-p-ma-n-hi-nh-2026-10-14-004011.png", isVip: true },
+    
     // --- Nhóm HSA - Định tính (Ngữ văn) ---
     { id: "hsa_van_01", type: "HSA", category: "language", title: "Đề ĐGNL HSA Số 01 - Định tính (VLCM)", questionsCount: 50, time: 60, img: "https://i.postimg.cc/FFbmqQ9X/A-nh-chu-p-ma-n-hi-nh-2026-10-14-004011.png", isVip: true },
-    // --- Nhóm HSA ---
+    
+    // --- Nhóm HSA - Định lượng (Toán) ---
     { id: "hsa_toan_01", type: "HSA", category: "math", title: "Đề ĐGNL HSA Số 01 - Định lượng (VLCM)", questionsCount: 50, time: 75, img: "https://i.postimg.cc/FFbmqQ9X/A-nh-chu-p-ma-n-hi-nh-2026-10-14-004011.png", isVip: true },
-    // --- Nhóm HSA - Khoa học
+    
+    // --- Nhóm HSA - Khoa học ---
     { id: "hsa_khoahoc_01", type: "HSA", category: "science", title: "Đề ĐGNL HSA Số 01 - Khoa học (VLCM)", questionsCount: 50, time: 60, img: "https://i.postimg.cc/FFbmqQ9X/A-nh-chu-p-ma-n-hi-nh-2026-10-14-004011.png", isVip: true },
+    
     // --- Nhóm THPT ---
+    { id: "thpt_01", type: "THPT", subject: "math", title: "Đề ôn tập Toán THPT - Đề ngắn", questionsCount: 2, time: 15, img: "https://i.postimg.cc/FFbmqQ9X/A-nh-chu-p-ma-n-hi-nh-2026-10-14-004011.png", isVip: false },
     { id: "thpt_toan_01", type: "THPT", subject: "math", title: "Đề thi thử Toán 2025 (Chuẩn cấu trúc)", questionsCount: 22, time: 90, img: "https://i.postimg.cc/FFbmqQ9X/A-nh-chu-p-ma-n-hi-nh-2026-10-14-004011.png", isVip: false },
     { id: "thpt_toan_02", type: "THPT", subject: "math", title: "Đề thi Tốt nghiệp THPT 2026 môn Toán (Mã đề 0101)", questionsCount: 22, time: 90, img: "https://i.postimg.cc/Qd7xWCzY/ID-3.png", isVip: false },
-    { id: "thpt_hoa_04", type: "THPT", subject: "chemistry", title: "Bài tập Amine Hóa Học 12 (VLCM)", questionsCount: 28, time: 45, img: "https://i.postimg.cc/y8x0qmW2/ID-2.png", isVip: false },
+    { id: "thpt_hoa_02", type: "THPT", subject: "chemistry", title: "Đề kiểm tra Giữa HK1 Hóa Học 12", questionsCount: 28, time: 45, img: "https://i.postimg.cc/y8x0qmW2/ID-2.png", isVip: false },
+    { id: "thpt_hoa_03", type: "THPT", subject: "chemistry", title: "Đề kiểm tra Giữa HK1 Hóa Học 12 (VLCM)", questionsCount: 28, time: 45, img: "https://i.postimg.cc/y8x0qmW2/ID-2.png", isVip: false },
+    { id: "thpt_hoa_04", type: "THPT", subject: "chemistry", title: "Bài tập Amine Hóa Học 12 (VLCM)", questionsCount: 25, time: 45, img: "https://i.postimg.cc/y8x0qmW2/ID-2.png", isVip: false },
     { id: "thpt_ly_03", type: "THPT", subject: "physics", title: "Đề ôn tập Giữa HK1 Vật Lí 12 - Đề số 3", questionsCount: 28, time: 50, img: "https://i.postimg.cc/FFbmqQ9X/A-nh-chu-p-ma-n-hi-nh-2026-10-14-004011.png", isVip: false },
-      { id: "thpt_hoa_02", type: "THPT", subject: "chemistry", title: "Đề kiểm tra Giữa HK1 Hóa Học 12", questionsCount: 28, time: 45, img: "https://i.postimg.cc/y8x0qmW2/ID-2.png", isVip: false },
-  { id: "thpt_hoa_03", type: "THPT", subject: "chemistry", title: "Đề kiểm tra Giữa HK1 Hóa Học 12 (VLCM)", questionsCount: 28, time: 45, img: "https://i.postimg.cc/y8x0qmW2/ID-2.png", isVip: false },
+    { id: "thpt_ly_04", type: "THPT", subject: "physics", title: "Bài tập cấu trúc và sự chuyển thể", questionsCount: 36, time: 50, img: "https://i.postimg.cc/FFbmqQ9X/A-nh-chu-p-ma-n-hi-nh-2026-10-14-004011.png", isVip: false },
+    { id: "thpt_ly_05", type: "THPT", subject: "physics", title: "Bài tập Định luật 1 - Nhiệt động lực học", questionsCount: 26, time: 50, img: "https://i.postimg.cc/FFbmqQ9X/A-nh-chu-p-ma-n-hi-nh-2026-10-14-004011.png", isVip: false },
+    { id: "thpt_ly_06", type: "THPT", subject: "physics", title: "Bài tập nhiệt độ thang đo nhiệt độ", questionsCount: 26, time: 50, img: "https://i.postimg.cc/FFbmqQ9X/A-nh-chu-p-ma-n-hi-nh-2026-10-14-004011.png", isVip: false },
     { id: "thpt_sinh_03", type: "THPT", subject: "biology", title: "Đề kiểm tra giữa kì 1 Sinh Học 12 - THPT Ngô Gia Tự", questionsCount: 24, time: 45, img: "https://i.postimg.cc/FFbmqQ9X/A-nh-chu-p-ma-n-hi-nh-2026-10-14-004011.png", isVip: false }
-{ id: "thpt_ly_04", type: "THPT", subject: "physics", title: "Bài tập cấu trúc và sự chuyển thể", questionsCount: 28, time: 50, img: "https://i.postimg.cc/FFbmqQ9X/A-nh-chu-p-ma-n-hi-nh-2026-10-14-004011.png", isVip: false },
-{ id: "thpt_ly_05", type: "THPT", subject: "physics", title: "Bài tập Định luật 1 - Nhiệt động lực học ", questionsCount: 28, time: 50, img: "https://i.postimg.cc/FFbmqQ9X/A-nh-chu-p-ma-n-hi-nh-2026-10-14-004011.png", isVip: false },
-{ id: "thpt_ly_06", type: "THPT", subject: "physics", title: "Bài tập nhiệt độ thang đo nhiệt độ", questionsCount: 28, time: 50, img: "https://i.postimg.cc/FFbmqQ9X/A-nh-chu-p-ma-n-hi-nh-2026-10-14-004011.png", isVip: false },
 ];
 
 // --- DỮ LIỆU CÂU HỎI CHI TIẾT TỪNG ĐỀ ---
