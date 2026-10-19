@@ -27,7 +27,7 @@ const examsMeta = [
     { id: "thpt_ly_04", type: "THPT", subject: "physics", title: "Bài tập cấu trúc và sự chuyển thể", questionsCount: 36, time: 50, img: "https://i.postimg.cc/FFbmqQ9X/A-nh-chu-p-ma-n-hi-nh-2026-10-14-004011.png", isVip: false },
     { id: "thpt_ly_05", type: "THPT", subject: "physics", title: "Bài tập Định luật 1 - Nhiệt động lực học", questionsCount: 26, time: 50, img: "https://i.postimg.cc/FFbmqQ9X/A-nh-chu-p-ma-n-hi-nh-2026-10-14-004011.png", isVip: false },
     { id: "thpt_ly_06", type: "THPT", subject: "physics", title: "Bài tập nhiệt độ thang đo nhiệt độ", questionsCount: 26, time: 50, img: "https://i.postimg.cc/FFbmqQ9X/A-nh-chu-p-ma-n-hi-nh-2026-10-14-004011.png", isVip: false },
-    { id: "thpt_sinh_03", type: "THPT", subject: "biology", title: "Đề kiểm tra giữa kì 1 Sinh Học 12 - THPT Ngô Gia Tự", questionsCount: 24, time: 45, img: "https://i.postimg.cc/FFbmqQ9X/A-nh-chu-p-ma-n-hi-nh-2026-10-14-004011.png", isVip: false }
+    { id: "thpt_sinh_03", type: "THPT", subject: "biology", title: "Đề kiểm tra giữa kì 1 Sinh Học 12 - THPT Ngô Gia Tự", questionsCount: 24, time: 45, img: "https://i.postimg.cc/FFbmqQ9X/A-nh-chu-p-ma-n-hi-nh-2026-10-14-004011.png", isVip: false },
 ];
 
 // --- DỮ LIỆU CÂU HỎI CHI TIẾT TỪNG ĐỀ ---
