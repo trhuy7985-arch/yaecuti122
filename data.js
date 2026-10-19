@@ -1616,28 +1616,264 @@ const allExamsData = {
   {"id": 26, "type": "fill_blank", "content": "Mùa nóng, ta thường cho nước đá vào đồ uống để làm mát nó. Hãy cho biết chiều truyền năng lượng nhiệt trong trường hợp này?<br><img src='LINK_ANH_HOAC_URL' class='mt-4 mb-4 w-full max-w-sm mx-auto rounded-lg border border-gray-200 shadow-sm'>", "options": [], "correctAnswer": "Từ đồ uống sang nước đá"}
 ],
     "thpt_toan_03": [
-  {"id": 1, "type": "multiple_choice", "content": "Đường cong trong hình bên dưới là đồ thị của hàm số nào?<br><img src='https://i.postimg.cc/Qt1Crrny/c1.png' class='mt-4 mb-4 w-full max-w-sm mx-auto rounded-lg border border-gray-200 shadow-sm'>", "options": ["A. $y = \\frac{x^2 - 3x + 4}{x + 1}$", "B. $y = \\frac{x - 1}{x - 2}$", "C. $y = \\frac{2x + 1}{x - 1}$", "D. $y = \\frac{x^2 - 3x + 1}{x - 2}$"], "correctAnswer": "A"},
-  {"id": 2, "type": "multiple_choice", "content": "Phương trình đường thẳng đi qua hai điểm cực trị của đồ thị hàm số $y = x^3 - 3x^2 + 1$ là", "options": ["A. $y = -2x + 1$", "B. $y = 2x + 1$", "C. $y = -2x - 1$", "D. $y = 2x - 1$"], "correctAnswer": "A"},
-  {"id": 3, "type": "multiple_choice", "content": "Cho hàm số $y = f(x)$ có bảng biến thiên trên nửa khoảng $[-1; +\\infty)$ như sau: $f'(x) < 0$ trên $(-1; 0)$, $f'(0) = 0$, $f'(x) > 0$ trên $(0; +\\infty)$, $f(0) = -3$. Mệnh đề nào dưới đây đúng?"<br><img src='https://i.postimg.cc/x1Z1JCrC/c3.png' class='mt-4 mb-4 w-full max-w-sm mx-auto rounded-lg border border-gray-200 shadow-sm'>", "options": ["A. $\\min_{[-1; +\\infty)} f(x) = f(-1)$", "B. $\\max_{[-1; +\\infty)} f(x) = f(0)$", "C. $\\min_{[-1; +\\infty)} f(x) = -3$", "D. $\\max_{[-1; +\\infty)} f(x) = -3$"], "correctAnswer": "C"},
-  {"id": 4, "type": "multiple_choice", "content": "Cho hàm số bậc bốn $y = f(x)$ có đồ thị là đường cong trong hình bên. Số nghiệm của phương trình $f(x) = 1$ là<br><img src='https://i.postimg.cc/nrVJwb8g/c4.png' class='mt-4 mb-4 w-full max-w-sm mx-auto rounded-lg border border-gray-200 shadow-sm'>", "options": ["A. 1", "B. 2", "C. 3", "D. 4"], "correctAnswer": "B"},
-  {"id": 5, "type": "multiple_choice", "content": "Giá trị lớn nhất của hàm số $f(x) = x^3 - 3x + 2$ trên đoạn $[-2; 0]$ bằng", "options": ["A. -2", "B. 0", "C. 2", "D. 4"], "correctAnswer": "D"},
-  {"id": 6, "type": "multiple_choice", "content": "Cho hàm số $f(x)$ có bảng biến thiên như sau: $x$ từ $-\\infty$ đến $-1, 0, 1, +\\infty$; $f'(x) > 0$ trên $(-\\infty; -1)$, $f'(x) < 0$ trên $(-1; 0)$, $f'(x) < 0$ trên $(0; 1)$, $f'(x) > 0$ trên $(1; +\\infty)$. Hàm số đã cho nghịch biến trên khoảng nào dưới đây?"<br><img src='https://i.postimg.cc/MKTw7Sm8/c6.png' class='mt-4 mb-4 w-full max-w-sm mx-auto rounded-lg border border-gray-200 shadow-sm'>", "options": ["A. $(-\\infty; -1)$", "B. $(-1; 0)$", "C. $(1; +\\infty)$", "D. $(-1; 1)$"], "correctAnswer": "B"},
-  {"id": 7, "type": "multiple_choice", "content": "Số đường tiệm cận của đồ thị hàm số $y = \\frac{x + 1}{x - 2}$ là", "options": ["A. 0", "B. 1", "C. 2", "D. 3"], "correctAnswer": "C"},
-  {"id": 8, "type": "multiple_choice", "content": "Tọa độ tâm đối xứng $I$ của đồ thị hàm số $y = \\frac{2x + 1}{x - 1}$ là", "options": ["A. $I(1; 2)$", "B. $I(2; 1)$", "C. $I(-1; 2)$", "D. $I(1; -1)$"], "correctAnswer": "A"},
-  {"id": 9, "type": "multiple_choice", "content": "Hàm số $y = -x^3 + 3x^2 - 1$ nghịch biến trên khoảng nào?", "options": ["A. $(0; 2)$", "B. $(-\\infty; 0)$ và $(2; +\\infty)$", "C. $(2; +\\infty)$", "D. $(-\\infty; 2)$"], "correctAnswer": "B"},
-  {"id": 10, "type": "multiple_choice", "content": "Cho hàm số $f(x)$ có bảng biến thiên với $x$ từ $-\\infty$ đến $-2, 0, +\\infty$; $y' > 0$ trên $(-\\infty; -2)$, $y' < 0$ trên $(-2; 0)$, $y' > 0$ trên $(0; +\\infty)$; $y_{CĐ} = 0$ tại $x = -2$, $y_{CT} = -4$ tại $x = 0$. Giá trị cực tiểu của hàm số đã cho bằng", "options": ["A. -4", "B. 0", "C. -2", "D. 2"], "correctAnswer": "A"},
-  {"id": 11, "type": "multiple_choice", "content": "Cho hàm số $y = ax^3 + bx^2 + cx + d$ có đồ thị như hình vẽ bên. Mệnh đề nào sau đây đúng?<br><img src='https://i.postimg.cc/hvvYdSRR/c11.png' class='mt-4 mb-4 w-full max-w-sm mx-auto rounded-lg border border-gray-200 shadow-sm'>", "options": ["A. $a > 0, b > 0, c > 0, d < 0$", "B. $a < 0, b < 0, c > 0, d < 0$", "C. $a > 0, b < 0, c < 0, d < 0$", "D. $a < 0, b > 0, c > 0, d < 0$"], "correctAnswer": "D"},
-  {"id": 12, "type": "multiple_choice", "content": "Hàm số $y = \\frac{x - 1}{x - 2}$ có đồ thị là hình vẽ nào sau đây? Hãy chọn câu trả lời đúng.<br><img src='https://i.postimg.cc/yYwGD4fw/c12.png' class='mt-4 mb-4 w-full max-w-sm mx-auto rounded-lg border border-gray-200 shadow-sm'>", "options": ["A. Hình A", "B. Hình B", "C. Hình C", "D. Hình D"], "correctAnswer": "B"},
-  {"id": 13, "type": "true_false", "content": "Một công ty sản xuất một loại sản phẩm với chi phí để sản xuất một loại sản phẩm là 600 nghìn đồng và bán ra mỗi sản phẩm là 900 nghìn đồng. Biết rằng số lượng sản phẩm bán ra tăng theo số tiền chi cho quảng cáo là $f(x) = 400 + \\frac{350x}{x + 1}$ (sản phẩm), trong đó $x$ là số tiền chi cho quảng cáo tính theo đơn vị triệu đồng. Khi không chi cho quảng cáo thì sẽ bán được 400 sản phẩm, khi chi cho quảng cáo $x$ triệu đồng thì bán được 750 sản phẩm. Số tiền quảng cáo luôn đảm bảo số lượng sản phẩm bán được là một số nguyên. Cho các phát biểu sau:", "options": [], "propositions": ["a) Lợi nhuận lớn nhất là 210 triệu đồng (kết quả làm tròn đến hàng đơn vị).", "b) Lợi nhuận thu được là $L(x) = 120 + \\frac{105x}{x + 1} - x$ (triệu đồng).", "c) $L'(x) = \\frac{105}{(x + 1)^2} - 1$.", "d) Lợi nhuận thu được lớn nhất khi ta sử dụng số tiền cho quảng cáo là 34 triệu đồng."], "correctAnswer": {"0": "true", "1": "false", "2": "true", "3": "false"}},
-  {"id": 14, "type": "true_false", "content": "Để làm một cửa sổ dạng một hình bán nguyệt và một hình chữ nhật ghép lại như hình vẽ bên dưới, người ta dùng 8 m dây thép để làm các đường viền. Gọi $x$ là độ dài cạnh của khung hình chữ nhật.<br><img src='https://i.postimg.cc/nLxw1Kfd/2-ds.png' class='mt-4 mb-4 w-full max-w-sm mx-auto rounded-lg border border-gray-200 shadow-sm'>", "options": [], "propositions": ["a) Giá trị của $h$ (chiều cao hình chữ nhật) tính theo $x$ là $h = \\frac{8 - x - \\frac{\\pi x}{2}}{2}$.", "b) Khi diện tích của cửa sổ lớn nhất thì $x = \\frac{16}{4 + \\pi}$.", "c) Diện tích của cửa sổ là $S(x) = 4x - \\left(\\frac{1}{2} + \\frac{\\pi}{8}\\right)x^2$.", "d) Chiều dài dây để uốn ra hình bán nguyệt là $L = \\frac{\\pi x}{2}$."], "correctAnswer": {"0": "true", "1": "true", "2": "false", "3": "true"}},
-  {"id": 15, "type": "true_false", "content": "Một cái bình có dạng hình hộp chữ nhật với đáy là hình vuông cạnh 50 cm, chiều cao 80 cm và bên trong đặt một quả cầu sắt bán kính 20 cm. Ban đầu bình không chứa nước. Ta tiến hành dùng một vòi nước cho chảy vào bình với lưu lượng không đổi bằng $V_0$ (cm³/phút). Biết rằng sau khoảng thời gian 120 phút thì nước trong bình đầy. Cho các phát biểu sau:"<br><img src='https://i.postimg.cc/MKTw7Sm8/c6.png' class='mt-4 mb-4 w-full max-w-sm mx-auto rounded-lg border border-gray-200 shadow-sm'>", "options": [], "propositions": ["a) Thời gian để nước chảy vào bình đủ để ngập hết quả cầu là 48 phút.", "b) Sau 24 phút đầu tiên thì mực nước trong bình có chiều cao là 20 cm (kết quả làm tròn đến hàng đơn vị).", "c) Lưu lượng nước chảy vào bình $V_0 = 1388$ cm³/phút (kết quả làm tròn đến hàng đơn vị).", "d) Thể tích quả cầu sắt là 33150 cm³ (kết quả làm tròn đến hàng đơn vị)."], "correctAnswer": {"0": "true", "1": "true", "2": "true", "3": "false"}},
-  {"id": 16, "type": "true_false", "content": "Cho hàm số $y = \\frac{x^2 - 3x + 4}{x + 1}$. Cho các phát biểu sau:", "options": [], "propositions": ["a) Tâm đối xứng của đồ thị hàm số là $I(-1; -5)$.", "b) Hàm số đồng biến trên khoảng $(-\\infty; +\\infty)$.", "c) Đồ thị hàm số có điểm cực tiểu là $(1; 1)$.", "d) Giá trị lớn nhất của hàm số trên khoảng $(-1; +\\infty)$ bằng 1."], "correctAnswer": {"0": "true", "1": "false", "2": "true", "3": "true"}},
-  {"id": 17, "type": "fill_blank", "content": "Cho hàm số $y = ax^3 + bx^2 + cx + d$ ($a \\neq 0$) có đồ thị như hình vẽ bên. Tìm giá trị lớn nhất của hàm số trên đoạn $[-1; 5]$.<br><img src='https://i.postimg.cc/Qd3R6ZpT/1-tln.png' class='mt-4 mb-4 w-full max-w-sm mx-auto rounded-lg border border-gray-200 shadow-sm'>", "options": [], "correctAnswer": "201"},
-  {"id": 18, "type": "fill_blank", "content": "Cho hàm số $y = \\frac{ax - b}{cx + 1}$ có đồ thị như hình vẽ bên (với $a, b, c$ là các số nguyên). Tính giá trị của biểu thức $T = 2a - b + c$.<br><img src='https://i.postimg.cc/B6kzHrSn/2-tln.png' class='mt-4 mb-4 w-full max-w-sm mx-auto rounded-lg border border-gray-200 shadow-sm'>", "options": [], "correctAnswer": "3"},
-  {"id": 19, "type": "fill_blank", "content": "Cho hàm số $y = \\frac{ax^2 + bx + c}{x + d}$ có đồ thị như hình vẽ bên (với $a, b, c, d$ là các số nguyên). Tính $y(-2)$ (làm tròn kết quả đến hàng phần chục).<br><img src='https://i.postimg.cc/Y0Fs3djH/3-TLN.png' class='mt-4 mb-4 w-full max-w-sm mx-auto rounded-lg border border-gray-200 shadow-sm'>", "options": [], "correctAnswer": "-1.5"},
-  {"id": 20, "type": "fill_blank", "content": "Giả sử doanh số (tính bằng số sản phẩm) của một sản phẩm mới tuân theo quy luật logistic được mô hình hóa bằng hàm số $f(t) = \\frac{5000}{1 + 5e^{-t}}$, $t \\ge 0$ (thời gian $t$ tính bằng năm). Đạo hàm $f'(t)$ biểu thị tốc độ bán hàng. Hỏi sau khi phát hành thì tốc độ bán hàng đạt lớn nhất bằng bao nhiêu?", "options": [], "correctAnswer": "1250"},
-  {"id": 21, "type": "fill_blank", "content": "Một doanh nghiệp sản xuất một sản phẩm làm đẹp, trung bình mỗi ngày bán được 150 sản phẩm với giá 650 nghìn đồng/sản phẩm. Nếu giảm giá bán 7 nghìn đồng/sản phẩm thì bán được thêm 1 sản phẩm mỗi ngày. Chi phí trung bình $\\bar{C}(x) = 0,004x^2 - 1,6x + 468 + \\frac{16000}{x}$ (nghìn đồng/sản phẩm), $x$ là số sản phẩm bán ra, thuế mỗi sản phẩm là 32 nghìn đồng. Tìm doanh thu biên (đơn vị: nghìn đồng) ứng với số sản phẩm bán ra để đạt lợi nhuận tối đa.", "options": [], "correctAnswer": "229"},
-  {"id": 22, "type": "fill_blank", "content": "Trong một công viên có một hồ nước và một đường đi lát gạch. Trên hệ trục $Oxy$, bờ hồ coi như một nhánh đồ thị $y = \\frac{2x + 1}{x - 1}$ và đường đi ứng với $d: y = -x + 4$. Đặt 2 cột đèn trên bờ hồ và 2 cột đèn trên đường đi tạo thành một hình vuông. Tính khoảng cách giữa hai cột đèn trên bờ hồ (làm tròn đến hàng phần trăm).<br><img src='https://i.postimg.cc/jSckZwxB/6-TLN.png' class='mt-4 mb-4 w-full max-w-sm mx-auto rounded-lg border border-gray-200 shadow-sm'>", "options": [], "correctAnswer": "1.89"}
+  {
+    "id": 1,
+    "type": "multiple_choice",
+    "content": "Đường cong trong hình bên dưới là đồ thị của hàm số nào?<br><img src='https://i.postimg.cc/Qt1Crrny/c1.png' class='mt-4 mb-4 w-full max-w-sm mx-auto rounded-lg border border-gray-200 shadow-sm'>",
+    "options": [
+      "A. $y = \\frac{x^2 - 3x + 4}{x + 1}$",
+      "B. $y = \\frac{x - 1}{x - 2}$",
+      "C. $y = \\frac{2x + 1}{x - 1}$",
+      "D. $y = \\frac{x^2 - 3x + 1}{x - 2}$"
+    ],
+    "correctAnswer": "A"
+  },
+  {
+    "id": 2,
+    "type": "multiple_choice",
+    "content": "Phương trình đường thẳng đi qua hai điểm cực trị của đồ thị hàm số $y = x^3 - 3x^2 + 1$ là",
+    "options": [
+      "A. $y = -2x + 1$",
+      "B. $y = 2x + 1$",
+      "C. $y = -2x - 1$",
+      "D. $y = 2x - 1$"
+    ],
+    "correctAnswer": "A"
+  },
+  {
+    "id": 3,
+    "type": "multiple_choice",
+    "content": "Cho hàm số $y = f(x)$ có bảng biến thiên trên nửa khoảng $[-1; +\\infty)$ như sau: $f'(x) < 0$ trên $(-1; 0)$, $f'(0) = 0$, $f'(x) > 0$ trên $(0; +\\infty)$, $f(0) = -3$. Mệnh đề nào dưới đây đúng?<br><img src='https://i.postimg.cc/x1Z1JCrC/c3.png' class='mt-4 mb-4 w-full max-w-sm mx-auto rounded-lg border border-gray-200 shadow-sm'>",
+    "options": [
+      "A. $\\min_{[-1; +\\infty)} f(x) = f(-1)$",
+      "B. $\\max_{[-1; +\\infty)} f(x) = f(0)$",
+      "C. $\\min_{[-1; +\\infty)} f(x) = -3$",
+      "D. $\\max_{[-1; +\\infty)} f(x) = -3$"
+    ],
+    "correctAnswer": "C"
+  },
+  {
+    "id": 4,
+    "type": "multiple_choice",
+    "content": "Cho hàm số bậc bốn $y = f(x)$ có đồ thị là đường cong trong hình bên. Số nghiệm của phương trình $f(x) = 1$ là<br><img src='https://i.postimg.cc/nrVJwb8g/c4.png' class='mt-4 mb-4 w-full max-w-sm mx-auto rounded-lg border border-gray-200 shadow-sm'>",
+    "options": [
+      "A. 1",
+      "B. 2",
+      "C. 3",
+      "D. 4"
+    ],
+    "correctAnswer": "B"
+  },
+  {
+    "id": 5,
+    "type": "multiple_choice",
+    "content": "Giá trị lớn nhất của hàm số $f(x) = x^3 - 3x + 2$ trên đoạn $[-2; 0]$ bằng",
+    "options": [
+      "A. -2",
+      "B. 0",
+      "C. 2",
+      "D. 4"
+    ],
+    "correctAnswer": "D"
+  },
+  {
+    "id": 6,
+    "type": "multiple_choice",
+    "content": "Cho hàm số $f(x)$ có bảng biến thiên như sau: $x$ từ $-\\infty$ đến $-1, 0, 1, +\\infty$; $f'(x) > 0$ trên $(-\\infty; -1)$, $f'(x) < 0$ trên $(-1; 0)$, $f'(x) < 0$ trên $(0; 1)$, $f'(x) > 0$ trên $(1; +\\infty)$. Hàm số đã cho nghịch biến trên khoảng nào dưới đây?<br><img src='https://i.postimg.cc/MKTw7Sm8/c6.png' class='mt-4 mb-4 w-full max-w-sm mx-auto rounded-lg border border-gray-200 shadow-sm'>",
+    "options": [
+      "A. $(-\\infty; -1)$",
+      "B. $(-1; 0)$",
+      "C. $(1; +\\infty)$",
+      "D. $(-1; 1)$"
+    ],
+    "correctAnswer": "B"
+  },
+  {
+    "id": 7,
+    "type": "multiple_choice",
+    "content": "Số đường tiệm cận của đồ thị hàm số $y = \\frac{x + 1}{x - 2}$ là",
+    "options": [
+      "A. 0",
+      "B. 1",
+      "C. 2",
+      "D. 3"
+    ],
+    "correctAnswer": "C"
+  },
+  {
+    "id": 8,
+    "type": "multiple_choice",
+    "content": "Tọa độ tâm đối xứng $I$ của đồ thị hàm số $y = \\frac{2x + 1}{x - 1}$ là",
+    "options": [
+      "A. $I(1; 2)$",
+      "B. $I(2; 1)$",
+      "C. $I(-1; 2)$",
+      "D. $I(1; -1)$"
+    ],
+    "correctAnswer": "A"
+  },
+  {
+    "id": 9,
+    "type": "multiple_choice",
+    "content": "Hàm số $y = -x^3 + 3x^2 - 1$ nghịch biến trên khoảng nào?",
+    "options": [
+      "A. $(0; 2)$",
+      "B. $(-\\infty; 0)$ và $(2; +\\infty)$",
+      "C. $(2; +\\infty)$",
+      "D. $(-\\infty; 2)$"
+    ],
+    "correctAnswer": "B"
+  },
+  {
+    "id": 10,
+    "type": "multiple_choice",
+    "content": "Cho hàm số $f(x)$ có bảng biến thiên với $x$ từ $-\\infty$ đến $-2, 0, +\\infty$; $y' > 0$ trên $(-\\infty; -2)$, $y' < 0$ trên $(-2; 0)$, $y' > 0$ trên $(0; +\\infty)$; $y_{CĐ} = 0$ tại $x = -2$, $y_{CT} = -4$ tại $x = 0$. Giá trị cực tiểu của hàm số đã cho bằng",
+    "options": [
+      "A. -4",
+      "B. 0",
+      "C. -2",
+      "D. 2"
+    ],
+    "correctAnswer": "A"
+  },
+  {
+    "id": 11,
+    "type": "multiple_choice",
+    "content": "Cho hàm số $y = ax^3 + bx^2 + cx + d$ có đồ thị như hình vẽ bên. Mệnh đề nào sau đây đúng?<br><img src='https://i.postimg.cc/hvvYdSRR/c11.png' class='mt-4 mb-4 w-full max-w-sm mx-auto rounded-lg border border-gray-200 shadow-sm'>",
+    "options": [
+      "A. $a > 0, b > 0, c > 0, d < 0$",
+      "B. $a < 0, b < 0, c > 0, d < 0$",
+      "C. $a > 0, b < 0, c < 0, d < 0$",
+      "D. $a < 0, b > 0, c > 0, d < 0$"
+    ],
+    "correctAnswer": "D"
+  },
+  {
+    "id": 12,
+    "type": "multiple_choice",
+    "content": "Hàm số $y = \\frac{x - 1}{x - 2}$ có đồ thị là hình vẽ nào sau đây? Hãy chọn câu trả lời đúng.<br><img src='https://i.postimg.cc/yYwGD4fw/c12.png' class='mt-4 mb-4 w-full max-w-sm mx-auto rounded-lg border border-gray-200 shadow-sm'>",
+    "options": [
+      "A. Hình A",
+      "B. Hình B",
+      "C. Hình C",
+      "D. Hình D"
+    ],
+    "correctAnswer": "B"
+  },
+  {
+    "id": 13,
+    "type": "true_false",
+    "content": "Một công ty sản xuất một loại sản phẩm với chi phí để sản xuất một loại sản phẩm là 600 nghìn đồng và bán ra mỗi sản phẩm là 900 nghìn đồng. Biết rằng số lượng sản phẩm bán ra tăng theo số tiền chi cho quảng cáo là $f(x) = 400 + \\frac{350x}{x + 1}$ (sản phẩm), trong đó $x$ là số tiền chi cho quảng cáo tính theo đơn vị triệu đồng. Khi không chi cho quảng cáo thì sẽ bán được 400 sản phẩm, khi chi cho quảng cáo $x$ triệu đồng thì bán được 750 sản phẩm. Số tiền quảng cáo luôn đảm bảo số lượng sản phẩm bán được là một số nguyên. Cho các phát biểu sau:",
+    "options": [],
+    "propositions": [
+      "a) Lợi nhuận lớn nhất là 210 triệu đồng (kết quả làm tròn đến hàng đơn vị).",
+      "b) Lợi nhuận thu được là $L(x) = 120 + \\frac{105x}{x + 1} - x$ (triệu đồng).",
+      "c) $L'(x) = \\frac{105}{(x + 1)^2} - 1$.",
+      "d) Lợi nhuận thu được lớn nhất khi ta sử dụng số tiền cho quảng cáo là 34 triệu đồng."
+    ],
+    "correctAnswer": {
+      "0": "false",
+      "1": "true",
+      "2": "true",
+      "3": "false"
+    }
+  },
+  {
+    "id": 14,
+    "type": "true_false",
+    "content": "Để làm một cửa sổ dạng một hình bán nguyệt và một hình chữ nhật ghép lại như hình vẽ bên dưới, người ta dùng 8 m dây thép để làm các đường viền. Gọi $x$ là độ dài cạnh của khung hình chữ nhật.<br><img src='https://i.postimg.cc/nLxw1Kfd/2-ds.png' class='mt-4 mb-4 w-full max-w-sm mx-auto rounded-lg border border-gray-200 shadow-sm'>",
+    "options": [],
+    "propositions": [
+      "a) Giá trị của $h$ (chiều cao hình chữ nhật) tính theo $x$ là $h = \\frac{8 - x - \\frac{\\pi x}{2}}{2}$.",
+      "b) Khi diện tích của cửa sổ lớn nhất thì $x = \\frac{16}{4 + \\pi}$.",
+      "c) Diện tích của cửa sổ là $S(x) = 4x - \\left(\\frac{1}{2} + \\frac{\\pi}{8}\\right)x^2$.",
+      "d) Chiều dài dây để uốn ra hình bán nguyệt là $L = \\frac{\\pi x}{2}$."
+    ],
+    "correctAnswer": {
+      "0": "true",
+      "1": "true",
+      "2": "true",
+      "3": "true"
+    }
+  },
+  {
+    "id": 15,
+    "type": "true_false",
+    "content": "Một cái bình có dạng hình hộp chữ nhật với đáy là hình vuông cạnh 50 cm, chiều cao 80 cm và bên trong đặt một quả cầu sắt bán kính 20 cm. Ban đầu bình không chứa nước. Ta tiến hành dùng một vòi nước cho chảy vào bình với lưu lượng không đổi bằng $V_0$ (cm³/phút). Biết rằng sau khoảng thời gian 120 phút thì nước trong bình đầy. Cho các phát biểu sau:<br><img src='https://i.postimg.cc/MKTw7Sm8/c6.png' class='mt-4 mb-4 w-full max-w-sm mx-auto rounded-lg border border-gray-200 shadow-sm'>",
+    "options": [],
+    "propositions": [
+      "a) Thời gian để nước chảy vào bình đủ để ngập hết quả cầu là 48 phút.",
+      "b) Sau 24 phút đầu tiên thì mực nước trong bình có chiều cao là 20 cm (kết quả làm tròn đến hàng đơn vị).",
+      "c) Lưu lượng nước chảy vào bình $V_0 = 1388$ cm³/phút (kết quả làm tròn đến hàng đơn vị).",
+      "d) Thể tích quả cầu sắt là 33150 cm³ (kết quả làm tròn đến hàng đơn vị)."
+    ],
+    "correctAnswer": {
+      "0": "true",
+      "1": "true",
+      "2": "true",
+      "3": "false"
+    }
+  },
+  {
+    "id": 16,
+    "type": "true_false",
+    "content": "Cho hàm số $y = \\frac{x^2 - 3x + 4}{x + 1}$. Cho các phát biểu sau:",
+    "options": [],
+    "propositions": [
+      "a) Tâm đối xứng của đồ thị hàm số là $I(-1; -5)$.",
+      "b) Hàm số đồng biến trên khoảng $(-\\infty; +\\infty)$.",
+      "c) Đồ thị hàm số có điểm cực tiểu là $(1; 1)$.",
+      "d) Giá trị lớn nhất của hàm số trên khoảng $(-1; +\\infty)$ bằng 1."
+    ],
+    "correctAnswer": {
+      "0": "true",
+      "1": "false",
+      "2": "true",
+      "3": "false"
+    }
+  },
+  {
+    "id": 17,
+    "type": "fill_blank",
+    "content": "Cho hàm số $y = ax^3 + bx^2 + cx + d$ ($a \\neq 0$) có đồ thị như hình vẽ bên. Tìm giá trị lớn nhất của hàm số trên đoạn $[-1; 5]$.<br><img src='https://i.postimg.cc/Qd3R6ZpT/1-tln.png' class='mt-4 mb-4 w-full max-w-sm mx-auto rounded-lg border border-gray-200 shadow-sm'>",
+    "options": [],
+    "correctAnswer": "201"
+  },
+  {
+    "id": 18,
+    "type": "fill_blank",
+    "content": "Cho hàm số $y = \\frac{ax - b}{cx + 1}$ có đồ thị như hình vẽ bên (với $a, b, c$ là các số nguyên). Tính giá trị của biểu thức $T = 2a - b + c$.<br><img src='https://i.postimg.cc/B6kzHrSn/2-tln.png' class='mt-4 mb-4 w-full max-w-sm mx-auto rounded-lg border border-gray-200 shadow-sm'>",
+    "options": [],
+    "correctAnswer": "3"
+  },
+  {
+    "id": 19,
+    "type": "fill_blank",
+    "content": "Cho hàm số $y = \\frac{ax^2 + bx + c}{x + d}$ có đồ thị như hình vẽ bên (với $a, b, c, d$ là các số nguyên). Tính $y(-2)$ (làm tròn kết quả đến hàng phần chục).<br><img src='https://i.postimg.cc/Y0Fs3djH/3-TLN.png' class='mt-4 mb-4 w-full max-w-sm mx-auto rounded-lg border border-gray-200 shadow-sm'>",
+    "options": [],
+    "correctAnswer": "-1.5"
+  },
+  {
+    "id": 20,
+    "type": "fill_blank",
+    "content": "Giả sử doanh số (tính bằng số sản phẩm) của một sản phẩm mới tuân theo quy luật logistic được mô hình hóa bằng hàm số $f(t) = \\frac{5000}{1 + 5e^{-t}}$, $t \\ge 0$ (thời gian $t$ tính bằng năm). Đạo hàm $f'(t)$ biểu thị tốc độ bán hàng. Hỏi sau khi phát hành thì tốc độ bán hàng đạt lớn nhất bằng bao nhiêu?",
+    "options": [],
+    "correctAnswer": "1250"
+  },
+  {
+    "id": 21,
+    "type": "fill_blank",
+    "content": "Một doanh nghiệp sản xuất một sản phẩm làm đẹp, trung bình mỗi ngày bán được 150 sản phẩm với giá 650 nghìn đồng/sản phẩm. Nếu giảm giá bán 7 nghìn đồng/sản phẩm thì bán được thêm 1 sản phẩm mỗi ngày. Chi phí trung bình $\\bar{C}(x) = 0,004x^2 - 1,6x + 468 + \\frac{16000}{x}$ (nghìn đồng/sản phẩm), $x$ là số sản phẩm bán ra, thuế mỗi sản phẩm là 32 nghìn đồng. Tìm doanh thu biên (đơn vị: nghìn đồng) ứng với số sản phẩm bán ra để đạt lợi nhuận tối đa.",
+    "options": [],
+    "correctAnswer": "229"
+  },
+  {
+    "id": 22,
+    "type": "fill_blank",
+    "content": "Trong một công viên có một hồ nước và một đường đi lát gạch. Trên hệ trục $Oxy$, bờ hồ coi như một nhánh đồ thị $y = \\frac{2x + 1}{x - 1}$ và đường đi ứng với $d: y = -x + 4$. Đặt 2 cột đèn trên bờ hồ và 2 cột đèn trên đường đi tạo thành một hình vuông. Tính khoảng cách giữa hai cột đèn trên bờ hồ (làm tròn đến hàng phần trăm).<br><img src='https://i.postimg.cc/jSckZwxB/6-TLN.png' class='mt-4 mb-4 w-full max-w-sm mx-auto rounded-lg border border-gray-200 shadow-sm'>",
+    "options": [],
+    "correctAnswer": "1.89"
+  }
 ],
 
     
