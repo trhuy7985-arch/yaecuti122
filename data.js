@@ -249,10 +249,7 @@ const allExamsData = {
     "tsa_02": [
         { id: 101, type: "fill_blank", content: "Tính $l = \\lim_{x \\to 0} \\frac{1-\\cos 2x}{x} =$", correctAnswer: "0" }
     ],
-    "thpt_01": [
-        { id: 201, type: "multiple_choice", content: "Khảo sát một xe máy đang di chuyển trên đường trong vòng 6s cho biết vận tốc của xe đang di chuyển có biểu thức: $v_t = 12 + 4t - t^2(m/s)$. Xe có vận tốc lớn hơn $15\\ (m/s)$ trong khoảng thời gian nào?", options: ["A. $t \\in (1; 3)$", "B. $t \\in (0; 6)$", "C. $t \\in (2; 4)$", "D. $t \\in (3; 5)$"], correctAnswer: "A" },
-        { id: 202, type: "true_false", content: "Cho hình chóp đều S.ABCD có $SA = 2$, $AB = 1$. Các nhận định sau đúng hay sai?", propositions: ["SA và CD không vuông góc nhau", "Góc giữa SA và CD là $30^o$", "Khoảng cách giữa SA và CD bằng 1", "Thể tích bằng 2/3"], correctAnswer: {0: 'true', 1: 'false', 2: 'true', 3: 'false'} }
-    ],
+    
     "tsa_toan_01": [
         { id: 701, type: "multiple_choice", content: "Phần nguyên của số thực $x$ là số nguyên lớn nhất không vượt quá $x$, kí hiệu là $[x]$. Biết số $x=\\sqrt{2+\\sqrt{2+\\sqrt{2+\\sqrt{2+...}}}}$ với vô hạn dấu căn. Giá trị của $[x]$ bằng bao nhiêu? <!--[cite: 25] -->", options: ["A. 1", "B. 2", "C. 0", "D. -1"], correctAnswer: "A" },
         { id: 702, type: "fill_blank", content: "Cho hàm số $y=\\frac{x+\\sqrt{x}}{\\sqrt{x^2-1}}$.<br>- Tổng số đường tiệm cận đứng và tiệm cận ngang của đồ thị hàm số bằng [1].<br>- Khoảng cách từ $A(2;3)$ đến tiệm cận đứng của đồ thị hàm số bằng [2].<br><i>(Nhập các đáp án theo thứ tự, cách nhau bởi dấu chấm phẩy \"; \". Ví dụ: 3; 4)</i> <!--[cite: 26] -->", correctAnswer: "2; 1" },
