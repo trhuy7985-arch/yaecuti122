@@ -1795,7 +1795,7 @@ const allExamsData = {
   {
     "id": 15,
     "type": "true_false",
-    "content": "Một cái bình có dạng hình hộp chữ nhật với đáy là hình vuông cạnh 50 cm, chiều cao 80 cm và bên trong đặt một quả cầu sắt bán kính 20 cm. Ban đầu bình không chứa nước. Ta tiến hành dùng một vòi nước cho chảy vào bình với lưu lượng không đổi bằng $V_0$ (cm³/phút). Biết rằng sau khoảng thời gian 120 phút thì nước trong bình đầy. Cho các phát biểu sau:<br><img src='https://i.postimg.cc/MKTw7Sm8/c6.png' class='mt-4 mb-4 w-full max-w-sm mx-auto rounded-lg border border-gray-200 shadow-sm'>",
+    "content": "Một cái bình có dạng hình hộp chữ nhật với đáy là hình vuông cạnh 50 cm, chiều cao 80 cm và bên trong đặt một quả cầu sắt bán kính 20 cm. Ban đầu bình không chứa nước. Ta tiến hành dùng một vòi nước cho chảy vào bình với lưu lượng không đổi bằng $V_0$ (cm³/phút). Biết rằng sau khoảng thời gian 120 phút thì nước trong bình đầy. Cho các phát biểu sau:<br><img src='https://i.postimg.cc/DZyj92Z6/3-ds.png' class='mt-4 mb-4 w-full max-w-sm mx-auto rounded-lg border border-gray-200 shadow-sm'>",
     "options": [],
     "propositions": [
       "a) Thời gian để nước chảy vào bình đủ để ngập hết quả cầu là 48 phút.",
